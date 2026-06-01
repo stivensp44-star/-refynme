@@ -397,7 +397,7 @@ function BrocktonSignal() {
           <span className="section-label__line" />
         </div>
         <h2 className="signal__heading">
-          Brockton<br />
+          South Shore<br />
           <em className="signal__italic">deserves this.</em>
         </h2>
         {/* FIX 14 */}
