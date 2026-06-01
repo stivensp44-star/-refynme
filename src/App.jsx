@@ -191,6 +191,37 @@ function Trust() {
   )
 }
 
+/* ── COVERAGE SIGNAL ────────────────────────────────────── */
+function CoverageSignal() {
+  const [ref, inView] = useInView()
+  const towns = [
+    'Brockton',
+    'Stoughton',
+    'Easton',
+    'Bridgewater',
+    'Canton',
+  ]
+  return (
+    <div className={`coverage fade-up${inView ? ' in-view' : ''}`} ref={ref}>
+      <div className="coverage__inner">
+        <p className="coverage__label">
+          Care that comes to the South Shore.
+        </p>
+        <div className="coverage__towns">
+          {towns.map((town) => (
+            <span key={town} className="coverage__pill">
+              {town}
+            </span>
+          ))}
+        </div>
+        <Link to="/contact" className="coverage__link">
+          See if we serve your area →
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 /* ── SERVICES ───────────────────────────────────────────── */
 function ServicesPanels() {
   const [ref, inView] = useInView()
@@ -354,8 +385,11 @@ function BrocktonSignal() {
         </h2>
         {/* FIX 14 */}
         <p className="signal__body">
-          For too long, getting world-class medical aesthetic and wellness care meant
-          leaving the city. We built RefynMe so you don't have to.
+          For too long, women across the South Shore have driven to
+          Boston or Providence for care that should exist right here.
+          Brockton. Stoughton. Easton. Bridgewater. You shouldn't
+          have to travel an hour to see a provider who actually sees
+          you. RefynMe was built so you don't have to.
         </p>
       </div>
     </section>
@@ -454,6 +488,7 @@ function Home() {
       <Nav />
       <Hero />
       <Trust />
+      <CoverageSignal />
       <ServicesPanels />
       <Testimonials />
       <BrocktonSignal />
