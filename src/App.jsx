@@ -45,6 +45,7 @@ function Banner() {
 /* ── NAV ────────────────────────────────────────────────── */
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -52,8 +53,22 @@ function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const close = () => setMenuOpen(false)
+
   return (
     <nav className={`nav${scrolled ? ' nav--solid' : ''}`}>
+      <div className={`nav__overlay${menuOpen ? ' nav__overlay--open' : ''}`}>
+        <ul className="nav__overlay-links">
+          <li><Link to="/" className="nav__overlay-link" onClick={close}>Home</Link></li>
+          <li><Link to="/about" className="nav__overlay-link" onClick={close}>About</Link></li>
+          <li><Link to="/services" className="nav__overlay-link" onClick={close}>Services</Link></li>
+          <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>Weight Loss</Link></li>
+          <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>Aesthetics</Link></li>
+          <li><Link to="/contact" className="nav__overlay-link" onClick={close}>Contact</Link></li>
+        </ul>
+        <Link to="/book" className="btn btn--rose nav__overlay-book" onClick={close}>Book Now</Link>
+      </div>
+
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
           <span className="nav__logo-mark">R</span>
@@ -68,7 +83,14 @@ function Nav() {
           <li><Link to="/aesthetics" className="nav__link">Aesthetics</Link></li>
           <li><Link to="/contact" className="nav__link">Contact</Link></li>
         </ul>
-        <Link to="/book" className="btn btn--rose btn--sm">Book Now</Link>
+        <Link to="/book" className="btn btn--rose btn--sm nav__book-desktop">Book Now</Link>
+        <button
+          className="nav__hamburger"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
       </div>
     </nav>
   )
@@ -81,11 +103,6 @@ function Hero() {
       <section className="hero">
         {/* LEFT — text content only, no badges */}
         <div className="hero__left">
-          <div className="hero__location" style={{ animationDelay: '0s' }}>
-            <span className="hero__location-line" />
-            <span className="label label--gold">Brockton, Massachusetts</span>
-          </div>
-
           <h1 className="hero__heading" style={{ animationDelay: '0.1s' }}>
             Finally.
           </h1>
@@ -470,7 +487,7 @@ function CtaFooter() {
         </div>
 
         <div className="footer__bar">
-          <p className="footer__copy">© 2025 RefynMe. All rights reserved.</p>
+          <p className="footer__copy">© 2026 RefynMe. All rights reserved.</p>
           <p className="footer__bar-tagline">
             <em>Because you deserve care that gets you.</em>
           </p>

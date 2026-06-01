@@ -83,7 +83,7 @@ export function Footer() {
       </div>
 
       <div className="footer__bar">
-        <p className="footer__copy">© 2025 RefynMe. All rights reserved.</p>
+        <p className="footer__copy">© 2026 RefynMe. All rights reserved.</p>
         <p className="footer__bar-tagline">
           <em>Because you deserve care that gets you.</em>
         </p>
