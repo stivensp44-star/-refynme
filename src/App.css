@@ -989,6 +989,15 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+  .tcard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(28, 15, 10, 0.5);
+    border: 1px solid #D4A853;
+  }
 }
 .tcard__stars {
   color: var(--gold);
