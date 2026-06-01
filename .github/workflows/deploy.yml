@@ -37,3 +37,12 @@ jobs:
           git diff --cached --quiet && echo "No changes to dist — skipping commit." && exit 0
           git commit -m "chore: build dist [skip ci]"
           git push origin main
+
+      - name: Deploy to Hostinger via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 65002
+          script: bash /home/u615309639/domains/refynme.com/deploy.sh
