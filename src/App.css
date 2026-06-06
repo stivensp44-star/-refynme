@@ -495,14 +495,27 @@ p {
   color: var(--gold);
 }
 
-.hero__sub {
+.hero__sub-wrap {
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero__sub-heading {
   margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+  font-family: var(--font-sans);
+  max-width: 480px;
+}
+
+.hero__sub {
+  margin-top: 0;
   font-size: 17px;
   font-weight: 300;
   line-height: 1.65;
   color: rgba(250, 246, 240, 0.7);
   max-width: 480px;
-  animation: fadeUp 0.8s ease both;
 }
 
 .hero__btns {

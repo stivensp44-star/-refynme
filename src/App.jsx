@@ -113,13 +113,20 @@ function Hero() {
             gets it.
           </h1>
 
-          <p className="hero__sub" style={{ animationDelay: '0.55s' }}>
-            Medical weight loss and aesthetic care in Brockton — by a board-certified
-            Nurse Practitioner who lives here too.
-          </p>
+          <div className="hero__sub-wrap" style={{ animationDelay: '0.55s' }}>
+            <p className="hero__sub-heading">
+              Personalized Care for Your Best Health, Energy, and Confidence
+            </p>
+            <p className="hero__sub">
+              At RefynMe Medical Aesthetics and Wellness, every care plan is built around
+              your unique goals — from medical weight management to aesthetic treatments.
+              We combine compassion, clinical expertise, and evidence-based medicine so
+              you can look, feel, and live your best.
+            </p>
+          </div>
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
-            <Link to="/book" className="btn btn--rose">Start Your Journey →</Link>
+            <Link to="/book" className="btn btn--rose">Book Free Consultation →</Link>
             <Link to="/services" className="btn btn--outline-cream">Our Services</Link>
           </div>
         </div>
