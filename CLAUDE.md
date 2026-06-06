@@ -44,6 +44,12 @@ Primary CTA: Free 15-minute consultation — always.
 - NEVER add dist/ back to .gitignore.
 - Actions commits built dist/ before SSH deploy.
 
+### Staging rule — ALWAYS FOLLOW
+- All changes go to a staging branch first
+- Cous reviews and approves before merging to main
+- NEVER push directly to main without Cous approval
+- main = live production. Unapproved pushes deploy immediately.
+
 ### Before every push
 - Run `npm run build` locally first
 - Zero errors required before pushing to main
@@ -162,10 +168,13 @@ Mobile: 11px text
 - Bottom: gradient fadeout to cream
 - Left: 3 staggered h1 elements ("Finally." / "Someone who" italic gold / "gets it.")
   Playfair clamp(52px→88px), weight 700
-- Left subtext: 17px, weight 300, rgba(cream, 0.7)
-- Left buttons: rose primary + cream outline secondary
-- Right: 3:4 portrait photo placeholder, max-width 460px
-- Right badges: gold credential badge top-left, rose "Now Accepting" badge bottom-right
+- Left subtext: two-element structure inside hero__sub-wrap:
+  1. hero__sub-heading — gold, DM Sans 18px, weight 600:
+     "Personalized Care for Your Best Health, Energy, and Confidence"
+  2. hero__sub — cream 17px, weight 300, rgba(cream, 0.7): body copy
+- Left buttons: rose primary "Book Free Consultation →" + cream outline secondary "Our Services"
+- Right: 3:4 portrait photo (public/images/provider-hero.png), max-width 460px, object-fit cover
+- Right badges: gold credential badge top-left only. "Now Accepting Patients" badge removed.
 - Badges hidden on mobile
 - Hero is GEO-NEUTRAL. No town name in hero. Ever.
 
@@ -214,17 +223,34 @@ Mobile: 11px text
 
 ## SECONDARY PAGES — CURRENT STATE
 
-All use <PageShell /> from src/pages/PageShell.jsx
-PageShell: solid espresso nav + centered hero section + footer
-All currently placeholder: "This page is coming soon."
+Most pages use <PageShell /> from src/pages/PageShell.jsx.
+PageShell accepts: title, subtitle, credential, children props.
+PageShell: solid espresso nav + centered hero section + optional children + footer.
 
-Routes:
-  /about        → About Us
-  /services     → Our Services
-  /weight-loss  → Medical Weight Loss
-  /aesthetics   → Aesthetic Services
-  /book         → Book Now (phone + email visible, no PageShell placeholder)
-  /contact      → Contact Us
+Exception — Services page (/services): custom two-column layout.
+Does NOT use PageShell hero. Imports Nav + Footer directly from PageShell.
+Left column: credential line → "Our Services" heading → intro copy → rose CTA.
+Right column: 4 clickable service cards (gold left border, translateX hover).
+
+### Nav links (all instances — App.jsx homepage + PageShell.jsx secondary pages)
+About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
+DOT Exams links to: /services/dot-exams
+
+### Routes
+  /about                          → About Us (PageShell placeholder)
+  /services                       → Our Services (custom two-column layout)
+  /weight-loss                    → Medical Weight Loss (PageShell placeholder)
+  /aesthetics                     → Aesthetic Services (PageShell placeholder)
+  /services/dot-exams             → DOT Medical Exams (PageShell placeholder)
+  /services/hormone-vitamin-therapy → Hormone & Vitamin Therapy (PageShell placeholder)
+  /book                           → Book Now (phone + email visible, no PageShell placeholder)
+  /contact                        → Contact Us (PageShell placeholder)
+
+### Services page — card list (in order)
+  1. Medical Weight Loss       → /weight-loss
+  2. Aesthetic Treatments      → /aesthetics
+  3. Hormone & Vitamin Therapy → /services/hormone-vitamin-therapy
+  4. DOT Medical Exams         → /services/dot-exams
 
 Do not build out secondary pages without session instruction.
 
@@ -271,7 +297,7 @@ CRITICAL (blocks launch):
   [ ] Real phone number — placeholder is (508) 000-0000
   [ ] Real email — placeholder is hello@refynme.com
   [ ] Lead capture form — needed before any paid traffic
-  [ ] Professional photos — blocked on provider
+  [x] Provider hero photo — public/images/provider-hero.png (done)
 
 IMPORTANT:
   [ ] SEO meta tags — title, description, OG tags, canonical
@@ -283,7 +309,7 @@ NEXT BUILD WORK:
   [ ] Brockton town landing page
   [ ] Town page template for remaining towns
   [ ] Reach line below Trust Builder on homepage
-  [ ] Node.js bump in deploy.yml: 20 → 24 (deprecation warning)
+  [x] Node.js bumped to 24 in deploy.yml (done)
 
 ---
 
@@ -302,3 +328,4 @@ NEXT BUILD WORK:
 11. Never add dist/ to .gitignore
 12. Never reorder homepage components without approval
 13. Copyright year is 2026. Always. Never 2025.
+14. Never push directly to main — all changes go to staging branch first, Cous approves before merge
