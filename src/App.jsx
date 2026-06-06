@@ -64,6 +64,7 @@ function Nav() {
           <li><Link to="/services" className="nav__overlay-link" onClick={close}>Services</Link></li>
           <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>Weight Loss</Link></li>
           <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>Aesthetics</Link></li>
+          <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__overlay-link" onClick={close}>Contact</Link></li>
         </ul>
         <Link to="/book" className="btn btn--rose nav__overlay-book" onClick={close}>Book Now</Link>
@@ -81,6 +82,7 @@ function Nav() {
           <li><Link to="/services" className="nav__link">Services</Link></li>
           <li><Link to="/weight-loss" className="nav__link">Weight Loss</Link></li>
           <li><Link to="/aesthetics" className="nav__link">Aesthetics</Link></li>
+          <li><Link to="/services/dot-exams" className="nav__link">DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__link">Contact</Link></li>
         </ul>
         <Link to="/book" className="btn btn--rose btn--sm nav__book-desktop">Book Now</Link>
@@ -134,9 +136,11 @@ function Hero() {
         {/* RIGHT — photo + badges anchored here */}
         <div className="hero__right">
           <div className="hero__photo-wrap">
-            <div className="hero__photo-placeholder">
-              <span className="hero__photo-label">Provider Photo</span>
-            </div>
+            <img
+              src="/images/provider-hero.png"
+              alt="RefynMe Medical Aesthetics and Wellness — Board-Certified Nurse Practitioner"
+              className="hero__photo-img"
+            />
 
             {/* Badge — near top of photo */}
             <div className="hero__badge hero__badge--cert" style={{ animationDelay: '0.9s' }}>
@@ -145,12 +149,6 @@ function Hero() {
                 <div className="hero__badge-title">Board-Certified</div>
                 <div className="hero__badge-sub">Nurse Practitioner</div>
               </div>
-            </div>
-
-            {/* Badge — near bottom of photo */}
-            <div className="hero__badge hero__badge--patients" style={{ animationDelay: '1.05s' }}>
-              <span className="hero__pulse" />
-              <span className="hero__badge-title">Now Accepting Patients</span>
             </div>
           </div>
         </div>

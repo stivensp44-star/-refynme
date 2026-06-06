@@ -25,6 +25,7 @@ export function Nav() {
           <li><Link to="/services" className="nav__link">Services</Link></li>
           <li><Link to="/weight-loss" className="nav__link">Weight Loss</Link></li>
           <li><Link to="/aesthetics" className="nav__link">Aesthetics</Link></li>
+          <li><Link to="/services/dot-exams" className="nav__link">DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__link">Contact</Link></li>
         </ul>
         <Link to="/book" className="btn btn--rose btn--sm">Book Now</Link>
@@ -93,7 +94,7 @@ export function Footer() {
 }
 
 /* ── Page Shell ─────────────────────────────────────────── */
-export function PageShell({ title, subtitle }) {
+export function PageShell({ title, subtitle, credential, children }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -108,6 +109,9 @@ export function PageShell({ title, subtitle }) {
           <h1 className="page-hero__heading">
             <em className="page-hero__title-gold">{title}</em>
           </h1>
+          {credential && (
+            <p className="page-hero__credential">{credential}</p>
+          )}
           <p className="page-hero__sub">
             {subtitle || 'This page is coming soon. Book a free consultation while you wait.'}
           </p>
@@ -116,6 +120,8 @@ export function PageShell({ title, subtitle }) {
           </Link>
         </div>
       </main>
+
+      {children}
 
       <Footer />
     </div>
