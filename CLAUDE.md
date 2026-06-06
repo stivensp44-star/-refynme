@@ -60,33 +60,28 @@ Primary CTA: Free 15-minute consultation — always.
 ## FILE STRUCTURE
 
 src/
-  index.css          ← ALL global styles + CSS variables. Single source of truth.
-  main.jsx           ← App entry point
-  App.jsx            ← Router config
-  components/
-    Banner.jsx       ← Gold top bar "Now Accepting Patients"
-    Nav.jsx          ← Fixed nav, transparent → espresso on scroll
-    Hero.jsx         ← Full viewport hero, 2-column grid
-    Trust.jsx        ← Provider credibility section
-    ServicesPanels.jsx ← Weight loss + aesthetics panels
-    Testimonials.jsx ← 3-card grid, dark bg
-    BrocktonSignal.jsx ← Community statement, NO CTA button
-    CtaFooter.jsx    ← Final CTA box + footer
-    useInView.js     ← IntersectionObserver hook for scroll animations
+  index.css     ← CSS variables + resets + keyframes ONLY. No component styles here.
+  App.css       ← ALL component styles. Single source of truth for styling.
+  main.jsx      ← App entry point (wraps App in BrowserRouter)
+  App.jsx       ← Router config + ALL homepage components as inline functions:
+                   useInView hook, Banner, Nav, Hero, Trust, CoverageSignal,
+                   ServicesPanels, Testimonials, BrocktonSignal, CtaFooter, Home
   pages/
-    PageShell.jsx    ← Shared shell for all secondary pages
+    PageShell.jsx  ← Named exports: Nav, Footer, PageShell (default).
+                     Services.jsx imports Nav + Footer directly from here.
+                     PageShell props: title, subtitle, credential, children
     About.jsx
-    Services.jsx
+    Services.jsx   ← Custom two-column layout. Does NOT use PageShell hero.
     WeightLoss.jsx
     Aesthetics.jsx
-    Book.jsx
+    BookNow.jsx
     Contact.jsx
 
 ---
 
 ## DESIGN SYSTEM — NEVER DEVIATE FROM THIS
 
-### Colors (src/index.css — ONLY place these are defined)
+### Colors (src/index.css — ONLY place CSS variables are defined)
 
 --espresso:       #2C1810   nav solid, primary dark
 --espresso-dark:  #1C0F0A   hero bg, testimonials bg
@@ -144,6 +139,7 @@ Nav scroll trigger:          >40px scrollY → rgba(44,24,16,0.97) + blur(12px)
 <Nav />
 <Hero />
 <Trust />
+<CoverageSignal />
 <ServicesPanels />
 <Testimonials />
 <BrocktonSignal />
@@ -157,7 +153,8 @@ DO NOT add sections without explicit approval.
 ## SECTION RULES — DO NOT CHANGE THESE
 
 ### Banner
-"✦ Now Accepting Patients – Serving Brockton, Stoughton, Easton & Beyond ✦"
+CURRENT TEXT: "✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦"
+(Pre-launch placeholder — update to "✦ Now Accepting Patients – Serving Brockton, Stoughton, Easton & Beyond ✦" at launch)
 Gold bg, espresso-dark text, DM Sans 13px, weight 600, uppercase, letter-spacing 0.1em
 Rose "Book Now" pill: position absolute, right 24px
 Mobile: 11px text
@@ -168,10 +165,14 @@ Mobile: 11px text
 - Bottom: gradient fadeout to cream
 - Left: 3 staggered h1 elements ("Finally." / "Someone who" italic gold / "gets it.")
   Playfair clamp(52px→88px), weight 700
-- Left subtext: two-element structure inside hero__sub-wrap:
+- Left subtext: two-element structure inside hero__sub-wrap (fadeUp animation on wrap):
   1. hero__sub-heading — gold, DM Sans 18px, weight 600:
      "Personalized Care for Your Best Health, Energy, and Confidence"
-  2. hero__sub — cream 17px, weight 300, rgba(cream, 0.7): body copy
+  2. hero__sub — cream 17px, weight 300, rgba(cream, 0.7), margin-top 0:
+     "At RefynMe Medical Aesthetics and Wellness, every care plan is built around
+      your unique goals — from medical weight management to aesthetic treatments.
+      We combine compassion, clinical expertise, and evidence-based medicine so
+      you can look, feel, and live your best."
 - Left buttons: rose primary "Book Free Consultation →" + cream outline secondary "Our Services"
 - Right: 3:4 portrait photo (public/images/provider-hero.png), max-width 460px, object-fit cover
 - Right badges: gold credential badge top-left only. "Now Accepting Patients" badge removed.
@@ -208,10 +209,13 @@ Mobile: 11px text
 ### Brockton Signal
 - Background: #0F0806
 - Decorative circles: gold border, opacity 0.1, absolute centered
-- Heading: "Brockton" cream + italic gold "deserves this."
+- Heading CURRENT (live): "South Shore" cream + italic gold "deserves this."
   Playfair clamp(56px→120px), letter-spacing -0.03em
+  ⚠️ CONFLICT: original rule below says keep "Brockton" — heading was changed to
+  "South Shore" in an earlier session. Confirm with Cous before reverting.
 - NO CTA BUTTON. This section has no button. Do not add one.
-- KEEP BROCKTON-SPECIFIC. Do not generalize to "South Shore."
+- Original intent: KEEP BROCKTON-SPECIFIC. Do not generalize to "South Shore."
+  Status: currently generalized — needs decision from Cous.
 
 ### CTA + Footer
 - CTA inner box: espresso bg, border-radius 12px, 2-column grid
