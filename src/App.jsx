@@ -7,6 +7,7 @@ import WeightLoss from './pages/WeightLoss'
 import Aesthetics from './pages/Aesthetics'
 import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
+import DotExams from './pages/DotExams'
 
 /* ── useInView hook ─────────────────────────────────────── */
 function useInView(threshold = 0.15) {
@@ -154,6 +155,60 @@ function Hero() {
         </div>
       </section>
     </div>
+  )
+}
+
+/* ── MISSION STRIP ──────────────────────────────────────── */
+function MissionStrip() {
+  const [ref, inView] = useInView()
+
+  return (
+    <section className={`mission fade-up${inView ? ' in-view' : ''}`} ref={ref}>
+      <div className="mission__circles">
+        <div className="mission__circle mission__circle--1" />
+        <div className="mission__circle mission__circle--2" />
+      </div>
+
+      <div className="mission__inner">
+        {/* Label row */}
+        <div className="mission__label-row">
+          <span className="mission__line" />
+          <span className="mission__label-text">Our Mission</span>
+          <span className="mission__line" />
+        </div>
+
+        {/* Heading */}
+        <h2 className="mission__heading">
+          Care that goes{' '}
+          <span className="mission__heading-gold">beyond the treatment.</span>
+        </h2>
+
+        {/* Body */}
+        <p className="mission__body">
+          We are dedicated to helping patients look, feel, and live their best
+          through individualized, evidence-based care — delivering safe, effective,
+          and compassionate treatment that builds lasting wellness and confidence.
+        </p>
+
+        {/* Stats */}
+        <div className="mission__stats">
+          <div className="mission__stat">
+            <span className="mission__stat-num">100%</span>
+            <span className="mission__stat-label">Personalized</span>
+          </div>
+          <div className="mission__divider" />
+          <div className="mission__stat">
+            <span className="mission__stat-num">NP</span>
+            <span className="mission__stat-label">Board-Certified</span>
+          </div>
+          <div className="mission__divider" />
+          <div className="mission__stat">
+            <span className="mission__stat-num">MA</span>
+            <span className="mission__stat-label">Licensed</span>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -509,6 +564,7 @@ function Home() {
       <Banner />
       <Nav />
       <Hero />
+      <MissionStrip />
       <Trust />
       <CoverageSignal />
       <ServicesPanels />
@@ -530,6 +586,7 @@ export default function App() {
       <Route path="/aesthetics" element={<Aesthetics />} />
       <Route path="/book" element={<BookNow />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/services/dot-exams" element={<DotExams />} />
     </Routes>
   )
 }
