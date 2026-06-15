@@ -6,17 +6,12 @@ const TREATMENTS = [
   {
     tag: 'Wrinkle Relaxer',
     title: 'Botox / Dysport',
-    desc: "Softens forehead lines, crow's feet, and frown lines. Results in 3–5 days, lasting 3–4 months.",
-  },
-  {
-    tag: 'Volume + Lift',
-    title: 'Dermal Fillers',
-    desc: 'Restores lost volume in cheeks, lips, and under-eyes. Natural-looking results, not overfilled.',
+    desc: "Softens forehead lines, crow's feet, and frown lines.",
   },
   {
     tag: 'Lip Enhancement',
     title: 'Lip Filler',
-    desc: 'Definition, volume, or both — shaped to your face. Results in 2 weeks. Reversible.',
+    desc: 'Definition, volume, or both — shaped to your face.',
   },
   {
     tag: 'Preventive Care',
