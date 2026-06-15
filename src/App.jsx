@@ -129,7 +129,7 @@ function Hero() {
           </div>
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
-            <Link to="/book" className="btn btn--rose">Book Free Consultation →</Link>
+            <Link to="/book" className="btn btn--rose">Book a Consultation →</Link>
             <Link to="/services" className="btn btn--outline-cream">Our Services</Link>
           </div>
         </div>
@@ -489,12 +489,12 @@ function CtaFooter() {
               <em className="cta-box__italic">We are ready for you.</em>
             </h2>
             <p className="cta-box__sub">
-              Book a free 15-minute consultation. No pressure. No commitment.
+              Book a consultation. No pressure. No commitment.
             </p>
           </div>
           <div className="cta-box__right">
-            <Link to="/book" className="btn btn--rose btn--lg">Book Now — It is Free →</Link>
-            <p className="cta-box__phone">Or call us: (508) 000-0000</p>
+            <Link to="/book" className="btn btn--rose btn--lg">Book a Consultation →</Link>
+            <p className="cta-box__phone">Or call us: 774-312-9806</p>
           </div>
         </div>
       </section>
@@ -539,8 +539,8 @@ function CtaFooter() {
             <h4 className="footer__col-title">Contact</h4>
             <ul className="footer__nav footer__nav--contact">
               <li>Brockton, Massachusetts</li>
-              <li>(508) 000-0000</li>
-              <li>hello@refynme.com</li>
+              <li>774-312-9806</li>
+              <li>refynmemedical@gmail.com</li>
               <li>Mon–Fri: 9am – 6pm</li>
             </ul>
           </div>

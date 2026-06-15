@@ -76,8 +76,8 @@ export function Footer() {
           <h4 className="footer__col-title">Contact</h4>
           <ul className="footer__nav footer__nav--contact">
             <li>Brockton, Massachusetts</li>
-            <li>(508) 000-0000</li>
-            <li>hello@refynme.com</li>
+            <li>774-312-9806</li>
+            <li>refynmemedical@gmail.com</li>
             <li>Mon–Fri: 9am – 6pm</li>
           </ul>
         </div>
@@ -113,10 +113,10 @@ export function PageShell({ title, subtitle, credential, children }) {
             <p className="page-hero__credential">{credential}</p>
           )}
           <p className="page-hero__sub">
-            {subtitle || 'This page is coming soon. Book a free consultation while you wait.'}
+            {subtitle || 'This page is coming soon. Book a consultation while you wait.'}
           </p>
           <Link to="/book" className="btn btn--rose" style={{ marginTop: '8px' }}>
-            Book a Free Consultation
+            Book a Consultation
           </Link>
         </div>
       </main>

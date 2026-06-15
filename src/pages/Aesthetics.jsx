@@ -40,7 +40,7 @@ const FAQS = [
   },
   {
     q: 'Is a consultation required?',
-    a: "It's included with every appointment. If you want to talk through your goals before committing, we offer a free 15-minute call first.",
+    a: "It's included with every appointment. If you want to talk through your goals before committing, we offer a consultation to talk through your goals first.",
   },
 ]
 

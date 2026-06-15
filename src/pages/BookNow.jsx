@@ -3,12 +3,12 @@ import { PageShell } from './PageShell'
 const CONTACTS = [
   {
     icon: '☎',
-    value: '(508) 000-0000',
+    value: '774-312-9806',
     label: 'Call or text anytime',
   },
   {
     icon: '✉',
-    value: 'hello@refynme.com',
+    value: 'refynmemedical@gmail.com',
     label: 'We respond within 24 hours',
   },
   {
@@ -50,9 +50,9 @@ export default function BookNow() {
 
             {/* Left — Booking Info */}
             <div className="book-left">
-              <h2 className="book-left__heading">Free 15-Minute Consultation</h2>
+              <h2 className="book-left__heading">Book a Consultation</h2>
               <p className="book-left__body">
-                Not sure where to start? Book a free 15-minute call and we'll help you
+                Not sure where to start? Book a consultation and we'll help you
                 figure out the right path forward. No pressure. No commitment. Just a
                 real conversation about your goals.
               </p>

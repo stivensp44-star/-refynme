@@ -10,7 +10,7 @@ Medical aesthetics + weight loss practice website.
 Owner: Board-Certified Nurse Practitioner, Brockton MA.
 Entity: RefynMe Medical and Wellness, PLLC (Massachusetts).
 Tagline: "Results you see. Confidence you own."
-Primary CTA: Free 15-minute consultation — always.
+Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on the site.
 
 ---
 
@@ -173,7 +173,7 @@ Mobile: 11px text
       your unique goals — from medical weight management to aesthetic treatments.
       We combine compassion, clinical expertise, and evidence-based medicine so
       you can look, feel, and live your best."
-- Left buttons: rose primary "Book Free Consultation →" + cream outline secondary "Our Services"
+- Left buttons: rose primary "Book a Consultation →" + cream outline secondary "Our Services"
 - Right: 3:4 portrait photo (public/images/provider-hero.png), max-width 460px, object-fit cover
 - Right badges: gold credential badge top-left only. "Now Accepting Patients" badge removed.
 - Badges hidden on mobile
@@ -219,7 +219,7 @@ Mobile: 11px text
 
 ### CTA + Footer
 - CTA inner box: espresso bg, border-radius 12px, 2-column grid
-- Rose button: "Book Now – It Is Free →"
+- Rose button: "Book a Consultation →"
 - Footer: espresso bg, 4 columns (Brand | Services | Company | Contact)
 - Copyright: © 2026 RefynMe. NOT 2025. Never 2025.
 
@@ -285,7 +285,7 @@ Do not build out secondary pages without session instruction.
 - Talk to ONE person. Never "patients" or "women."
 - Lead with the problem. Not the service.
 - NP credential is a feature. Never a disclaimer.
-- Free 15-minute consultation is always the primary CTA.
+- Primary CTA is 'Book a Consultation' — never use 'free' language.
 - Instagram DM always included as booking channel.
 - Short sentences. Short paragraphs.
 
@@ -298,8 +298,8 @@ cutting-edge | wellness journey | affordable
 ## KNOWN GAPS — DO NOT CLOSE WITHOUT INSTRUCTION
 
 CRITICAL (blocks launch):
-  [ ] Real phone number — placeholder is (508) 000-0000
-  [ ] Real email — placeholder is hello@refynme.com
+  [x] Real phone number — 774-312-9806
+  [x] Real email — refynmemedical@gmail.com
   [ ] Lead capture form — needed before any paid traffic
   [x] Provider hero photo — public/images/provider-hero.png (done)
 
