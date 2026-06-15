@@ -36,6 +36,7 @@ jobs:
           git add dist/
           git diff --cached --quiet && echo "No changes to dist — skipping commit." && exit 0
           git commit -m "chore: build dist [skip ci]"
+          git pull --rebase origin main
           git push origin main
 
       - name: Deploy to Hostinger via SSH
