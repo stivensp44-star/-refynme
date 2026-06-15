@@ -68,7 +68,7 @@ export default function Contact() {
 
           <form
             className="con-form"
-            action="https://formspree.io/f/REPLACE_WITH_ENDPOINT"
+            action="https://formspree.io/f/xojzygjo"
             method="POST"
           >
             <input type="hidden" name="_subject" value="New consultation request — RefynMe" />
