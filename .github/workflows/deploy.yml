@@ -46,4 +46,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 65002
+          connect_timeout: 30s
           script: bash /home/u615309639/domains/refynme.com/deploy.sh
