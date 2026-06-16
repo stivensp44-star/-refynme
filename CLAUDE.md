@@ -338,7 +338,7 @@ CRITICAL (blocks launch):
 
 IMPORTANT:
   [ ] SEO meta tags — title, description, OG tags, canonical
-  [ ] Google Analytics — wire before launch
+  [x] Google Analytics — GA4 wired & live 2026-06-16 (Measurement ID G-5Y6VK96Y1K in index.html)
   [ ] Social handles — replace href="#" with real URLs
   [ ] About page — blocked on provider bio
   [ ] Formspree endpoint live but untested end-to-end — test by submitting contact form
