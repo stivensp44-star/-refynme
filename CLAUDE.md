@@ -295,6 +295,22 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-06-14)
+
+- Aesthetics page built and live (/aesthetics) — hero, 3 treatment cards (Botox, Lip Filler,
+  Consultation + Plan), credentials section with provider-consultation.png placeholder, FAQ, CTA strip
+- Contact page built and live (/contact) — editorial statement section, split info/form layout,
+  Formspree wired (endpoint: xojzygjo)
+- Free consultation language removed sitewide — all CTAs now read "Book a Consultation"
+- Real phone wired sitewide: 774-312-9806
+- Real email wired sitewide: refynmemedical@gmail.com
+- Hard refresh 404 fixed via public/.htaccess Apache rewrite rule
+- GitHub Actions write permissions fixed
+- deploy.sh updated to explicitly copy .htaccess hidden file
+- git pull --rebase added to pipeline before dist push
+
+---
+
 ## KNOWN GAPS — DO NOT CLOSE WITHOUT INSTRUCTION
 
 CRITICAL (blocks launch):
@@ -308,6 +324,24 @@ IMPORTANT:
   [ ] Google Analytics — wire before launch
   [ ] Social handles — replace href="#" with real URLs
   [ ] About page — blocked on provider bio
+  [ ] Formspree endpoint live but untested end-to-end — test by submitting contact form
+  [ ] Calendly URL not yet wired to Book Now CTA
+  [ ] Provider bio + name still placeholder
+  [ ] Practice address still pending
+  [ ] Privacy Policy + Terms & Conditions pages still needed
+
+IMAGES NEEDED (public/images/):
+  [ ] aesthetics-treatment.png — real provider action photo
+  [ ] provider-consultation.png — real provider action photo
+
+DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
+  - Dermal Fillers treatment card (removed 2026-06-14 — confirm with wife before restoring)
+  - NRCME credential on Aesthetics page (removed 2026-06-14 — do not re-add)
+
+PENDING DECISIONS (need confirmation from wife):
+  - Brockton geographic positioning — current heading reads "South Shore deserves this."
+    Original intent was Brockton-specific. Confirm new direction before reverting.
+  - Practice address — needed before Google Business Profile setup
 
 NEXT BUILD WORK:
   [ ] Brockton town landing page
