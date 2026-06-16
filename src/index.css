@@ -91,3 +91,20 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Respect users who prefer reduced motion (vestibular safety) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
