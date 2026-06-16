@@ -51,3 +51,18 @@ jobs:
           target: "/home/u615309639/domains/refynme.com/public_html"
           strip_components: 1
           overwrite: true
+
+      - name: Purge old repo cruft from public_html
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 65002
+          connect_timeout: 30s
+          script: |
+            set -e
+            cd /home/u615309639/domains/refynme.com/public_html
+            rm -rf dist src public .github .git \
+              CLAUDE.md eslint.config.js package.json package-lock.json \
+              README.md vite.config.js
