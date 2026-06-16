@@ -28,8 +28,9 @@ Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on t
 
 - Repo: github.com/stivensp44-star/-refynme
 - Branch: main = live production. Every push deploys immediately.
-- Pipeline: push to main → GitHub Actions → npm run build →
-  commits dist/ back to repo → SSH into Hostinger → deploy.sh
+- Pipeline (as of 2026-06-16): push to main → GitHub Actions → npm run build →
+  commits dist/ back to repo → scp-action copies dist/ straight into public_html →
+  ssh-action purges stale repo cruft. Server-side git checkout + deploy.sh are GONE.
 - Deploy time: ~25 seconds
 - Workflow file: .github/workflows/deploy.yml
 
@@ -37,12 +38,12 @@ Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on t
 - IP: 88.223.85.148, SSH port: 65002
 - User: u615309639
 - Public HTML: /home/u615309639/domains/refynme.com/public_html
-- Deploy script: /home/u615309639/domains/refynme.com/deploy.sh
+- Deploy script: none — retired 2026-06-16 (replaced by scp-action in the workflow)
 
 ### Critical dist/ rule
 - dist/ IS tracked in git. It is NOT in .gitignore.
 - NEVER add dist/ back to .gitignore.
-- Actions commits built dist/ before SSH deploy.
+- Actions commits built dist/ before the scp deploy.
 
 ### Staging rule — ALWAYS FOLLOW
 - All changes go to a staging branch first
@@ -292,6 +293,22 @@ Do not build out secondary pages without session instruction.
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-06-16)
+
+- SEO metadata added to index.html — description, robots, canonical, theme-color,
+  Open Graph, Twitter cards, MedicalBusiness JSON-LD (verified live)
+- prefers-reduced-motion accessibility block added to src/index.css
+- DEPLOY PIPELINE REWRITTEN — root cause: old appleboy/ssh-action ran a server-side
+  git fetch/checkout + cp with no `set -e`, so a silent git failure re-copied STALE
+  dist while the step still exited 0 (pipeline green, live served old content).
+  Fix: appleboy/scp-action copies the runner's fresh dist/ directly into public_html
+  (source: "dist", strip_components: 1, overwrite: true).
+- Added ssh-action purge step (set -e) that removes stale repo cruft from public_html
+  after deploy: dist src public .github .git CLAUDE.md eslint.config.js package.json
+  package-lock.json README.md vite.config.js. Removing .git closes exposed-source risk.
 
 ---
 
