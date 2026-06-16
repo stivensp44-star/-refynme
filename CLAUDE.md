@@ -337,7 +337,7 @@ CRITICAL (blocks launch):
   [x] Provider hero photo — public/images/provider-hero.png (done)
 
 IMPORTANT:
-  [ ] SEO meta tags — title, description, OG tags, canonical
+  [x] SEO meta tags — done & live 2026-06-16 (title, description, OG, Twitter, canonical, theme-color, MedicalBusiness JSON-LD in index.html; global only — no per-page meta yet)
   [x] Google Analytics — GA4 wired & live 2026-06-16 (Measurement ID G-5Y6VK96Y1K in index.html)
   [ ] Social handles — replace href="#" with real URLs
   [ ] About page — blocked on provider bio
