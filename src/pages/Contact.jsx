@@ -68,7 +68,7 @@ export default function Contact() {
 
           <form
             className="con-form"
-            action="https://formspree.io/f/xojzygjo"
+            action="https://formspree.io/f/xkoaekjo"
             method="POST"
           >
             <input type="hidden" name="_subject" value="New consultation request — RefynMe" />
@@ -115,6 +115,7 @@ export default function Contact() {
                 name="message"
                 rows={3}
                 placeholder="Questions, concerns, or just how you heard about us..."
+                required
               />
             </div>
 
