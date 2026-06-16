@@ -39,22 +39,15 @@ jobs:
           git pull --rebase origin main
           git push origin main
 
-      - name: Deploy to Hostinger via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy dist to Hostinger via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 65002
-          connect_timeout: 30s
-          script: |
-            cat > /home/u615309639/domains/refynme.com/deploy.sh << 'EOF'
-            #!/bin/bash
-            cd /home/u615309639/domains/refynme.com/public_html
-            git fetch origin main
-            git checkout -f origin/main
-            cp -r dist/* .
-            cp -n dist/.htaccess . 2>/dev/null || true
-            rm -rf dist src public CLAUDE.md eslint.config.js package.json package-lock.json README.md vite.config.js .github
-            EOF
-            bash /home/u615309639/domains/refynme.com/deploy.sh
+          timeout: 30s
+          source: "dist"
+          target: "/home/u615309639/domains/refynme.com/public_html"
+          strip_components: 1
+          overwrite: true
