@@ -317,7 +317,7 @@ cutting-edge | wellness journey | affordable
 - Aesthetics page built and live (/aesthetics) — hero, 3 treatment cards (Botox, Lip Filler,
   Consultation + Plan), credentials section with provider-consultation.png placeholder, FAQ, CTA strip
 - Contact page built and live (/contact) — editorial statement section, split info/form layout,
-  Formspree wired (endpoint: xojzygjo)
+  Formspree wired (endpoint: xkoaekjo — updated 2026-06-16 from xojzygjo)
 - Free consultation language removed sitewide — all CTAs now read "Book a Consultation"
 - Real phone wired sitewide: 774-312-9806
 - Real email wired sitewide: refynmemedical@gmail.com
@@ -341,7 +341,7 @@ IMPORTANT:
   [x] Google Analytics — GA4 wired & live 2026-06-16 (Measurement ID G-5Y6VK96Y1K in index.html)
   [ ] Social handles — replace href="#" with real URLs
   [ ] About page — blocked on provider bio
-  [ ] Formspree endpoint live but untested end-to-end — test by submitting contact form
+  [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
   [ ] Calendly URL not yet wired to Book Now CTA
   [ ] Provider bio + name still placeholder
   [ ] Practice address still pending
