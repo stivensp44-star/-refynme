@@ -64,8 +64,8 @@ export default function Aesthetics() {
         </div>
         <div className="aes-hero__right">
           <img
-            src="/images/aesthetics-treatment.png"
-            alt="Aesthetic treatment in progress"
+            src="/images/botox-treatment.png"
+            alt="Nurse Practitioner administering Botox at RefynMe Medical and Wellness"
             className="aes-hero__photo"
           />
         </div>
