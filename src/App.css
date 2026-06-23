@@ -2422,9 +2422,9 @@ p {
 }
 
 .aes-creds__photo {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+  width: auto;
+  min-height: 480px;
+  object-fit: contain;
   object-position: center top;
   display: block;
 }
