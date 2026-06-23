@@ -39,6 +39,19 @@ jobs:
           git pull --rebase origin main
           git push origin main
 
+      - name: Prune stale build assets before deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 65002
+          connect_timeout: 30s
+          script: |
+            set -e
+            cd /home/u615309639/domains/refynme.com/public_html
+            rm -rf images assets
+
       - name: Deploy dist to Hostinger via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
