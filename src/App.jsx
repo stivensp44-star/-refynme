@@ -5,7 +5,6 @@ import About from './pages/About'
 import Services from './pages/Services'
 import WeightLoss from './pages/WeightLoss'
 import Aesthetics from './pages/Aesthetics'
-import BookNow from './pages/BookNow'
 import Contact from './pages/Contact'
 import DotExams from './pages/DotExams'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -591,6 +590,7 @@ export default function App() {
       <Route path="/services/dot-exams" element={<DotExams />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsAndConditions />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }

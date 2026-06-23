@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: 'Is a consultation required?',
-    a: "It's included with every appointment. If you want to talk through your goals before committing, we offer a consultation to talk through your goals first.",
+    a: "It's included with every appointment. If you want to talk through your goals before committing, you can book a consultation first.",
   },
 ]
 
