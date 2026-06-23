@@ -26,7 +26,7 @@ export default function About() {
             </div>
             <h1 className="about-provider__name">Mydwine Pierre Louis, NP</h1>
             <p className="about-provider__creds-text">
-              Board-Certified Nurse Practitioner · Massachusetts FPA · NRCME Certified
+              Board-Certified Nurse Practitioner · Massachusetts DOT · NRCME Certified
             </p>
             <p className="about-provider__bio">
               [Provider bio coming soon]
