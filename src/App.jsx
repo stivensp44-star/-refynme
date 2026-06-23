@@ -107,13 +107,13 @@ function Hero() {
         {/* LEFT — text content only, no badges */}
         <div className="hero__left">
           <h1 className="hero__heading" style={{ animationDelay: '0.1s' }}>
-            Finally.
+            Refined care
           </h1>
           <h1 className="hero__heading hero__heading--italic" style={{ animationDelay: '0.25s' }}>
-            <em>Someone who</em>
+            <em>for the way you want</em>
           </h1>
           <h1 className="hero__heading" style={{ animationDelay: '0.4s' }}>
-            gets it.
+            to look, feel and live.
           </h1>
 
           <div className="hero__sub-wrap" style={{ animationDelay: '0.55s' }}>
@@ -227,8 +227,8 @@ function Trust() {
           {/* Image placeholder with years card fully inside */}
           <div className="trust__img-placeholder">
             <div className="trust__years-card">
-              <span className="trust__years-num">2+</span>
-              <span className="trust__years-label">Years Serving Brockton</span>
+              <span className="trust__years-num">20+</span>
+              <span className="trust__years-label">years in the healthcare industry serving the community</span>
             </div>
           </div>
         </div>
