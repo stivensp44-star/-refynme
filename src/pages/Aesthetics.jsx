@@ -110,7 +110,7 @@ export default function Aesthetics() {
           <div className="aes-creds__grid">
             <img
               src="/images/provider-consultation.png"
-              alt="Provider in consultation"
+              alt="Nurse Practitioner with a patient at RefynMe Medical and Wellness"
               className="aes-creds__photo"
             />
             <div className="aes-creds__content">
