@@ -24,7 +24,7 @@ export default function About() {
               <span className="section-label__line" />
               <span className="label label--gold">Meet Your Provider</span>
             </div>
-            <h1 className="about-provider__name">Your Provider's Name, NP</h1>
+            <h1 className="about-provider__name">Mydwine Pierre Louis, NP</h1>
             <p className="about-provider__creds-text">
               Board-Certified Nurse Practitioner · Massachusetts FPA · NRCME Certified
             </p>
