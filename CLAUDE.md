@@ -247,6 +247,7 @@ DOT Exams links to: /services/dot-exams
   /weight-loss                    → Medical Weight Loss (PageShell placeholder)
   /aesthetics                     → Aesthetic Services (PageShell placeholder)
   /services/dot-exams             → DOT Medical Exams (PageShell placeholder)
+  /services/hormone-vitamin-therapy → Hormone & Vitamin Therapy (PageShell, built 2026-06-23)
   /book                           → REDIRECTS to /contact (Navigate replace, 2026-06-23).
                                     BookNow.jsx kept in repo but orphaned — not routed.
   /contact                        → Contact Us (form + phone/email; Formspree xkoaekjo)
@@ -254,10 +255,6 @@ DOT Exams links to: /services/dot-exams
   /terms                          → Terms & Conditions (2026-06-23)
   *  (catch-all)                  → REDIRECTS to / (Navigate replace, 2026-06-23) — prevents
                                     blank screen on unknown URLs.
-
-⚠️ /services/hormone-vitamin-therapy has NO route and NO page. The Services card
-   still links to it, so clicking it now falls through to the catch-all → home.
-   Decision needed: build the page OR remove/repoint the card (see KNOWN GAPS).
 
 ### Booking CTAs (sitewide, as of 2026-06-23)
 ALL "Book a Consultation" / "Book Now" / "Schedule Now" buttons route to /contact.
@@ -318,8 +315,8 @@ cutting-edge | wellness journey | affordable
   1. Added catch-all route (path="*") → redirects to / (was: unknown URLs rendered blank).
   2. Removed unused BookNow import from App.jsx (dead code after redirect).
   3. Fixed redundant Aesthetics FAQ copy ("talk through your goals" appeared twice).
-- BUG AUDIT — flagged, not fixed (need decision): Services "Hormone & Vitamin Therapy"
-  card links to a route/page that doesn't exist (see PENDING DECISIONS).
+- Hormone & Vitamin Therapy page built (/services/hormone-vitamin-therapy) — PageShell
+  layout reusing dot-* CSS classes; Services card link now resolves (was the audit flag).
 - Audit clean on: banned words (none), 2025 (none), inline hex (none), image src refs
   (all resolve), form labels (properly associated), image alt text (present).
 
@@ -389,9 +386,6 @@ PENDING DECISIONS (need confirmation from wife):
   - Brockton geographic positioning — current heading reads "South Shore deserves this."
     Original intent was Brockton-specific. Confirm new direction before reverting.
   - Practice address — needed before Google Business Profile setup
-  - Hormone & Vitamin Therapy card (Services page) links to /services/hormone-vitamin-therapy,
-    which has no page. Catch-all currently redirects it to home. Decide: build the page
-    OR remove/repoint the card. (Flagged by bug audit 2026-06-23.)
 
 NEXT BUILD WORK:
   [ ] Brockton town landing page
