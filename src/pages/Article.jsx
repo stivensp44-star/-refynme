@@ -51,6 +51,7 @@ export default function Article() {
               src={article.image}
               alt={article.title}
               className="blog-hero"
+              onError={(e) => { e.currentTarget.style.display = 'none' }}
             />
           )}
 
