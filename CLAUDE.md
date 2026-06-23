@@ -345,7 +345,8 @@ IMPORTANT:
   [ ] Calendly URL not yet wired to Book Now CTA
   [ ] Provider bio + name still placeholder
   [ ] Practice address still pending
-  [ ] Privacy Policy + Terms & Conditions pages still needed
+  [x] Privacy Policy + Terms & Conditions pages — built & live 2026-06-23
+      (/privacy-policy + /terms; footer links in PageShell + homepage footer; not in main nav)
 
 IMAGES NEEDED (public/images/):
   [ ] aesthetics-treatment.png — real provider action photo
