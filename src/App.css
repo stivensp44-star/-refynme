@@ -2272,8 +2272,8 @@ p {
 }
 
 .aes-hero__right {
-  overflow: hidden;
   min-height: 100vh;
+  padding-top: 160px;
 }
 
 .aes-hero__photo {
@@ -2284,6 +2284,15 @@ p {
   object-fit: cover;
   object-position: center top;
   display: block;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aes-hero__photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.4);
 }
 
 /* ── 2. Gold Divider ─────────────────────── */
@@ -2429,6 +2438,15 @@ p {
   object-fit: cover;
   object-position: center top;
   display: block;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aes-creds__photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.4);
 }
 
 .aes-creds__content {
