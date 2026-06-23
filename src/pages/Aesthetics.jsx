@@ -109,7 +109,7 @@ export default function Aesthetics() {
           </div>
           <div className="aes-creds__grid">
             <img
-              src="/images/botox-treatment.png"
+              src="/images/botox-treatment3.png"
               alt="Nurse Practitioner administering Botox injection at RefynMe Medical and Wellness"
               className="aes-creds__photo"
             />
