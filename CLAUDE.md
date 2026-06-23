@@ -77,6 +77,15 @@ src/
     Aesthetics.jsx
     BookNow.jsx
     Contact.jsx
+    BlogIndex.jsx  ← /blog — lists all articles as cards (Nav + Footer from PageShell)
+    Article.jsx    ← /blog/:slug — narrow 680px reading layout; renders Markdown body
+  blog/
+    articles.js    ← Loads src/content/blog/*.md via import.meta.glob (eager, ?raw),
+                     parses frontmatter, exports date-sorted array + getBySlug(slug)
+  content/blog/
+    *.md           ← One Markdown file per article. Frontmatter:
+                     title, slug, description, date, image, excerpt. Body below 2nd ---.
+public/images/blog/  ← Article images (filenames referenced in each article's frontmatter)
 
 ---
 
@@ -253,6 +262,8 @@ DOT Exams links to: /services/dot-exams
   /contact                        → Contact Us (form + phone/email; Formspree xkoaekjo)
   /privacy-policy                 → Privacy Policy (2026-06-23)
   /terms                          → Terms & Conditions (2026-06-23)
+  /blog                           → Blog index (BlogIndex.jsx, built 2026-06-23)
+  /blog/:slug                     → Article (Article.jsx, dynamic; unknown slug → /blog)
   *  (catch-all)                  → REDIRECTS to / (Navigate replace, 2026-06-23) — prevents
                                     blank screen on unknown URLs.
 
@@ -267,6 +278,25 @@ The old Calendly placeholder on BookNow.jsx was replaced with a Link to /contact
   4. DOT Medical Exams         → /services/dot-exams
 
 Do not build out secondary pages without session instruction.
+
+### Blog (data-driven, built 2026-06-23)
+- Architecture: ONE Article template + BlogIndex, fed by Markdown. To add an article,
+  drop a new .md file in src/content/blog/ — no code, no route, no rebuild of structure.
+- Content: src/content/blog/*.md. Frontmatter keys: title, slug, description, date,
+  image, excerpt. Body is everything after the second `---`.
+- Loader: src/blog/articles.js — import.meta.glob('../content/blog/*.md', {eager:true,
+  query:'?raw', import:'default'}), manual frontmatter parse, default export is the
+  date-DESC array; named export getBySlug(slug).
+- Rendering: react-markdown (dep added 2026-06-23) renders the body in Article.jsx.
+- Routing: /blog (index) + /blog/:slug (dynamic). Unknown slug → <Navigate to="/blog">.
+  Deep links work via existing public/.htaccess SPA rewrite.
+- SEO (Phase 1): per-article <title>/<meta description>/<link canonical>/OG tags rendered
+  inside Article.jsx — React 19 hoists them into <head>. No react-helmet.
+  Phase 2 (NOT built): build-time prerender of /blog/* + sitemap.xml for social cards.
+- Styles: .blog-*, .article*, .blog-prose in App.css (additive). All CTAs are rose
+  (btn--rose) per the all-CTA-buttons-rose rule — no gold CTA.
+- Footer "Blog" link → /blog in both App.jsx and PageShell.jsx.
+- Article images live in public/images/blog/ (filenames set in frontmatter; some pending).
 
 ---
 
@@ -319,6 +349,12 @@ cutting-edge | wellness journey | affordable
   layout reusing dot-* CSS classes; Services card link now resolves (was the audit flag).
 - Audit clean on: banned words (none), 2025 (none), inline hex (none), image src refs
   (all resolve), form labels (properly associated), image alt text (present).
+- Footer Services links in PageShell.jsx repointed from /services to specific pages
+  (/weight-loss, /aesthetics) to match the homepage footer.
+- BLOG built & live (/blog + /blog/:slug) — data-driven, Markdown-backed, 5 articles.
+  Added react-markdown dep. Per-article meta via React 19 native head hoisting.
+  Footer "Blog" link repointed to /blog in both footers. See "### Blog" section above.
+  Phase 2 (prerender + sitemap for social cards) NOT yet built.
 
 ---
 
