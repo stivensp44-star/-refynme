@@ -66,7 +66,7 @@ export function Footer() {
         <div className="footer__col">
           <h4 className="footer__col-title">Company</h4>
           <ul className="footer__nav">
-            {[['About Us', '/about'], ['Our Provider', '/about'], ['Patient Stories', '/about'], ['Blog', '/about'], ['FAQ', '/about'], ['Privacy Policy', '/privacy-policy']].map(([label, path]) => (
+            {[['About Us', '/about'], ['Our Provider', '/about'], ['Patient Stories', '/about'], ['Blog', '/about'], ['FAQ', '/about'], ['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms']].map(([label, path]) => (
               <li key={label}><Link to={path} className="footer__nav-link">{label}</Link></li>
             ))}
           </ul>
