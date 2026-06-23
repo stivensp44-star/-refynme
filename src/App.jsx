@@ -10,6 +10,8 @@ import DotExams from './pages/DotExams'
 import HormoneVitaminTherapy from './pages/HormoneVitaminTherapy'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
+import BlogIndex from './pages/BlogIndex'
+import Article from './pages/Article'
 
 /* ── useInView hook ─────────────────────────────────────── */
 function useInView(threshold = 0.15) {
@@ -531,7 +533,7 @@ function CtaFooter() {
           <div className="footer__col">
             <h4 className="footer__col-title">Company</h4>
             <ul className="footer__nav">
-              {[['About Us', '/about'], ['Our Provider', '/about'], ['Patient Stories', '/about'], ['Blog', '/about'], ['FAQ', '/about'], ['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms']].map(([label, path]) => (
+              {[['About Us', '/about'], ['Our Provider', '/about'], ['Patient Stories', '/about'], ['Blog', '/blog'], ['FAQ', '/about'], ['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms']].map(([label, path]) => (
                 <li key={label}><Link to={path} className="footer__nav-link">{label}</Link></li>
               ))}
             </ul>
@@ -592,6 +594,8 @@ export default function App() {
       <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsAndConditions />} />
+      <Route path="/blog" element={<BlogIndex />} />
+      <Route path="/blog/:slug" element={<Article />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
