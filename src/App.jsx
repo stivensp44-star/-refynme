@@ -7,6 +7,7 @@ import WeightLoss from './pages/WeightLoss'
 import Aesthetics from './pages/Aesthetics'
 import Contact from './pages/Contact'
 import DotExams from './pages/DotExams'
+import HormoneVitaminTherapy from './pages/HormoneVitaminTherapy'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 
@@ -588,6 +589,7 @@ export default function App() {
       <Route path="/book" element={<Navigate to="/contact" replace />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services/dot-exams" element={<DotExams />} />
+      <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsAndConditions />} />
       <Route path="*" element={<Navigate to="/" replace />} />
