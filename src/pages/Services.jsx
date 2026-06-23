@@ -41,7 +41,7 @@ export default function Services() {
             your skin — we provide individualized, compassionate care and
             evidence-based treatments to help you get there.
           </p>
-          <Link to="/book" className="btn btn--rose">Book a Consultation</Link>
+          <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
         </div>
 
         <div className="svc-right">

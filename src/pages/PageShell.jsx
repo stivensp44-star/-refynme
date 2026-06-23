@@ -28,7 +28,7 @@ export function Nav() {
           <li><Link to="/services/dot-exams" className="nav__link">DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__link">Contact</Link></li>
         </ul>
-        <Link to="/book" className="btn btn--rose btn--sm">Book Now</Link>
+        <Link to="/contact" className="btn btn--rose btn--sm">Book Now</Link>
       </div>
     </nav>
   )
@@ -115,7 +115,7 @@ export function PageShell({ title, subtitle, credential, children }) {
           <p className="page-hero__sub">
             {subtitle || 'This page is coming soon. Book a consultation while you wait.'}
           </p>
-          <Link to="/book" className="btn btn--rose" style={{ marginTop: '8px' }}>
+          <Link to="/contact" className="btn btn--rose" style={{ marginTop: '8px' }}>
             Book a Consultation
           </Link>
         </div>

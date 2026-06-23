@@ -86,7 +86,7 @@ export default function About() {
 
       {/* Section 5 — CTA */}
       <section className="about-cta-section">
-        <Link to="/book" className="btn btn--rose">Book a Consultation</Link>
+        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
       </section>
 
       <Footer />

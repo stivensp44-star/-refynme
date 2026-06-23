@@ -58,7 +58,7 @@ export default function Aesthetics() {
             Precise. Personalized. No cookie-cutter results.
           </p>
           <div className="aes-hero__btns">
-            <Link to="/book" className="btn btn--rose">Book a Consultation</Link>
+            <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
             <a href="#treatments" className="btn btn--outline-cream">See Treatments</a>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function Aesthetics() {
       <section className="aes-cta-strip">
         <h2 className="aes-cta-strip__heading">Ready to see the difference?</h2>
         <p className="aes-cta-strip__sub">No pressure, no obligation.</p>
-        <Link to="/book" className="btn btn--cream-espresso">Book a Consultation</Link>
+        <Link to="/contact" className="btn btn--cream-espresso">Book a Consultation</Link>
       </section>
 
       <Footer />

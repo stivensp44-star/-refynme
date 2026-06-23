@@ -93,7 +93,7 @@ export default function WeightLoss() {
       {/* Section 5 — CTA */}
       <section className="dot-cta-section">
         <h2 className="dot-cta-heading">Ready to Start?</h2>
-        <Link to="/book" className="btn btn--rose">Book a Consultation</Link>
+        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
       </section>
 
     </PageShell>

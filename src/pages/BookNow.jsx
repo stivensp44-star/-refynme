@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { PageShell } from './PageShell'
 
 const CONTACTS = [
@@ -56,14 +57,9 @@ export default function BookNow() {
                 figure out the right path forward. No pressure. No commitment. Just a
                 real conversation about your goals.
               </p>
-              <a
-                href="https://calendly.com"
-                className="btn btn--rose"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/contact" className="btn btn--rose">
                 Schedule Now
-              </a>
+              </Link>
               <p className="book-left__secondary">
                 Prefer to reach us directly? That works too.
               </p>

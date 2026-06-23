@@ -185,7 +185,7 @@ export default function PrivacyPolicy() {
                 </a>
               </li>
             </ul>
-            <Link to="/book" className="btn btn--rose" style={{ marginTop: '24px' }}>
+            <Link to="/contact" className="btn btn--rose" style={{ marginTop: '24px' }}>
               Book a Consultation
             </Link>
           </section>
