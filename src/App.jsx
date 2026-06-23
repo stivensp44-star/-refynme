@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import './App.css'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -586,7 +586,7 @@ export default function App() {
       <Route path="/services" element={<Services />} />
       <Route path="/weight-loss" element={<WeightLoss />} />
       <Route path="/aesthetics" element={<Aesthetics />} />
-      <Route path="/book" element={<BookNow />} />
+      <Route path="/book" element={<Navigate to="/contact" replace />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services/dot-exams" element={<DotExams />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
