@@ -58,7 +58,7 @@ export default function DotExams() {
       {/* Section 4 — CTA */}
       <section className="dot-cta-section">
         <h2 className="dot-cta-heading">Ready to Book Your Exam?</h2>
-        <Link to="/book" className="btn btn--rose">Book Now</Link>
+        <Link to="/contact" className="btn btn--rose">Book Now</Link>
       </section>
 
     </PageShell>

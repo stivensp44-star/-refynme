@@ -40,7 +40,7 @@ function Banner() {
   return (
     <div className="banner">
       <span className="banner__text">✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦</span>
-      <Link to="/book" className="banner__cta">Book Now</Link>
+      <Link to="/contact" className="banner__cta">Book Now</Link>
     </div>
   )
 }
@@ -70,7 +70,7 @@ function Nav() {
           <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__overlay-link" onClick={close}>Contact</Link></li>
         </ul>
-        <Link to="/book" className="btn btn--rose nav__overlay-book" onClick={close}>Book Now</Link>
+        <Link to="/contact" className="btn btn--rose nav__overlay-book" onClick={close}>Book Now</Link>
       </div>
 
       <div className="nav__inner">
@@ -88,7 +88,7 @@ function Nav() {
           <li><Link to="/services/dot-exams" className="nav__link">DOT Exams</Link></li>
           <li><Link to="/contact" className="nav__link">Contact</Link></li>
         </ul>
-        <Link to="/book" className="btn btn--rose btn--sm nav__book-desktop">Book Now</Link>
+        <Link to="/contact" className="btn btn--rose btn--sm nav__book-desktop">Book Now</Link>
         <button
           className="nav__hamburger"
           onClick={() => setMenuOpen((o) => !o)}
@@ -131,7 +131,7 @@ function Hero() {
           </div>
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
-            <Link to="/book" className="btn btn--rose">Book a Consultation →</Link>
+            <Link to="/contact" className="btn btn--rose">Book a Consultation →</Link>
             <Link to="/services" className="btn btn--outline-cream">Our Services</Link>
           </div>
         </div>
@@ -495,7 +495,7 @@ function CtaFooter() {
             </p>
           </div>
           <div className="cta-box__right">
-            <Link to="/book" className="btn btn--rose btn--lg">Book a Consultation →</Link>
+            <Link to="/contact" className="btn btn--rose btn--lg">Book a Consultation →</Link>
             <p className="cta-box__phone">Or call us: 774-312-9806</p>
           </div>
         </div>
