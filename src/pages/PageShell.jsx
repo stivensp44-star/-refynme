@@ -57,8 +57,8 @@ export function Footer() {
         <div className="footer__col">
           <h4 className="footer__col-title">Services</h4>
           <ul className="footer__nav">
-            {['Medical Weight Loss', 'GLP-1 Injections', 'Botox', 'Dermal Fillers', 'Lip Enhancement', 'Jawline Sculpting'].map((item) => (
-              <li key={item}><Link to="/services" className="footer__nav-link">{item}</Link></li>
+            {[['Medical Weight Loss', '/weight-loss'], ['GLP-1 Injections', '/weight-loss'], ['Botox', '/aesthetics'], ['Dermal Fillers', '/aesthetics'], ['Lip Enhancement', '/aesthetics'], ['Jawline Sculpting', '/aesthetics']].map(([label, path]) => (
+              <li key={label}><Link to={path} className="footer__nav-link">{label}</Link></li>
             ))}
           </ul>
         </div>
