@@ -2278,8 +2278,7 @@ p {
 
 .aes-hero__photo {
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
+  max-height: 580px;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -2422,9 +2421,11 @@ p {
 }
 
 .aes-creds__photo {
-  width: auto;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
   min-height: 480px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center top;
   display: block;
 }
