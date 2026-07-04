@@ -15,10 +15,11 @@ export function Nav() {
     <nav className={`nav${scrolled ? ' nav--solid' : ''}`} style={{ background: scrolled ? undefined : 'rgba(44,24,16,0.97)' }}>
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
-          <span className="nav__logo-mark">R</span>
-          <span className="nav__logo-text">
-            Refyn<span className="nav__logo-gold">Me</span>
-          </span>
+          <img
+            src="/images/refynme-logo-gold.png"
+            alt="RefynMe Medical Aesthetics & Wellness"
+            className="nav-logo-img"
+          />
         </Link>
         <ul className="nav__links">
           <li><Link to="/about" className="nav__link">About</Link></li>
