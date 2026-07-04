@@ -78,7 +78,7 @@ function Nav() {
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
           <img
-            src="/images/refynmelogo.png"
+            src="/images/refynmelogo-gold.png"
             alt="RefynMe Medical Aesthetics & Wellness"
             className="nav-logo-img"
           />

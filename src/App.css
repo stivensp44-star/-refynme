@@ -842,7 +842,7 @@ p {
 .nav__logo-gold { color: var(--gold); }
 
 .nav-logo-img {
-  height: 64px;
+  height: 80px;
   width: auto;
   display: block;
   transform-origin: center;
@@ -854,7 +854,7 @@ p {
 
 @media (max-width: 768px) {
   .nav-logo-img {
-    height: 48px;
+    height: 56px;
   }
 }
 
