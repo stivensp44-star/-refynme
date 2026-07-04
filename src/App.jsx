@@ -77,10 +77,11 @@ function Nav() {
 
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
-          <span className="nav__logo-mark">R</span>
-          <span className="nav__logo-text">
-            Refyn<span className="nav__logo-gold">Me</span>
-          </span>
+          <img
+            src="/images/refynmelogo.png"
+            alt="RefynMe Medical Aesthetics & Wellness"
+            className="nav-logo-img"
+          />
         </Link>
         <ul className="nav__links">
           <li><Link to="/about" className="nav__link">About</Link></li>
