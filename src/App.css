@@ -842,14 +842,19 @@ p {
 .nav__logo-gold { color: var(--gold); }
 
 .nav-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
   display: block;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.nav__logo:hover .nav-logo-img {
+  transform: scale(1.12);
 }
 
 @media (max-width: 768px) {
   .nav-logo-img {
-    height: 36px;
+    height: 48px;
   }
 }
 
