@@ -44,6 +44,21 @@ Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on t
 - dist/ IS tracked in git. It is NOT in .gitignore.
 - NEVER add dist/ back to .gitignore.
 - Actions commits built dist/ before the scp deploy.
+- Because CI pushes a "chore: build dist [skip ci]" commit to main after every
+  deploy, local main is usually 1 behind — ALWAYS fetch + reset onto origin/main
+  before branching or merging.
+
+### Deploy failure modes (observed 2026-07-04)
+- The "Prune stale build assets" SSH step can transiently fail with
+  `dial tcp :65002: i/o timeout` (Hostinger SSH). Remedy:
+  `gh run rerun <run-id> --failed` — safe; the commit-dist step no-ops when
+  dist is unchanged.
+- RISK: the prune (`rm -rf images assets`) runs BEFORE the SCP copy. If prune
+  succeeds and SCP then fails, the live site serves no assets until a rerun
+  completes. Hardening candidate: prune after a successful copy.
+- The SPA .htaccess rewrite answers 200 + index.html for ANY missing path.
+  To verify a server file exists or was deleted, check Content-Type
+  (text/html = not there), never just the status code.
 
 ### Staging rule — ALWAYS FOLLOW
 - All changes go to a staging branch first
@@ -246,6 +261,26 @@ Does NOT use PageShell hero. Imports Nav + Footer directly from PageShell.
 Left column: credential line → "Our Services" heading → intro copy → rose CTA.
 Right column: 4 clickable service cards (gold left border, translateX hover).
 
+### Nav brand — gold logo image (LIVE since 2026-07-04)
+Both navs (App.jsx homepage Nav + PageShell.jsx shared Nav) render the brand as:
+  <img src="/images/refynme-logo-gold.png" alt="RefynMe Medical Aesthetics & Wellness"
+       className="nav-logo-img" />
+wrapped in the existing home <Link to="/">.
+- Asset: public/images/refynme-logo-gold.png — 147×52 transparent PNG, flat gold
+  EXACTLY #D4A853 (var(--gold)), ".com" cropped (owner decision: never show TLD in nav).
+- Sizing (App.css): .nav-logo-img 64px desktop / 48px ≤768px; hovering .nav__logo
+  scales the image 1.12 (0.3s ease).
+- The old text wordmark JSX (.nav__logo-mark/-text/-gold spans) is GONE; its CSS
+  rules remain in App.css as a working fallback if the image is ever pulled.
+- NEVER reintroduce CSS-filter recolor chains (brightness/invert/sepia) on logo
+  images — proven to destroy artwork or produce flat silhouettes (2026-07-04).
+- Known gap: asset is ~1× resolution for 48px, so 64px is slightly soft on
+  retina. A 2× export (~400px wide, same flat art, transparent, no ".com")
+  is a drop-in upgrade — ask the logo's creator.
+- History: six treatments of the original neon-glow screenshot all failed at nav
+  size (illegible smears). Flat art de-blends cleanly; glow screenshots never
+  work. Obsolete refynmelogo*.png assets deleted 2026-07-04 (in git history).
+
 ### Nav links (all instances — App.jsx homepage + PageShell.jsx secondary pages)
 About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
 DOT Exams links to: /services/dot-exams
@@ -335,6 +370,19 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-07-04)
+
+- Nav brand replaced with gold logo image sitewide (both navs) — see "Nav brand"
+  section above. Path there was iterative: raw screenshot logo (dark canvas) →
+  enlarged + hover pop → gold/rose per-pixel recolor (REJECTED) → reverted to
+  text wordmark → final flat-gold client asset de-blended to transparent exact
+  #D4A853 with ".com" cropped → LIVE + verified (merge c2c8b4e) → enlarged to
+  64px/48px + hover 1.12 (merge f24340b).
+- Repo cleanup (merge 92ad5b5): obsolete refynmelogo.png + refynmelogo-gold.png
+  deleted (~2.1MB, recoverable from history); ALL merged staging branches
+  deleted local + origin — repo carries only main between tasks.
+- Deploy pipeline failure modes documented (see Deploy failure modes section).
+
 ## COMPLETED THIS SESSION (2026-06-23)
 
 - Privacy Policy (/privacy-policy) + Terms & Conditions (/terms) pages built & live;
@@ -402,6 +450,8 @@ IMPORTANT:
   [x] SEO meta tags — done & live 2026-06-16 (title, description, OG, Twitter, canonical, theme-color, MedicalBusiness JSON-LD in index.html; global only — no per-page meta yet)
   [x] Google Analytics — GA4 wired & live 2026-06-16 (Measurement ID G-5Y6VK96Y1K in index.html)
   [ ] Social handles — replace href="#" with real URLs
+  [ ] 2× nav logo export (~400px wide, transparent, no ".com") — current asset
+      is slightly soft on retina at 64px; drop-in swap when it arrives
   [ ] About page — blocked on provider bio
   [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
   [x] Booking flow — Calendly abandoned 2026-06-23; all booking CTAs now route to /contact
