@@ -91,9 +91,9 @@ src/
   i18n/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
-    locales/*.json ← en.json = source of truth (102 strings, nav.*/footer.*/home.*);
-                     fr/es/kea = DRAFT machine translations LIVE (marked "_status")
-                     pending native review
+    locales/*.json ← en.json = source of truth (259 strings; namespaces per
+                     page — see I18N section); fr/es/kea = DRAFT machine
+                     translations LIVE (marked "_status") pending native review
   pages/
     PageShell.jsx  ← Named exports: Nav, Footer, PageShell (default).
                      Services.jsx imports Nav + Footer directly from here.
@@ -347,10 +347,11 @@ Do not build out secondary pages without session instruction.
 
 ---
 
-## I18N — PHASE 1A + 1B DRAFTS LIVE (2026-07-11)
+## I18N — PHASES 1A + 1B + 2 DRAFTS LIVE (2026-07-11)
 
-Infrastructure AND draft content are live. FR/ES/KEA render machine-drafted
-translations (Stivo-authorized 2026-07-11), marked DRAFT pending native review.
+Infrastructure AND draft content are live SITEWIDE. FR/ES/KEA render
+machine-drafted translations (Stivo-authorized 2026-07-11) on the homepage and
+every content page, marked DRAFT pending native review.
 
 ### Architecture
 - i18next + react-i18next + i18next-browser-languagedetector
@@ -358,12 +359,22 @@ translations (Stivo-authorized 2026-07-11), marked DRAFT pending native review.
 - Detection: localStorage first (key `refynme-lang`), then navigator;
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
-- Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage sections
-- Secondary-page CONTENT (About, Services, etc.) is NOT extracted — Phase 1a
-  scope was Nav + Footer + Home only
+- Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage
+  sections, AND (Phase 2) all content pages: Services, Weight Loss, Aesthetics,
+  DOT Exams, Contact (full form), Hormone & Vitamin Therapy, About, plus
+  PageShell's own strings (default subtitle + book CTA)
+- STILL ENGLISH BY DESIGN (each needs its own decision before changing):
+  · Privacy Policy + Terms — legal text; machine translation = liability;
+    if ever translated, needs an English-binding disclaimer decision first
+  · Blog — Markdown articles; translating = per-language content strategy
+  · Aesthetics hero heading — it IS the locked tagline (hardcoded in JSX
+    with a comment; never extract it)
+  · Image alts, provider name, BookNow.jsx (orphaned redirect)
 
 ### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
-- 102 strings, nested semantic keys: nav.*, footer.*, home.*
+- 259 strings, nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
+  services.*, weightLoss.*, dotExams.*, hormone.*, aesthetics.*, contact.*,
+  about.*
 - 1b SHIPPED (2026-07-11): machine-drafted FR/ES/KEA values are LIVE, each file
   marked `"_status": "DRAFT — machine translation, pending native review"`.
 - NEXT = NATIVE REVIEW: reviewed values replace the drafts, then the "_status"
@@ -454,6 +465,27 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11, LATEST — PHASE 2: SECONDARY PAGES)
+
+- I18N PHASE 2 LIVE — merge `3514e56` to main, deploy green, bundle +
+  in-browser verified (FR /weight-loss w/ screenshot, KEA /contact full form,
+  KEA /aesthetics with the tagline correctly staying English).
+  - Context: Stivo flagged that secondary pages didn't translate — that was
+    the designed 1a scope (Nav + Footer + Home only). Phase 2 closed it.
+  - `53ccd16`: ~130 new strings (en.json now 259) across Services, Weight
+    Loss, Aesthetics, DOT Exams, Contact, Hormone & Vitamin Therapy, About +
+    PageShell; drafted FR/ES/KEA under the locked TRANSLATION CONSTRAINT.
+  - New verification check added: every static t('...') key used in src must
+    exist in en.json — immediately caught a missing about.cta in all 3 drafts.
+  - Bundle crossed Vite's 500 kB minified warning (531 kB / 161 kB gzip) —
+    purely translation content; code-split is a future task if it keeps
+    growing.
+  - Contact form: LABELS translate; Formspree still receives English field
+    names (first_name etc.) — how Stivo receives submissions is unchanged.
+  - NATIVE REVIEW scope is now 259 strings — line up the Kriolu reader.
 
 ---
 
@@ -626,9 +658,15 @@ PENDING DECISIONS (need confirmation from wife):
 
 NEXT BUILD WORK:
   [x] i18n Phase 1b — DRAFT machine translations live 2026-07-11 (merge 2a21ef5)
+  [x] i18n Phase 2 — secondary pages extracted + drafted, live 2026-07-11
+      (merge 3514e56; en.json now 259 strings)
   [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES/KEA, delete
       "_status" lines (values only, keys frozen; KEA/Santiago Kriolu most
-      urgent — drafts are live to real visitors)
+      urgent — drafts are live to real visitors; scope = 259 strings)
+  [ ] i18n decisions pending: Privacy/Terms translation (legal), Blog
+      per-language strategy
+  [ ] Bundle code-split if it keeps growing (531 kB minified, warning
+      threshold crossed 2026-07-11)
   [ ] Brockton town landing page
   [ ] Town page template for remaining towns
   [ ] Reach line below Trust Builder on homepage
