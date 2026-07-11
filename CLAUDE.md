@@ -377,9 +377,14 @@ every content page, marked DRAFT pending native review.
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
 - Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage
-  sections, AND (Phase 2) all content pages: Services, Weight Loss, Aesthetics,
-  DOT Exams, Contact (full form), Hormone & Vitamin Therapy, About, plus
-  PageShell's own strings (default subtitle + book CTA)
+  sections, AND (Phase 2) content pages: Services, Weight Loss, Aesthetics,
+  DOT Exams, Contact (full form), Hormone & Vitamin Therapy, plus PageShell's
+  own strings (default subtitle + book CTA)
+- EXCEPTION — About (rewritten 2026-07-11 evening): body is HARDCODED ENGLISH
+  by Stivo instruction (approved final copy). Its nav/footer still translate;
+  the about.* keys in all four locale files are ORPHANED (unused — leave them;
+  translating the new copy is a future extract-and-draft task under this
+  rulebook, and it must NOT reuse the stale orphaned values).
 - STILL ENGLISH BY DESIGN (each needs its own decision before changing):
   · Privacy Policy + Terms — legal text; machine translation = liability;
     if ever translated, needs an English-binding disclaimer decision first
@@ -482,6 +487,32 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11, EVENING — ABOUT PAGE REWRITE)
+
+- ABOUT PAGE FINAL COPY LIVE (merge `b6a22e5`; feat `79d2be7`) — full rewrite
+  to Stivo-approved FINAL copy (verbatim contract: 15/15 blocks verified
+  programmatically; 12 em dashes + 2 middle dots preserved; <em>why</em>
+  exactly once). Structure: H1 → 3-para intro → gold italic pull-line
+  (.about-pull) → H2 → 4 prose paras → H2 → 2 paras → muted credentials line
+  (.about-credline) → rose CTA. Old provider grid / We Get It / Our Approach /
+  cred-card bar REMOVED (their CSS left as unused fallback).
+- Page body is ENGLISH-ONLY by instruction — see the About exception in the
+  I18N section. Copy is FINAL: do not edit, reword, or re-extract without
+  explicit instruction.
+- New additive CSS: .about-intro (fixed-nav clearance 140/120px), .about-pull,
+  .about-credline, .about-cta-inner — about-* convention, vars only.
+- Provider photo: comment placeholder in Section 1
+  (PROVIDER PHOTO: pending professional shots) — no stock/AI image, awaiting
+  professional shots.
+- ⚠ OPEN FLAG: CTA links to /book per the approved spec; /book redirects to
+  /contact and the standing convention says all booking CTAs point at
+  /contact directly. Works today (one redirect hop) — Stivo to decide whether
+  to keep /book or swap to /contact.
+- Live-verified in Stivo's browser (hard load): mounts, structure + em-why +
+  credline render, no console errors. 390px phone glance still worth doing.
 
 ---
 
@@ -668,7 +699,8 @@ IMPORTANT:
   [ ] Social handles — replace href="#" with real URLs
   [ ] 2× nav logo export (~400px wide, transparent, no ".com") — current asset
       is slightly soft on retina at 64px; drop-in swap when it arrives
-  [ ] About page — blocked on provider bio
+  [x] About page — FINAL approved copy live 2026-07-11 (merge b6a22e5);
+      still pending: provider portrait (comment placeholder in Section 1)
   [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
   [x] Booking flow — Calendly abandoned 2026-06-23; all booking CTAs now route to /contact
   [ ] Provider bio + name still placeholder
@@ -679,6 +711,8 @@ IMPORTANT:
 IMAGES NEEDED (public/images/):
   [ ] aesthetics-treatment.png — real provider action photo
   [ ] provider-consultation.png — real provider action photo
+  [ ] About page provider portrait — professional shots pending; slot held by
+      comment placeholder in About.jsx Section 1 (no stock/AI)
 
 DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
   - Dermal Fillers treatment card (removed 2026-06-14 — confirm with wife before restoring)
@@ -690,6 +724,11 @@ PENDING DECISIONS (need confirmation from wife):
   - Practice address — needed before Google Business Profile setup
   - Language switcher on secondary-page mobile + 769–1080px (PageShell has no
     hamburger — needs a nav-breakpoint decision; see I18N section)
+  - About CTA target: spec said /book (live now, works via redirect) vs the
+    all-booking-CTAs-to-/contact convention — keep or swap (one-line change)
+  - About page translation: new FINAL copy is English-only; when/whether to
+    extract + draft FR/ES/KEA (orphaned about.* keys must be replaced, not
+    reused)
   - Hero heading doc drift — CLAUDE.md Hero section vs live code (see 2026-07-11
     session notes)
 
