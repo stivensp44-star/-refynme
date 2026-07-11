@@ -507,10 +507,11 @@ cutting-edge | wellness journey | affordable
 - Provider photo: comment placeholder in Section 1
   (PROVIDER PHOTO: pending professional shots) — no stock/AI image, awaiting
   professional shots.
-- ⚠ OPEN FLAG: CTA links to /book per the approved spec; /book redirects to
-  /contact and the standing convention says all booking CTAs point at
-  /contact directly. Works today (one redirect hop) — Stivo to decide whether
-  to keep /book or swap to /contact.
+- CTA flag RESOLVED same evening: Stivo chose /contact — switched in
+  `51f4269` (merge `8109ac7`), live-verified href=/contact. The
+  all-booking-CTAs-to-/contact convention holds SITEWIDE with no exceptions;
+  copy/spec references to /book are satisfied by the standing redirect but
+  new CTAs always target /contact directly.
 - Live-verified in Stivo's browser (hard load): mounts, structure + em-why +
   credline render, no console errors. 390px phone glance still worth doing.
 
