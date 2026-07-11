@@ -1,42 +1,27 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { PageShell } from './PageShell'
 
-const CARDS = [
-  {
-    title: 'Medical History Review',
-    body: 'A thorough review of your health background and current medications.',
-  },
-  {
-    title: 'Physical Examination',
-    body: 'Head-to-toe physical assessment meeting FMCSA standards.',
-  },
-  {
-    title: 'Vision & Hearing',
-    body: 'Standard vision and hearing tests required for certification.',
-  },
-  {
-    title: 'Same-Day Certificate',
-    body: 'Walk out with your Medical Examiner\u2019s Certificate the same day.',
-  },
-]
+const CARD_KEYS = ['history', 'physical', 'vision', 'certificate']
 
 export default function DotExams() {
+  const { t } = useTranslation()
   return (
     <PageShell
-      title="DOT Medical Exams"
-      credential="FMCSA-Certified · NRCME Certified Provider"
-      subtitle="Fast, professional DOT physical examinations for commercial drivers — performed by a board-certified Nurse Practitioner."
+      title={t('dotExams.title')}
+      credential={t('dotExams.credential')}
+      subtitle={t('dotExams.subtitle')}
     >
 
       {/* Section 2 — What to Expect */}
       <section className="dot-section">
         <div className="dot-section__inner">
-          <h2 className="dot-heading">What to Expect</h2>
+          <h2 className="dot-heading">{t('dotExams.whatToExpect')}</h2>
           <div className="dot-cards">
-            {CARDS.map(({ title, body }) => (
-              <div key={title} className="dot-card">
-                <h3 className="dot-card__title">{title}</h3>
-                <p className="dot-card__body">{body}</p>
+            {CARD_KEYS.map((key) => (
+              <div key={key} className="dot-card">
+                <h3 className="dot-card__title">{t(`dotExams.cards.${key}.title`)}</h3>
+                <p className="dot-card__body">{t(`dotExams.cards.${key}.body`)}</p>
               </div>
             ))}
           </div>
@@ -46,19 +31,17 @@ export default function DotExams() {
       {/* Section 3 — Who Needs a DOT Exam */}
       <section className="dot-section dot-section--alt">
         <div className="dot-section__inner">
-          <h2 className="dot-heading">Who Needs a DOT Exam?</h2>
+          <h2 className="dot-heading">{t('dotExams.whoNeeds')}</h2>
           <p className="dot-body">
-            If you operate a commercial motor vehicle and are required to hold a CDL,
-            federal law requires a current DOT medical certificate. This includes truck
-            drivers, bus drivers, and other commercial vehicle operators.
+            {t('dotExams.whoNeedsBody')}
           </p>
         </div>
       </section>
 
       {/* Section 4 — CTA */}
       <section className="dot-cta-section">
-        <h2 className="dot-cta-heading">Ready to Book Your Exam?</h2>
-        <Link to="/contact" className="btn btn--rose">Book Now</Link>
+        <h2 className="dot-cta-heading">{t('dotExams.ctaHeading')}</h2>
+        <Link to="/contact" className="btn btn--rose">{t('dotExams.cta')}</Link>
       </section>
 
     </PageShell>

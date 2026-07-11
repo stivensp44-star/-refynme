@@ -1,42 +1,27 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { PageShell } from './PageShell'
 
-const CARDS = [
-  {
-    title: 'IV Vitamin Therapy',
-    body: 'Customized intravenous nutrients delivered straight into your bloodstream for fast, full absorption.',
-  },
-  {
-    title: 'Energy & Recovery',
-    body: 'Targeted blends to support energy, hydration, and recovery when you need it most.',
-  },
-  {
-    title: 'Hormone Support',
-    body: 'Evaluation and care to help address fatigue, mood changes, and hormonal imbalance.',
-  },
-  {
-    title: 'A Plan Built for You',
-    body: 'Every protocol is shaped around your labs, your symptoms, and your goals — never one-size-fits-all.',
-  },
-]
+const CARD_KEYS = ['iv', 'energy', 'hormoneSupport', 'plan']
 
 export default function HormoneVitaminTherapy() {
+  const { t } = useTranslation()
   return (
     <PageShell
-      title="Hormone & Vitamin Therapy"
-      credential="By a Board-Certified Nurse Practitioner"
-      subtitle="Customized IV vitamin therapy and hormone support to restore balance, improve energy, and help you feel like yourself again."
+      title={t('hormone.title')}
+      credential={t('hormone.credential')}
+      subtitle={t('hormone.subtitle')}
     >
 
       {/* Section 2 — What We Offer */}
       <section className="dot-section">
         <div className="dot-section__inner">
-          <h2 className="dot-heading">What We Offer</h2>
+          <h2 className="dot-heading">{t('hormone.whatWeOffer')}</h2>
           <div className="dot-cards">
-            {CARDS.map(({ title, body }) => (
-              <div key={title} className="dot-card">
-                <h3 className="dot-card__title">{title}</h3>
-                <p className="dot-card__body">{body}</p>
+            {CARD_KEYS.map((key) => (
+              <div key={key} className="dot-card">
+                <h3 className="dot-card__title">{t(`hormone.cards.${key}.title`)}</h3>
+                <p className="dot-card__body">{t(`hormone.cards.${key}.body`)}</p>
               </div>
             ))}
           </div>
@@ -46,20 +31,17 @@ export default function HormoneVitaminTherapy() {
       {/* Section 3 — Who It's For */}
       <section className="dot-section dot-section--alt">
         <div className="dot-section__inner">
-          <h2 className="dot-heading">Who It's For</h2>
+          <h2 className="dot-heading">{t('hormone.whoItsFor')}</h2>
           <p className="dot-body">
-            If you're feeling drained, run-down, or just not like yourself, hormone and
-            vitamin therapy can help replace what your body is missing. We start with a
-            consultation and, when it makes sense, lab work — then build a plan tailored
-            to you. No guesswork, no pressure.
+            {t('hormone.whoItsForBody')}
           </p>
         </div>
       </section>
 
       {/* Section 4 — CTA */}
       <section className="dot-cta-section">
-        <h2 className="dot-cta-heading">Ready to feel like yourself again?</h2>
-        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
+        <h2 className="dot-cta-heading">{t('hormone.ctaHeading')}</h2>
+        <Link to="/contact" className="btn btn--rose">{t('hormone.cta')}</Link>
       </section>
 
     </PageShell>

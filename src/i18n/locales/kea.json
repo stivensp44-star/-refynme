@@ -139,5 +139,244 @@
       "button": "Marka un konsulta →",
       "phonePrefix": "Ô liga-nu:"
     }
+  },
+  "pageShell": {
+    "defaultSubtitle": "Es pájina ta ben logu. Marka un konsulta timenti bu ta spera.",
+    "bookCta": "Marka un konsulta"
+  },
+  "services": {
+    "credential": "Pa un infermera pratikanti sertifikadu",
+    "heading": "Nos servisus",
+    "body": "Na RefynMe, kuida di bo é un parti importanti di vivi dretu. Si bu objetivu é más enerjia, kontrola bu pezu ô midjora bu peli — nu ta da un kuidadu individualizadu y ku kompaixon, ku tratamentu baseadu na evidénsia, pa djuda-u txiga la.",
+    "cta": "Marka un konsulta",
+    "items": {
+      "weightLoss": {
+        "name": "Perda di pezu médiku",
+        "desc": "Injeson GLP-1, remédiu oral y orientason alimentar adaptadu pa bu korpu y bu objetivu."
+      },
+      "aesthetics": {
+        "name": "Tratamentu stétiku",
+        "desc": "Botox y preenchimentu dérmiku pa djuda-u parse y sinti na bu midjór."
+      },
+      "hormone": {
+        "name": "Terapia hormonal y di vitamina",
+        "desc": "Terapia di vitamina intravenoza (IV) personalizadu pa restaura ekilíbriu, midjora enerjia y apoia saúdi a longu prazu."
+      },
+      "dotExams": {
+        "name": "Izami médiku DOT",
+        "desc": "Izami físiku DOT sertifikadu pa FMCSA pa kondutoris komersial."
+      }
+    }
+  },
+  "weightLoss": {
+    "title": "Perda di pezu médiku",
+    "credential": "Baseadu na evidénsia · Supervison médiku",
+    "subtitle": "Programa di perda di pezu personalizadu, fetu na volta di bu korpu, bu objetivu y bu vida — supervisionadu pa un infermera pratikanti sertifikadu.",
+    "howWeHelp": "Modi ki nu ta djuda",
+    "cards": {
+      "glp1": {
+        "title": "Injeson GLP-1",
+        "body": "Semaglutide y otus remédiu GLP-1 pa djuda kontrola apetite y perde pezu di manera sustentável."
+      },
+      "oral": {
+        "title": "Remédiu oral",
+        "body": "Remédiu di perda di pezu resetadu, adaptadu pa bu perfil di saúdi y bu objetivu."
+      },
+      "diet": {
+        "title": "Orientason alimentar",
+        "body": "Apoiu nutrisional prátiku y personalizadu ki ta enkaixa na bu vida real."
+      },
+      "support": {
+        "title": "Apoiu kontínuu",
+        "body": "Kontrolu regular y ajusti di planu pa mante-u na kaminhu na kada pasu."
+      }
+    },
+    "isThisRight": "É kel-li pa bo?",
+    "isThisRightBody": "Nos programa médiku di perda di pezu é fetu pa adultus ki dja luta pa perde pezu sô ku dieta y izersísiu. Nu ta toma un abordaji kliniku — nu ta odja bu stória di saúdi, bu remédius di gósi y bu objetivus pesoal antis di rekomenda kualker tratamentu.",
+    "whatToExpect": "Kusé ki bu debe spera",
+    "steps": {
+      "step1": {
+        "title": "Konsulta",
+        "body": "Un vizita un pa un pa odja bu stória di saúdi y bu objetivus."
+      },
+      "step2": {
+        "title": "Bu planu",
+        "body": "Un planu di tratamentu personalizadu, fetu spesifikamenti pa bo."
+      },
+      "step3": {
+        "title": "Kuidadu kontínuu",
+        "body": "Akonpanhamentu regular y ajustis timenti bu ta progride."
+      }
+    },
+    "ctaHeading": "Prontu pa kumesa?",
+    "cta": "Marka un konsulta"
+  },
+  "dotExams": {
+    "title": "Izami médiku DOT",
+    "credential": "Sertifikadu FMCSA · Provedor sertifikadu NRCME",
+    "subtitle": "Izami físiku DOT rápidu y profisional pa kondutoris komersial — fetu pa un infermera pratikanti sertifikadu.",
+    "whatToExpect": "Kusé ki bu debe spera",
+    "cards": {
+      "history": {
+        "title": "Revison di stória médiku",
+        "body": "Un revison kompletu di bu pasadu di saúdi y bu remédius di gósi."
+      },
+      "physical": {
+        "title": "Izami físiku",
+        "body": "Avaliason físiku di kabesa ti pé ki ta kunpri padron di FMCSA."
+      },
+      "vision": {
+        "title": "Vison y audison",
+        "body": "Testi padron di vison y audison nesesáriu pa sertifikason."
+      },
+      "certificate": {
+        "title": "Sertifikadu na mésmu dia",
+        "body": "Sai ku bu Sertifikadu di Izaminador Médiku na mésmu dia."
+      }
+    },
+    "whoNeeds": "Kenha ki meste un izami DOT?",
+    "whoNeedsBody": "Si bu ta opera un veíkulu komersial y bu meste un lisensa CDL, lei federal ta iziji un sertifikadu médiku DOT válidu. Kel-li ta inklui kondutoris di kamion, kondutoris di otukaru y otus operadoris di veíkulu komersial.",
+    "ctaHeading": "Prontu pa marka bu izami?",
+    "cta": "Marka gósi"
+  },
+  "hormone": {
+    "title": "Terapia hormonal y di vitamina",
+    "credential": "Pa un infermera pratikanti sertifikadu",
+    "subtitle": "Terapia di vitamina IV personalizadu y apoiu hormonal pa restaura ekilíbriu, midjora enerjia y djuda-u sinti bo mé otu bês.",
+    "whatWeOffer": "Kusé ki nu ta oferese",
+    "cards": {
+      "iv": {
+        "title": "Terapia di vitamina IV",
+        "body": "Nutrientis intravenozu personalizadu, entregadu diretu na bu sangi pa un absorson rápidu y kompletu."
+      },
+      "energy": {
+        "title": "Enerjia y rekuperason",
+        "body": "Misturas dirijidu pa apoia enerjia, idratason y rekuperason kandu bu más meste."
+      },
+      "hormoneSupport": {
+        "title": "Apoiu hormonal",
+        "body": "Avaliason y kuidadu pa djuda ku kansera, mudansa di humor y dizikilíbriu hormonal."
+      },
+      "plan": {
+        "title": "Un planu fetu pa bo",
+        "body": "Kada protokolu é fetu na volta di bu análizis, bu sintomas y bu objetivus — nunka un tamanhu pa tudu algen."
+      }
+    },
+    "whoItsFor": "Pa kenha ki é",
+    "whoItsForBody": "Si bu ta sinti kansadu, sen forsa ô sinplismenti ka bo mé, terapia hormonal y di vitamina pode djuda repoi kusé ki bu korpu sta falta. Nu ta kumesa ku un konsulta y, kandu ten sentidu, análizi di laboratóriu — dipôs nu ta faze un planu na bu midida. Sen adivinha, sen preson.",
+    "ctaHeading": "Prontu pa sinti bo mé otu bês?",
+    "cta": "Marka un konsulta"
+  },
+  "aesthetics": {
+    "heroLabel": "Estétika médika",
+    "heroBody": "Botox y preenchimentu dérmiku aplikadu pa un infermera pratikanti sertifikadu. Prisizu. Personalizadu. Ka ten rezultadu fetu na séria.",
+    "heroCta": "Marka un konsulta",
+    "heroSecondary": "Odja tratamentus",
+    "treatmentsLabel": "Kusé ki nu ta oferese",
+    "treatmentsHeading": "Tratamentus ki ta funsiona, sen izajeru.",
+    "treatmentsSub": "Kada tratamentu é personalizadu pa bu anatomia, bu objetivus y bu nível di konfortu. Sen benda forsadu. Sen preson.",
+    "treatments": {
+      "botox": {
+        "tag": "Relaxanti di ruga",
+        "title": "Botox / Dysport",
+        "desc": "Ta suaviza linhas di testa, pé di galinha y linhas di senhu."
+      },
+      "lip": {
+        "tag": "Aumentu di lábiu",
+        "title": "Preenchimentu di lábiu",
+        "desc": "Definison, volumi, ô tudu dos — moldadu pa bu rostu."
+      },
+      "consult": {
+        "tag": "Kuidadu preventivu",
+        "title": "Konsulta + Planu",
+        "desc": "Inda bu ka sta prontu? Un konsulta stétika kompletu pa mapa bu objetivus y define un planu realista."
+      }
+    },
+    "credsLabel": "Pamodi é importanti kenha ki ten agulha na mon",
+    "credsHeading": "Formason médiku. Odju stétiku.",
+    "credsBody1": "Bu infermera pratikanti é sertifikadu, ku formason kliniku na atenson primáriu y na stétika. Kel-li ta siginifika ma el ta ntendi bu anatomia médikamenti — ka sô visualmenti.",
+    "credsBody2": "El sabe kusé ki ta kontise si un preenchimentu é postu fundu dimás. El sabe jeri un negru, un preokupason vaskular ô un rezultadu ki bu ka gosta. É kel-la ki é diferensa.",
+    "credsPill1": "NP sertifikadu",
+    "credsPill2": "Lisensiadu na MA",
+    "faqLabel": "Perguntas frekuenti",
+    "faqHeading": "Kusé ki algen ta pergunta antis di marka.",
+    "faqs": {
+      "hurt": {
+        "q": "Ta doi?",
+        "a": "Botox ta parse un piskadela pikinoti. Pa preenchimentu nu ta aplika antis un krema anestésiku. Maioria di pasientis ta fla ki é un preson lévi, ka é dor."
+      },
+      "time": {
+        "q": "Kantu ténpu ta leba?",
+        "a": "Konsulta di Botox ta leba 20 ti 30 minutu. Di preenchimentu, 30 ti 45 minutu. Konsulta sta inkluídu."
+      },
+      "results": {
+        "q": "Y si N ka gosta di nha rezultadu?",
+        "a": "Botox ta disaparse naturalmenti na 3 ti 4 mês. Preenchimentu di ásidu hialurôniku pode disolvedu na mésmu dia ku un enzima txomadu hialuronidase."
+      },
+      "consult": {
+        "q": "Konsulta é obrigatóriu?",
+        "a": "El sta inkluídu na kada markason. Si bu krê papia di bu objetivus antis di disidi, bu pode marka un konsulta primeru."
+      }
+    },
+    "ctaHeading": "Prontu pa odja diferensa?",
+    "ctaSub": "Sen preson, sen obrigason.",
+    "cta": "Marka un konsulta"
+  },
+  "contact": {
+    "h1Line1": "Bu ka debe ten ki bai lonji pa ser",
+    "h1Em": "tratadu dretu.",
+    "sub": "Nu ta responde déntu di un dia útil. Sen call center, sen resposta automátiku — un profisional di verdadi ki ta konxe bu nómi.",
+    "reachEyebrow": "Kontakta-nu diretamenti",
+    "phoneLabel": "Telefoni",
+    "phoneNote": "Sig – Ses, 9am – 5pm",
+    "emailLabel": "Email",
+    "emailNote": "Resposta déntu di 1 dia útil",
+    "locationLabel": "Lokalizason",
+    "locationValue": "Área di Gran Brockton, MA",
+    "locationNote": "Enderesu ta konfirmadu na markason",
+    "quote": "Kada pasienti meresi mésmu kualidadi di kuidadu — ka importa undi ki el ta mora ô kantu lonji ki el pode bai.",
+    "formEyebrow": "Pidi un konsulta",
+    "formHeading": "Fla-nu modi ki nu pode djuda-u.",
+    "firstName": "Nómi",
+    "lastName": "Apelidu",
+    "email": "Email",
+    "phone": "Telefoni",
+    "interestLabel": "N sta interesadu na",
+    "interestPlaceholder": "— skodje un opson —",
+    "interestAesthetics": "Estétika — Botox / Preenchimentu",
+    "interestWeightLoss": "Perda di pezu médiku",
+    "interestDot": "Izami médiku DOT",
+    "interestWellness": "Atenson primáriu / Bem-star",
+    "interestUnsure": "Inda N ka sabe — nu papia",
+    "messageLabel": "Kualker kusa ki bu krê fla-nu",
+    "messagePlaceholder": "Perguntas, preokupason, ô sinplismenti modi ki bu odja-nu...",
+    "submit": "Manda mensaji →",
+    "privacyNote": "Bu informason ta fika privadu. Sénpri.",
+    "hoursLabel": "Oráriu",
+    "hoursValue": "Sig – Ses, 9am – 5pm",
+    "hoursSub": "Disponibilidadi na fin di sumana ta ben logu",
+    "responseLabel": "Ténpu di resposta",
+    "responseValue": "Déntu di 1 dia útil",
+    "responseSub": "Sen resposta automátiku",
+    "apptLabel": "Markason",
+    "apptValue": "Sô ku konsulta",
+    "apptSub": "Pa gósi nu ka ta atende sen markason"
+  },
+  "about": {
+    "label": "Konxe bu spesialista",
+    "credsText": "Infermera pratikanti sertifikadu · DOT di Massachusetts · Sertifikadu NRCME",
+    "bioPlaceholder": "[Biografia di profisional ta ben logu]",
+    "weGetIt": "Nu ta ntende.",
+    "weGetItBody": "Perde pezu pode parse pizadu dimás — sobretudu kandu bu dja tenta txeu kusa sen susesu duraduru. Nos abordaji ta kumesa ku bu spiriénsia. Nu ta junta orientason médiku ku un apoiu sinseru y konstanti, fetu na volta di bu vida, pa progresu sinti realista y sustentável.",
+    "approach": "Nos abordaji",
+    "approachBody1": "Désdi bu primeru vizita, bu ta ten un profisional, un planu y un kaminhu klaru. Nu ka ta kore. Nu ka ta adivinha. Nu ta obi, nu ta splika, y nu ta konstrui bu kuidadu na volta di kusé ki ta funsiona di verdadi pa bo.",
+    "approachBody2": "Nos atenson ta bai pa lá di tratamentus — é sobri djuda-u sinti restauradu, ku más enerjia y más konfiansa na bu dia a dia.",
+    "cred1Title": "NP sertifikadu",
+    "cred1Sub": "Infermera pratikanti",
+    "cred2Title": "Lisensiadu na MA",
+    "cred2Sub": "Autoridadi plenu di prátika",
+    "cred3Title": "Sertifikadu NRCME",
+    "cred3Sub": "Izami médiku DOT",
+    "cta": "Marka un konsulta"
   }
 }

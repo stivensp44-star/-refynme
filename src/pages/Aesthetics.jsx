@@ -1,45 +1,13 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
 
-const TREATMENTS = [
-  {
-    tag: 'Wrinkle Relaxer',
-    title: 'Botox / Dysport',
-    desc: "Softens forehead lines, crow's feet, and frown lines.",
-  },
-  {
-    tag: 'Lip Enhancement',
-    title: 'Lip Filler',
-    desc: 'Definition, volume, or both — shaped to your face.',
-  },
-  {
-    tag: 'Preventive Care',
-    title: 'Consultation + Plan',
-    desc: 'Not ready to commit? A full aesthetic consultation to map your goals and set a realistic plan.',
-  },
-]
-
-const FAQS = [
-  {
-    q: 'Does it hurt?',
-    a: 'Botox feels like a small pinch. Fillers use a topical numbing cream beforehand. Most patients describe it as mild pressure, not pain.',
-  },
-  {
-    q: 'How long does it take?',
-    a: 'Botox appointments run 20–30 minutes. Filler appointments 30–45 minutes. Consultation included.',
-  },
-  {
-    q: "What if I don't like my results?",
-    a: 'Botox fades naturally in 3–4 months. Hyaluronic acid fillers can be dissolved the same day with an enzyme called hyaluronidase.',
-  },
-  {
-    q: 'Is a consultation required?',
-    a: "It's included with every appointment. If you want to talk through your goals before committing, you can book a consultation first.",
-  },
-]
+const TREATMENT_KEYS = ['botox', 'lip', 'consult']
+const FAQ_KEYS = ['hurt', 'time', 'results', 'consult']
 
 export default function Aesthetics() {
+  const { t } = useTranslation()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -51,15 +19,15 @@ export default function Aesthetics() {
       {/* ── 1. Hero ───────────────────────────────── */}
       <section className="aes-hero">
         <div className="aes-hero__left">
-          <p className="label label--gold">Medical Aesthetics</p>
+          <p className="label label--gold">{t('aesthetics.heroLabel')}</p>
+          {/* Locked brand tagline — stays English in every language */}
           <h1 className="aes-hero__heading">Results you see. Confidence you own.</h1>
           <p className="aes-hero__body">
-            Botox and dermal fillers administered by a board-certified Nurse Practitioner.
-            Precise. Personalized. No cookie-cutter results.
+            {t('aesthetics.heroBody')}
           </p>
           <div className="aes-hero__btns">
-            <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
-            <a href="#treatments" className="btn btn--outline-cream">See Treatments</a>
+            <Link to="/contact" className="btn btn--rose">{t('aesthetics.heroCta')}</Link>
+            <a href="#treatments" className="btn btn--outline-cream">{t('aesthetics.heroSecondary')}</a>
           </div>
         </div>
         <div className="aes-hero__right">
@@ -78,21 +46,20 @@ export default function Aesthetics() {
       <section className="aes-treatments" id="treatments">
         <div className="aes-treatments__inner">
           <div className="aes-section-header">
-            <p className="label label--rose">What we offer</p>
-            <h2 className="aes-h2">Treatments that work without working you over.</h2>
+            <p className="label label--rose">{t('aesthetics.treatmentsLabel')}</p>
+            <h2 className="aes-h2">{t('aesthetics.treatmentsHeading')}</h2>
             <p className="aes-subtext">
-              Every treatment is customized to your anatomy, your goals, and your comfort level.
-              No upselling. No pressure.
+              {t('aesthetics.treatmentsSub')}
             </p>
           </div>
           <div className="aes-cards">
-            {TREATMENTS.map(({ tag, title, desc }) => (
-              <div key={title} className="aes-card">
+            {TREATMENT_KEYS.map((key) => (
+              <div key={key} className="aes-card">
                 <div className="aes-card__placeholder" />
                 <div className="aes-card__content">
-                  <span className="aes-card__tag">{tag}</span>
-                  <h3 className="aes-card__title">{title}</h3>
-                  <p className="aes-card__desc">{desc}</p>
+                  <span className="aes-card__tag">{t(`aesthetics.treatments.${key}.tag`)}</span>
+                  <h3 className="aes-card__title">{t(`aesthetics.treatments.${key}.title`)}</h3>
+                  <p className="aes-card__desc">{t(`aesthetics.treatments.${key}.desc`)}</p>
                 </div>
               </div>
             ))}
@@ -104,8 +71,8 @@ export default function Aesthetics() {
       <section className="aes-creds">
         <div className="aes-creds__inner">
           <div className="aes-section-header aes-section-header--dark">
-            <p className="label label--gold">Why it matters who holds the needle</p>
-            <h2 className="aes-creds__heading">Medical training. Aesthetic eye.</h2>
+            <p className="label label--gold">{t('aesthetics.credsLabel')}</p>
+            <h2 className="aes-creds__heading">{t('aesthetics.credsHeading')}</h2>
           </div>
           <div className="aes-creds__grid">
             <img
@@ -115,16 +82,14 @@ export default function Aesthetics() {
             />
             <div className="aes-creds__content">
               <p className="aes-creds__body">
-                Your NP is board-certified with clinical training across primary care and aesthetics.
-                That means she understands your anatomy medically — not just visually.
+                {t('aesthetics.credsBody1')}
               </p>
               <p className="aes-creds__body">
-                She knows what happens if a filler is placed too deep. She knows how to manage a
-                bruise, a vascular concern, or a result you're not happy with. That's the difference.
+                {t('aesthetics.credsBody2')}
               </p>
               <div className="aes-creds__pills">
-                <span className="aes-creds__pill">NP Board-Certified</span>
-                <span className="aes-creds__pill">MA Licensed</span>
+                <span className="aes-creds__pill">{t('aesthetics.credsPill1')}</span>
+                <span className="aes-creds__pill">{t('aesthetics.credsPill2')}</span>
               </div>
             </div>
           </div>
@@ -135,14 +100,14 @@ export default function Aesthetics() {
       <section className="aes-faq">
         <div className="aes-faq__inner">
           <div className="aes-section-header">
-            <p className="label label--rose">Common questions</p>
-            <h2 className="aes-h2">What people ask before booking.</h2>
+            <p className="label label--rose">{t('aesthetics.faqLabel')}</p>
+            <h2 className="aes-h2">{t('aesthetics.faqHeading')}</h2>
           </div>
           <div className="aes-faq__list">
-            {FAQS.map(({ q, a }) => (
-              <div key={q} className="aes-faq__item">
-                <h3 className="aes-faq__q">{q}</h3>
-                <p className="aes-faq__a">{a}</p>
+            {FAQ_KEYS.map((key) => (
+              <div key={key} className="aes-faq__item">
+                <h3 className="aes-faq__q">{t(`aesthetics.faqs.${key}.q`)}</h3>
+                <p className="aes-faq__a">{t(`aesthetics.faqs.${key}.a`)}</p>
               </div>
             ))}
           </div>
@@ -151,9 +116,9 @@ export default function Aesthetics() {
 
       {/* ── 6. CTA Strip ──────────────────────────── */}
       <section className="aes-cta-strip">
-        <h2 className="aes-cta-strip__heading">Ready to see the difference?</h2>
-        <p className="aes-cta-strip__sub">No pressure, no obligation.</p>
-        <Link to="/contact" className="btn btn--cream-espresso">Book a Consultation</Link>
+        <h2 className="aes-cta-strip__heading">{t('aesthetics.ctaHeading')}</h2>
+        <p className="aes-cta-strip__sub">{t('aesthetics.ctaSub')}</p>
+        <Link to="/contact" className="btn btn--cream-espresso">{t('aesthetics.cta')}</Link>
       </section>
 
       <Footer />
