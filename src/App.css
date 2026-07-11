@@ -3135,3 +3135,87 @@ p {
   .blog-prose ul,
   .blog-prose ol { font-size: 17px; }
 }
+
+
+/* ════════════════════════════════════════════
+   LANGUAGE SWITCHER (i18n Phase 1a) — additive only
+════════════════════════════════════════════ */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-switch__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.75);
+  background: none;
+  border: 1.5px solid rgba(250, 246, 240, 0.6);
+  border-radius: 3px;
+  padding: 6px 10px;
+  min-height: 32px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .lang-switch__pill:hover {
+    color: var(--cream);
+    border-color: var(--cream);
+  }
+}
+.lang-switch__pill:active { transform: scale(0.96); }
+.lang-switch__pill:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.lang-switch__pill--active {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ≤1200px: compact the pills — the nav row (logo + six links + CTA) has no
+   slack, and full-size pills overflow it below ~1110px */
+@media (max-width: 1200px) {
+  .nav__inner .lang-switch { gap: 4px; }
+  .nav__inner .lang-switch__pill {
+    font-size: 10px;
+    padding: 4px 6px;
+    min-height: 28px;
+  }
+}
+
+/* ≤1080px: even compact pills don't fit the fixed 72px row — hide the in-row
+   switcher. ≤768px the homepage hamburger overlay hosts it (44px targets).
+   769–1080px and secondary-page mobile have NO switcher (known Phase 1a gap:
+   PageShell has no hamburger; needs a nav-breakpoint decision from Cous). */
+@media (max-width: 1080px) {
+  .nav__inner .lang-switch { display: none; }
+}
+.lang-switch--overlay {
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.lang-switch--overlay .lang-switch__pill {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+/* Closed mobile overlay: opacity + pointer-events alone leave its controls
+   keyboard-focusable (invisible buttons could change the language). visibility
+   removes them from tab order; the 0.3s delay preserves the fade-out.
+   Appended override — same specificity, later in cascade. */
+.nav__overlay {
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+.nav__overlay--open {
+  visibility: visible;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+}

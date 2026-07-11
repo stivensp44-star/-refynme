@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './App.css'
+import LanguageSwitcher from './components/LanguageSwitcher'
 import About from './pages/About'
 import Services from './pages/Services'
 import WeightLoss from './pages/WeightLoss'
@@ -39,16 +41,18 @@ function useInView(threshold = 0.15) {
 
 /* ── ANNOUNCEMENT BANNER ────────────────────────────────── */
 function Banner() {
+  const { t } = useTranslation()
   return (
     <div className="banner">
-      <span className="banner__text">✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦</span>
-      <Link to="/contact" className="banner__cta">Book Now</Link>
+      <span className="banner__text">{t('home.banner.text')}</span>
+      <Link to="/contact" className="banner__cta">{t('home.banner.cta')}</Link>
     </div>
   )
 }
 
 /* ── NAV ────────────────────────────────────────────────── */
 function Nav() {
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -64,15 +68,16 @@ function Nav() {
     <nav className={`nav${scrolled ? ' nav--solid' : ''}`}>
       <div className={`nav__overlay${menuOpen ? ' nav__overlay--open' : ''}`}>
         <ul className="nav__overlay-links">
-          <li><Link to="/" className="nav__overlay-link" onClick={close}>Home</Link></li>
-          <li><Link to="/about" className="nav__overlay-link" onClick={close}>About</Link></li>
-          <li><Link to="/services" className="nav__overlay-link" onClick={close}>Services</Link></li>
-          <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>Weight Loss</Link></li>
-          <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>Aesthetics</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>DOT Exams</Link></li>
-          <li><Link to="/contact" className="nav__overlay-link" onClick={close}>Contact</Link></li>
+          <li><Link to="/" className="nav__overlay-link" onClick={close}>{t('nav.home')}</Link></li>
+          <li><Link to="/about" className="nav__overlay-link" onClick={close}>{t('nav.about')}</Link></li>
+          <li><Link to="/services" className="nav__overlay-link" onClick={close}>{t('nav.services')}</Link></li>
+          <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>{t('nav.weightLoss')}</Link></li>
+          <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>{t('nav.aesthetics')}</Link></li>
+          <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>{t('nav.dotExams')}</Link></li>
+          <li><Link to="/contact" className="nav__overlay-link" onClick={close}>{t('nav.contact')}</Link></li>
         </ul>
-        <Link to="/contact" className="btn btn--rose nav__overlay-book" onClick={close}>Book Now</Link>
+        <LanguageSwitcher variant="overlay" />
+        <Link to="/contact" className="btn btn--rose nav__overlay-book" onClick={close}>{t('nav.bookNow')}</Link>
       </div>
 
       <div className="nav__inner">
@@ -84,18 +89,19 @@ function Nav() {
           />
         </Link>
         <ul className="nav__links">
-          <li><Link to="/about" className="nav__link">About</Link></li>
-          <li><Link to="/services" className="nav__link">Services</Link></li>
-          <li><Link to="/weight-loss" className="nav__link">Weight Loss</Link></li>
-          <li><Link to="/aesthetics" className="nav__link">Aesthetics</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__link">DOT Exams</Link></li>
-          <li><Link to="/contact" className="nav__link">Contact</Link></li>
+          <li><Link to="/about" className="nav__link">{t('nav.about')}</Link></li>
+          <li><Link to="/services" className="nav__link">{t('nav.services')}</Link></li>
+          <li><Link to="/weight-loss" className="nav__link">{t('nav.weightLoss')}</Link></li>
+          <li><Link to="/aesthetics" className="nav__link">{t('nav.aesthetics')}</Link></li>
+          <li><Link to="/services/dot-exams" className="nav__link">{t('nav.dotExams')}</Link></li>
+          <li><Link to="/contact" className="nav__link">{t('nav.contact')}</Link></li>
         </ul>
-        <Link to="/contact" className="btn btn--rose btn--sm nav__book-desktop">Book Now</Link>
+        <LanguageSwitcher />
+        <Link to="/contact" className="btn btn--rose btn--sm nav__book-desktop">{t('nav.bookNow')}</Link>
         <button
           className="nav__hamburger"
           onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
         >
           {menuOpen ? '✕' : '☰'}
         </button>
@@ -106,36 +112,34 @@ function Nav() {
 
 /* ── HERO ───────────────────────────────────────────────── */
 function Hero() {
+  const { t } = useTranslation()
   return (
     <div className="hero-wrapper">
       <section className="hero">
         {/* LEFT — text content only, no badges */}
         <div className="hero__left">
           <h1 className="hero__heading" style={{ animationDelay: '0.1s' }}>
-            Refined care
+            {t('home.hero.heading1')}
           </h1>
           <h1 className="hero__heading hero__heading--italic" style={{ animationDelay: '0.25s' }}>
-            <em>for the way you want</em>
+            <em>{t('home.hero.heading2')}</em>
           </h1>
           <h1 className="hero__heading" style={{ animationDelay: '0.4s' }}>
-            to look, feel and live.
+            {t('home.hero.heading3')}
           </h1>
 
           <div className="hero__sub-wrap" style={{ animationDelay: '0.55s' }}>
             <p className="hero__sub-heading">
-              Personalized Care for Your Best Health, Energy, and Confidence
+              {t('home.hero.subHeading')}
             </p>
             <p className="hero__sub">
-              At RefynMe Medical Aesthetics and Wellness, every care plan is built around
-              your unique goals — from medical weight management to aesthetic treatments.
-              We combine compassion, clinical expertise, and evidence-based medicine so
-              you can look, feel, and live your best.
+              {t('home.hero.sub')}
             </p>
           </div>
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
-            <Link to="/contact" className="btn btn--rose">Book a Consultation →</Link>
-            <Link to="/services" className="btn btn--outline-cream">Our Services</Link>
+            <Link to="/contact" className="btn btn--rose">{t('home.hero.ctaPrimary')}</Link>
+            <Link to="/services" className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
           </div>
         </div>
 
@@ -152,8 +156,8 @@ function Hero() {
             <div className="hero__badge hero__badge--cert" style={{ animationDelay: '0.9s' }}>
               <div className="hero__badge-icon">✦</div>
               <div>
-                <div className="hero__badge-title">Board-Certified</div>
-                <div className="hero__badge-sub">Nurse Practitioner</div>
+                <div className="hero__badge-title">{t('home.hero.badgeTitle')}</div>
+                <div className="hero__badge-sub">{t('home.hero.badgeSub')}</div>
               </div>
             </div>
           </div>
@@ -165,6 +169,7 @@ function Hero() {
 
 /* ── MISSION STRIP ──────────────────────────────────────── */
 function MissionStrip() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -178,38 +183,36 @@ function MissionStrip() {
         {/* Label row */}
         <div className="mission__label-row">
           <span className="mission__line" />
-          <span className="mission__label-text">Our Mission</span>
+          <span className="mission__label-text">{t('home.mission.label')}</span>
           <span className="mission__line" />
         </div>
 
         {/* Heading */}
         <h2 className="mission__heading">
-          Care that goes{' '}
-          <span className="mission__heading-gold">beyond the treatment.</span>
+          {t('home.mission.heading')}{' '}
+          <span className="mission__heading-gold">{t('home.mission.headingGold')}</span>
         </h2>
 
         {/* Body */}
         <p className="mission__body">
-          We are dedicated to helping patients look, feel, and live their best
-          through individualized, evidence-based care — delivering safe, effective,
-          and compassionate treatment that builds lasting wellness and confidence.
+          {t('home.mission.body')}
         </p>
 
         {/* Stats */}
         <div className="mission__stats">
           <div className="mission__stat">
             <span className="mission__stat-num">100%</span>
-            <span className="mission__stat-label">Personalized</span>
+            <span className="mission__stat-label">{t('home.mission.stat1Label')}</span>
           </div>
           <div className="mission__divider" />
           <div className="mission__stat">
             <span className="mission__stat-num">NP</span>
-            <span className="mission__stat-label">Board-Certified</span>
+            <span className="mission__stat-label">{t('home.mission.stat2Label')}</span>
           </div>
           <div className="mission__divider" />
           <div className="mission__stat">
             <span className="mission__stat-num">MA</span>
-            <span className="mission__stat-label">Licensed</span>
+            <span className="mission__stat-label">{t('home.mission.stat3Label')}</span>
           </div>
         </div>
       </div>
@@ -219,6 +222,7 @@ function MissionStrip() {
 
 /* ── TRUST BUILDER ──────────────────────────────────────── */
 function Trust() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -233,7 +237,7 @@ function Trust() {
           <div className="trust__img-placeholder">
             <div className="trust__years-card">
               <span className="trust__years-num">20+</span>
-              <span className="trust__years-label">years in the healthcare industry serving the community</span>
+              <span className="trust__years-label">{t('home.trust.yearsLabel')}</span>
             </div>
           </div>
         </div>
@@ -242,32 +246,24 @@ function Trust() {
       <div className="trust__right">
         <div className="section-label">
           <span className="section-label__line" />
-          <span className="label label--gold">Meet Your Provider</span>
+          <span className="label label--gold">{t('home.trust.label')}</span>
         </div>
         <h2 className="trust__heading">
-          Expert care.<br />
-          Finally close to <em className="italic-rose">home.</em>
+          {t('home.trust.heading1')}<br />
+          {t('home.trust.heading2')} <em className="italic-rose">{t('home.trust.headingEm')}</em>
         </h2>
         <p className="trust__body">
-          As a board-certified Nurse Practitioner rooted right here in Brockton,
-          I combine clinical precision with genuine community care. You're not a
-          number — you're a neighbor. And you deserve a provider who treats you
-          that way.
+          {t('home.trust.body')}
         </p>
         <ul className="trust__creds">
-          {[
-            'Board-Certified Nurse Practitioner (NP-BC)',
-            'Specialized training in medical weight management',
-            'Advanced aesthetic injector — Botox & fillers',
-            'Brockton resident & community advocate',
-          ].map((cred) => (
-            <li key={cred} className="trust__cred">
+          {['cred1', 'cred2', 'cred3', 'cred4'].map((credKey) => (
+            <li key={credKey} className="trust__cred">
               <span className="trust__diamond">✦</span>
-              {cred}
+              {t(`home.trust.${credKey}`)}
             </li>
           ))}
         </ul>
-        <Link to="/about" className="btn btn--rose">Read My Full Story →</Link>
+        <Link to="/about" className="btn btn--rose">{t('home.trust.cta')}</Link>
       </div>
     </section>
   )
@@ -275,6 +271,7 @@ function Trust() {
 
 /* ── COVERAGE SIGNAL ────────────────────────────────────── */
 function CoverageSignal() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
   const towns = [
     'Brockton',
@@ -287,7 +284,7 @@ function CoverageSignal() {
     <div className={`coverage fade-up${inView ? ' in-view' : ''}`} ref={ref}>
       <div className="coverage__inner">
         <p className="coverage__label">
-          Care that comes to the South Shore.
+          {t('home.coverage.label')}
         </p>
         <div className="coverage__towns">
           {towns.map((town) => (
@@ -297,7 +294,7 @@ function CoverageSignal() {
           ))}
         </div>
         <Link to="/contact" className="coverage__link">
-          See if we serve your area →
+          {t('home.coverage.link')}
         </Link>
       </div>
     </div>
@@ -306,6 +303,7 @@ function CoverageSignal() {
 
 /* ── SERVICES ───────────────────────────────────────────── */
 function ServicesPanels() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -314,40 +312,38 @@ function ServicesPanels() {
       <div className="services__header">
         <div className="services__header-label">
           <span className="services__header-line" />
-          <span className="label label--gold">What We Offer</span>
+          <span className="label label--gold">{t('home.services.label')}</span>
           <span className="services__header-line" />
         </div>
         {/* FIX 9 — italic gold 'RefynMe.' */}
         <h2 className="services__heading">
-          Two ways to <em className="services__heading-gold">RefynMe.</em>
+          {t('home.services.heading')} <em className="services__heading-gold">{t('home.services.headingBrand')}</em>
         </h2>
       </div>
 
       {/* Panel 1 — Weight Loss */}
       <div className="panel panel--dark">
         <div className="panel__content">
-          <span className="label label--gold label--sm">01 — Medical Weight Loss</span>
-          <h3 className="panel__heading">Real results.<br />Real medicine.</h3>
+          <span className="label label--gold label--sm">{t('home.services.panel1.label')}</span>
+          <h3 className="panel__heading">{t('home.services.panel1.heading1')}<br />{t('home.services.panel1.heading2')}</h3>
           {/* FIX 12 */}
           <p className="panel__body">
-            Clinically prescribed programs built for your body and your life.
-            GLP-1 injections, oral medications, and personalized dietary guidance —
-            supervised by a medical professional who actually knows your name.
+            {t('home.services.panel1.body')}
           </p>
           <ul className="panel__tags">
-            {['GLP-1 Injections', 'Oral Medications', 'Dietary Guidance', 'Ongoing Support'].map(
-              (tag) => (
-                <li key={tag} className="panel__tag panel__tag--gold">{tag}</li>
+            {['tag1', 'tag2', 'tag3', 'tag4'].map(
+              (tagKey) => (
+                <li key={tagKey} className="panel__tag panel__tag--gold">{t(`home.services.panel1.${tagKey}`)}</li>
               )
             )}
           </ul>
-          <Link to="/weight-loss" className="btn btn--rose btn--panel">Explore Weight Loss →</Link>
+          <Link to="/weight-loss" className="btn btn--rose btn--panel">{t('home.services.panel1.cta')}</Link>
         </div>
         <div className="panel__media">
           <div className="panel__photo panel__photo--dark">
             <span className="panel__photo-label">Weight Loss Photo</span>
           </div>
-          <div className="panel__badge panel__badge--dark">Medically Prescribed</div>
+          <div className="panel__badge panel__badge--dark">{t('home.services.panel1.badge')}</div>
         </div>
       </div>
 
@@ -357,25 +353,23 @@ function ServicesPanels() {
           <div className="panel__photo panel__photo--cream">
             <span className="panel__photo-label">Before / After Photo</span>
           </div>
-          <div className="panel__badge panel__badge--white">Natural Results</div>
+          <div className="panel__badge panel__badge--white">{t('home.services.panel2.badge')}</div>
         </div>
         <div className="panel__content panel__content--white">
-          <span className="label label--rose label--sm">02 — Aesthetic Services</span>
+          <span className="label label--rose label--sm">{t('home.services.panel2.label')}</span>
           {/* FIX 13 */}
           <h3 className="panel__heading panel__heading--dark">
-            Look like yourself.<br />Only more you.
+            {t('home.services.panel2.heading1')}<br />{t('home.services.panel2.heading2')}
           </h3>
           <p className="panel__body panel__body--dark">
-            Botox, dermal fillers, and aesthetic treatments administered by a
-            board-certified NP. Not a technician with a certificate. A medical
-            professional who understands anatomy.
+            {t('home.services.panel2.body')}
           </p>
           <ul className="panel__tags">
-            {['Botox', 'Dermal Fillers', 'Lip Enhancement', 'Jawline Sculpting'].map((tag) => (
-              <li key={tag} className="panel__tag panel__tag--rose">{tag}</li>
+            {['tag1', 'tag2', 'tag3', 'tag4'].map((tagKey) => (
+              <li key={tagKey} className="panel__tag panel__tag--rose">{t(`home.services.panel2.${tagKey}`)}</li>
             ))}
           </ul>
-          <Link to="/aesthetics" className="btn btn--rose btn--panel">Explore Aesthetics →</Link>
+          <Link to="/aesthetics" className="btn btn--rose btn--panel">{t('home.services.panel2.cta')}</Link>
         </div>
       </div>
     </section>
@@ -385,32 +379,27 @@ function ServicesPanels() {
 /* ── TESTIMONIALS ───────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    quote:
-      'I had been trying to lose weight for three years. She actually looked at my labs, asked about my life, and built a plan for me. I have lost 24 lbs and I finally feel like myself again.',
+    key: 'maria',
     name: 'Maria T.',
     city: 'Brockton',
-    service: 'Weight Loss',
     tagStyle: 'tcard__tag--gold',
   },
   {
-    quote:
-      'I was nervous about Botox but she made me feel so comfortable. She explained every step and the results are so natural. My coworkers keep asking what I am doing differently.',
+    key: 'keisha',
     name: 'Keisha M.',
     city: 'Brockton',
-    service: 'Aesthetics',
     tagStyle: 'tcard__tag--rose',
   },
   {
-    quote:
-      'Finally a provider who understands my skin tone and treats me like a person. Her medical background shows in everything she does. I will not go anywhere else.',
+    key: 'sandra',
     name: 'Sandra R.',
     city: 'Stoughton',
-    service: 'Aesthetics',
     tagStyle: 'tcard__tag--rose',
   },
 ]
 
 function Testimonials() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -418,24 +407,24 @@ function Testimonials() {
       <div className="testimonials__inner">
         <div className="section-label section-label--center">
           <span className="section-label__line" />
-          <span className="label label--gold">Patient Stories</span>
+          <span className="label label--gold">{t('home.testimonials.label')}</span>
           <span className="section-label__line" />
         </div>
-        <h2 className="testimonials__heading">Real results. Real people.</h2>
+        <h2 className="testimonials__heading">{t('home.testimonials.heading')}</h2>
 
         <div className="testimonials__grid">
-          {TESTIMONIALS.map((t) => (
-            <div key={t.name} className="tcard">
+          {TESTIMONIALS.map((card) => (
+            <div key={card.name} className="tcard">
               <div className="tcard__stars">★★★★★</div>
               <p className="tcard__quote">
-                <em>"{t.quote}"</em>
+                <em>"{t(`home.testimonials.${card.key}.quote`)}"</em>
               </p>
               <div className="tcard__footer">
                 <div>
-                  <div className="tcard__name">{t.name}</div>
-                  <div className="tcard__city">{t.city}</div>
+                  <div className="tcard__name">{card.name}</div>
+                  <div className="tcard__city">{card.city}</div>
                 </div>
-                <span className={`tcard__tag ${t.tagStyle}`}>{t.service}</span>
+                <span className={`tcard__tag ${card.tagStyle}`}>{t(`home.testimonials.${card.key}.service`)}</span>
               </div>
             </div>
           ))}
@@ -447,6 +436,7 @@ function Testimonials() {
 
 /* ── BROCKTON SIGNAL ────────────────────────────────────── */
 function BrocktonSignal() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -458,20 +448,16 @@ function BrocktonSignal() {
       <div className="signal__content">
         <div className="section-label section-label--center">
           <span className="section-label__line" />
-          <span className="label label--gold">For Our Community</span>
+          <span className="label label--gold">{t('home.signal.label')}</span>
           <span className="section-label__line" />
         </div>
         <h2 className="signal__heading">
-          South Shore<br />
-          <em className="signal__italic">deserves this.</em>
+          {t('home.signal.heading')}<br />
+          <em className="signal__italic">{t('home.signal.headingEm')}</em>
         </h2>
         {/* FIX 14 */}
         <p className="signal__body">
-          For too long, women across the South Shore have driven to
-          Boston or Providence for care that should exist right here.
-          Brockton. Stoughton. Easton. Bridgewater. You shouldn't
-          have to travel an hour to see a provider who actually sees
-          you. RefynMe was built so you don't have to.
+          {t('home.signal.body')}
         </p>
       </div>
     </section>
@@ -480,6 +466,7 @@ function BrocktonSignal() {
 
 /* ── FINAL CTA + FOOTER ─────────────────────────────────── */
 function CtaFooter() {
+  const { t } = useTranslation()
   const [ref, inView] = useInView()
 
   return (
@@ -488,18 +475,18 @@ function CtaFooter() {
       <section className={`cta-section fade-up${inView ? ' in-view' : ''}`} ref={ref}>
         <div className="cta-box">
           <div className="cta-box__left">
-            <span className="label label--gold">Start Today</span>
+            <span className="label label--gold">{t('home.cta.label')}</span>
             <h2 className="cta-box__heading">
-              Ready to start?<br />
-              <em className="cta-box__italic">We are ready for you.</em>
+              {t('home.cta.heading')}<br />
+              <em className="cta-box__italic">{t('home.cta.headingEm')}</em>
             </h2>
             <p className="cta-box__sub">
-              Book a consultation. No pressure. No commitment.
+              {t('home.cta.sub')}
             </p>
           </div>
           <div className="cta-box__right">
-            <Link to="/contact" className="btn btn--rose btn--lg">Book a Consultation →</Link>
-            <p className="cta-box__phone">Or call us: 774-312-9806</p>
+            <Link to="/contact" className="btn btn--rose btn--lg">{t('home.cta.button')}</Link>
+            <p className="cta-box__phone">{t('home.cta.phonePrefix')} 774-312-9806</p>
           </div>
         </div>
       </section>
@@ -523,38 +510,38 @@ function CtaFooter() {
           </div>
 
           <div className="footer__col">
-            <h4 className="footer__col-title">Services</h4>
+            <h4 className="footer__col-title">{t('footer.servicesTitle')}</h4>
             <ul className="footer__nav">
-              {[['Medical Weight Loss', '/weight-loss'], ['GLP-1 Injections', '/weight-loss'], ['Botox', '/aesthetics'], ['Dermal Fillers', '/aesthetics'], ['Lip Enhancement', '/aesthetics'], ['Jawline Sculpting', '/aesthetics']].map(([label, path]) => (
-                <li key={label}><Link to={path} className="footer__nav-link">{label}</Link></li>
+              {[['medicalWeightLoss', '/weight-loss'], ['glp1Injections', '/weight-loss'], ['botox', '/aesthetics'], ['dermalFillers', '/aesthetics'], ['lipEnhancement', '/aesthetics'], ['jawlineSculpting', '/aesthetics']].map(([labelKey, path]) => (
+                <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
               ))}
             </ul>
           </div>
 
           <div className="footer__col">
-            <h4 className="footer__col-title">Company</h4>
+            <h4 className="footer__col-title">{t('footer.companyTitle')}</h4>
             <ul className="footer__nav">
-              {[['About Us', '/about'], ['Our Provider', '/about'], ['Patient Stories', '/about'], ['Blog', '/blog'], ['FAQ', '/about'], ['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms']].map(([label, path]) => (
-                <li key={label}><Link to={path} className="footer__nav-link">{label}</Link></li>
+              {[['aboutUs', '/about'], ['ourProvider', '/about'], ['patientStories', '/about'], ['blog', '/blog'], ['faq', '/about'], ['privacyPolicy', '/privacy-policy'], ['terms', '/terms']].map(([labelKey, path]) => (
+                <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
               ))}
             </ul>
           </div>
 
           <div className="footer__col">
-            <h4 className="footer__col-title">Contact</h4>
+            <h4 className="footer__col-title">{t('footer.contactTitle')}</h4>
             <ul className="footer__nav footer__nav--contact">
-              <li>Brockton, Massachusetts</li>
+              <li>{t('footer.contact.location')}</li>
               <li>774-312-9806</li>
               <li>refynmemedical@gmail.com</li>
-              <li>Mon–Fri: 9am – 6pm</li>
+              <li>{t('footer.contact.hours')}</li>
             </ul>
           </div>
         </div>
 
         <div className="footer__bar">
-          <p className="footer__copy">© 2026 RefynMe. All rights reserved.</p>
+          <p className="footer__copy">{t('footer.copyright')}</p>
           <p className="footer__bar-tagline">
-            <em>Because you deserve care that gets you.</em>
+            <em>{t('footer.barTagline')}</em>
           </p>
         </div>
       </footer>
