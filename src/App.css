@@ -3177,9 +3177,22 @@ p {
   border-color: var(--gold);
 }
 
-/* Mobile: the desktop nav switcher hides; the homepage switcher lives in the
-   hamburger overlay (44px touch targets) */
-@media (max-width: 768px) {
+/* ≤1200px: compact the pills — the nav row (logo + six links + CTA) has no
+   slack, and full-size pills overflow it below ~1110px */
+@media (max-width: 1200px) {
+  .nav__inner .lang-switch { gap: 4px; }
+  .nav__inner .lang-switch__pill {
+    font-size: 10px;
+    padding: 4px 6px;
+    min-height: 28px;
+  }
+}
+
+/* ≤1080px: even compact pills don't fit the fixed 72px row — hide the in-row
+   switcher. ≤768px the homepage hamburger overlay hosts it (44px targets).
+   769–1080px and secondary-page mobile have NO switcher (known Phase 1a gap:
+   PageShell has no hamburger; needs a nav-breakpoint decision from Cous). */
+@media (max-width: 1080px) {
   .nav__inner .lang-switch { display: none; }
 }
 .lang-switch--overlay {
@@ -3192,4 +3205,17 @@ p {
   min-width: 44px;
   padding: 0 16px;
   font-size: 13px;
+}
+
+/* Closed mobile overlay: opacity + pointer-events alone leave its controls
+   keyboard-focusable (invisible buttons could change the language). visibility
+   removes them from tab order; the 0.3s delay preserves the fade-out.
+   Appended override — same specificity, later in cascade. */
+.nav__overlay {
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+.nav__overlay--open {
+  visibility: visible;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
 }

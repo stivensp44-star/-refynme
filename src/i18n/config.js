@@ -32,4 +32,14 @@ i18n
     },
   })
 
+/* Keep <html lang> in sync with the active language (screen readers,
+   browser auto-translate). index.html ships lang="en". */
+const applyHtmlLang = () => {
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = i18n.resolvedLanguage || i18n.language || 'en'
+  }
+}
+i18n.on('languageChanged', applyHtmlLang)
+applyHtmlLang()
+
 export default i18n
