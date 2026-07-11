@@ -1,143 +1,143 @@
 {
-  "_status": "PLACEHOLDER — awaiting reviewed translations",
+  "_status": "DRAFT — machine translation, pending native review (banned-word constraint applied 2026-07-11)",
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "weightLoss": "Weight Loss",
-    "aesthetics": "Aesthetics",
-    "dotExams": "DOT Exams",
-    "contact": "Contact",
-    "bookNow": "Book Now",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "weightLoss": "Pérdida de peso",
+    "aesthetics": "Estética",
+    "dotExams": "Exámenes DOT",
+    "contact": "Contacto",
+    "bookNow": "Reservar",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú"
   },
   "footer": {
-    "servicesTitle": "Services",
-    "companyTitle": "Company",
-    "contactTitle": "Contact",
+    "servicesTitle": "Servicios",
+    "companyTitle": "La clínica",
+    "contactTitle": "Contacto",
     "links": {
-      "medicalWeightLoss": "Medical Weight Loss",
-      "glp1Injections": "GLP-1 Injections",
+      "medicalWeightLoss": "Pérdida de peso médica",
+      "glp1Injections": "Inyecciones GLP-1",
       "botox": "Botox",
-      "dermalFillers": "Dermal Fillers",
-      "lipEnhancement": "Lip Enhancement",
-      "jawlineSculpting": "Jawline Sculpting",
-      "aboutUs": "About Us",
-      "ourProvider": "Our Provider",
-      "patientStories": "Patient Stories",
+      "dermalFillers": "Rellenos dérmicos",
+      "lipEnhancement": "Aumento de labios",
+      "jawlineSculpting": "Perfilado de mandíbula",
+      "aboutUs": "Sobre nosotros",
+      "ourProvider": "Nuestra especialista",
+      "patientStories": "Historias de pacientes",
       "blog": "Blog",
-      "faq": "FAQ",
-      "privacyPolicy": "Privacy Policy",
-      "terms": "Terms & Conditions"
+      "faq": "Preguntas frecuentes",
+      "privacyPolicy": "Política de privacidad",
+      "terms": "Términos y condiciones"
     },
     "contact": {
       "location": "Brockton, Massachusetts",
-      "hours": "Mon–Fri: 9am – 6pm"
+      "hours": "Lun–Vie: 9am – 6pm"
     },
-    "copyright": "© 2026 RefynMe. All rights reserved.",
-    "barTagline": "Because you deserve care that gets you."
+    "copyright": "© 2026 RefynMe. Todos los derechos reservados.",
+    "barTagline": "Porque mereces una atención que te entiende."
   },
   "home": {
     "banner": {
-      "text": "✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦",
-      "cta": "Book Now"
+      "text": "✦ SITIO WEB MUY PRONTO — RESERVAS ABIERTAS ✦",
+      "cta": "Reservar"
     },
     "hero": {
-      "heading1": "Refined care",
-      "heading2": "for the way you want",
-      "heading3": "to look, feel and live.",
-      "subHeading": "Personalized Care for Your Best Health, Energy, and Confidence",
-      "sub": "At RefynMe Medical Aesthetics and Wellness, every care plan is built around your unique goals — from medical weight management to aesthetic treatments. We combine compassion, clinical expertise, and evidence-based medicine so you can look, feel, and live your best.",
-      "ctaPrimary": "Book a Consultation →",
-      "ctaSecondary": "Our Services",
-      "badgeTitle": "Board-Certified",
-      "badgeSub": "Nurse Practitioner"
+      "heading1": "Cuidado refinado",
+      "heading2": "para la imagen, la energía",
+      "heading3": "y la vida que tú quieres.",
+      "subHeading": "Cuidado personalizado para tu mejor salud, energía y confianza",
+      "sub": "En RefynMe Medical Aesthetics and Wellness, cada plan de cuidado se construye alrededor de tus metas — desde el control médico del peso hasta los tratamientos estéticos. Combinamos compasión, experiencia clínica y medicina basada en evidencia para que te veas, te sientas y vivas mejor que nunca.",
+      "ctaPrimary": "Reserva una consulta →",
+      "ctaSecondary": "Nuestros servicios",
+      "badgeTitle": "Certificada",
+      "badgeSub": "Enfermera practicante"
     },
     "mission": {
-      "label": "Our Mission",
-      "heading": "Care that goes",
-      "headingGold": "beyond the treatment.",
-      "body": "We are dedicated to helping patients look, feel, and live their best through individualized, evidence-based care — delivering safe, effective, and compassionate treatment that builds lasting wellness and confidence.",
-      "stat1Label": "Personalized",
-      "stat2Label": "Board-Certified",
-      "stat3Label": "Licensed"
+      "label": "Nuestra misión",
+      "heading": "Un cuidado que va",
+      "headingGold": "más allá del tratamiento.",
+      "body": "Nos dedicamos a ayudar a cada paciente a verse, sentirse y vivir mejor con un cuidado individualizado y basado en evidencia — tratamientos seguros, eficaces y compasivos que construyen bienestar y confianza duraderos.",
+      "stat1Label": "Personalizado",
+      "stat2Label": "Certificada",
+      "stat3Label": "Licenciada"
     },
     "trust": {
-      "yearsLabel": "years in the healthcare industry serving the community",
-      "label": "Meet Your Provider",
-      "heading1": "Expert care.",
-      "heading2": "Finally close to",
-      "headingEm": "home.",
-      "body": "As a board-certified Nurse Practitioner rooted right here in Brockton, I combine clinical precision with genuine community care. You're not a number — you're a neighbor. And you deserve a provider who treats you that way.",
-      "cred1": "Board-Certified Nurse Practitioner (NP-BC)",
-      "cred2": "Specialized training in medical weight management",
-      "cred3": "Advanced aesthetic injector — Botox & fillers",
-      "cred4": "Brockton resident & community advocate",
-      "cta": "Read My Full Story →"
+      "yearsLabel": "años en el sector de la salud sirviendo a la comunidad",
+      "label": "Conoce a tu especialista",
+      "heading1": "Cuidado experto.",
+      "heading2": "Por fin cerca de",
+      "headingEm": "casa.",
+      "body": "Como enfermera practicante certificada, con raíces aquí en Brockton, combino precisión clínica con un cuidado comunitario genuino. No eres un número — eres una vecina. Y mereces una especialista que te trate así.",
+      "cred1": "Enfermera practicante certificada (NP-BC)",
+      "cred2": "Formación especializada en control médico del peso",
+      "cred3": "Inyectora estética avanzada — Botox y rellenos",
+      "cred4": "Residente de Brockton y defensora de la comunidad",
+      "cta": "Lee mi historia →"
     },
     "coverage": {
-      "label": "Care that comes to the South Shore.",
-      "link": "See if we serve your area →"
+      "label": "Cuidado que llega al South Shore.",
+      "link": "Mira si atendemos tu zona →"
     },
     "services": {
-      "label": "What We Offer",
-      "heading": "Two ways to",
+      "label": "Lo que ofrecemos",
+      "heading": "Dos maneras de",
       "headingBrand": "RefynMe.",
       "panel1": {
-        "label": "01 — Medical Weight Loss",
-        "heading1": "Real results.",
-        "heading2": "Real medicine.",
-        "body": "Clinically prescribed programs built for your body and your life. GLP-1 injections, oral medications, and personalized dietary guidance — supervised by a medical professional who actually knows your name.",
-        "tag1": "GLP-1 Injections",
-        "tag2": "Oral Medications",
-        "tag3": "Dietary Guidance",
-        "tag4": "Ongoing Support",
-        "cta": "Explore Weight Loss →",
-        "badge": "Medically Prescribed"
+        "label": "01 — Pérdida de peso médica",
+        "heading1": "Resultados reales.",
+        "heading2": "Medicina real.",
+        "body": "Programas prescritos clínicamente, hechos para tu cuerpo y tu vida. Inyecciones GLP-1, medicamentos orales y orientación alimentaria personalizada — supervisados por una profesional médica que de verdad sabe tu nombre.",
+        "tag1": "Inyecciones GLP-1",
+        "tag2": "Medicamentos orales",
+        "tag3": "Orientación alimentaria",
+        "tag4": "Apoyo continuo",
+        "cta": "Explora pérdida de peso →",
+        "badge": "Prescrito médicamente"
       },
       "panel2": {
-        "label": "02 — Aesthetic Services",
-        "heading1": "Look like yourself.",
-        "heading2": "Only more you.",
-        "body": "Botox, dermal fillers, and aesthetic treatments administered by a board-certified NP. Not a technician with a certificate. A medical professional who understands anatomy.",
+        "label": "02 — Servicios estéticos",
+        "heading1": "Sigue siendo tú.",
+        "heading2": "Solo que más tú.",
+        "body": "Botox, rellenos dérmicos y tratamientos estéticos administrados por una enfermera practicante certificada. No una técnica con un certificado. Una profesional médica que entiende la anatomía.",
         "tag1": "Botox",
-        "tag2": "Dermal Fillers",
-        "tag3": "Lip Enhancement",
-        "tag4": "Jawline Sculpting",
-        "cta": "Explore Aesthetics →",
-        "badge": "Natural Results"
+        "tag2": "Rellenos dérmicos",
+        "tag3": "Aumento de labios",
+        "tag4": "Perfilado de mandíbula",
+        "cta": "Explora estética →",
+        "badge": "Resultados naturales"
       }
     },
     "testimonials": {
-      "label": "Patient Stories",
-      "heading": "Real results. Real people.",
+      "label": "Historias de pacientes",
+      "heading": "Resultados reales. Personas reales.",
       "maria": {
-        "quote": "I had been trying to lose weight for three years. She actually looked at my labs, asked about my life, and built a plan for me. I have lost 24 lbs and I finally feel like myself again.",
-        "service": "Weight Loss"
+        "quote": "Llevaba tres años intentando bajar de peso. Ella de verdad revisó mis análisis, me preguntó por mi vida y armó un plan para mí. He bajado 24 libras y por fin me siento yo misma otra vez.",
+        "service": "Pérdida de peso"
       },
       "keisha": {
-        "quote": "I was nervous about Botox but she made me feel so comfortable. She explained every step and the results are so natural. My coworkers keep asking what I am doing differently.",
-        "service": "Aesthetics"
+        "quote": "Estaba nerviosa por el Botox, pero ella me hizo sentir muy cómoda. Me explicó cada paso y los resultados son muy naturales. Mis compañeras de trabajo no dejan de preguntarme qué estoy haciendo diferente.",
+        "service": "Estética"
       },
       "sandra": {
-        "quote": "Finally a provider who understands my skin tone and treats me like a person. Her medical background shows in everything she does. I will not go anywhere else.",
-        "service": "Aesthetics"
+        "quote": "Por fin una especialista que entiende mi tono de piel y me trata como persona. Su formación médica se nota en todo lo que hace. No pienso ir a ningún otro lugar.",
+        "service": "Estética"
       }
     },
     "signal": {
-      "label": "For Our Community",
+      "label": "Para nuestra comunidad",
       "heading": "South Shore",
-      "headingEm": "deserves this.",
-      "body": "For too long, women across the South Shore have driven to Boston or Providence for care that should exist right here. Brockton. Stoughton. Easton. Bridgewater. You shouldn't have to travel an hour to see a provider who actually sees you. RefynMe was built so you don't have to."
+      "headingEm": "merece esto.",
+      "body": "Por demasiado tiempo, las mujeres del South Shore han manejado hasta Boston o Providence por un cuidado que debería existir aquí mismo. Brockton. Stoughton. Easton. Bridgewater. No deberías tener que hacer una hora de camino para ver a una especialista que de verdad te ve. RefynMe se creó para que no tengas que hacerlo."
     },
     "cta": {
-      "label": "Start Today",
-      "heading": "Ready to start?",
-      "headingEm": "We are ready for you.",
-      "sub": "Book a consultation. No pressure. No commitment.",
-      "button": "Book a Consultation →",
-      "phonePrefix": "Or call us:"
+      "label": "Empieza hoy",
+      "heading": "¿Lista para empezar?",
+      "headingEm": "Te estamos esperando.",
+      "sub": "Reserva una consulta. Sin presión. Sin compromiso.",
+      "button": "Reserva una consulta →",
+      "phonePrefix": "O llámanos:"
     }
   }
 }
