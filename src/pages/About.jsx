@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
 
 export default function About() {
+  const { t } = useTranslation()
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
@@ -14,29 +16,19 @@ export default function About() {
         <div className="about-section__inner">
           {/* PROVIDER PHOTO: pending professional shots */}
           <h1 className="about-heading">
-            The best care she ever gave started with an explanation.
+            {t('about.h1')}
           </h1>
           <p className="about-body">
-            Twenty years in healthcare teaches you what actually changes people.
-            It's rarely the prescription. It's the moment a patient finally
-            understands her own body — what the number means, why the medication
-            works, what happens next. Mydwine has built her career on that moment.
+            {t('about.intro1')}
           </p>
           <p className="about-body">
-            Since 2005, from the nursing floor to board-certified Nurse
-            Practitioner, she's practiced one way: evidence first, education
-            always. Because a patient who understands her plan follows it. A
-            patient who's handed a plan she doesn't understand abandons it in the
-            parking lot.
+            {t('about.intro2')}
           </p>
           <p className="about-body">
-            And somewhere in those two decades, she noticed what understanding
-            does to a person. They sit differently. They ask better questions.
-            They stop apologizing for being in the room.
+            {t('about.intro3')}
           </p>
           <p className="about-pull">
-            That's confidence. It was never separate from health. It's what
-            health looks like when it's done properly.
+            {t('about.pull')}
           </p>
         </div>
       </section>
@@ -45,32 +37,19 @@ export default function About() {
       <section className="about-section about-section--alt">
         <div className="about-section__inner">
           <h2 className="about-heading">
-            RefynMe is that philosophy, given an address.
+            {t('about.philHeading')}
           </h2>
           <p className="about-body">
-            Here, weight loss is not a handout and a hope. It's medically
-            supervised — GLP-1 therapy where it's appropriate, labs that get
-            read, follow-ups that actually follow up — and at every step you'll
-            know <em>why</em>: why this dose, why this pace, why your energy is
-            returning along with your shape.
+            {t('about.phil1Before')}<em>{t('about.phil1Em')}</em>{t('about.phil1After')}
           </p>
           <p className="about-body">
-            Here, aesthetics is a clinical skill, not a sales pitch. Botox,
-            Dysport, and dermal fillers placed by a provider who spent twenty
-            years studying faces for what they reveal about health before she
-            ever refined one. She'll tell you what will work, what won't, and
-            what you don't need — then you decide. You leave looking like
-            yourself on your best day. That's the standard.
+            {t('about.phil2')}
           </p>
           <p className="about-body">
-            Underneath it all runs the discipline she's never dropped:
-            prevention. Bloodwork, screenings, straight answers — the quiet work
-            that keeps small things small.
+            {t('about.phil3')}
           </p>
           <p className="about-body">
-            And for the drivers who keep this region moving — she's a certified
-            NRCME examiner for DOT physicals. Efficient, exacting, and respectful
-            of the fact that this exam is your paycheck.
+            {t('about.phil4')}
           </p>
         </div>
       </section>
@@ -79,17 +58,13 @@ export default function About() {
       <section className="about-section">
         <div className="about-section__inner">
           <h2 className="about-heading">
-            Care this good used to require a drive.
+            {t('about.closeHeading')}
           </h2>
           <p className="about-body">
-            For years, patients here took the highway — Boston, Providence — for
-            expertise that should never have been an hour away. Mydwine sat with
-            that long enough, then answered it: open the practice here. Bring the
-            standard to the community, instead of making the community commute to
-            the standard.
+            {t('about.close1')}
           </p>
           <p className="about-body">
-            The knowledge stays in the room with you. That's the practice.
+            {t('about.close2')}
           </p>
         </div>
       </section>
@@ -98,9 +73,9 @@ export default function About() {
       <section className="about-cta-section">
         <div className="about-cta-inner">
           <p className="about-credline">
-            Board-certified Nurse Practitioner · In healthcare since 2005 · NRCME-certified DOT examiner
+            {t('about.credline')}
           </p>
-          <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
+          <Link to="/contact" className="btn btn--rose">{t('about.cta')}</Link>
         </div>
       </section>
 
