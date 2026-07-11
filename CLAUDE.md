@@ -724,8 +724,8 @@ PENDING DECISIONS (need confirmation from wife):
   - Practice address — needed before Google Business Profile setup
   - Language switcher on secondary-page mobile + 769–1080px (PageShell has no
     hamburger — needs a nav-breakpoint decision; see I18N section)
-  - About CTA target: spec said /book (live now, works via redirect) vs the
-    all-booking-CTAs-to-/contact convention — keep or swap (one-line change)
+  - [RESOLVED 2026-07-11] About CTA target: Stivo chose /contact — the
+    all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
   - About page translation: new FINAL copy is English-only; when/whether to
     extract + draft FR/ES/KEA (orphaned about.* keys must be replaced, not
     reused)
