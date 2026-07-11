@@ -92,7 +92,8 @@ src/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
     locales/*.json ← en.json = source of truth (102 strings, nav.*/footer.*/home.*);
-                     fr/es/kea = English placeholders until Phase 1b
+                     fr/es/kea = DRAFT machine translations LIVE (marked "_status")
+                     pending native review
   pages/
     PageShell.jsx  ← Named exports: Nav, Footer, PageShell (default).
                      Services.jsx imports Nav + Footer directly from here.
@@ -346,9 +347,10 @@ Do not build out secondary pages without session instruction.
 
 ---
 
-## I18N — PHASE 1A LIVE (2026-07-11)
+## I18N — PHASE 1A + 1B DRAFTS LIVE (2026-07-11)
 
-Infrastructure only. Every language currently renders English.
+Infrastructure AND draft content are live. FR/ES/KEA render machine-drafted
+translations (Stivo-authorized 2026-07-11), marked DRAFT pending native review.
 
 ### Architecture
 - i18next + react-i18next + i18next-browser-languagedetector
@@ -362,11 +364,25 @@ Infrastructure only. Every language currently renders English.
 
 ### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
 - 102 strings, nested semantic keys: nav.*, footer.*, home.*
-- Phase 1b = replace VALUES in fr.json / es.json / kea.json with reviewed
-  translations and delete their "_status" line. NO key changes, NO code changes.
-- NEVER translate anything yourself. Reviewed translations arrive from Stivo.
-- fr/es/kea currently carry `"_status": "PLACEHOLDER — awaiting reviewed
-  translations"` and English values. That marker leaving the files = 1b shipped.
+- 1b SHIPPED (2026-07-11): machine-drafted FR/ES/KEA values are LIVE, each file
+  marked `"_status": "DRAFT — machine translation, pending native review"`.
+- NEXT = NATIVE REVIEW: reviewed values replace the drafts, then the "_status"
+  line is DELETED. That marker leaving the files = review complete.
+  NO key changes, NO code changes — values only, in BOTH steps.
+- Do not re-draft or "improve" translations without instruction. The one-time
+  machine-draft authorization was Stivo's explicit 2026-07-11 decision.
+
+### TRANSLATION CONSTRAINT (Stivo, locked 2026-07-11)
+- The banned-word list applies IN TRANSLATION: no equivalents of journey
+  (voyage/viaje/viaji), transform*, holistic (holistique/holístico),
+  cutting-edge (pointe/vanguardia), free (gratuit/gratis/grátis), affordable.
+- The "Book a Consultation" CTA must NEVER gain free/gratuit/gratis/grátis.
+- Medical terms stay untranslated: GLP-1, Botox, Dysport, semaglutide,
+  tirzepatide, DOT.
+- Tagline + legal entity name stay English (excluded from extraction anyway).
+- Voice: FR = vous (formal-warm), ES = tú (warm), KEA = Santiago Kriolu
+  bu-form. Feminine provider forms where the language forces gender
+  (praticienne / especialista / une voisine / una vecina).
 
 ### NEVER EXTRACT — hardcoded identical in every language
 - Logo alt text
@@ -391,7 +407,12 @@ Infrastructure only. Every language currently renders English.
 - Claude-in-Chrome runs on Stivo's REMOTE machine — it can NOT reach this box's
   localhost. Verify i18n behavior headlessly in Node (mock localStorage/navigator,
   run the real config.js with JSON imports rewritten to import-attributes) or
-  against the live site.
+  against the live site (the public site IS reachable from his browser).
+- Live-verifying non-ASCII strings: PowerShell's Invoke-WebRequest decodes the
+  JS asset as Latin-1 (no charset header) — accented/em-dash strings read as
+  false misses. Decode `RawContentStream` bytes as UTF-8 before .Contains().
+- PS 5.1 splits `git commit -m` here-strings at embedded double quotes —
+  write the message to a file and use `git commit -F <file>`.
 
 ### Deferred items logged by the 2026-07-11 multi-agent review (do not "fix"
 without a task): placeholder locales bundle ~3×5KB duplicate English until 1b
@@ -433,6 +454,28 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11, LATER — PHASE 1B)
+
+- I18N PHASE 1B DRAFT TRANSLATIONS LIVE — merge `2a21ef5` to main, deploy
+  all-green, live bundle verified (FR/ES/KEA strings present, DRAFT markers ×3,
+  zero gratuit/gratis, Botox/GLP-1/DOT intact, EN untouched).
+  - Context: Stivo flagged "languages don't change the content" — that was the
+    designed 1a placeholder state; he then authorized machine drafts under the
+    TRANSLATION CONSTRAINT (see I18N section).
+  - `2b951fd`: all 102 strings × FR/ES/KEA, values only, keys frozen, 34/34
+    verification checks (key parity, accent-insensitive banned-word scan,
+    medical terms, CTA purity, real-config rendering).
+  - ⚠ TOP OPEN ITEM: NATIVE REVIEW — the drafts are live to real visitors NOW.
+    Kriolu (Santiago) most urgent. "_status" DRAFT markers stay until then.
+- Phase 1a live-verified in Stivo's browser earlier the same day: pill states,
+  localStorage persistence across full page loads, html-lang sync, overlay
+  visibility fix, breakpoint rules in CSSOM. His window couldn't be resized
+  remotely — mobile interaction still needs a phone check.
+- Cosmetic, not a bug: on first visit the detector caches raw `en-US` into
+  refynme-lang; resolution still lands on en. Any pill click stores the clean code.
 
 ---
 
@@ -571,9 +614,10 @@ PENDING DECISIONS (need confirmation from wife):
     session notes)
 
 NEXT BUILD WORK:
-  [ ] i18n Phase 1b — drop reviewed FR/ES/KEA translations into locale files
-      (values only, keys frozen; remove "_status" lines; touch BOTH footer copies
-      if any key changes — see I18N section)
+  [x] i18n Phase 1b — DRAFT machine translations live 2026-07-11 (merge 2a21ef5)
+  [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES/KEA, delete
+      "_status" lines (values only, keys frozen; KEA/Santiago Kriolu most
+      urgent — drafts are live to real visitors)
   [ ] Brockton town landing page
   [ ] Town page template for remaining towns
   [ ] Reach line below Trust Builder on homepage
