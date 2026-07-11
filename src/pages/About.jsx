@@ -100,7 +100,7 @@ export default function About() {
           <p className="about-credline">
             Board-certified Nurse Practitioner · In healthcare since 2005 · NRCME-certified DOT examiner
           </p>
-          <Link to="/book" className="btn btn--rose">Book a Consultation</Link>
+          <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
         </div>
       </section>
 
