@@ -470,6 +470,17 @@ cutting-edge | wellness journey | affordable
     medical terms, CTA purity, real-config rendering).
   - ⚠ TOP OPEN ITEM: NATIVE REVIEW — the drafts are live to real visitors NOW.
     Kriolu (Santiago) most urgent. "_status" DRAFT markers stay until then.
+  - IN-BROWSER LIVE VERIFICATION (Stivo's Chrome, all four languages, PASS):
+    each pill switches banner/nav/hero/badge/CTAs/footer to that language and
+    updates localStorage + <html lang>; EN restores original English. Invariants
+    held in every language: brand tagline + phone English/intact, GLP-1/Botox/
+    DOT untranslated, all CTAs consultation-only (no free/gratuit/gratis),
+    layout/colors/rhythm unchanged. Screenshots taken FR/ES/KEA.
+  - Notes from verification (not defects):
+    1. FR/ES hero wraps to more lines than EN (longer copy; clamp() handles
+       it) — optional copy-tightening candidate for the native-review pass.
+    2. The pill row shifts position per language as nav-label widths change —
+       inherent to space-between nav; acceptable.
 - Phase 1a live-verified in Stivo's browser earlier the same day: pill states,
   localStorage persistence across full page loads, html-lang sync, overlay
   visibility fix, breakpoint rules in CSSOM. His window couldn't be resized
