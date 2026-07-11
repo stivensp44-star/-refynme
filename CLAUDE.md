@@ -108,7 +108,7 @@ src/
   i18n/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
-    locales/*.json ← en.json = source of truth (259 strings; namespaces per
+    locales/*.json ← en.json = source of truth (261 strings; namespaces per
                      page — see I18N section); fr/es/kea = DRAFT machine
                      translations LIVE (marked "_status") pending native review
   pages/
