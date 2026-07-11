@@ -60,6 +60,23 @@ Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on t
   To verify a server file exists or was deleted, check Content-Type
   (text/html = not there), never just the status code.
 
+### WHITE-SCREEN PATTERN — relative asset base (FIXED 2026-07-11, keep '/')
+- Symptom: a NESTED route (/services/dot-exams, /blog/:slug) renders a blank
+  white page on DIRECT visit / refresh / shared link — no visible error.
+  Client-side navigation to the same page works, which hides the bug.
+- Root cause: vite.config.js had `base: './'` (since the initial commit), so
+  built index.html referenced `./assets/...`. On a two-segment path the
+  browser resolved assets against the subdirectory (/services/assets/...),
+  the SPA rewrite served index.html AS the module script (text/html →
+  rejected), and React never mounted. One-segment routes worked only by
+  URL-resolution accident.
+- Fix: `base: '/'` (merge b3a8ad9). NEVER set a relative base on this site.
+- Diagnosis check for any future blank page: read the script src in the
+  served HTML — if it isn't an absolute /assets/... path, or fetching it
+  returns Content-Type text/html, this is the pattern.
+- Verification rule this taught: deep-link tests must confirm the page
+  MOUNTS (root has children), not just that index.html comes back 200.
+
 ### Staging rule — ALWAYS FOLLOW
 - All changes go to a staging branch first
 - Cous reviews and approves before merging to main
@@ -465,6 +482,26 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11, FINAL — WHITE-SCREEN FIX + FULL VERIFY)
+
+- 🔴 LIVE BUG found during Phase 2 live verification, FIXED + DEPLOYED
+  (merge `b3a8ad9`): nested routes white-screened on hard load — see the new
+  "WHITE-SCREEN PATTERN" section under Deploy failure modes. Pre-existing
+  since the initial commit; NOT an i18n regression; affected /services/
+  dot-exams, /services/hormone-vitamin-therapy and every /blog/:slug in all
+  languages. Fix = vite base './' → '/' (one line, `3398671`), verified via
+  vite preview locally, then live (nested hard loads now fetch
+  /assets/*.js as JavaScript and the app mounts).
+- FULL i18n verification matrix COMPLETE in Stivo's browser on the live site:
+  Home FR/ES/KEA, Weight Loss FR, Contact form KEA, Aesthetics KEA (tagline
+  correctly English), Services ES, DOT Exams FR, Hormone KEA, About ES —
+  all render translated; medical terms/phone/tagline/provider name intact;
+  CTAs consultation-only; html-lang + persistence working; browser left on EN.
+- i18n is now COMPLETE pending only: native review (259 strings), and the
+  parked legal/blog decisions.
 
 ---
 
