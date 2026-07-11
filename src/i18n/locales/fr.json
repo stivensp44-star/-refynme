@@ -139,5 +139,244 @@
       "button": "Réserver une consultation →",
       "phonePrefix": "Ou appelez-nous :"
     }
+  },
+  "pageShell": {
+    "defaultSubtitle": "Cette page arrive bientôt. Réservez une consultation en attendant.",
+    "bookCta": "Réserver une consultation"
+  },
+  "services": {
+    "credential": "Par une infirmière praticienne certifiée",
+    "heading": "Nos services",
+    "body": "Chez RefynMe, prendre soin de soi fait partie du bien vivre. Que votre objectif soit d'avoir plus d'énergie, de gérer votre poids ou d'améliorer votre peau — nous offrons des soins individualisés et bienveillants, avec des traitements fondés sur les preuves, pour vous y amener.",
+    "cta": "Réserver une consultation",
+    "items": {
+      "weightLoss": {
+        "name": "Perte de poids médicale",
+        "desc": "Injections GLP-1, médicaments oraux et conseils alimentaires adaptés à votre corps et à vos objectifs."
+      },
+      "aesthetics": {
+        "name": "Traitements esthétiques",
+        "desc": "Botox et injections de comblement pour vous aider à être au mieux de vous-même."
+      },
+      "hormone": {
+        "name": "Thérapie hormonale et vitaminique",
+        "desc": "Thérapie vitaminique intraveineuse (IV) personnalisée pour restaurer l'équilibre, améliorer l'énergie et soutenir la santé à long terme."
+      },
+      "dotExams": {
+        "name": "Examens médicaux DOT",
+        "desc": "Examens physiques DOT certifiés FMCSA pour les conducteurs commerciaux."
+      }
+    }
+  },
+  "weightLoss": {
+    "title": "Perte de poids médicale",
+    "credential": "Fondé sur les preuves · Supervision médicale",
+    "subtitle": "Des programmes de perte de poids personnalisés, conçus autour de votre corps, de vos objectifs et de votre vie — supervisés par une infirmière praticienne certifiée.",
+    "howWeHelp": "Comment nous aidons",
+    "cards": {
+      "glp1": {
+        "title": "Injections GLP-1",
+        "body": "Semaglutide et autres médicaments GLP-1 pour soutenir le contrôle de l'appétit et une perte de poids durable."
+      },
+      "oral": {
+        "title": "Médicaments oraux",
+        "body": "Des médicaments de perte de poids sur ordonnance, adaptés à votre profil de santé et à vos objectifs."
+      },
+      "diet": {
+        "title": "Conseils alimentaires",
+        "body": "Un accompagnement nutritionnel pratique et personnalisé, qui s'adapte à votre vraie vie."
+      },
+      "support": {
+        "title": "Suivi continu",
+        "body": "Des points réguliers et des ajustements de plan pour vous garder sur la bonne voie à chaque étape."
+      }
+    },
+    "isThisRight": "Est-ce fait pour vous ?",
+    "isThisRightBody": "Notre programme médical de perte de poids s'adresse aux adultes qui ont lutté contre le poids malgré l'alimentation et l'exercice. Notre approche est clinique — nous examinons votre historique de santé, vos médicaments actuels et vos objectifs personnels avant de recommander un traitement.",
+    "whatToExpect": "À quoi s'attendre",
+    "steps": {
+      "step1": {
+        "title": "Consultation",
+        "body": "Une visite individuelle pour passer en revue votre historique de santé et vos objectifs."
+      },
+      "step2": {
+        "title": "Votre plan",
+        "body": "Un plan de traitement personnalisé, construit spécifiquement pour vous."
+      },
+      "step3": {
+        "title": "Soins continus",
+        "body": "Des suivis réguliers et des ajustements au fil de vos progrès."
+      }
+    },
+    "ctaHeading": "Prête à commencer ?",
+    "cta": "Réserver une consultation"
+  },
+  "dotExams": {
+    "title": "Examens médicaux DOT",
+    "credential": "Certifiée FMCSA · Prestataire certifiée NRCME",
+    "subtitle": "Des examens physiques DOT rapides et professionnels pour les conducteurs commerciaux — réalisés par une infirmière praticienne certifiée.",
+    "whatToExpect": "À quoi s'attendre",
+    "cards": {
+      "history": {
+        "title": "Revue de l'historique médical",
+        "body": "Un examen approfondi de vos antécédents de santé et de vos médicaments actuels."
+      },
+      "physical": {
+        "title": "Examen physique",
+        "body": "Une évaluation physique complète, conforme aux normes FMCSA."
+      },
+      "vision": {
+        "title": "Vision et audition",
+        "body": "Les tests standard de vision et d'audition requis pour la certification."
+      },
+      "certificate": {
+        "title": "Certificat le jour même",
+        "body": "Repartez avec votre certificat d'examinateur médical le jour même."
+      }
+    },
+    "whoNeeds": "Qui a besoin d'un examen DOT ?",
+    "whoNeedsBody": "Si vous conduisez un véhicule commercial et devez détenir un CDL, la loi fédérale exige un certificat médical DOT à jour. Cela inclut les chauffeurs de camion, les chauffeurs de bus et les autres conducteurs de véhicules commerciaux.",
+    "ctaHeading": "Prêt à réserver votre examen ?",
+    "cta": "Réserver"
+  },
+  "hormone": {
+    "title": "Thérapie hormonale et vitaminique",
+    "credential": "Par une infirmière praticienne certifiée",
+    "subtitle": "Thérapie vitaminique IV personnalisée et soutien hormonal pour restaurer l'équilibre, améliorer l'énergie et vous aider à vous sentir à nouveau vous-même.",
+    "whatWeOffer": "Ce que nous proposons",
+    "cards": {
+      "iv": {
+        "title": "Thérapie vitaminique IV",
+        "body": "Des nutriments intraveineux personnalisés, délivrés directement dans votre circulation sanguine pour une absorption rapide et complète."
+      },
+      "energy": {
+        "title": "Énergie et récupération",
+        "body": "Des mélanges ciblés pour soutenir l'énergie, l'hydratation et la récupération quand vous en avez le plus besoin."
+      },
+      "hormoneSupport": {
+        "title": "Soutien hormonal",
+        "body": "Une évaluation et des soins pour aider à traiter la fatigue, les changements d'humeur et le déséquilibre hormonal."
+      },
+      "plan": {
+        "title": "Un plan construit pour vous",
+        "body": "Chaque protocole est façonné autour de vos analyses, de vos symptômes et de vos objectifs — jamais du prêt-à-porter."
+      }
+    },
+    "whoItsFor": "Pour qui ?",
+    "whoItsForBody": "Si vous vous sentez vidée, épuisée ou simplement pas vous-même, la thérapie hormonale et vitaminique peut aider à remplacer ce qui manque à votre corps. Nous commençons par une consultation et, quand c'est pertinent, des analyses — puis nous construisons un plan adapté à vous. Sans devinettes, sans pression.",
+    "ctaHeading": "Prête à vous sentir à nouveau vous-même ?",
+    "cta": "Réserver une consultation"
+  },
+  "aesthetics": {
+    "heroLabel": "Esthétique médicale",
+    "heroBody": "Botox et injections de comblement administrés par une infirmière praticienne certifiée. Précis. Personnalisé. Pas de résultats à la chaîne.",
+    "heroCta": "Réserver une consultation",
+    "heroSecondary": "Voir les traitements",
+    "treatmentsLabel": "Ce que nous proposons",
+    "treatmentsHeading": "Des traitements qui marchent, sans en faire trop.",
+    "treatmentsSub": "Chaque traitement est personnalisé selon votre anatomie, vos objectifs et votre niveau de confort. Pas de vente forcée. Pas de pression.",
+    "treatments": {
+      "botox": {
+        "tag": "Décontractant anti-rides",
+        "title": "Botox / Dysport",
+        "desc": "Atténue les rides du front, les pattes d'oie et les rides du lion."
+      },
+      "lip": {
+        "tag": "Augmentation des lèvres",
+        "title": "Comblement des lèvres",
+        "desc": "Définition, volume, ou les deux — façonné selon votre visage."
+      },
+      "consult": {
+        "tag": "Soins préventifs",
+        "title": "Consultation + Plan",
+        "desc": "Pas encore prête à vous lancer ? Une consultation esthétique complète pour cartographier vos objectifs et fixer un plan réaliste."
+      }
+    },
+    "credsLabel": "Pourquoi la main qui tient l'aiguille compte",
+    "credsHeading": "Formation médicale. Œil esthétique.",
+    "credsBody1": "Votre infirmière praticienne est certifiée, avec une formation clinique en soins primaires et en esthétique. Elle comprend votre anatomie médicalement — pas seulement visuellement.",
+    "credsBody2": "Elle sait ce qui se passe si un produit de comblement est placé trop profondément. Elle sait gérer un bleu, un problème vasculaire ou un résultat qui ne vous plaît pas. C'est ça, la différence.",
+    "credsPill1": "NP certifiée",
+    "credsPill2": "Agréée MA",
+    "faqLabel": "Questions fréquentes",
+    "faqHeading": "Ce qu'on nous demande avant de réserver.",
+    "faqs": {
+      "hurt": {
+        "q": "Est-ce que ça fait mal ?",
+        "a": "Le Botox ressemble à un petit pincement. Pour les produits de comblement, une crème anesthésiante est appliquée avant. La plupart des patientes décrivent une légère pression, pas une douleur."
+      },
+      "time": {
+        "q": "Combien de temps ça prend ?",
+        "a": "Les rendez-vous Botox durent 20 à 30 minutes. Les rendez-vous de comblement, 30 à 45 minutes. Consultation incluse."
+      },
+      "results": {
+        "q": "Et si je n'aime pas mes résultats ?",
+        "a": "Le Botox s'estompe naturellement en 3 à 4 mois. Les produits de comblement à l'acide hyaluronique peuvent être dissous le jour même avec une enzyme appelée hyaluronidase."
+      },
+      "consult": {
+        "q": "Une consultation est-elle obligatoire ?",
+        "a": "Elle est incluse dans chaque rendez-vous. Si vous voulez discuter de vos objectifs avant de vous lancer, vous pouvez d'abord réserver une consultation."
+      }
+    },
+    "ctaHeading": "Prête à voir la différence ?",
+    "ctaSub": "Sans pression, sans obligation.",
+    "cta": "Réserver une consultation"
+  },
+  "contact": {
+    "h1Line1": "Vous ne devriez pas avoir à aller loin pour être",
+    "h1Em": "bien soignée.",
+    "sub": "Nous répondons sous un jour ouvrable. Pas de centre d'appels, pas de réponses automatiques — une vraie praticienne qui connaît votre nom.",
+    "reachEyebrow": "Contactez-nous directement",
+    "phoneLabel": "Téléphone",
+    "phoneNote": "Lun – Ven, 9h – 17h",
+    "emailLabel": "E-mail",
+    "emailNote": "Réponse sous 1 jour ouvrable",
+    "locationLabel": "Localisation",
+    "locationValue": "Région du Grand Brockton, MA",
+    "locationNote": "Adresse confirmée à la réservation",
+    "quote": "Chaque patient mérite la même qualité de soins — peu importe où il vit ou la distance qu'il peut parcourir.",
+    "formEyebrow": "Demander une consultation",
+    "formHeading": "Dites-nous comment nous pouvons vous aider.",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "interestLabel": "Je m'intéresse à",
+    "interestPlaceholder": "— choisissez une option —",
+    "interestAesthetics": "Esthétique — Botox / Comblement",
+    "interestWeightLoss": "Perte de poids médicale",
+    "interestDot": "Examen médical DOT",
+    "interestWellness": "Soins primaires / Bien-être",
+    "interestUnsure": "Pas encore sûre — parlons-en",
+    "messageLabel": "Ce que vous aimeriez nous dire",
+    "messagePlaceholder": "Questions, préoccupations, ou simplement comment vous nous avez connus...",
+    "submit": "Envoyer le message →",
+    "privacyNote": "Vos informations restent privées. Toujours.",
+    "hoursLabel": "Horaires",
+    "hoursValue": "Lun – Ven, 9h – 17h",
+    "hoursSub": "Disponibilité le week-end bientôt",
+    "responseLabel": "Délai de réponse",
+    "responseValue": "Sous 1 jour ouvrable",
+    "responseSub": "Pas de réponses automatiques",
+    "apptLabel": "Rendez-vous",
+    "apptValue": "Sur consultation uniquement",
+    "apptSub": "Pas de visites sans rendez-vous pour le moment"
+  },
+  "about": {
+    "label": "Votre praticienne",
+    "credsText": "Infirmière praticienne certifiée · DOT Massachusetts · Certifiée NRCME",
+    "bioPlaceholder": "[Biographie de la praticienne à venir]",
+    "weGetIt": "Nous comprenons.",
+    "weGetItBody": "La perte de poids peut sembler écrasante — surtout quand vous avez déjà essayé tant de choses sans succès durable. Notre approche part de votre expérience. Nous combinons encadrement médical et soutien sincère et constant, conçu autour de votre vie, pour que les progrès restent réalistes et durables.",
+    "approach": "Notre approche",
+    "approachBody1": "Dès votre première visite, vous avez une praticienne, un plan et un chemin clair. Nous ne précipitons rien. Nous ne devinons pas. Nous écoutons, nous expliquons, et nous construisons vos soins autour de ce qui fonctionne vraiment pour vous.",
+    "approachBody2": "Notre attention va au-delà des traitements — il s'agit de vous aider à vous sentir ressourcée, plus énergique et plus confiante au quotidien.",
+    "cred1Title": "NP certifiée",
+    "cred1Sub": "Infirmière praticienne",
+    "cred2Title": "Agréée MA",
+    "cred2Sub": "Pleine autorité de pratique",
+    "cred3Title": "Certifiée NRCME",
+    "cred3Sub": "Examens médicaux DOT",
+    "cta": "Réserver une consultation"
   }
 }

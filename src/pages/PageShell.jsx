@@ -101,6 +101,7 @@ export function Footer() {
 
 /* ── Page Shell ─────────────────────────────────────────── */
 export function PageShell({ title, subtitle, credential, children }) {
+  const { t } = useTranslation()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -119,10 +120,10 @@ export function PageShell({ title, subtitle, credential, children }) {
             <p className="page-hero__credential">{credential}</p>
           )}
           <p className="page-hero__sub">
-            {subtitle || 'This page is coming soon. Book a consultation while you wait.'}
+            {subtitle || t('pageShell.defaultSubtitle')}
           </p>
           <Link to="/contact" className="btn btn--rose" style={{ marginTop: '8px' }}>
-            Book a Consultation
+            {t('pageShell.bookCta')}
           </Link>
         </div>
       </main>

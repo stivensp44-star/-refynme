@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
 
 export default function About() {
+  const { t } = useTranslation()
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
@@ -22,14 +24,14 @@ export default function About() {
           <div className="about-provider__content">
             <div className="section-label">
               <span className="section-label__line" />
-              <span className="label label--gold">Meet Your Provider</span>
+              <span className="label label--gold">{t('about.label')}</span>
             </div>
             <h1 className="about-provider__name">Mydwine Pierre Louis, NP</h1>
             <p className="about-provider__creds-text">
-              Board-Certified Nurse Practitioner · Massachusetts DOT · NRCME Certified
+              {t('about.credsText')}
             </p>
             <p className="about-provider__bio">
-              [Provider bio coming soon]
+              {t('about.bioPlaceholder')}
             </p>
           </div>
         </div>
@@ -38,12 +40,9 @@ export default function About() {
       {/* Section 2 — We Get It */}
       <section className="about-section">
         <div className="about-section__inner">
-          <h2 className="about-heading">We Get It.</h2>
+          <h2 className="about-heading">{t('about.weGetIt')}</h2>
           <p className="about-body">
-            Weight loss can feel overwhelming — especially when you've already tried so many
-            things without lasting success. Our approach starts with your experience. We
-            combine medical guidance with genuine, steady support designed around your life,
-            so progress feels realistic and sustainable.
+            {t('about.weGetItBody')}
           </p>
         </div>
       </section>
@@ -51,15 +50,12 @@ export default function About() {
       {/* Section 3 — Our Approach */}
       <section className="about-section about-section--alt">
         <div className="about-section__inner">
-          <h2 className="about-heading">Our Approach</h2>
+          <h2 className="about-heading">{t('about.approach')}</h2>
           <p className="about-body">
-            From your first visit, you'll have one provider, one plan, and a clear path
-            forward. We don't rush. We don't guess. We listen, we explain, and we build
-            your care around what actually works for you.
+            {t('about.approachBody1')}
           </p>
           <p className="about-body">
-            Our focus extends beyond treatments — it's about helping you feel restored,
-            re-energized, and more confident in your daily life.
+            {t('about.approachBody2')}
           </p>
         </div>
       </section>
@@ -68,25 +64,25 @@ export default function About() {
       <section className="about-creds-bar">
         <div className="about-creds-bar__inner">
           <div className="about-cred-card">
-            <span className="about-cred-card__title">Board-Certified NP</span>
-            <span className="about-cred-card__sub">Nurse Practitioner</span>
+            <span className="about-cred-card__title">{t('about.cred1Title')}</span>
+            <span className="about-cred-card__sub">{t('about.cred1Sub')}</span>
           </div>
           <div className="about-cred-divider" />
           <div className="about-cred-card">
-            <span className="about-cred-card__title">MA Licensed</span>
-            <span className="about-cred-card__sub">Full Practice Authority</span>
+            <span className="about-cred-card__title">{t('about.cred2Title')}</span>
+            <span className="about-cred-card__sub">{t('about.cred2Sub')}</span>
           </div>
           <div className="about-cred-divider" />
           <div className="about-cred-card">
-            <span className="about-cred-card__title">NRCME Certified</span>
-            <span className="about-cred-card__sub">DOT Medical Exams</span>
+            <span className="about-cred-card__title">{t('about.cred3Title')}</span>
+            <span className="about-cred-card__sub">{t('about.cred3Sub')}</span>
           </div>
         </div>
       </section>
 
       {/* Section 5 — CTA */}
       <section className="about-cta-section">
-        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
+        <Link to="/contact" className="btn btn--rose">{t('about.cta')}</Link>
       </section>
 
       <Footer />

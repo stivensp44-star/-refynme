@@ -138,5 +138,244 @@
       "button": "Book a Consultation →",
       "phonePrefix": "Or call us:"
     }
+  },
+  "pageShell": {
+    "defaultSubtitle": "This page is coming soon. Book a consultation while you wait.",
+    "bookCta": "Book a Consultation"
+  },
+  "services": {
+    "credential": "By a Board-Certified Nurse Practitioner",
+    "heading": "Our Services",
+    "body": "At RefynMe, caring for yourself is an important part of living well. Whether your goal is to increase energy, manage your weight, or improve your skin — we provide individualized, compassionate care and evidence-based treatments to help you get there.",
+    "cta": "Book a Consultation",
+    "items": {
+      "weightLoss": {
+        "name": "Medical Weight Loss",
+        "desc": "GLP-1 injections, oral medications, and dietary guidance tailored to your body and goals."
+      },
+      "aesthetics": {
+        "name": "Aesthetic Treatments",
+        "desc": "Botox and dermal fillers to help you look and feel your best."
+      },
+      "hormone": {
+        "name": "Hormone & Vitamin Therapy",
+        "desc": "Customized intravenous (IV) vitamin therapy to restore balance, improve energy, and support long-term health."
+      },
+      "dotExams": {
+        "name": "DOT Medical Exams",
+        "desc": "FMCSA-certified DOT physical examinations for commercial drivers."
+      }
+    }
+  },
+  "weightLoss": {
+    "title": "Medical Weight Loss",
+    "credential": "Evidence-Based · Medically Supervised",
+    "subtitle": "Personalized weight loss programs designed around your body, your goals, and your life — supervised by a board-certified Nurse Practitioner.",
+    "howWeHelp": "How We Help",
+    "cards": {
+      "glp1": {
+        "title": "GLP-1 Injections",
+        "body": "Semaglutide and other GLP-1 medications to support appetite control and sustainable weight loss."
+      },
+      "oral": {
+        "title": "Oral Medications",
+        "body": "Prescription weight loss medications tailored to your health profile and goals."
+      },
+      "diet": {
+        "title": "Dietary Guidance",
+        "body": "Practical, personalized nutrition support that fits your real life."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "body": "Regular check-ins and plan adjustments to keep you on track every step of the way."
+      }
+    },
+    "isThisRight": "Is This Right For You?",
+    "isThisRightBody": "Our medical weight loss program is designed for adults who have struggled with weight loss through diet and exercise alone. We take a clinical approach — reviewing your health history, current medications, and personal goals before recommending any treatment.",
+    "whatToExpect": "What to Expect",
+    "steps": {
+      "step1": {
+        "title": "Consultation",
+        "body": "A one-on-one visit to review your health history and goals."
+      },
+      "step2": {
+        "title": "Your Plan",
+        "body": "A personalized treatment plan built specifically for you."
+      },
+      "step3": {
+        "title": "Ongoing Care",
+        "body": "Regular follow-ups and adjustments as you progress."
+      }
+    },
+    "ctaHeading": "Ready to Start?",
+    "cta": "Book a Consultation"
+  },
+  "dotExams": {
+    "title": "DOT Medical Exams",
+    "credential": "FMCSA-Certified · NRCME Certified Provider",
+    "subtitle": "Fast, professional DOT physical examinations for commercial drivers — performed by a board-certified Nurse Practitioner.",
+    "whatToExpect": "What to Expect",
+    "cards": {
+      "history": {
+        "title": "Medical History Review",
+        "body": "A thorough review of your health background and current medications."
+      },
+      "physical": {
+        "title": "Physical Examination",
+        "body": "Head-to-toe physical assessment meeting FMCSA standards."
+      },
+      "vision": {
+        "title": "Vision & Hearing",
+        "body": "Standard vision and hearing tests required for certification."
+      },
+      "certificate": {
+        "title": "Same-Day Certificate",
+        "body": "Walk out with your Medical Examiner's Certificate the same day."
+      }
+    },
+    "whoNeeds": "Who Needs a DOT Exam?",
+    "whoNeedsBody": "If you operate a commercial motor vehicle and are required to hold a CDL, federal law requires a current DOT medical certificate. This includes truck drivers, bus drivers, and other commercial vehicle operators.",
+    "ctaHeading": "Ready to Book Your Exam?",
+    "cta": "Book Now"
+  },
+  "hormone": {
+    "title": "Hormone & Vitamin Therapy",
+    "credential": "By a Board-Certified Nurse Practitioner",
+    "subtitle": "Customized IV vitamin therapy and hormone support to restore balance, improve energy, and help you feel like yourself again.",
+    "whatWeOffer": "What We Offer",
+    "cards": {
+      "iv": {
+        "title": "IV Vitamin Therapy",
+        "body": "Customized intravenous nutrients delivered straight into your bloodstream for fast, full absorption."
+      },
+      "energy": {
+        "title": "Energy & Recovery",
+        "body": "Targeted blends to support energy, hydration, and recovery when you need it most."
+      },
+      "hormoneSupport": {
+        "title": "Hormone Support",
+        "body": "Evaluation and care to help address fatigue, mood changes, and hormonal imbalance."
+      },
+      "plan": {
+        "title": "A Plan Built for You",
+        "body": "Every protocol is shaped around your labs, your symptoms, and your goals — never one-size-fits-all."
+      }
+    },
+    "whoItsFor": "Who It's For",
+    "whoItsForBody": "If you're feeling drained, run-down, or just not like yourself, hormone and vitamin therapy can help replace what your body is missing. We start with a consultation and, when it makes sense, lab work — then build a plan tailored to you. No guesswork, no pressure.",
+    "ctaHeading": "Ready to feel like yourself again?",
+    "cta": "Book a Consultation"
+  },
+  "aesthetics": {
+    "heroLabel": "Medical Aesthetics",
+    "heroBody": "Botox and dermal fillers administered by a board-certified Nurse Practitioner. Precise. Personalized. No cookie-cutter results.",
+    "heroCta": "Book a Consultation",
+    "heroSecondary": "See Treatments",
+    "treatmentsLabel": "What we offer",
+    "treatmentsHeading": "Treatments that work without working you over.",
+    "treatmentsSub": "Every treatment is customized to your anatomy, your goals, and your comfort level. No upselling. No pressure.",
+    "treatments": {
+      "botox": {
+        "tag": "Wrinkle Relaxer",
+        "title": "Botox / Dysport",
+        "desc": "Softens forehead lines, crow's feet, and frown lines."
+      },
+      "lip": {
+        "tag": "Lip Enhancement",
+        "title": "Lip Filler",
+        "desc": "Definition, volume, or both — shaped to your face."
+      },
+      "consult": {
+        "tag": "Preventive Care",
+        "title": "Consultation + Plan",
+        "desc": "Not ready to commit? A full aesthetic consultation to map your goals and set a realistic plan."
+      }
+    },
+    "credsLabel": "Why it matters who holds the needle",
+    "credsHeading": "Medical training. Aesthetic eye.",
+    "credsBody1": "Your NP is board-certified with clinical training across primary care and aesthetics. That means she understands your anatomy medically — not just visually.",
+    "credsBody2": "She knows what happens if a filler is placed too deep. She knows how to manage a bruise, a vascular concern, or a result you're not happy with. That's the difference.",
+    "credsPill1": "NP Board-Certified",
+    "credsPill2": "MA Licensed",
+    "faqLabel": "Common questions",
+    "faqHeading": "What people ask before booking.",
+    "faqs": {
+      "hurt": {
+        "q": "Does it hurt?",
+        "a": "Botox feels like a small pinch. Fillers use a topical numbing cream beforehand. Most patients describe it as mild pressure, not pain."
+      },
+      "time": {
+        "q": "How long does it take?",
+        "a": "Botox appointments run 20–30 minutes. Filler appointments 30–45 minutes. Consultation included."
+      },
+      "results": {
+        "q": "What if I don't like my results?",
+        "a": "Botox fades naturally in 3–4 months. Hyaluronic acid fillers can be dissolved the same day with an enzyme called hyaluronidase."
+      },
+      "consult": {
+        "q": "Is a consultation required?",
+        "a": "It's included with every appointment. If you want to talk through your goals before committing, you can book a consultation first."
+      }
+    },
+    "ctaHeading": "Ready to see the difference?",
+    "ctaSub": "No pressure, no obligation.",
+    "cta": "Book a Consultation"
+  },
+  "contact": {
+    "h1Line1": "You shouldn't have to travel far to be",
+    "h1Em": "treated well.",
+    "sub": "We respond within one business day. No call centers, no automated replies — a real provider who knows your name.",
+    "reachEyebrow": "Reach us directly",
+    "phoneLabel": "Phone",
+    "phoneNote": "Mon – Fri, 9am – 5pm",
+    "emailLabel": "Email",
+    "emailNote": "Response within 1 business day",
+    "locationLabel": "Location",
+    "locationValue": "Greater Brockton area, MA",
+    "locationNote": "Address confirmed upon booking",
+    "quote": "Every patient deserves the same quality of care — regardless of where they live or how far they can travel.",
+    "formEyebrow": "Request a consultation",
+    "formHeading": "Tell us how we can help you.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "interestLabel": "I'm interested in",
+    "interestPlaceholder": "— select one —",
+    "interestAesthetics": "Aesthetics — Botox / Fillers",
+    "interestWeightLoss": "Medical Weight Loss",
+    "interestDot": "DOT Medical Exam",
+    "interestWellness": "Primary Care / Wellness",
+    "interestUnsure": "Not sure yet — let's talk",
+    "messageLabel": "Anything you'd like us to know",
+    "messagePlaceholder": "Questions, concerns, or just how you heard about us...",
+    "submit": "Send message →",
+    "privacyNote": "Your information stays private. Always.",
+    "hoursLabel": "Hours",
+    "hoursValue": "Mon – Fri, 9am – 5pm",
+    "hoursSub": "Weekend availability coming soon",
+    "responseLabel": "Response time",
+    "responseValue": "Within 1 business day",
+    "responseSub": "No automated replies",
+    "apptLabel": "Appointments",
+    "apptValue": "By consultation only",
+    "apptSub": "No walk-ins at this time"
+  },
+  "about": {
+    "label": "Meet Your Provider",
+    "credsText": "Board-Certified Nurse Practitioner · Massachusetts DOT · NRCME Certified",
+    "bioPlaceholder": "[Provider bio coming soon]",
+    "weGetIt": "We Get It.",
+    "weGetItBody": "Weight loss can feel overwhelming — especially when you've already tried so many things without lasting success. Our approach starts with your experience. We combine medical guidance with genuine, steady support designed around your life, so progress feels realistic and sustainable.",
+    "approach": "Our Approach",
+    "approachBody1": "From your first visit, you'll have one provider, one plan, and a clear path forward. We don't rush. We don't guess. We listen, we explain, and we build your care around what actually works for you.",
+    "approachBody2": "Our focus extends beyond treatments — it's about helping you feel restored, re-energized, and more confident in your daily life.",
+    "cred1Title": "Board-Certified NP",
+    "cred1Sub": "Nurse Practitioner",
+    "cred2Title": "MA Licensed",
+    "cred2Sub": "Full Practice Authority",
+    "cred3Title": "NRCME Certified",
+    "cred3Sub": "DOT Medical Exams",
+    "cta": "Book a Consultation"
   }
 }

@@ -139,5 +139,244 @@
       "button": "Reserva una consulta →",
       "phonePrefix": "O llámanos:"
     }
+  },
+  "pageShell": {
+    "defaultSubtitle": "Esta página llega muy pronto. Reserva una consulta mientras tanto.",
+    "bookCta": "Reserva una consulta"
+  },
+  "services": {
+    "credential": "Por una enfermera practicante certificada",
+    "heading": "Nuestros servicios",
+    "body": "En RefynMe, cuidarte es parte esencial de vivir bien. Ya sea que tu meta sea tener más energía, controlar tu peso o mejorar tu piel — ofrecemos un cuidado individualizado y compasivo, con tratamientos basados en evidencia, para ayudarte a lograrlo.",
+    "cta": "Reserva una consulta",
+    "items": {
+      "weightLoss": {
+        "name": "Pérdida de peso médica",
+        "desc": "Inyecciones GLP-1, medicamentos orales y orientación alimentaria adaptada a tu cuerpo y tus metas."
+      },
+      "aesthetics": {
+        "name": "Tratamientos estéticos",
+        "desc": "Botox y rellenos dérmicos para ayudarte a verte y sentirte mejor que nunca."
+      },
+      "hormone": {
+        "name": "Terapia hormonal y de vitaminas",
+        "desc": "Terapia de vitaminas intravenosa (IV) personalizada para restaurar el equilibrio, mejorar la energía y apoyar tu salud a largo plazo."
+      },
+      "dotExams": {
+        "name": "Exámenes médicos DOT",
+        "desc": "Exámenes físicos DOT certificados por la FMCSA para conductores comerciales."
+      }
+    }
+  },
+  "weightLoss": {
+    "title": "Pérdida de peso médica",
+    "credential": "Basado en evidencia · Supervisión médica",
+    "subtitle": "Programas de pérdida de peso personalizados, diseñados alrededor de tu cuerpo, tus metas y tu vida — supervisados por una enfermera practicante certificada.",
+    "howWeHelp": "Cómo te ayudamos",
+    "cards": {
+      "glp1": {
+        "title": "Inyecciones GLP-1",
+        "body": "Semaglutide y otros medicamentos GLP-1 para apoyar el control del apetito y una pérdida de peso sostenible."
+      },
+      "oral": {
+        "title": "Medicamentos orales",
+        "body": "Medicamentos recetados para bajar de peso, adaptados a tu perfil de salud y tus metas."
+      },
+      "diet": {
+        "title": "Orientación alimentaria",
+        "body": "Apoyo nutricional práctico y personalizado que se adapta a tu vida real."
+      },
+      "support": {
+        "title": "Apoyo continuo",
+        "body": "Chequeos regulares y ajustes del plan para mantenerte en el camino en cada etapa."
+      }
+    },
+    "isThisRight": "¿Es esto para ti?",
+    "isThisRightBody": "Nuestro programa médico de pérdida de peso está diseñado para adultos que han luchado por bajar de peso solo con dieta y ejercicio. Tomamos un enfoque clínico — revisamos tu historial de salud, tus medicamentos actuales y tus metas personales antes de recomendar cualquier tratamiento.",
+    "whatToExpect": "Qué esperar",
+    "steps": {
+      "step1": {
+        "title": "Consulta",
+        "body": "Una visita uno a uno para revisar tu historial de salud y tus metas."
+      },
+      "step2": {
+        "title": "Tu plan",
+        "body": "Un plan de tratamiento personalizado, hecho específicamente para ti."
+      },
+      "step3": {
+        "title": "Cuidado continuo",
+        "body": "Seguimientos regulares y ajustes a medida que progresas."
+      }
+    },
+    "ctaHeading": "¿Lista para empezar?",
+    "cta": "Reserva una consulta"
+  },
+  "dotExams": {
+    "title": "Exámenes médicos DOT",
+    "credential": "Certificada FMCSA · Proveedora certificada NRCME",
+    "subtitle": "Exámenes físicos DOT rápidos y profesionales para conductores comerciales — realizados por una enfermera practicante certificada.",
+    "whatToExpect": "Qué esperar",
+    "cards": {
+      "history": {
+        "title": "Revisión del historial médico",
+        "body": "Una revisión completa de tus antecedentes de salud y medicamentos actuales."
+      },
+      "physical": {
+        "title": "Examen físico",
+        "body": "Evaluación física de pies a cabeza que cumple los estándares de la FMCSA."
+      },
+      "vision": {
+        "title": "Visión y audición",
+        "body": "Pruebas estándar de visión y audición requeridas para la certificación."
+      },
+      "certificate": {
+        "title": "Certificado el mismo día",
+        "body": "Sal con tu Certificado de Examinador Médico el mismo día."
+      }
+    },
+    "whoNeeds": "¿Quién necesita un examen DOT?",
+    "whoNeedsBody": "Si operas un vehículo motorizado comercial y necesitas una licencia CDL, la ley federal exige un certificado médico DOT vigente. Esto incluye camioneros, conductores de autobús y otros operadores de vehículos comerciales.",
+    "ctaHeading": "¿Listo para reservar tu examen?",
+    "cta": "Reservar"
+  },
+  "hormone": {
+    "title": "Terapia hormonal y de vitaminas",
+    "credential": "Por una enfermera practicante certificada",
+    "subtitle": "Terapia de vitaminas IV personalizada y apoyo hormonal para restaurar el equilibrio, mejorar la energía y ayudarte a sentirte tú otra vez.",
+    "whatWeOffer": "Lo que ofrecemos",
+    "cards": {
+      "iv": {
+        "title": "Terapia de vitaminas IV",
+        "body": "Nutrientes intravenosos personalizados, directo a tu torrente sanguíneo para una absorción rápida y completa."
+      },
+      "energy": {
+        "title": "Energía y recuperación",
+        "body": "Mezclas dirigidas para apoyar la energía, la hidratación y la recuperación cuando más lo necesitas."
+      },
+      "hormoneSupport": {
+        "title": "Apoyo hormonal",
+        "body": "Evaluación y cuidado para ayudar con la fatiga, los cambios de ánimo y el desequilibrio hormonal."
+      },
+      "plan": {
+        "title": "Un plan hecho para ti",
+        "body": "Cada protocolo se forma alrededor de tus análisis, tus síntomas y tus metas — nunca talla única."
+      }
+    },
+    "whoItsFor": "¿Para quién es?",
+    "whoItsForBody": "Si te sientes agotada, sin fuerzas o simplemente no como tú misma, la terapia hormonal y de vitaminas puede ayudar a reponer lo que le falta a tu cuerpo. Empezamos con una consulta y, cuando tiene sentido, análisis de laboratorio — y luego armamos un plan a tu medida. Sin adivinanzas, sin presión.",
+    "ctaHeading": "¿Lista para sentirte tú otra vez?",
+    "cta": "Reserva una consulta"
+  },
+  "aesthetics": {
+    "heroLabel": "Estética médica",
+    "heroBody": "Botox y rellenos dérmicos administrados por una enfermera practicante certificada. Preciso. Personalizado. Nada de resultados en serie.",
+    "heroCta": "Reserva una consulta",
+    "heroSecondary": "Ver tratamientos",
+    "treatmentsLabel": "Lo que ofrecemos",
+    "treatmentsHeading": "Tratamientos que funcionan, sin pasarse de la raya.",
+    "treatmentsSub": "Cada tratamiento se personaliza según tu anatomía, tus metas y tu nivel de comodidad. Sin ventas forzadas. Sin presión.",
+    "treatments": {
+      "botox": {
+        "tag": "Relajante de arrugas",
+        "title": "Botox / Dysport",
+        "desc": "Suaviza las líneas de la frente, las patas de gallo y las líneas del ceño."
+      },
+      "lip": {
+        "tag": "Aumento de labios",
+        "title": "Relleno de labios",
+        "desc": "Definición, volumen, o ambos — moldeado según tu rostro."
+      },
+      "consult": {
+        "tag": "Cuidado preventivo",
+        "title": "Consulta + Plan",
+        "desc": "¿Aún no te decides? Una consulta estética completa para mapear tus metas y fijar un plan realista."
+      }
+    },
+    "credsLabel": "Por qué importa quién sostiene la aguja",
+    "credsHeading": "Formación médica. Ojo estético.",
+    "credsBody1": "Tu enfermera practicante está certificada, con formación clínica en atención primaria y estética. Eso significa que entiende tu anatomía médicamente — no solo visualmente.",
+    "credsBody2": "Ella sabe qué pasa si un relleno se coloca demasiado profundo. Sabe manejar un moretón, una preocupación vascular o un resultado que no te convence. Esa es la diferencia.",
+    "credsPill1": "NP certificada",
+    "credsPill2": "Licenciada en MA",
+    "faqLabel": "Preguntas frecuentes",
+    "faqHeading": "Lo que preguntan antes de reservar.",
+    "faqs": {
+      "hurt": {
+        "q": "¿Duele?",
+        "a": "El Botox se siente como un pellizquito. Para los rellenos se aplica antes una crema anestésica tópica. La mayoría lo describe como una presión leve, no dolor."
+      },
+      "time": {
+        "q": "¿Cuánto tiempo toma?",
+        "a": "Las citas de Botox toman de 20 a 30 minutos. Las de relleno, de 30 a 45 minutos. Consulta incluida."
+      },
+      "results": {
+        "q": "¿Y si no me gustan mis resultados?",
+        "a": "El Botox se desvanece naturalmente en 3 a 4 meses. Los rellenos de ácido hialurónico pueden disolverse el mismo día con una enzima llamada hialuronidasa."
+      },
+      "consult": {
+        "q": "¿Se requiere una consulta?",
+        "a": "Está incluida en cada cita. Si quieres hablar de tus metas antes de decidirte, puedes reservar primero una consulta."
+      }
+    },
+    "ctaHeading": "¿Lista para ver la diferencia?",
+    "ctaSub": "Sin presión, sin compromiso.",
+    "cta": "Reserva una consulta"
+  },
+  "contact": {
+    "h1Line1": "No deberías tener que ir lejos para ser",
+    "h1Em": "bien atendida.",
+    "sub": "Respondemos dentro de un día hábil. Sin call centers, sin respuestas automáticas — una proveedora real que sabe tu nombre.",
+    "reachEyebrow": "Contáctanos directamente",
+    "phoneLabel": "Teléfono",
+    "phoneNote": "Lun – Vie, 9am – 5pm",
+    "emailLabel": "Correo",
+    "emailNote": "Respuesta dentro de 1 día hábil",
+    "locationLabel": "Ubicación",
+    "locationValue": "Área del Gran Brockton, MA",
+    "locationNote": "Dirección confirmada al reservar",
+    "quote": "Cada paciente merece la misma calidad de atención — sin importar dónde viva o cuán lejos pueda llegar.",
+    "formEyebrow": "Solicita una consulta",
+    "formHeading": "Cuéntanos cómo podemos ayudarte.",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "interestLabel": "Me interesa",
+    "interestPlaceholder": "— elige una opción —",
+    "interestAesthetics": "Estética — Botox / Rellenos",
+    "interestWeightLoss": "Pérdida de peso médica",
+    "interestDot": "Examen médico DOT",
+    "interestWellness": "Atención primaria / Bienestar",
+    "interestUnsure": "Aún no sé — hablemos",
+    "messageLabel": "Algo que quieras contarnos",
+    "messagePlaceholder": "Preguntas, inquietudes, o simplemente cómo supiste de nosotros...",
+    "submit": "Enviar mensaje →",
+    "privacyNote": "Tu información se queda privada. Siempre.",
+    "hoursLabel": "Horario",
+    "hoursValue": "Lun – Vie, 9am – 5pm",
+    "hoursSub": "Disponibilidad de fin de semana muy pronto",
+    "responseLabel": "Tiempo de respuesta",
+    "responseValue": "Dentro de 1 día hábil",
+    "responseSub": "Sin respuestas automáticas",
+    "apptLabel": "Citas",
+    "apptValue": "Solo con consulta",
+    "apptSub": "Por ahora no atendemos sin cita"
+  },
+  "about": {
+    "label": "Conoce a tu especialista",
+    "credsText": "Enfermera practicante certificada · DOT de Massachusetts · Certificada NRCME",
+    "bioPlaceholder": "[Biografía de la proveedora muy pronto]",
+    "weGetIt": "Te entendemos.",
+    "weGetItBody": "Bajar de peso puede sentirse abrumador — sobre todo cuando ya intentaste tantas cosas sin un éxito duradero. Nuestro enfoque empieza por tu experiencia. Combinamos guía médica con un apoyo genuino y constante, diseñado alrededor de tu vida, para que el progreso se sienta realista y sostenible.",
+    "approach": "Nuestro enfoque",
+    "approachBody1": "Desde tu primera visita, tendrás una proveedora, un plan y un camino claro. No corremos. No adivinamos. Escuchamos, explicamos y construimos tu cuidado alrededor de lo que de verdad funciona para ti.",
+    "approachBody2": "Nuestra atención va más allá de los tratamientos — se trata de ayudarte a sentirte renovada, con más energía y más confianza en tu día a día.",
+    "cred1Title": "NP certificada",
+    "cred1Sub": "Enfermera practicante",
+    "cred2Title": "Licenciada en MA",
+    "cred2Sub": "Plena autoridad de práctica",
+    "cred3Title": "Certificada NRCME",
+    "cred3Sub": "Exámenes médicos DOT",
+    "cta": "Reserva una consulta"
   }
 }
