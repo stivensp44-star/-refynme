@@ -78,10 +78,21 @@ Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on t
 src/
   index.css     ← CSS variables + resets + keyframes ONLY. No component styles here.
   App.css       ← ALL component styles. Single source of truth for styling.
-  main.jsx      ← App entry point (wraps App in BrowserRouter)
+                   i18n LanguageSwitcher styles + overlay visibility fix are
+                   APPENDED at the end (additive, cascade-level overrides).
+  main.jsx      ← App entry point (imports ./i18n/config.js BEFORE App, wraps App
+                   in BrowserRouter)
   App.jsx       ← Router config + ALL homepage components as inline functions:
-                   useInView hook, Banner, Nav, Hero, Trust, CoverageSignal,
-                   ServicesPanels, Testimonials, BrocktonSignal, CtaFooter, Home
+                   useInView hook, Banner, Nav, Hero, MissionStrip, Trust,
+                   CoverageSignal, ServicesPanels, Testimonials, BrocktonSignal,
+                   CtaFooter, Home — all wired to useTranslation()
+  components/
+    LanguageSwitcher.jsx ← EN/FR/ES/KEA pill row (default + "overlay" variant)
+  i18n/
+    config.js     ← i18next init (en/fr/es/kea, fallback en, detector
+                     localStorage→navigator, key "refynme-lang") + <html lang> sync
+    locales/*.json ← en.json = source of truth (102 strings, nav.*/footer.*/home.*);
+                     fr/es/kea = English placeholders until Phase 1b
   pages/
     PageShell.jsx  ← Named exports: Nav, Footer, PageShell (default).
                      Services.jsx imports Nav + Footer directly from here.
@@ -335,6 +346,61 @@ Do not build out secondary pages without session instruction.
 
 ---
 
+## I18N — PHASE 1A LIVE (2026-07-11)
+
+Infrastructure only. Every language currently renders English.
+
+### Architecture
+- i18next + react-i18next + i18next-browser-languagedetector
+- Languages: en (default/fallback), fr, es, kea
+- Detection: localStorage first (key `refynme-lang`), then navigator;
+  `nonExplicitSupportedLngs: true` (fr-FR → fr)
+- `src/i18n/config.js` also syncs `<html lang>` on init + every language change
+- Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage sections
+- Secondary-page CONTENT (About, Services, etc.) is NOT extracted — Phase 1a
+  scope was Nav + Footer + Home only
+
+### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
+- 102 strings, nested semantic keys: nav.*, footer.*, home.*
+- Phase 1b = replace VALUES in fr.json / es.json / kea.json with reviewed
+  translations and delete their "_status" line. NO key changes, NO code changes.
+- NEVER translate anything yourself. Reviewed translations arrive from Stivo.
+- fr/es/kea currently carry `"_status": "PLACEHOLDER — awaiting reviewed
+  translations"` and English values. That marker leaving the files = 1b shipped.
+
+### NEVER EXTRACT — hardcoded identical in every language
+- Logo alt text
+- Phone 774-312-9806, email refynmemedical@gmail.com
+- Legal name "RefynMe Medical and Wellness, PLLC"
+- Tagline "Results you see. Confidence you own."
+- Town proper nouns, testimonial names/cities, stat figures (20+/100%/NP/MA),
+  social abbreviations (IG/TK/FB), temporary photo-placeholder labels
+
+### LanguageSwitcher responsive behavior (decided by review fix, 2026-07-11)
+- >1200px: full pills in both navs, before the Book Now CTA
+- 1081–1200px: compact pills (nav row has no slack)
+- ≤1080px: in-row switcher HIDDEN (row physically can't fit it)
+- ≤768px homepage: switcher lives in the hamburger overlay (44px touch targets)
+- KNOWN GAP (needs Cous decision before 1b ships): secondary pages on mobile
+  and ALL pages 769–1080px have NO switcher — PageShell has no hamburger.
+  Selection persists via localStorage from wherever it was last set.
+
+### Verification gotchas
+- The CSS minifier rewrites `@media (max-width: 1080px)` to range syntax
+  `(width<=1080px)` — grep the deployed CSS for the range form.
+- Claude-in-Chrome runs on Stivo's REMOTE machine — it can NOT reach this box's
+  localhost. Verify i18n behavior headlessly in Node (mock localStorage/navigator,
+  run the real config.js with JSON imports rewritten to import-attributes) or
+  against the live site.
+
+### Deferred items logged by the 2026-07-11 multi-agent review (do not "fix"
+without a task): placeholder locales bundle ~3×5KB duplicate English until 1b
+(spec said import all four); nav/footer i18n key maps are hand-duplicated in
+App.jsx and PageShell.jsx (pre-existing two-footer architecture — every 1b
+touch must hit BOTH copies or the missed one renders raw keys).
+
+---
+
 ## GEO STRATEGY
 
 ### Homepage (geo-neutral)
@@ -367,6 +433,33 @@ Do not build out secondary pages without session instruction.
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11)
+
+- I18N PHASE 1A BUILT, REVIEWED, MERGED, DEPLOYED — merge `802e692` to main,
+  Actions run all-green 38s, live-verified on refynme.com (bundle contains
+  refynme-lang key, switcher, i18n keys, PLACEHOLDER markers, html-lang sync).
+  See the new "I18N" section above for the standing rules.
+  - `297c148` feat: i18next infra + 102-string EN extraction + LanguageSwitcher
+  - `bad3690` fix (from a multi-agent review of the branch, 0 findings refuted):
+    1. Tablet nav overflow 769–1110px → pills compact ≤1200px, hidden ≤1080px
+    2. Closed hamburger overlay kept its (invisible) controls keyboard-focusable
+       — buttons could silently change persisted language. Appended
+       `.nav__overlay` visibility hidden/visible override, fade preserved via
+       delayed visibility transition. Also fixes the pre-existing invisible-link
+       tab-order quirk.
+    3. `<html lang>` now follows the active language (screen readers / browser
+       auto-translate — matters the moment 1b real translations land)
+- Branch hygiene: `staging-i18n-phase1` deleted origin + local after merge;
+  repo carries only main between tasks.
+- npm audit (PRE-EXISTING, not from this session): vite 8.0.14 high +
+  @babel/core low — a vite bump is its own future task.
+- Doc drift noticed, NOT fixed (needs its own pass): the Hero section above
+  still describes the old "Finally. / Someone who / gets it." headings; the
+  live code (and en.json) has "Refined care / for the way you want / to look,
+  feel and live." Reconcile with Cous which is canonical.
 
 ---
 
@@ -472,8 +565,15 @@ PENDING DECISIONS (need confirmation from wife):
   - Brockton geographic positioning — current heading reads "South Shore deserves this."
     Original intent was Brockton-specific. Confirm new direction before reverting.
   - Practice address — needed before Google Business Profile setup
+  - Language switcher on secondary-page mobile + 769–1080px (PageShell has no
+    hamburger — needs a nav-breakpoint decision; see I18N section)
+  - Hero heading doc drift — CLAUDE.md Hero section vs live code (see 2026-07-11
+    session notes)
 
 NEXT BUILD WORK:
+  [ ] i18n Phase 1b — drop reviewed FR/ES/KEA translations into locale files
+      (values only, keys frozen; remove "_status" lines; touch BOTH footer copies
+      if any key changes — see I18N section)
   [ ] Brockton town landing page
   [ ] Town page template for remaining towns
   [ ] Reach line below Trust Builder on homepage
