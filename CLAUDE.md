@@ -377,14 +377,14 @@ every content page, marked DRAFT pending native review.
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
 - Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage
-  sections, AND (Phase 2) content pages: Services, Weight Loss, Aesthetics,
-  DOT Exams, Contact (full form), Hormone & Vitamin Therapy, plus PageShell's
-  own strings (default subtitle + book CTA)
-- EXCEPTION — About (rewritten 2026-07-11 evening): body is HARDCODED ENGLISH
-  by Stivo instruction (approved final copy). Its nav/footer still translate;
-  the about.* keys in all four locale files are ORPHANED (unused — leave them;
-  translating the new copy is a future extract-and-draft task under this
-  rulebook, and it must NOT reuse the stale orphaned values).
+  sections, all content pages: Services, Weight Loss, Aesthetics, DOT Exams,
+  Contact (full form), Hormone & Vitamin Therapy, About (re-wired 2026-07-11
+  night after its rewrite — new 18-key about.* namespace REPLACED the orphaned
+  one, stale values deleted), plus PageShell's own strings
+- About copy note: the ENGLISH About values in en.json are the approved FINAL
+  copy verbatim (the em-why sentence is split across phil1Before/phil1Em/
+  phil1After and must reassemble exactly). Do not edit them. The italic word
+  carries per language: why / pourquoi / por qué / pamodi.
 - STILL ENGLISH BY DESIGN (each needs its own decision before changing):
   · Privacy Policy + Terms — legal text; machine translation = liability;
     if ever translated, needs an English-binding disclaimer decision first
@@ -394,7 +394,7 @@ every content page, marked DRAFT pending native review.
   · Image alts, provider name, BookNow.jsx (orphaned redirect)
 
 ### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
-- 259 strings, nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
+- 261 strings, nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
   services.*, weightLoss.*, dotExams.*, hormone.*, aesthetics.*, contact.*,
   about.*
 - 1b SHIPPED (2026-07-11): machine-drafted FR/ES/KEA values are LIVE, each file
@@ -487,6 +487,27 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-11, NIGHT — ABOUT TRANSLATION)
+
+- ABOUT PAGE TRANSLATED (merge `d797880`; feat `2ffda66`) — Stivo's explicit
+  instruction closed the English-only exception from earlier tonight. New
+  18-key about.* namespace in all four locales; ORPHANED old values DELETED
+  (never reused, per the rulebook guard). Key contract now 261 strings.
+- English rendering is byte-identical to the approved FINAL copy — verified
+  by reassembling the split phil1 keys to the exact spec sentence.
+- The <em>why</em> rule carries per language via split keys: why / pourquoi /
+  por qué / pamodi — live-verified ×1 per language in Stivo's browser, along
+  with H1s, pull-lines, credlines (middle dots intact), html-lang tracking.
+- 32/32 verification checks (copy fidelity, key parity 261×3, zero stale
+  keys, banned scan ×4, GLP-1/Botox/Dysport/NRCME/DOT + proper nouns
+  preserved, 175 static t() keys resolve, real-config render per language).
+- ⚠ For the native reviewers, flagged wordplay: closing line "That's the
+  practice." (clinic + way of practicing) → FR "C'est ça, la pratique." /
+  ES "Esa es la práctica." / KEA "Kel-la é prátika." — confirm these land.
+- NATIVE REVIEW scope is now 261 strings.
 
 ---
 
@@ -727,9 +748,8 @@ PENDING DECISIONS (need confirmation from wife):
     hamburger — needs a nav-breakpoint decision; see I18N section)
   - [RESOLVED 2026-07-11] About CTA target: Stivo chose /contact — the
     all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
-  - About page translation: new FINAL copy is English-only; when/whether to
-    extract + draft FR/ES/KEA (orphaned about.* keys must be replaced, not
-    reused)
+  - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
+    FR/ES/KEA (merge d797880); orphaned keys replaced, not reused
   - Hero heading doc drift — CLAUDE.md Hero section vs live code (see 2026-07-11
     session notes)
 
@@ -739,7 +759,8 @@ NEXT BUILD WORK:
       (merge 3514e56; en.json now 259 strings)
   [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES/KEA, delete
       "_status" lines (values only, keys frozen; KEA/Santiago Kriolu most
-      urgent — drafts are live to real visitors; scope = 259 strings)
+      urgent — drafts are live to real visitors; scope = 261 strings incl.
+      the About wordplay flag in the 2026-07-11 night session notes)
   [ ] i18n decisions pending: Privacy/Terms translation (legal), Blog
       per-language strategy
   [ ] Bundle code-split if it keeps growing (531 kB minified, warning
