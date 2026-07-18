@@ -56,7 +56,9 @@
       "cred2Title": "Board-Certified",
       "cred2Sub": "Nurse Practitioner",
       "cred3Title": "Brockton",
-      "cred3Sub": "Massachusetts"
+      "cred3Sub": "Massachusetts",
+      "badgeTitle": "Certifiée",
+      "badgeSub": "Infirmière praticienne"
     },
     "mission": {
       "label": "Notre mission",

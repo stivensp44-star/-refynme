@@ -116,8 +116,8 @@ function Hero() {
   return (
     <div className="hero-wrapper">
       <section className="hero">
-        {/* Full-width centered, type-led — no images in the hero */}
-        <div className="hero__center">
+        {/* LEFT — headline / sub / CTAs (original two-column layout) */}
+        <div className="hero__left">
           <h1 className="hero__heading" style={{ animationDelay: '0.1s' }}>
             {t('home.hero.heading1')}
           </h1>
@@ -141,21 +141,23 @@ function Hero() {
             <Link to="/contact" className="btn btn--rose">{t('home.hero.ctaPrimary')}</Link>
             <Link to="/services" className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
           </div>
+        </div>
 
-          <div className="hero__creds" style={{ animationDelay: '0.85s' }}>
-            <div className="hero__cred">
-              <span className="hero__cred-title">{t('home.hero.cred1Title')}</span>
-              <span className="hero__cred-sub">{t('home.hero.cred1Sub')}</span>
+        {/* RIGHT — animated monogram panel (same footprint as the old photo) */}
+        <div className="hero__right">
+          <div className="hero__monogram" role="img" aria-label="RefynMe monogram">
+            <div className="hero__monogram-ring" aria-hidden="true" />
+            <img src="/images/refynme-r-mark.svg" alt="" className="hero__monogram-r" />
+            <div className="hero__orbit-tilt" aria-hidden="true">
+              <div className="hero__orbit-spin">
+                {['R','e','f','y','n','M','e','✦','','R','e','f','y','n','M','e','✦','','R','e','f','y','n','M','e','✦',''].map((ch, i) => (
+                  <span key={i} className="hero__orbit-ch" style={{ transform: `rotateY(${i * (360/27)}deg) translateZ(160px)` }}>{ch}</span>
+                ))}
+              </div>
             </div>
-            <div className="hero__cred-divider" />
-            <div className="hero__cred">
-              <span className="hero__cred-title">{t('home.hero.cred2Title')}</span>
-              <span className="hero__cred-sub">{t('home.hero.cred2Sub')}</span>
-            </div>
-            <div className="hero__cred-divider" />
-            <div className="hero__cred">
-              <span className="hero__cred-title">{t('home.hero.cred3Title')}</span>
-              <span className="hero__cred-sub">{t('home.hero.cred3Sub')}</span>
+            <div className="hero__monogram-cred">
+              <span className="hero__monogram-cred-title">{t('home.hero.badgeTitle')}</span>
+              <span className="hero__monogram-cred-sub">{t('home.hero.badgeSub')}</span>
             </div>
           </div>
         </div>
