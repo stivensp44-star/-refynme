@@ -1020,22 +1020,24 @@ p {
   z-index: 1;
 }
 
-/* FIX 2 — vertically centered, no extra padding on left column */
+/* Full-width centered, type-led hero — single column, no images */
 .hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 96px 40px;
-  max-width: 1280px;
+  max-width: 760px;
   margin: 0 auto;
-  gap: 60px;
   position: relative;
   z-index: 0;
 }
 
-.hero__left {
+.hero__center {
   position: relative;
+  width: 100%;
 }
 
 .hero__location {
@@ -1079,6 +1081,8 @@ p {
   color: var(--gold);
   font-family: var(--font-sans);
   max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__sub {
@@ -1088,6 +1092,8 @@ p {
   line-height: 1.65;
   color: rgba(250, 246, 240, 0.7);
   max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__btns {
@@ -1095,99 +1101,53 @@ p {
   gap: 16px;
   margin-top: 36px;
   flex-wrap: wrap;
-  animation: fadeUp 0.8s ease both;
-}
-
-/* FIX 1 — right column wraps photo + badges */
-.hero__right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-/* FIX 1 — photo-wrap is the positioning context for badges */
-.hero__photo-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-}
-
-.hero__photo-img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 8px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-/* FIX 3 — tall portrait 3:4 aspect ratio */
-.hero__photo-placeholder {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 8px;
-  border: 1.5px solid rgba(212, 168, 83, 0.25);
-  background: rgba(61, 31, 20, 0.4);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  color: rgba(212, 168, 83, 0.4);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* FIX 1 — badges anchored inside photo-wrap */
-.hero__badge {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 8px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   animation: fadeUp 0.8s ease both;
 }
-.hero__badge--cert {
-  top: 28px;
-  left: -24px;
-  background: rgba(44, 24, 16, 0.82);
-  border: 1px solid rgba(212, 168, 83, 0.35);
-}
-.hero__badge--patients {
-  bottom: 56px;
-  right: -16px;
-  background: rgba(196, 104, 122, 0.22);
-  border: 1px solid rgba(196, 104, 122, 0.45);
+
+/* Credential strip — replaces the photo/badge column */
+.hero__creds {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-top: 1px solid rgba(212, 168, 83, 0.18);
+  padding-top: 28px;
+  margin: 56px auto 0;
+  max-width: 560px;
+  animation: fadeUp 0.8s ease both;
 }
 
-.hero__badge-icon {
-  font-size: 20px;
+.hero__cred {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__cred-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 15px;
   color: var(--gold);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.hero__cred-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: rgba(250, 246, 240, 0.45);
+  margin-top: 4px;
+}
+
+.hero__cred-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(212, 168, 83, 0.25);
   flex-shrink: 0;
 }
-.hero__badge-title {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 0.03em;
-}
-.hero__badge-sub {
-  font-size: 11px;
-  color: rgba(250, 246, 240, 0.6);
-  margin-top: 2px;
-}
+
 .hero__pulse {
   width: 8px;
   height: 8px;
@@ -1199,13 +1159,23 @@ p {
 
 @media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
     padding: 64px 20px 100px;
-    gap: 40px;
   }
-  .hero__badge { display: none; }
-  .hero__right { justify-content: center; }
-  .hero__photo-wrap { max-width: 100%; }
+  .hero__creds {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__creds {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero__cred-divider {
+    width: 36px;
+    height: 1px;
+  }
 }
 
 /* ── Mission Strip ───────────────────────────────────────── */
