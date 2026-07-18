@@ -116,8 +116,8 @@ function Hero() {
   return (
     <div className="hero-wrapper">
       <section className="hero">
-        {/* LEFT — text content only, no badges */}
-        <div className="hero__left">
+        {/* Full-width centered, type-led — no images in the hero */}
+        <div className="hero__center">
           <h1 className="hero__heading" style={{ animationDelay: '0.1s' }}>
             {t('home.hero.heading1')}
           </h1>
@@ -141,24 +141,21 @@ function Hero() {
             <Link to="/contact" className="btn btn--rose">{t('home.hero.ctaPrimary')}</Link>
             <Link to="/services" className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
           </div>
-        </div>
 
-        {/* RIGHT — photo + badges anchored here */}
-        <div className="hero__right">
-          <div className="hero__photo-wrap">
-            <img
-              src="/images/provider-hero.png"
-              alt="RefynMe Medical Aesthetics and Wellness — Board-Certified Nurse Practitioner"
-              className="hero__photo-img"
-            />
-
-            {/* Badge — near top of photo */}
-            <div className="hero__badge hero__badge--cert" style={{ animationDelay: '0.9s' }}>
-              <div className="hero__badge-icon">✦</div>
-              <div>
-                <div className="hero__badge-title">{t('home.hero.badgeTitle')}</div>
-                <div className="hero__badge-sub">{t('home.hero.badgeSub')}</div>
-              </div>
+          <div className="hero__creds" style={{ animationDelay: '0.85s' }}>
+            <div className="hero__cred">
+              <span className="hero__cred-title">{t('home.hero.cred1Title')}</span>
+              <span className="hero__cred-sub">{t('home.hero.cred1Sub')}</span>
+            </div>
+            <div className="hero__cred-divider" />
+            <div className="hero__cred">
+              <span className="hero__cred-title">{t('home.hero.cred2Title')}</span>
+              <span className="hero__cred-sub">{t('home.hero.cred2Sub')}</span>
+            </div>
+            <div className="hero__cred-divider" />
+            <div className="hero__cred">
+              <span className="hero__cred-title">{t('home.hero.cred3Title')}</span>
+              <span className="hero__cred-sub">{t('home.hero.cred3Sub')}</span>
             </div>
           </div>
         </div>

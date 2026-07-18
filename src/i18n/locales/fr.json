@@ -51,8 +51,12 @@
       "sub": "Chez RefynMe Medical Aesthetics and Wellness, chaque plan de soins est construit autour de vos objectifs — de la gestion médicale du poids aux traitements esthétiques. Nous allions compassion, expertise clinique et médecine fondée sur les preuves pour que vous soyez au mieux de votre apparence, de votre forme et de votre vie.",
       "ctaPrimary": "Réserver une consultation →",
       "ctaSecondary": "Nos services",
-      "badgeTitle": "Certifiée",
-      "badgeSub": "Infirmière praticienne"
+      "cred1Title": "NP-Owned",
+      "cred1Sub": "Full Practice Authority",
+      "cred2Title": "Board-Certified",
+      "cred2Sub": "Nurse Practitioner",
+      "cred3Title": "Brockton",
+      "cred3Sub": "Massachusetts"
     },
     "mission": {
       "label": "Notre mission",
