@@ -171,6 +171,9 @@ Body paragraphs: letter-spacing 0.01em
 
 fadeUp: opacity 0→1, translateY 32px→0
 pulse:  opacity 1→0.4→1, 2s infinite loop
+heroOrbit: rotateY 0→360deg, 20s linear infinite (hero monogram orbit, 2026-07-17)
+heroRingPulse: opacity 0.2→0.45→0.2, 7s ease-in-out infinite (monogram ring)
+All keyframes defined in index.css ONLY.
 All sections except Hero use fadeUp on scroll via useInView hook
 useInView threshold: 0.15
 
@@ -808,6 +811,9 @@ DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
   - NRCME credential on Aesthetics page (removed 2026-06-14 — do not re-add)
 
 PENDING DECISIONS (need confirmation from wife):
+  - Banner copy — site has been LIVE for weeks but still reads "WEBSITE
+    LAUNCHING SOON" (flagged 2026-07-17). The launch replacement text is
+    already scripted in the Banner section rule — needs the go to flip it.
   - Brockton geographic positioning — current heading reads "South Shore deserves this."
     Original intent was Brockton-specific. Confirm new direction before reverting.
   - Practice address — needed before Google Business Profile setup
@@ -832,6 +838,8 @@ NEXT BUILD WORK:
       per-language strategy
   [ ] Bundle code-split if it keeps growing (531 kB minified, warning
       threshold crossed 2026-07-11)
+  [ ] 1200×630 OG share card asset (og/twitter images currently the
+      147×52 nav logo — works but weak on social shares)
   [ ] Brockton town landing page
   [ ] Town page template for remaining towns
   [ ] Reach line below Trust Builder on homepage
