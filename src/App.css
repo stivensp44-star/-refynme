@@ -1020,24 +1020,22 @@ p {
   z-index: 1;
 }
 
-/* Full-width centered, type-led hero — single column, no images */
+/* FIX 2 — vertically centered, no extra padding on left column */
 .hero {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  text-align: center;
   padding: 96px 40px;
-  max-width: 760px;
+  max-width: 1280px;
   margin: 0 auto;
+  gap: 60px;
   position: relative;
   z-index: 0;
 }
 
-.hero__center {
+.hero__left {
   position: relative;
-  width: 100%;
 }
 
 .hero__location {
@@ -1081,8 +1079,6 @@ p {
   color: var(--gold);
   font-family: var(--font-sans);
   max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero__sub {
@@ -1092,8 +1088,6 @@ p {
   line-height: 1.65;
   color: rgba(250, 246, 240, 0.7);
   max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero__btns {
@@ -1101,51 +1095,112 @@ p {
   gap: 16px;
   margin-top: 36px;
   flex-wrap: wrap;
-  justify-content: center;
   animation: fadeUp 0.8s ease both;
 }
 
-/* Credential strip — replaces the photo/badge column */
-.hero__creds {
+/* FIX 1 — right column holds the monogram panel */
+.hero__right {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  gap: 32px;
-  border-top: 1px solid rgba(212, 168, 83, 0.18);
-  padding-top: 28px;
-  margin: 56px auto 0;
-  max-width: 560px;
-  animation: fadeUp 0.8s ease both;
+  position: relative;
+  z-index: 2;
 }
 
-.hero__cred {
+/* Monogram panel — same footprint as the old provider photo */
+.hero__monogram {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 3 / 4;
+  background: var(--espresso);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+  overflow: hidden;
+}
+
+.hero__monogram-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 50%;
+  animation: heroRingPulse 7s ease-in-out infinite;
+}
+
+.hero__monogram-r {
+  width: 40%;
+  height: auto;
+}
+
+.hero__orbit-tilt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: rotateX(-12deg);
+  transform-style: preserve-3d;
+}
+
+.hero__orbit-spin {
+  transform-style: preserve-3d;
+  animation: heroOrbit 20s linear infinite;
+}
+
+.hero__orbit-ch {
+  position: absolute;
+  left: -11px;
+  top: -11px;
+  width: 22px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--gold);
+  backface-visibility: hidden;
+}
+
+.hero__monogram-cred {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
 }
 
-.hero__cred-title {
+.hero__monogram-cred-title {
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 15px;
   color: var(--gold);
 }
 
-.hero__cred-sub {
+.hero__monogram-cred-sub {
   font-family: var(--font-sans);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   color: rgba(250, 246, 240, 0.45);
-  margin-top: 4px;
 }
 
-.hero__cred-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(212, 168, 83, 0.25);
-  flex-shrink: 0;
+@media (prefers-reduced-motion: reduce) {
+  .hero__orbit-spin,
+  .hero__monogram-ring {
+    animation: none;
+  }
+  .hero__orbit-spin {
+    display: none;
+  }
 }
 
 .hero__pulse {
@@ -1157,24 +1212,20 @@ p {
   flex-shrink: 0;
 }
 
+/* Spec 2026-07-17: column collapse at 900px (old photo hero collapsed at
+   768 — the monogram mirrors that behavior at the wider breakpoint) */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero__right { justify-content: center; }
+  .hero__monogram { max-width: 100%; }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 64px 20px 100px;
-  }
-  .hero__creds {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__creds {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .hero__cred-divider {
-    width: 36px;
-    height: 1px;
   }
 }
 

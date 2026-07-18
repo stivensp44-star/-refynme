@@ -108,3 +108,14 @@ img {
     transform: none;
   }
 }
+
+/* Hero monogram animations (2026-07-17) — keyframes live here per file rule */
+@keyframes heroOrbit {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+@keyframes heroRingPulse {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.45; }
+}
