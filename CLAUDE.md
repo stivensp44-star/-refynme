@@ -232,7 +232,7 @@ Mobile: 11px text
   aspect-ratio 3:4, radius 8px, espresso bg, 1px gold-20 border):
   · hero__monogram-ring — 78% circle, gold-30 border, heroRingPulse 7s
     (opacity 0.2→0.45)
-  · hero__monogram-r — /images/refynme-r-mark.svg at 40% width (see ASSET
+  · hero__monogram-r — /images/refynme-r-mark-v2.svg at 40% width (see ASSET
     note below)
   · hero__orbit — 27 spans "RefynMe✦·" ×3 on a 3D ring (rotateY steps,
     translateZ 160px), heroOrbit 20s linear, rotateX(-12deg) tilt,
@@ -527,7 +527,7 @@ cutting-edge | wellness journey | affordable
   provider-consultation.png untouched. og:image / twitter:image / JSON-LD
   image → refynme-logo-gold.png (refynmelogo.png hasn't existed since
   7-04). Proper 1200×630 OG card = future asset.
-- NEW ASSET public/images/refynme-r-mark.svg — see the ASSET note in the
+- ASSET public/images/refynme-r-mark-v2.svg (FINAL, Stivo logo-derived potrace, merge 8e9ef69 — replaced+deleted the interim Great Vibes substitute same day) — see the ASSET note in the
   Hero section (outlined Great Vibes glyph; artwork, not a font).
 - i18n: +6 home.hero.cred* keys (UNUSED after v2; English in all four
   locales; translate only if reused); badgeTitle/badgeSub removed in v1,
@@ -542,6 +542,18 @@ cutting-edge | wellness journey | affordable
 - Both versions live-verified with headless-Chrome screenshots (the local
   vite-preview + `--virtual-time-budget` pattern works for animation
   states); deploys green; staging branches deleted after merge.
+- LATE SESSION — R-MARK CORRECTED (merges `8e9ef69` code + `fabd1a0` docs):
+  the interim Great Vibes glyph substitute was replaced by Stivo's REAL
+  logo-derived asset, refynme-r-mark-v2.svg (potrace trace of the brand R
+  with the flowing-hair profile letterform). Delivery lesson: two
+  file-drop attempts failed (files save to Stivo's LOCAL machine, not
+  this box — same trap as screenshots); the working method was PASTING
+  THE FILE CONTENT IN-CHAT with a pinned MD5
+  (5c0dff8bf3ad22c26e1bc30c85926431) and a strict no-authoring
+  instruction — hash matched first try. Old asset deleted repo+server
+  (Content-Type-verified); one-line src repoint; v2 filename =
+  cache-bust, keep. For any future Stivo-supplied asset: prefer
+  content-in-chat + hash pinning over file drops.
 
 ---
 
