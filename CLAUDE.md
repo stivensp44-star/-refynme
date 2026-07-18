@@ -108,7 +108,7 @@ src/
   i18n/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
-    locales/*.json ← en.json = source of truth (261 strings; namespaces per
+    locales/*.json ← en.json = source of truth (267 strings; namespaces per
                      page — see I18N section); fr/es/kea = DRAFT machine
                      translations LIVE (marked "_status") pending native review
   pages/
@@ -213,12 +213,12 @@ Gold bg, espresso-dark text, DM Sans 13px, weight 600, uppercase, letter-spacing
 Rose "Book Now" pill: position absolute, right 24px
 Mobile: 11px text
 
-### Hero
+### Hero (REDESIGNED 2026-07-17 — monogram-orbit panel, merge 852f5bb)
 - Background: espresso-dark, min-height 100vh
-- 2-column CSS grid, align-items center
+- 2-column CSS grid 1fr/1fr, gap 60px, align-items center (original values)
 - Bottom: gradient fadeout to cream
-- Left: 3 staggered h1 elements ("Finally." / "Someone who" italic gold / "gets it.")
-  Playfair clamp(52px→88px), weight 700
+- Left: 3 staggered h1 elements — UNCHANGED (see left-column spec below)
+  Playfair clamp sizes, weight 700, italic gold middle line
 - Left subtext: two-element structure inside hero__sub-wrap (fadeUp animation on wrap):
   1. hero__sub-heading — gold, DM Sans 18px, weight 600:
      "Personalized Care for Your Best Health, Energy, and Confidence"
@@ -228,10 +228,30 @@ Mobile: 11px text
       We combine compassion, clinical expertise, and evidence-based medicine so
       you can look, feel, and live your best."
 - Left buttons: rose primary "Book a Consultation →" + cream outline secondary "Our Services"
-- Right: 3:4 portrait photo (public/images/provider-hero.png), max-width 460px, object-fit cover
-- Right badges: gold credential badge top-left only. "Now Accepting Patients" badge removed.
-- Badges hidden on mobile
-- Hero is GEO-NEUTRAL. No town name in hero. Ever.
+- RIGHT: hero__monogram panel in the OLD PHOTO FOOTPRINT (max-width 460px,
+  aspect-ratio 3:4, radius 8px, espresso bg, 1px gold-20 border):
+  · hero__monogram-ring — 78% circle, gold-30 border, heroRingPulse 7s
+    (opacity 0.2→0.45)
+  · hero__monogram-r — /images/refynme-r-mark.svg at 40% width (see ASSET
+    note below)
+  · hero__orbit — 27 spans "RefynMe✦·" ×3 on a 3D ring (rotateY steps,
+    translateZ 160px), heroOrbit 20s linear, rotateX(-12deg) tilt,
+    backface-visibility hidden, DM Sans 17px gold
+  · hero__monogram-cred — bottom-centered: badgeTitle/badgeSub i18n keys
+    ("Board-Certified" / "Nurse Practitioner"), serif 700 15px gold /
+    10px uppercase 1.2px cream-45
+- prefers-reduced-motion: orbit hidden entirely, ring static — R + ring only
+- Keyframes heroOrbit + heroRingPulse live in index.css (keyframes-only rule)
+- Column collapse at 900px (monogram centers under text; Stivo spec 2026-07-17 —
+  the old photo hero collapsed at 768). Mobile padding change stays at 768px.
+- Hero is GEO-NEUTRAL. No town name in hero. Ever. (The 2026-07-17 v1
+  centered hero briefly carried a Brockton credential by explicit Stivo spec;
+  it was superseded the same day — the rule stands satisfied.)
+- ASSET: public/images/refynme-r-mark.svg — cursive "R" OUTLINED TO VECTOR
+  PATHS from the Great Vibes glyph (OFL license, fontTools), flat gold
+  #D4A853 artwork. NO font is loaded — Absolute Rule 3 intact via the
+  logo-artwork precedent. Regenerate: outline the glyph again; never load
+  Great Vibes as a webfont.
 
 ### Trust Builder
 - White bg, 2-column grid, gap 80px
@@ -394,7 +414,7 @@ every content page, marked DRAFT pending native review.
   · Image alts, provider name, BookNow.jsx (orphaned redirect)
 
 ### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
-- 261 strings, nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
+- 267 strings (2026-07-17: +6 unused cred* keys, badge keys removed+restored), nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
   services.*, weightLoss.*, dotExams.*, hormone.*, aesthetics.*, contact.*,
   about.*
 - 1b SHIPPED (2026-07-11): machine-drafted FR/ES/KEA values are LIVE, each file
@@ -487,6 +507,38 @@ touch must hit BOTH copies or the missed one renders raw keys).
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-07-17 — HERO REDESIGN ×2, MONOGRAM FINAL)
+
+- HERO REDESIGNED TWICE in one session, both Stivo-specced, both via the
+  full staging→approve→merge loop:
+  - v1 (merge `2a6c95a`, lived ~1 hour): centered type-led hero — photo +
+    cert badge removed, credential strip (incl. a Brockton item by explicit
+    spec). SUPERSEDED same day; described here only for git-history context.
+  - v2 FINAL (merge `852f5bb`, LIVE): two-column restored (values
+    byte-matched to 901e390) + animated monogram-orbit panel — see the
+    rewritten Hero section above for the standing spec.
+- provider-hero.png DELETED (repo + server, Content-Type-verified);
+  provider-consultation.png untouched. og:image / twitter:image / JSON-LD
+  image → refynme-logo-gold.png (refynmelogo.png hasn't existed since
+  7-04). Proper 1200×630 OG card = future asset.
+- NEW ASSET public/images/refynme-r-mark.svg — see the ASSET note in the
+  Hero section (outlined Great Vibes glyph; artwork, not a font).
+- i18n: +6 home.hero.cred* keys (UNUSED after v2; English in all four
+  locales; translate only if reused); badgeTitle/badgeSub removed in v1,
+  RESTORED in v2 with exact prior draft values. en.json = 267 strings,
+  parity ×4 verified.
+- Keyframes heroOrbit + heroRingPulse added to index.css (keyframes-only
+  rule); hero column-collapse breakpoint moved 768 → 900px (Stivo spec).
+- Box gotcha for future sessions: `python -c` with non-ASCII arguments
+  mangles UTF-8 on this machine — write script FILES and run
+  `python -X utf8`; verify accented values via ascii() repr, not console
+  output (an é/è mangling in fr.json was caught and fixed this way).
+- Both versions live-verified with headless-Chrome screenshots (the local
+  vite-preview + `--virtual-time-budget` pattern works for animation
+  states); deploys green; staging branches deleted after merge.
 
 ---
 
@@ -713,7 +765,7 @@ CRITICAL (blocks launch):
   [x] Real phone number — 774-312-9806
   [x] Real email — refynmemedical@gmail.com
   [ ] Lead capture form — needed before any paid traffic
-  [x] Provider hero photo — public/images/provider-hero.png (done)
+  [x] Provider hero photo — REMOVED 2026-07-17 (hero redesigned to monogram panel; provider-hero.png deleted, og/twitter/JSON-LD images repointed to refynme-logo-gold.png — a proper 1200×630 OG card is a future asset)
 
 IMPORTANT:
   [x] SEO meta tags — done & live 2026-06-16 (title, description, OG, Twitter, canonical, theme-color, MedicalBusiness JSON-LD in index.html; global only — no per-page meta yet)
@@ -759,7 +811,7 @@ NEXT BUILD WORK:
       (merge 3514e56; en.json now 259 strings)
   [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES/KEA, delete
       "_status" lines (values only, keys frozen; KEA/Santiago Kriolu most
-      urgent — drafts are live to real visitors; scope = 261 strings incl.
+      urgent — drafts are live to real visitors; scope = 267 strings (6 cred* keys are UNUSED English placeholders — translate only if reused) incl.
       the About wordplay flag in the 2026-07-11 night session notes)
   [ ] i18n decisions pending: Privacy/Terms translation (legal), Blog
       per-language strategy
