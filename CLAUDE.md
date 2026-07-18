@@ -247,11 +247,14 @@ Mobile: 11px text
 - Hero is GEO-NEUTRAL. No town name in hero. Ever. (The 2026-07-17 v1
   centered hero briefly carried a Brockton credential by explicit Stivo spec;
   it was superseded the same day — the rule stands satisfied.)
-- ASSET: public/images/refynme-r-mark.svg — cursive "R" OUTLINED TO VECTOR
-  PATHS from the Great Vibes glyph (OFL license, fontTools), flat gold
-  #D4A853 artwork. NO font is loaded — Absolute Rule 3 intact via the
-  logo-artwork precedent. Regenerate: outline the glyph again; never load
-  Great Vibes as a webfont.
+- ASSET: public/images/refynme-r-mark-v2.svg — the BRAND logo's R
+  (flowing-hair profile letterform) traced to vector by Stivo (potrace
+  1.16, flat #D4A853), supplied byte-exact in-session 2026-07-17 (MD5
+  5c0dff8bf3ad22c26e1bc30c85926431) and written verbatim — merge 8e9ef69.
+  The interim Great Vibes glyph substitute (refynme-r-mark.svg) is
+  DELETED; never regenerate it. The v2 filename is deliberate
+  cache-busting — keep it. NO font is loaded for the mark (artwork only,
+  Absolute Rule 3).
 
 ### Trust Builder
 - White bg, 2-column grid, gap 80px
