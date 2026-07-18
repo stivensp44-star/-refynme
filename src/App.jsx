@@ -147,7 +147,7 @@ function Hero() {
         <div className="hero__right">
           <div className="hero__monogram" role="img" aria-label="RefynMe monogram">
             <div className="hero__monogram-ring" aria-hidden="true" />
-            <img src="/images/refynme-r-mark.svg" alt="" className="hero__monogram-r" />
+            <img src="/images/refynme-r-mark-v2.svg" alt="" className="hero__monogram-r" />
             <div className="hero__orbit-tilt" aria-hidden="true">
               <div className="hero__orbit-spin">
                 {['R','e','f','y','n','M','e','✦','','R','e','f','y','n','M','e','✦','','R','e','f','y','n','M','e','✦',''].map((ch, i) => (
