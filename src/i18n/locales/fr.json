@@ -214,7 +214,7 @@
       },
       "certificate": {
         "title": "Certificat le jour même",
-        "body": "Repartez avec votre certificat d'examinateur médical le jour même."
+        "body": "Repartez avec votre certificat médical DOT le jour même."
       }
     },
     "whoNeeds": "Qui a besoin d'un examen DOT ?",
@@ -311,7 +311,7 @@
     "sub": "Nous répondons sous un jour ouvrable. Pas de centre d'appels, pas de réponses automatiques — une vraie praticienne qui connaît votre nom.",
     "reachEyebrow": "Contactez-nous directement",
     "phoneLabel": "Téléphone",
-    "phoneNote": "Lun – Ven, 9h – 17h",
+    "phoneNote": "Lun – Ven, 9h – 18h",
     "emailLabel": "E-mail",
     "emailNote": "Réponse sous 1 jour ouvrable",
     "locationLabel": "Localisation",
@@ -336,7 +336,7 @@
     "submit": "Envoyer le message →",
     "privacyNote": "Vos informations restent privées. Toujours.",
     "hoursLabel": "Horaires",
-    "hoursValue": "Lun – Ven, 9h – 17h",
+    "hoursValue": "Lun – Ven, 9h – 18h",
     "hoursSub": "Disponibilité le week-end bientôt",
     "responseLabel": "Délai de réponse",
     "responseValue": "Sous 1 jour ouvrable",

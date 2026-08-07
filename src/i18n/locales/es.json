@@ -214,7 +214,7 @@
       },
       "certificate": {
         "title": "Certificado el mismo día",
-        "body": "Sal con tu Certificado de Examinador Médico el mismo día."
+        "body": "Sal con tu certificado médico DOT el mismo día."
       }
     },
     "whoNeeds": "¿Quién necesita un examen DOT?",
@@ -308,10 +308,10 @@
   "contact": {
     "h1Line1": "No deberías tener que ir lejos para ser",
     "h1Em": "bien atendida.",
-    "sub": "Respondemos dentro de un día hábil. Sin call centers, sin respuestas automáticas — una proveedora real que sabe tu nombre.",
+    "sub": "Respondemos dentro de un día hábil. Sin call centers, sin respuestas automáticas — una verdadera profesional de la salud que sabe tu nombre.",
     "reachEyebrow": "Contáctanos directamente",
     "phoneLabel": "Teléfono",
-    "phoneNote": "Lun – Vie, 9am – 5pm",
+    "phoneNote": "Lun – Vie, 9am – 6pm",
     "emailLabel": "Correo",
     "emailNote": "Respuesta dentro de 1 día hábil",
     "locationLabel": "Ubicación",
@@ -336,7 +336,7 @@
     "submit": "Enviar mensaje →",
     "privacyNote": "Tu información se queda privada. Siempre.",
     "hoursLabel": "Horario",
-    "hoursValue": "Lun – Vie, 9am – 5pm",
+    "hoursValue": "Lun – Vie, 9am – 6pm",
     "hoursSub": "Disponibilidad de fin de semana muy pronto",
     "responseLabel": "Tiempo de respuesta",
     "responseValue": "Dentro de 1 día hábil",
@@ -349,13 +349,13 @@
     "h1": "El mejor cuidado que ella ha dado empezó con una explicación.",
     "intro1": "Veinte años en la salud te enseñan qué es lo que de verdad cambia a las personas. Rara vez es la receta. Es el momento en que una paciente por fin entiende su propio cuerpo — qué significa el número, por qué funciona el medicamento, qué viene después. Mydwine ha construido su carrera sobre ese momento.",
     "intro2": "Desde 2005, desde el piso de enfermería hasta enfermera practicante certificada, ha ejercido de una sola manera: la evidencia primero, la educación siempre. Porque una paciente que entiende su plan lo sigue. Una paciente a la que le entregan un plan que no entiende lo abandona en el estacionamiento.",
-    "intro3": "Y en algún punto de esas dos décadas, notó lo que el entendimiento le hace a una persona. Se sienta distinto. Hace mejores preguntas. Deja de disculparse por estar en la sala.",
+    "intro3": "Y en algún punto de esas dos décadas, notó lo que el entendimiento le hace a una persona. Se planta distinto. Hace mejores preguntas. Deja de disculparse por estar en la sala.",
     "pull": "Eso es confianza. Nunca estuvo separada de la salud. Así se ve la salud cuando se hace bien.",
     "philHeading": "RefynMe es esa filosofía, con una dirección.",
     "phil1Before": "Aquí, la pérdida de peso no es una receta y una esperanza. Está supervisada médicamente — terapia GLP-1 donde es apropiada, análisis que sí se leen, seguimientos que de verdad dan seguimiento — y en cada paso sabrás ",
     "phil1Em": "por qué",
     "phil1After": ": por qué esta dosis, por qué este ritmo, por qué tu energía regresa junto con tu figura.",
-    "phil2": "Aquí, la estética es una destreza clínica, no un discurso de ventas. Botox, Dysport y rellenos dérmicos colocados por una proveedora que pasó veinte años estudiando rostros por lo que revelan sobre la salud antes de refinar uno solo. Te dirá qué funcionará, qué no, y qué no necesitas — y luego tú decides. Sales viéndote como tú misma en tu mejor día. Ese es el estándar.",
+    "phil2": "Aquí, la estética es una destreza clínica, no un discurso de ventas. Botox, Dysport y rellenos dérmicos colocados por una profesional de la salud que pasó veinte años estudiando rostros por lo que revelan sobre la salud antes de refinar uno solo. Te dirá qué funcionará, qué no, y qué no necesitas — y luego tú decides. Sales viéndote como tú misma en tu mejor día. Ese es el estándar.",
     "phil3": "Debajo de todo corre la disciplina que nunca ha soltado: la prevención. Análisis de sangre, chequeos, respuestas directas — el trabajo silencioso que mantiene pequeñas las cosas pequeñas.",
     "phil4": "Y para los conductores que mantienen esta región en movimiento — es examinadora certificada NRCME para exámenes físicos DOT. Eficiente, rigurosa y respetuosa del hecho de que este examen es tu sueldo.",
     "closeHeading": "Un cuidado así de bueno antes exigía manejar lejos.",

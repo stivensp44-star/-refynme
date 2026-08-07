@@ -468,6 +468,12 @@ en / fr / es. KEA is DARK — see the next section.
 - The "Book a Consultation" CTA must NEVER gain free/gratuit/gratis/grátis.
 - Medical terms stay untranslated: GLP-1, Botox, Dysport, semaglutide,
   tirzepatide, DOT.
+  RATIONALE (Stivo ruling, recorded 2026-08-07): medication names must match
+  what appears on the patient's pharmacy label, prescribing information, and
+  packaging. A patient with limited English should never have to work out
+  that the site's word and the box's word are the same drug. (A 2026-08-07
+  ES "Semaglutida" localization was applied and same-day REVERTED under this
+  rule — do not re-localize INN spellings in any locale.)
 - Tagline + legal entity name stay English (excluded from extraction anyway).
 - Voice: FR = vous (formal-warm), ES = tú (warm), KEA = Santiago Kriolu
   bu-form. Feminine provider forms where the language forces gender
