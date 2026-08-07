@@ -7,8 +7,10 @@
 ## WHAT THIS SITE IS
 
 Medical aesthetics + weight loss practice website.
-Owner: Board-Certified Nurse Practitioner, Brockton MA.
+Owner: Board-Certified Nurse Practitioner, Massachusetts.
 Entity: RefynMe Medical and Wellness, PLLC (Massachusetts).
+PRACTICE STATUS: LAUNCHED and operating — concierge model, no public
+street address by design. This website serves a LIVE practice.
 Tagline: "Results you see. Confidence you own."
 Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on the site.
 
@@ -147,8 +149,9 @@ public/images/blog/  ← Article images (filenames referenced in each article's 
 ### Colors (src/index.css — ONLY place CSS variables are defined)
 
 --espresso:       #2C1810   nav solid, primary dark
---espresso-dark:  #1C0F0A   hero bg, testimonials bg
---espresso-mid:   #3D1F14   testimonial cards
+--espresso-dark:  #1C0F0A   hero bg, mobile overlay bg, 20+ years card
+--espresso-mid:   #3D1F14   language-dropdown menu, weight-loss panel
+                            letterbox
 --gold:           #D4A853   accents, headlines, bullets
 --gold-light:     #E2C47A   hover states
 --cream:          #FAF6F0   light sections
@@ -202,7 +205,7 @@ Nav scroll trigger:          >40px scrollY → var(--espresso) OPAQUE + blur(12p
 ## HOMEPAGE — COMPONENT ORDER
 
 <Banner />
-<Nav />
+<Nav banner />
 <Hero />
 <MissionStrip />
 <Trust />
@@ -276,7 +279,7 @@ Mobile: 11px text
 
 ### Trust Builder
 - White bg, 2-column grid, gap 80px
-- Left: 4:5 placeholder, gold bracket corners (TL+BR), "2+" years card
+- Left: 4:5 placeholder, gold bracket corners (TL+BR), "20+" years card
 - Provider panel image (2026-08-07, v2): stock clinical flat-lay, INTERIM.
   This frame is reserved for Mydwine's professional photograph.
   Replace when her photos are available. Do not treat this slot as
@@ -298,10 +301,17 @@ Mobile: 11px text
   Label gold: "01 – Medical Weight Loss"
   Tags gold border 3px radius: GLP-1 Injections | Oral Medications |
   Dietary Guidance | Ongoing Support
+  IMAGE SHIPPED 2026-08-07: weightlost.webp/jpg (before/after jeans
+  illustration, no person depicted) — object-fit: contain on the
+  espresso-mid letterbox, lazy-loaded, served via <picture>
 - Panel 2 (Aesthetics): photo left col, white right col
   Label ROSE (not gold): "02 – Aesthetic Services"
   Tags rose border 3px radius: Botox | Dermal Fillers |
   Lip Enhancement | Jawline Sculpting
+  "Before / After Photo" placeholder = the LAST empty homepage image
+  slot. STANDING POLICY: no before/after image ships without a real
+  consented patient and a signed written release on file. The
+  placeholder stays empty until that exists.
 
 ### Testimonials — REMOVED 2026-08-07
 - Section deleted sitewide (component, data array, CSS block, i18n keys):
@@ -393,11 +403,13 @@ About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
 DOT Exams links to: /services/dot-exams
 
 ### Routes
-  /about                          → About Us (PageShell placeholder)
+  /about                          → About Us (custom full page, approved FINAL
+                                    copy; does NOT use the PageShell hero)
   /services                       → Our Services (custom two-column layout)
-  /weight-loss                    → Medical Weight Loss (PageShell placeholder)
-  /aesthetics                     → Aesthetic Services (PageShell placeholder)
-  /services/dot-exams             → DOT Medical Exams (PageShell placeholder)
+  /weight-loss                    → Medical Weight Loss (PageShell, fully built)
+  /aesthetics                     → Aesthetic Services (custom layout, built
+                                    2026-06-14; does NOT use the PageShell hero)
+  /services/dot-exams             → DOT Medical Exams (PageShell, fully built)
   /services/hormone-vitamin-therapy → Hormone & Vitamin Therapy (PageShell, built 2026-06-23)
   /book                           → REDIRECTS to /contact (Navigate replace, 2026-06-23).
                                     BookNow.jsx kept in repo but orphaned — not routed.
@@ -472,7 +484,7 @@ en / fr / es. KEA is DARK — see the next section.
 - Detection: localStorage first (key `refynme-lang`), then navigator;
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
-- Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage
+- Wired: the shared Nav (components/Nav.jsx), BOTH Footers, all homepage
   sections, all content pages: Services, Weight Loss, Aesthetics, DOT Exams,
   Contact (full form), Hormone & Vitamin Therapy, About (re-wired 2026-07-11
   night after its rewrite — new 18-key about.* namespace REPLACED the orphaned
@@ -527,8 +539,9 @@ en / fr / es. KEA is DARK — see the next section.
 - Phone 774-312-9806, email refynmemedical@gmail.com
 - Legal name "RefynMe Medical and Wellness, PLLC"
 - Tagline "Results you see. Confidence you own."
-- Town proper nouns, testimonial names/cities, stat figures (20+/100%/NP/MA),
-  social abbreviations (IG/TK/FB), temporary photo-placeholder labels
+- Town proper nouns, stat figures (20+/100%/NP/MA), social abbreviations
+  (IG/TK/FB), the Aesthetics panel's temporary photo-placeholder label
+  (the last remaining placeholder label)
 
 ### LanguageSwitcher responsive behavior (dropdown since 2026-08-07)
 - >1200px: globe dropdown in the nav row (full trigger), before Book Now
@@ -592,16 +605,66 @@ Footers remain separate.
 
 ## COPY RULES — ENFORCED EVERYWHERE
 
-- Talk to ONE person. Never "patients" or "women."
-- Lead with the problem. Not the service.
+- Talk to ONE person in body copy and headings. Never "patients" or
+  "women" in persuasive copy. Status announcements (banner, intake
+  capacity) may use plain plural nouns. (Amended 2026-08-07.)
+- Lead with the problem, not the service — but ONLY where the problem is
+  the patient's own situation. Never frame the problem as another
+  provider's failure (Absolute Rule 17). Where that would be unavoidable,
+  lead with what RefynMe does. (Amended 2026-08-07.)
 - NP credential is a feature. Never a disclaimer.
 - Primary CTA is 'Book a Consultation' — never use 'free' language.
-- Instagram DM always included as booking channel.
 - Short sentences. Short paragraphs.
 
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-08-07 — STATEWIDE + COMPLIANCE + NAV DAY)
+
+Fourteen lanes shipped, each via the full staging→review→merge loop:
+
+1. Statewide positioning — all city/town/region anchors removed sitewide,
+   four locales, meta, JSON-LD downgraded to Organization
+2. Testimonial section removed (unverified) — release policy locked
+3. WCAG AA contrast pass across Contact and footer
+4. Nav transparency bleed and top-offset strip fixed
+5. 375px horizontal overflow fixed (pre-existing on main)
+6. KEA disabled — unreviewed machine translation had been live 27 days
+7. Contact hours corrected to 9am–6pm in all locales
+8. ES mistranslation fixed (se sienta → se planta); proveedora calque
+   replaced
+9. Semaglutide localization reverted — medication names match the box
+10. Language pills replaced with desktop dropdown
+11. Nav unified — secondary pages had NO mobile navigation at all
+12. 769–1080 dead band closed; focus trap made deterministic
+13. Comparison copy replaced with direct positioning (Signal, About,
+    Contact)
+14. Provider panel interim image placed, then replaced with portrait v2;
+    the weight-loss panel image also shipped (contain fit, WebP + JPEG
+    fallback, lazy-loaded)
+
+---
+
+## OPEN ITEMS (as of 2026-08-07 session close)
+
+- Tier 1/2 disparagement copy still live: panel2 "not a technician",
+  trust "Finally close to home" and "not a number", contact.sub
+  "no call centers", aesthetics "difference" and "working you over",
+  about phil1/phil2, meta descriptions ×3
+- Three blog articles carry structural disparagement including a direct
+  claim about competitors — unpublish and rewrite
+- "Patient Stories" footer label points at /about, which has none
+- KEA re-enable: native review of all 254 strings + owner sign-off
+- Two Footers still duplicated — same root cause as the two Navs
+- Mydwine's written approval for the weight-loss image not on file
+
+Ahead of all website work: the practice is operating and seeing
+patients. Malpractice coverage, attorney review of all 14 consent forms
+(12 have had no revision pass), and HIPAA handling are live exposure,
+not pre-launch tasks.
 
 ---
 
@@ -868,7 +931,14 @@ cutting-edge | wellness journey | affordable
 
 ## KNOWN GAPS — DO NOT CLOSE WITHOUT INSTRUCTION
 
-CRITICAL (blocks launch):
+LIVE EXPOSURE (the practice has LAUNCHED and is seeing patients — these
+outrank ALL website work; operator items, recorded 2026-08-07):
+  [ ] Malpractice coverage
+  [ ] Attorney review of all 14 consent forms — 12 have had no revision
+      pass
+  [ ] HIPAA handling — a live obligation, not a pre-launch task
+
+CRITICAL (website):
   [x] Real phone number — 774-312-9806
   [x] Real email — refynmemedical@gmail.com
   [ ] Lead capture form — needed before any paid traffic
@@ -884,16 +954,30 @@ IMPORTANT:
       still pending: provider portrait (comment placeholder in Section 1)
   [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
   [x] Booking flow — Calendly abandoned 2026-06-23; all booking CTAs now route to /contact
-  [ ] Provider bio + name still placeholder
+  [ ] Provider PHOTO still missing (About + Trust frames) — Mydwine is
+      named throughout the live About page and the bio copy is FINAL;
+      only her professional photographs are outstanding
   [ ] Practice address still pending
   [x] Privacy Policy + Terms & Conditions pages — built & live 2026-06-23
       (/privacy-policy + /terms; footer links in PageShell + homepage footer; not in main nav)
 
-IMAGES NEEDED (public/images/):
-  [ ] aesthetics-treatment.png — real provider action photo
-  [ ] provider-consultation.png — real provider action photo
-  [ ] About page provider portrait — professional shots pending; slot held by
-      comment placeholder in About.jsx Section 1 (no stock/AI)
+IMAGES (state as of 2026-08-07):
+  DONE:
+    [x] Weight loss panel (2026-08-07)
+    [x] Provider panel v2 (2026-08-07) — INTERIM, reserved for
+        Mydwine's professional photograph
+  OPEN:
+    [ ] Mydwine's professional photographs — replaces the provider panel
+        interim image and fills the About page frame. Shoot at 1120px
+        wide minimum for the Trust frame.
+    [ ] Aesthetics panel before/after — blocked on a real consented
+        patient with a signed release. Not a design task.
+  CONVENTIONS (cross-reference, do not duplicate):
+    - Interim images carry a dated note and are never treated as a
+      filled slot
+    - assets-source/ holds retouched originals outside public/
+    - Every outside image gets a brand-mark check before placement
+      (Absolute Rule 18)
 
 DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
   - Dermal Fillers treatment card (removed 2026-06-14 — confirm with wife before restoring)
@@ -902,9 +986,9 @@ DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
 PENDING DECISIONS (need confirmation from wife):
   - [RESOLVED 2026-08-07] Banner copy — interim "✦ NOW ACCEPTING NEW
     PATIENTS ✦" set by owner (see Banner section; KEA draft native-gated).
-  - Geographic positioning: statewide Massachusetts. Do NOT anchor
-    marketing copy to any city, town, or region. Final positioning
-    pending owner decision.
+  - [RESOLVED 2026-08-07] Geographic positioning: statewide Massachusetts —
+    decided, executed sitewide, and enforced as Absolute Rule 8 (see GEO
+    STRATEGY). No longer pending.
   - Practice address — needed before Google Business Profile setup
   - [RESOLVED 2026-08-07] Language switcher gaps: secondary-page mobile
     CLOSED (Nav unified), and the 769–1080px band CLOSED same day
@@ -914,8 +998,8 @@ PENDING DECISIONS (need confirmation from wife):
     all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
   - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
     FR/ES/KEA (merge d797880); orphaned keys replaced, not reused
-  - Hero heading doc drift — CLAUDE.md Hero section vs live code (see 2026-07-11
-    session notes)
+  - [RESOLVED 2026-07-17, confirmed by 2026-08-07 audit] Hero heading doc
+    drift — closed by the hero-section rewrite in the monogram session
 
 NEXT BUILD WORK:
   [x] i18n Phase 1b — DRAFT machine translations live 2026-07-11 (merge 2a21ef5)
