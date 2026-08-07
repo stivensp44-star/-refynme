@@ -184,10 +184,10 @@ function Trust() {
               <source srcSet="/images/provider-panel.webp" type="image/webp" />
               <img
                 src="/images/provider-panel.jpg"
-                alt="Clinical supplies including prepared syringes and a stethoscope"
+                alt="Clinical supplies including a nurse's cap, a stethoscope, and a case of prepared syringes"
                 className="trust__img"
-                width="819"
-                height="1024"
+                width="1122"
+                height="1402"
                 loading="lazy"
               />
             </picture>
