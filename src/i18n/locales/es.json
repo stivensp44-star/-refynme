@@ -110,9 +110,9 @@
     },
     "signal": {
       "label": "Para nuestra comunidad",
-      "heading": "No deberías tener que manejar una hora",
-      "headingEm": "para que te tomen en serio.",
-      "body": "Demasiadas mujeres se han subido al carro y han manejado hasta Boston o Providence por un cuidado que debió estar disponible más cerca de casa — no porque no hubiera nada cerca, sino porque nada cerca se sentía hecho para ellas. RefynMe se creó para ellas. El mismo estándar clínico, el mismo tiempo dedicado a explicar, sin la hora de camino y sin la sensación de ser procesada."
+      "heading": "Por qué",
+      "headingEm": "RefynMe.",
+      "body": "Pérdida de peso médica, estética, exámenes físicos DOT y cuidado preventivo — todos a cargo de una enfermera practicante certificada que se toma el tiempo de explicar qué está haciendo y por qué. Recibes respuestas que de verdad entiendes. Tienes una profesional que sabe tu nombre. Ese es el estándar aquí, y es la razón entera por la que existe RefynMe."
     },
     "cta": {
       "label": "Empieza hoy",
@@ -306,8 +306,8 @@
     "cta": "Reserva una consulta"
   },
   "contact": {
-    "h1Line1": "No deberías tener que ir lejos para ser",
-    "h1Em": "bien atendida.",
+    "h1Line1": "Dinos qué necesitas.",
+    "h1Em": "Nosotros nos encargamos del resto.",
     "sub": "Respondemos dentro de un día hábil. Sin call centers, sin respuestas automáticas — una verdadera profesional de la salud que sabe tu nombre.",
     "reachEyebrow": "Contáctanos directamente",
     "phoneLabel": "Teléfono",
@@ -358,8 +358,8 @@
     "phil2": "Aquí, la estética es una destreza clínica, no un discurso de ventas. Botox, Dysport y rellenos dérmicos colocados por una profesional de la salud que pasó veinte años estudiando rostros por lo que revelan sobre la salud antes de refinar uno solo. Te dirá qué funcionará, qué no, y qué no necesitas — y luego tú decides. Sales viéndote como tú misma en tu mejor día. Ese es el estándar.",
     "phil3": "Debajo de todo corre la disciplina que nunca ha soltado: la prevención. Análisis de sangre, chequeos, respuestas directas — el trabajo silencioso que mantiene pequeñas las cosas pequeñas.",
     "phil4": "Y para los conductores que mantienen esta región en movimiento — es examinadora certificada NRCME para exámenes físicos DOT. Eficiente, rigurosa y respetuosa del hecho de que este examen es tu sueldo.",
-    "closeHeading": "Un cuidado así de bueno antes exigía manejar lejos.",
-    "close1": "Por años, los pacientes de aquí tomaban la autopista — Boston, Providence — por una experiencia que nunca debió estar a una hora de distancia. Mydwine se sentó con eso el tiempo suficiente, y luego respondió: abrir la práctica aquí. Traer el estándar a la comunidad, en vez de hacer que la comunidad se traslade hasta el estándar.",
+    "closeHeading": "Construyó la práctica en la que quería trabajar.",
+    "close1": "Mydwine abrió RefynMe para ejercer como ella cree que debe funcionar el cuidado: sin prisa, explicado, y construido alrededor de la persona que tiene enfrente. No un modelo de volumen. No un guion. Una práctica de la que sales entendiendo el razonamiento detrás de cada decisión.",
     "close2": "El conocimiento se queda en la sala contigo. Esa es la práctica.",
     "credline": "Enfermera practicante certificada · En la salud desde 2005 · Examinadora DOT certificada NRCME",
     "cta": "Reserva una consulta"

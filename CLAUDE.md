@@ -303,13 +303,14 @@ Mobile: 11px text
     future refactor, not copy)
 - Background: #0F0806
 - Decorative circles: gold border, opacity 0.1, absolute centered
-- Heading (statewide copy, 2026-08-07): "You shouldn't have to drive an hour"
-  cream + italic gold "to be taken seriously."
-  Playfair clamp(34px, 5vw, 64px) all widths (resized 2026-08-07 for the
-  full-sentence heading — scoped owner exception), letter-spacing -0.03em
-- Body: approved statewide paragraph. Boston/Providence appear ONLY as
-  drive-destination contrast — intentional, they stay. No other geographic
-  name may enter this section.
+- Heading (no-comparison copy, 2026-08-07): "Why" cream + italic gold
+  "RefynMe."
+  Playfair clamp(40px, 8vw, 104px) all widths (restored 2026-08-07 for the
+  two-word heading; measured 40 / 61.44 / 104px at 375 / 768 / 1440, no
+  clip), letter-spacing -0.03em
+- Body: approved no-comparison paragraph — describes what RefynMe does,
+  makes no claim about anyone else, names no geography. No geographic name
+  may enter this section. (See Absolute Rule 17.)
 - NO CTA BUTTON. This section has no button. Do not add one.
 - The old Brockton-vs-South-Shore conflict is RESOLVED by the statewide
   positioning ruling (owner, 2026-08-07).
@@ -561,8 +562,10 @@ Footers remain separate.
   marketing copy, headings, meta tags, OG tags, or structured data.
 - "Massachusetts" is the only permitted geographic reference (proper noun;
   stays English in all four locales).
-- Boston/Providence may appear ONLY as drive-destination contrast in the
-  approved Signal copy — never as positioning anchors.
+- Boston/Providence no longer appear in UI copy (the 2026-08-07
+  no-comparison pass removed the drive-destination contrast from the Signal
+  and About sections); one historical blog mention remains under owner
+  review. They must never return as positioning anchors.
 - The old homepage reach line ("Serving Brockton, Stoughton…") is CANCELLED.
 
 ### City Landing Pages (FUTURE option — NOT a build item)
@@ -954,3 +957,6 @@ NEXT BUILD WORK:
     COMPUTED DISPLAY and that focus actually lands inside it — never by
     checking whether the hamburger is visible. A visible hamburger proves
     nothing (it can open a display:none overlay with no console error).
+17. No copy may state or imply that care from any other provider is worse.
+    Describe what RefynMe does; make no claim about anyone else. This
+    includes blog content.

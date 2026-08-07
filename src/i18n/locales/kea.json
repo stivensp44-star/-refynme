@@ -110,9 +110,9 @@
     },
     "signal": {
       "label": "Pa nos kumunidadi",
-      "heading": "Bu ka debe ten ki faze un ora di kaminhu",
-      "headingEm": "pa es toma bo a sériu.",
-      "body": "Txeu mudjer dja entra na karu y bai ti Boston ô Providence pa un kuidadu ki debe ta staba más pertu di kaza — ka pamodi ka tinha nada pertu, ma pamodi nada pertu ka ta parseba fetu pa es. RefynMe fetu pa es. Mésmu padron kliniku, mésmu ténpu pa splika, sen kel kaminhu y sen kel sensason di ser prosesadu."
+      "heading": "Why",
+      "headingEm": "RefynMe.",
+      "body": "Medical weight loss, aesthetics, DOT physicals, and preventive care — every one of them delivered by a board-certified nurse practitioner who takes the time to explain what she's doing and why. You get answers you actually understand. You get a provider who knows your name. That's the standard here, and it's the whole reason RefynMe exists."
     },
     "cta": {
       "label": "Kumesa oji",
@@ -306,8 +306,8 @@
     "cta": "Marka un konsulta"
   },
   "contact": {
-    "h1Line1": "Bu ka debe ten ki bai lonji pa ser",
-    "h1Em": "tratadu dretu.",
+    "h1Line1": "Tell us what you need.",
+    "h1Em": "We'll take it from there.",
     "sub": "Nu ta responde déntu di un dia útil. Sen call center, sen resposta automátiku — un profisional di verdadi ki ta konxe bu nómi.",
     "reachEyebrow": "Kontakta-nu diretamenti",
     "phoneLabel": "Telefoni",
@@ -358,8 +358,8 @@
     "phil2": "Li, estétika é un abilidadi kliniku, ka é konbersa di benda. Botox, Dysport y preenchimentu dérmiku postu pa un profisional ki pasa vinti anu ta studa rostus pa kusé ki es ta mostra sobri saúdi antis di el rafina un. El ta fla-u kusé ki ta funsiona, kusé ki ka ta funsiona, y kusé ki bu ka meste — dipôs é bo ki ta disidi. Bu ta sai ta parse bo mé na bu midjór dia. Kel-la é padron.",
     "phil3": "Dibaxu di tudu ta kore disiplina ki el nunka larga: prevenson. Análizi di sangi, rastreiu, respostas diretu — kel trabadju kétu ki ta mante kusas pikinoti pikinoti.",
     "phil4": "Y pa kondutoris ki ta mante es rejion ta anda — el é izaminadora sertifikadu NRCME pa izami físiku DOT. Efisienti, rigorozu, y ku rispetu pa fatu ki es izami é bu salariu.",
-    "closeHeading": "Kuidadu si bon antis ta obriga-u pega strada.",
-    "close1": "Duránti anus, pasientis li ta pegaba strada — Boston, Providence — pa un spesialidadi ki nunka debia sta a un ora di distánsia. Mydwine xinta ku kel-la ténpu sufisienti, y dipôs el responde: abri prátika li. Traze padron pa kumunidadi, envês di poi kumunidadi ta bai ti padron.",
+    "closeHeading": "She built the practice she wanted to work in.",
+    "close1": "Mydwine opened RefynMe to practice the way she believes care should work: unhurried, explained, and built around the person in front of her. Not a volume model. Not a script. A practice where the reasoning behind every decision is something you leave understanding.",
     "close2": "Konhesimentu ta fika na sala ku bo. Kel-la é prátika.",
     "credline": "Infermera pratikanti sertifikadu · Na saúdi désdi 2005 · Izaminadora DOT sertifikadu NRCME",
     "cta": "Marka un konsulta"

@@ -109,9 +109,9 @@
     },
     "signal": {
       "label": "For Our Community",
-      "heading": "You shouldn't have to drive an hour",
-      "headingEm": "to be taken seriously.",
-      "body": "Too many women have gotten in the car and driven to Boston or Providence for care that should have been available closer to home — not because there was nothing nearby, but because nothing nearby felt like it was built for them. RefynMe was built for them. The same clinical standard, the same time spent explaining, without the drive and without the feeling of being processed."
+      "heading": "Why",
+      "headingEm": "RefynMe.",
+      "body": "Medical weight loss, aesthetics, DOT physicals, and preventive care — every one of them delivered by a board-certified nurse practitioner who takes the time to explain what she's doing and why. You get answers you actually understand. You get a provider who knows your name. That's the standard here, and it's the whole reason RefynMe exists."
     },
     "cta": {
       "label": "Start Today",
@@ -305,8 +305,8 @@
     "cta": "Book a Consultation"
   },
   "contact": {
-    "h1Line1": "You shouldn't have to travel far to be",
-    "h1Em": "treated well.",
+    "h1Line1": "Tell us what you need.",
+    "h1Em": "We'll take it from there.",
     "sub": "We respond within one business day. No call centers, no automated replies — a real provider who knows your name.",
     "reachEyebrow": "Reach us directly",
     "phoneLabel": "Phone",
@@ -357,8 +357,8 @@
     "phil2": "Here, aesthetics is a clinical skill, not a sales pitch. Botox, Dysport, and dermal fillers placed by a provider who spent twenty years studying faces for what they reveal about health before she ever refined one. She'll tell you what will work, what won't, and what you don't need — then you decide. You leave looking like yourself on your best day. That's the standard.",
     "phil3": "Underneath it all runs the discipline she's never dropped: prevention. Bloodwork, screenings, straight answers — the quiet work that keeps small things small.",
     "phil4": "And for the drivers who keep this region moving — she's a certified NRCME examiner for DOT physicals. Efficient, exacting, and respectful of the fact that this exam is your paycheck.",
-    "closeHeading": "Care this good used to require a drive.",
-    "close1": "For years, patients here took the highway — Boston, Providence — for expertise that should never have been an hour away. Mydwine sat with that long enough, then answered it: open the practice here. Bring the standard to the community, instead of making the community commute to the standard.",
+    "closeHeading": "She built the practice she wanted to work in.",
+    "close1": "Mydwine opened RefynMe to practice the way she believes care should work: unhurried, explained, and built around the person in front of her. Not a volume model. Not a script. A practice where the reasoning behind every decision is something you leave understanding.",
     "close2": "The knowledge stays in the room with you. That's the practice.",
     "credline": "Board-certified Nurse Practitioner · In healthcare since 2005 · NRCME-certified DOT examiner",
     "cta": "Book a Consultation"
