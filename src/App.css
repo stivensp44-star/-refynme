@@ -1686,6 +1686,19 @@ p {
   background: var(--cream-dark);
   color: rgba(44, 24, 16, 0.35);
 }
+.panel__photo-pic {
+  width: 100%;
+  height: 100%;
+}
+.panel__photo-img {
+  width: 100%;
+  height: 100%;
+  /* contain: the full 4-column BEFORE/AFTER sequence is always visible;
+     the letterbox shows the frame's existing espresso-mid background
+     (.panel__photo--dark) — no new color, no crop */
+  object-fit: contain;
+  display: block;
+}
 
 .panel__badge {
   position: absolute;

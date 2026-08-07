@@ -252,7 +252,17 @@ function ServicesPanels() {
         </div>
         <div className="panel__media">
           <div className="panel__photo panel__photo--dark">
-            <span className="panel__photo-label">Weight Loss Photo</span>
+            <picture className="panel__photo-pic">
+              <source srcSet="/images/weightlost.webp" type="image/webp" />
+              <img
+                src="/images/weightlost.jpg"
+                alt="Illustration of jeans in a larger and smaller size, side by side"
+                className="panel__photo-img"
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div className="panel__badge panel__badge--dark">{t('home.services.panel1.badge')}</div>
         </div>
