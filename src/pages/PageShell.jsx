@@ -1,42 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import LanguageSwitcher from '../components/LanguageSwitcher'
+import SharedNav from '../components/Nav'
 
-/* ── Shared Nav ─────────────────────────────────────────── */
+/* ── Shared Nav — unified 2026-08-07 (src/components/Nav.jsx).
+   Re-exported here so every existing `import { Nav } from './PageShell'`
+   keeps working. Bannerless by default (nav--no-banner, top: 0). ── */
 export function Nav() {
-  const { t } = useTranslation()
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  return (
-    <nav className={`nav nav--no-banner${scrolled ? ' nav--solid' : ''}`} style={{ background: scrolled ? undefined : 'var(--espresso)' }}>
-      <div className="nav__inner">
-        <Link to="/" className="nav__logo">
-          <img
-            src="/images/refynme-logo-gold.png"
-            alt="RefynMe Medical Aesthetics & Wellness"
-            className="nav-logo-img"
-          />
-        </Link>
-        <ul className="nav__links">
-          <li><Link to="/about" className="nav__link">{t('nav.about')}</Link></li>
-          <li><Link to="/services" className="nav__link">{t('nav.services')}</Link></li>
-          <li><Link to="/weight-loss" className="nav__link">{t('nav.weightLoss')}</Link></li>
-          <li><Link to="/aesthetics" className="nav__link">{t('nav.aesthetics')}</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__link">{t('nav.dotExams')}</Link></li>
-          <li><Link to="/contact" className="nav__link">{t('nav.contact')}</Link></li>
-        </ul>
-        <LanguageSwitcher />
-        <Link to="/contact" className="btn btn--rose btn--sm">{t('nav.bookNow')}</Link>
-      </div>
-    </nav>
-  )
+  return <SharedNav />
 }
 
 /* ── Shared Footer ──────────────────────────────────────── */

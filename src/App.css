@@ -805,9 +805,13 @@ p {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 24px rgba(0,0,0,0.3);
 }
-/* Pages that render no banner: nav sits at the viewport top (no 40px gap) */
+/* Pages that render no banner: nav sits at the viewport top (no 40px gap)
+   and is opaque espresso at rest (was an inline style on PageShell's Nav
+   before the 2026-08-07 unification; .nav--solid re-applies the same
+   background on scroll, plus blur + shadow) */
 .nav--no-banner {
   top: 0;
+  background: var(--espresso);
 }
 .nav__inner {
   max-width: 1280px;

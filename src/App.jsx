@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './App.css'
-import LanguageSwitcher from './components/LanguageSwitcher'
+import Nav from './components/Nav'
 import About from './pages/About'
 import Services from './pages/Services'
 import WeightLoss from './pages/WeightLoss'
@@ -50,65 +50,9 @@ function Banner() {
   )
 }
 
-/* ── NAV ────────────────────────────────────────────────── */
-function Nav() {
-  const { t } = useTranslation()
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const close = () => setMenuOpen(false)
-
-  return (
-    <nav className={`nav${scrolled ? ' nav--solid' : ''}`}>
-      <div className={`nav__overlay${menuOpen ? ' nav__overlay--open' : ''}`}>
-        <ul className="nav__overlay-links">
-          <li><Link to="/" className="nav__overlay-link" onClick={close}>{t('nav.home')}</Link></li>
-          <li><Link to="/about" className="nav__overlay-link" onClick={close}>{t('nav.about')}</Link></li>
-          <li><Link to="/services" className="nav__overlay-link" onClick={close}>{t('nav.services')}</Link></li>
-          <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>{t('nav.weightLoss')}</Link></li>
-          <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>{t('nav.aesthetics')}</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>{t('nav.dotExams')}</Link></li>
-          <li><Link to="/contact" className="nav__overlay-link" onClick={close}>{t('nav.contact')}</Link></li>
-        </ul>
-        <LanguageSwitcher variant="overlay" />
-        <Link to="/contact" className="btn btn--rose nav__overlay-book" onClick={close}>{t('nav.bookNow')}</Link>
-      </div>
-
-      <div className="nav__inner">
-        <Link to="/" className="nav__logo">
-          <img
-            src="/images/refynme-logo-gold.png"
-            alt="RefynMe Medical Aesthetics & Wellness"
-            className="nav-logo-img"
-          />
-        </Link>
-        <ul className="nav__links">
-          <li><Link to="/about" className="nav__link">{t('nav.about')}</Link></li>
-          <li><Link to="/services" className="nav__link">{t('nav.services')}</Link></li>
-          <li><Link to="/weight-loss" className="nav__link">{t('nav.weightLoss')}</Link></li>
-          <li><Link to="/aesthetics" className="nav__link">{t('nav.aesthetics')}</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__link">{t('nav.dotExams')}</Link></li>
-          <li><Link to="/contact" className="nav__link">{t('nav.contact')}</Link></li>
-        </ul>
-        <LanguageSwitcher />
-        <Link to="/contact" className="btn btn--rose btn--sm nav__book-desktop">{t('nav.bookNow')}</Link>
-        <button
-          className="nav__hamburger"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
-        >
-          {menuOpen ? '✕' : '☰'}
-        </button>
-      </div>
-    </nav>
-  )
-}
+/* ── NAV — unified shared component (src/components/Nav.jsx).
+   Homepage renders <Nav banner /> (below the 40px banner, transparent at
+   rest over the hero); all other pages render <Nav /> via PageShell. ── */
 
 /* ── HERO ───────────────────────────────────────────────── */
 function Hero() {
@@ -463,7 +407,7 @@ function Home() {
   return (
     <>
       <Banner />
-      <Nav />
+      <Nav banner />
       <Hero />
       <MissionStrip />
       <Trust />

@@ -99,13 +99,21 @@ src/
                    APPENDED at the end (additive, cascade-level overrides).
   main.jsx      ← App entry point (imports ./i18n/config.js BEFORE App, wraps App
                    in BrowserRouter)
-  App.jsx       ← Router config + ALL homepage components as inline functions:
-                   useInView hook, Banner, Nav, Hero, MissionStrip, Trust,
+  App.jsx       ← Router config + homepage components as inline functions:
+                   useInView hook, Banner, Hero, MissionStrip, Trust,
                    ServicesPanels, BrocktonSignal, CtaFooter, Home — all wired
                    to useTranslation() (CoverageSignal + Testimonials REMOVED
-                   2026-08-07)
+                   2026-08-07; Nav moved to components/Nav.jsx 2026-08-07)
   components/
-    LanguageSwitcher.jsx ← EN/FR/ES/KEA pill row (default + "overlay" variant)
+    Nav.jsx              ← THE shared Nav (unified 2026-08-07): hamburger +
+                           full-screen overlay on EVERY page. banner prop —
+                           homepage renders <Nav banner /> (top: 40px, clear
+                           at rest over the hero); all other pages <Nav />
+                           via the PageShell re-export (nav--no-banner,
+                           top: 0, opaque espresso at rest)
+    LanguageSwitcher.jsx ← desktop globe dropdown (EN/FR/ES + disabled
+                           "Kriolu — soon" row) + "overlay" flat-pill
+                           variant with LANGUAGE eyebrow
   i18n/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
@@ -326,7 +334,8 @@ Left column: credential line → "Our Services" heading → intro copy → rose 
 Right column: 4 clickable service cards (gold left border, translateX hover).
 
 ### Nav brand — gold logo image (LIVE since 2026-07-04)
-Both navs (App.jsx homepage Nav + PageShell.jsx shared Nav) render the brand as:
+The single shared Nav (src/components/Nav.jsx — unified 2026-08-07) renders
+the brand as:
   <img src="/images/refynme-logo-gold.png" alt="RefynMe Medical Aesthetics & Wellness"
        className="nav-logo-img" />
 wrapped in the existing home <Link to="/">.
@@ -345,7 +354,13 @@ wrapped in the existing home <Link to="/">.
   size (illegible smears). Flat art de-blends cleanly; glow screenshots never
   work. Obsolete refynmelogo*.png assets deleted 2026-07-04 (in git history).
 
-### Nav links (all instances — App.jsx homepage + PageShell.jsx secondary pages)
+### Nav links (ONE shared Nav — src/components/Nav.jsx, every page)
+
+NAV RULE (locked 2026-08-07): there is ONE Nav. Nav changes are made once,
+in src/components/Nav.jsx — there is no second Nav to update. PageShell
+re-exports it for its existing importers; the homepage renders <Nav banner />.
+The old duplicate (which left secondary pages with NO mobile navigation at
+all) was the root cause of the mobile-nav hole and must never come back.
 About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
 DOT Exams links to: /services/dot-exams
 
@@ -487,14 +502,17 @@ en / fr / es. KEA is DARK — see the next section.
 - Town proper nouns, testimonial names/cities, stat figures (20+/100%/NP/MA),
   social abbreviations (IG/TK/FB), temporary photo-placeholder labels
 
-### LanguageSwitcher responsive behavior (decided by review fix, 2026-07-11)
-- >1200px: full pills in both navs, before the Book Now CTA
-- 1081–1200px: compact pills (nav row has no slack)
+### LanguageSwitcher responsive behavior (dropdown since 2026-08-07)
+- >1200px: globe dropdown in the nav row (full trigger), before Book Now
+- 1081–1200px: compact dropdown trigger (nav row has no slack)
 - ≤1080px: in-row switcher HIDDEN (row physically can't fit it)
-- ≤768px homepage: switcher lives in the hamburger overlay (44px touch targets)
-- KNOWN GAP (needs Cous decision before 1b ships): secondary pages on mobile
-  and ALL pages 769–1080px have NO switcher — PageShell has no hamburger.
-  Selection persists via localStorage from wherever it was last set.
+- ≤768px ALL pages: switcher lives in the hamburger overlay (flat pills,
+  full language names, LANGUAGE eyebrow, 44px targets). The unified Nav
+  ships the overlay on every page (2026-08-07) — the "PageShell has no
+  hamburger" half of the old KNOWN GAP is CLOSED.
+- REMAINING GAP: 769–1080px has NO switcher on ANY page (links row visible,
+  no room for the trigger, hamburger only ≤768) — still needs a breakpoint
+  decision. Selection persists via localStorage from wherever last set.
 
 ### Verification gotchas
 - The CSS minifier rewrites `@media (max-width: 1080px)` to range syntax
@@ -511,9 +529,11 @@ en / fr / es. KEA is DARK — see the next section.
 
 ### Deferred items logged by the 2026-07-11 multi-agent review (do not "fix"
 without a task): placeholder locales bundle ~3×5KB duplicate English until 1b
-(spec said import all four); nav/footer i18n key maps are hand-duplicated in
+(spec said import all four); footer i18n key maps are hand-duplicated in
 App.jsx and PageShell.jsx (pre-existing two-footer architecture — every 1b
-touch must hit BOTH copies or the missed one renders raw keys).
+touch must hit BOTH copies or the missed one renders raw keys). The nav half
+of this duplication was RESOLVED by the 2026-08-07 Nav unification; the two
+Footers remain separate.
 
 ---
 
@@ -854,8 +874,10 @@ PENDING DECISIONS (need confirmation from wife):
     marketing copy to any city, town, or region. Final positioning
     pending owner decision.
   - Practice address — needed before Google Business Profile setup
-  - Language switcher on secondary-page mobile + 769–1080px (PageShell has no
-    hamburger — needs a nav-breakpoint decision; see I18N section)
+  - [PARTIALLY RESOLVED 2026-08-07] Language switcher gaps: secondary-page
+    mobile is CLOSED (Nav unified — hamburger + overlay everywhere ≤768).
+    The 769–1080px band still has NO switcher on any page — breakpoint
+    decision still needed (see I18N section)
   - [RESOLVED 2026-07-11] About CTA target: Stivo chose /contact — the
     all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
   - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
