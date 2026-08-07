@@ -15,7 +15,7 @@ export function Nav() {
   }, [])
 
   return (
-    <nav className={`nav${scrolled ? ' nav--solid' : ''}`} style={{ background: scrolled ? undefined : 'rgba(44,24,16,0.97)' }}>
+    <nav className={`nav nav--no-banner${scrolled ? ' nav--solid' : ''}`} style={{ background: scrolled ? undefined : 'var(--espresso)' }}>
       <div className="nav__inner">
         <Link to="/" className="nav__logo">
           <img

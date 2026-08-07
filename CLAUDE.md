@@ -101,14 +101,15 @@ src/
                    in BrowserRouter)
   App.jsx       ← Router config + ALL homepage components as inline functions:
                    useInView hook, Banner, Nav, Hero, MissionStrip, Trust,
-                   CoverageSignal, ServicesPanels, Testimonials, BrocktonSignal,
-                   CtaFooter, Home — all wired to useTranslation()
+                   ServicesPanels, BrocktonSignal, CtaFooter, Home — all wired
+                   to useTranslation() (CoverageSignal + Testimonials REMOVED
+                   2026-08-07)
   components/
     LanguageSwitcher.jsx ← EN/FR/ES/KEA pill row (default + "overlay" variant)
   i18n/
     config.js     ← i18next init (en/fr/es/kea, fallback en, detector
                      localStorage→navigator, key "refynme-lang") + <html lang> sync
-    locales/*.json ← en.json = source of truth (267 strings; namespaces per
+    locales/*.json ← en.json = source of truth (254 strings; namespaces per
                      page — see I18N section); fr/es/kea = DRAFT machine
                      translations LIVE (marked "_status") pending native review
   pages/
@@ -181,12 +182,12 @@ useInView threshold: 0.15
 
 Tag pills (service tags):    border-radius 3px — ALWAYS. Never rounded.
 CTA buttons:                 NEVER full-width on desktop
-Testimonial card hover:      translateY -8px, border #D4A853 solid,
-                             box-shadow 0 20px 40px rgba(0,0,0,0.3),
-                             transition 0.3s ease
 Banner height:               40px, z-index 1001
-Nav z-index:                 1000, top: 40px (sits below banner)
-Nav scroll trigger:          >40px scrollY → rgba(44,24,16,0.97) + blur(12px)
+Nav z-index:                 1000; top: 40px on homepage (below banner),
+                             top: 0 via .nav--no-banner on bannerless pages
+                             (2026-08-07)
+Nav scroll trigger:          >40px scrollY → var(--espresso) OPAQUE + blur(12px)
+                             (0.97 translucency removed 2026-08-07 — bleed bug)
 
 ---
 
@@ -195,10 +196,9 @@ Nav scroll trigger:          >40px scrollY → rgba(44,24,16,0.97) + blur(12px)
 <Banner />
 <Nav />
 <Hero />
+<MissionStrip />
 <Trust />
-<CoverageSignal />
 <ServicesPanels />
-<Testimonials />
 <BrocktonSignal />
 <CtaFooter />
 
@@ -210,8 +210,15 @@ DO NOT add sections without explicit approval.
 ## SECTION RULES — DO NOT CHANGE THESE
 
 ### Banner
-CURRENT TEXT: "✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦"
-(Pre-launch placeholder — update to "✦ Now Accepting Patients – Serving Brockton, Stoughton, Easton & Beyond ✦" at launch)
+CURRENT TEXT: "✦ NOW ACCEPTING NEW PATIENTS ✦" (interim, owner-set 2026-08-07;
+FR/ES owner-supplied, KEA machine DRAFT native-gated)
+- Practice status: LAUNCHED — concierge model, NO public street address
+  BY DESIGN.
+- Contact page location ("Massachusetts" / "Address provided upon booking")
+  is deliberate concierge positioning, NOT a placeholder — do not change it
+  to "coming soon". (Legal pages use "Massachusetts (address coming soon)" —
+  that pair is intentional and different.)
+- Per statewide positioning, banner text must not name any city/town/region.
 Gold bg, espresso-dark text, DM Sans 13px, weight 600, uppercase, letter-spacing 0.1em
 Rose "Book Now" pill: position absolute, right 24px
 Mobile: 11px text
@@ -276,26 +283,28 @@ Mobile: 11px text
   Tags rose border 3px radius: Botox | Dermal Fillers |
   Lip Enhancement | Jawline Sculpting
 
-### Testimonials
-- Background: #1C0F0A
-- 3-column grid, gap 24px
-- Cards: espresso-mid bg, gold border 1px rgba(0.2), border-radius 6px, padding 36px 32px
-- Card hover: translateY -8px, gold border solid, shadow, 0.3s ease
-- Card 1: Maria T. – Brockton – gold Weight Loss tag
-- Card 2: Keisha M. – Brockton – rose Aesthetics tag
-- Card 3: Sandra R. – Stoughton – rose Aesthetics tag
-- Mobile: 1 column
+### Testimonials — REMOVED 2026-08-07
+- Section deleted sitewide (component, data array, CSS block, i18n keys):
+  the three testimonials were unverified and could not remain live.
+- POLICY (locked 2026-08-07): no testimonial ships without a real,
+  identified patient and a signed written release on file. No placeholder,
+  sample, or composite testimonials at any time.
+- Rebuild is a future task, gated on released and verified testimonials.
 
-### Brockton Signal
+### Signal section (code component still named BrocktonSignal — rename is a
+    future refactor, not copy)
 - Background: #0F0806
 - Decorative circles: gold border, opacity 0.1, absolute centered
-- Heading CURRENT (live): "South Shore" cream + italic gold "deserves this."
-  Playfair clamp(56px→120px), letter-spacing -0.03em
-  ⚠️ CONFLICT: original rule below says keep "Brockton" — heading was changed to
-  "South Shore" in an earlier session. Confirm with Cous before reverting.
+- Heading (statewide copy, 2026-08-07): "You shouldn't have to drive an hour"
+  cream + italic gold "to be taken seriously."
+  Playfair clamp(34px, 5vw, 64px) all widths (resized 2026-08-07 for the
+  full-sentence heading — scoped owner exception), letter-spacing -0.03em
+- Body: approved statewide paragraph. Boston/Providence appear ONLY as
+  drive-destination contrast — intentional, they stay. No other geographic
+  name may enter this section.
 - NO CTA BUTTON. This section has no button. Do not add one.
-- Original intent: KEEP BROCKTON-SPECIFIC. Do not generalize to "South Shore."
-  Status: currently generalized — needs decision from Cous.
+- The old Brockton-vs-South-Shore conflict is RESOLVED by the statewide
+  positioning ruling (owner, 2026-08-07).
 
 ### CTA + Footer
 - CTA inner box: espresso bg, border-radius 12px, 2-column grid
@@ -400,8 +409,9 @@ en / fr / es. KEA is DARK — see the next section.
 ### KEA — DARK (disabled 2026-08-07)
 - KEA disabled 2026-08-07: removed from the language switcher AND from the
   i18n config import, so Kriolu strings no longer ship in the production
-  bundle. src/i18n/locales/kea.json RETAINED in the repo, untouched (all
-  strings + "_status" DRAFT marker intact).
+  bundle. src/i18n/locales/kea.json RETAINED in the repo (all strings +
+  "_status" DRAFT marker intact; the 2026-08-07 statewide-positioning value
+  edits apply to it like the other locales).
 - Persisted 'kea' values in the refynme-lang localStorage key are migrated
   to 'en' at boot (snippet in src/i18n/config.js, ahead of i18n.init).
 - ROOT CAUSE: Phase 1b drafts merged to main 2026-07-11 (merge 2a21ef5)
@@ -437,7 +447,8 @@ en / fr / es. KEA is DARK — see the next section.
   · Image alts, provider name, BookNow.jsx (orphaned redirect)
 
 ### en.json IS THE KEY CONTRACT — KEYS ARE FROZEN
-- 267 strings (2026-07-17: +6 unused cred* keys, badge keys removed+restored), nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
+- 254 strings (2026-08-07: −13 — testimonials 8, coverage 2, hero cred3
+  pair 2, trust.cred4 1, removed sitewide; 4 unused cred1/2 keys remain), nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
   services.*, weightLoss.*, dotExams.*, hormone.*, aesthetics.*, contact.*,
   about.*
 - 1b SHIPPED (2026-07-11): machine-drafted FR/ES values are LIVE, each file
@@ -500,19 +511,20 @@ touch must hit BOTH copies or the missed one renders raw keys).
 
 ---
 
-## GEO STRATEGY
+## GEO STRATEGY (REWRITTEN 2026-08-07 — statewide positioning)
 
-### Homepage (geo-neutral)
-- Hero: no town name
-- One reach line LOW on page (below Trust, not in hero):
-  "Serving Brockton, Stoughton, Easton, Bridgewater
-   and the surrounding South Shore."
+### Positioning
+- Statewide Massachusetts. NO city, town, county, or region anchor in any
+  marketing copy, headings, meta tags, OG tags, or structured data.
+- "Massachusetts" is the only permitted geographic reference (proper noun;
+  stays English in all four locales).
+- Boston/Providence may appear ONLY as drive-destination contrast in the
+  approved Signal copy — never as positioning anchors.
+- The old homepage reach line ("Serving Brockton, Stoughton…") is CANCELLED.
 
-### Town Landing Pages (not yet built)
-- One page per town, both services per page
-- Build Brockton first: /medical-weight-loss-botox-brockton
-- Each page needs 2-3 genuinely local sentences
-- These pages are SEO engine — publish before lease is signed
+### City Landing Pages (FUTURE option — NOT a build item)
+- Gated on BOTH a confirmed practice address AND an explicit owner decision
+  to re-anchor locally. Do not draft, scaffold, or build without both.
 
 ### Google Business Profile
 - GATED on confirmed practice address
@@ -830,11 +842,11 @@ DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
   - NRCME credential on Aesthetics page (removed 2026-06-14 — do not re-add)
 
 PENDING DECISIONS (need confirmation from wife):
-  - Banner copy — site has been LIVE for weeks but still reads "WEBSITE
-    LAUNCHING SOON" (flagged 2026-07-17). The launch replacement text is
-    already scripted in the Banner section rule — needs the go to flip it.
-  - Brockton geographic positioning — current heading reads "South Shore deserves this."
-    Original intent was Brockton-specific. Confirm new direction before reverting.
+  - [RESOLVED 2026-08-07] Banner copy — interim "✦ NOW ACCEPTING NEW
+    PATIENTS ✦" set by owner (see Banner section; KEA draft native-gated).
+  - Geographic positioning: statewide Massachusetts. Do NOT anchor
+    marketing copy to any city, town, or region. Final positioning
+    pending owner decision.
   - Practice address — needed before Google Business Profile setup
   - Language switcher on secondary-page mobile + 769–1080px (PageShell has no
     hamburger — needs a nav-breakpoint decision; see I18N section)
@@ -851,8 +863,9 @@ NEXT BUILD WORK:
       (merge 3514e56; en.json now 259 strings)
   [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES, delete
       "_status" lines (values only, keys frozen; FR/ES drafts are live to
-      real visitors; scope = 267 strings per locale (6 cred* keys are UNUSED English placeholders — translate only if reused) incl.
-      the About wordplay flag in the 2026-07-11 night session notes).
+      real visitors; scope = 254 strings per locale (4 cred* keys are UNUSED English placeholders — translate only if reused) incl.
+      the About wordplay flag in the 2026-07-11 night session notes and the
+      2026-08-07 home.signal FR/ES drafts (owner-APPROVED 2026-08-07).
       KEA is DARK (2026-08-07): its review happens offline; re-enable gated
       on native review of every string + explicit owner approval +
       documented sign-off (see KEA — DARK + Absolute Rule 15)
@@ -862,9 +875,11 @@ NEXT BUILD WORK:
       threshold crossed 2026-07-11)
   [ ] 1200×630 OG share card asset (og/twitter images currently the
       147×52 nav logo — works but weak on social shares)
-  [ ] Brockton town landing page
-  [ ] Town page template for remaining towns
-  [ ] Reach line below Trust Builder on homepage
+  [—] City landing pages — DOWNGRADED 2026-08-07 to FUTURE option, gated on
+      confirmed practice address + explicit owner re-anchor decision
+      (see GEO STRATEGY)
+  [—] Reach line below Trust Builder — CANCELLED 2026-08-07 (town list
+      violates statewide positioning)
   [x] Node.js bumped to 24 in deploy.yml (done)
 
 ---
@@ -877,8 +892,9 @@ NEXT BUILD WORK:
 4. Never make CTA buttons full-width on desktop
 5. Never change tag pill border-radius from 3px
 6. Never change section padding rhythm (96px/64px)
-7. Never add a CTA button to Brockton Signal section
-8. Never generalize Brockton Signal to other towns
+7. Never add a CTA button to the Signal section
+8. Never anchor marketing copy to any city, town, county, or region —
+   statewide Massachusetts positioning (owner ruling 2026-08-07)
 9. Never change the banned words list without approval
 10. Never push to main without a clean `npm run build` first
 11. Never add dist/ to .gitignore

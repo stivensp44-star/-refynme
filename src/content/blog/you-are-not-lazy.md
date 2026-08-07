@@ -27,4 +27,4 @@ At RefynMe, we do not hand you a prescription and send you home. We sit with you
 
 You have not been failing. You have been fighting without the right tools.
 
-We have them. And we are right here in Brockton.
+We have them. And we are right here.

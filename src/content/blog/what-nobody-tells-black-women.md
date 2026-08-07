@@ -25,4 +25,4 @@ At RefynMe, you will not be handed a meal plan that ignores how you actually eat
 
 Medical weight loss, including GLP-1 therapy, works. But it works best when it is delivered with cultural competence, real conversation, and genuine care.
 
-That is what we offer. In Brockton. For you.
+That is what we offer. For you.

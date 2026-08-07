@@ -21,6 +21,6 @@ RefynMe exists because that gap is unacceptable.
 
 Your face deserves precision. Your skin tone — whether deep brown, warm gold, or anywhere in between — deserves a provider who understands how neuromodulators and fillers behave differently across different skin types and facial structures. Not every face is the same, and cookie-cutter treatments produce cookie-cutter results.
 
-We are in Brockton. We understand this community. And we believe every woman who walks through our door deserves to leave feeling more like herself — not less.
+We understand this community. And we believe every woman who walks through our door deserves to leave feeling more like herself — not less.
 
 No judgment. No pressure. Just an honest conversation about what is possible.

@@ -32,7 +32,7 @@
       "terms": "Térmus y kondison"
     },
     "contact": {
-      "location": "Brockton, Massachusetts",
+      "location": "Massachusetts",
       "hours": "Sig–Ses: 9am – 6pm"
     },
     "copyright": "© 2026 RefynMe. Tudu direitu rezervadu.",
@@ -40,7 +40,7 @@
   },
   "home": {
     "banner": {
-      "text": "✦ SITE TA BEN LOGU — MARKASON DJA STA ABERTU ✦",
+      "text": "✦ NU STA ASETA PASIENTI NOBU ✦",
       "cta": "Marka gósi"
     },
     "hero": {
@@ -55,8 +55,6 @@
       "cred1Sub": "Full Practice Authority",
       "cred2Title": "Board-Certified",
       "cred2Sub": "Nurse Practitioner",
-      "cred3Title": "Brockton",
-      "cred3Sub": "Massachusetts",
       "badgeTitle": "Sertifikadu",
       "badgeSub": "Infermera pratikanti"
     },
@@ -75,16 +73,11 @@
       "heading1": "Kuidadu spesializadu.",
       "heading2": "Finalmenti pertu di",
       "headingEm": "kaza.",
-      "body": "Sima infermera pratikanti sertifikadu, ku raís li mé na Brockton, N ta junta prisizon kliniku ku kuidadu di verdadi pa kumunidadi. Bu ka é un númeru — bu é bizinhu. Y bu meresi un profisional ki ta trata bo si.",
+      "body": "Sima infermera pratikanti sertifikadu, ku raís li mé na Massachusetts, N ta junta prisizon kliniku ku kuidadu di verdadi pa kumunidadi. Bu ka é un númeru — bu é bizinhu. Y bu meresi un profisional ki ta trata bo si.",
       "cred1": "Infermera pratikanti sertifikadu (NP-BC)",
       "cred2": "Formason spesializadu na jeston médiku di pezu",
       "cred3": "Injetora stétika avansadu — Botox y preenchimentu",
-      "cred4": "Moradora di Brockton y defensora di kumunidadi",
       "cta": "Lé nha stória →"
-    },
-    "coverage": {
-      "label": "Kuidadu ki ta txiga na South Shore.",
-      "link": "Odja si nu ta sirbi bu zona →"
     },
     "services": {
       "label": "Kusé ki nu ta oferese",
@@ -115,27 +108,11 @@
         "badge": "Rezultadu natural"
       }
     },
-    "testimonials": {
-      "label": "Stória di pasienti",
-      "heading": "Rezultadu di verdadi. Pesoa di verdadi.",
-      "maria": {
-        "quote": "N staba ta tenta perde pezu duránti três anu. El odja nha análizi di verdadi, el pergunta-m sobri nha vida y el faze un planu pa mi. N dja perde 24 libra y finalmenti N ta sinti-m mi mé otu bês.",
-        "service": "Perda di pezu"
-      },
-      "keisha": {
-        "quote": "N staba nervoza ku Botox, má el pô-m sinti sabi. El splika-m kada pasu y rezultadu é bem natural. Nha kolegas di trabadju ka ta para di pergunta-m kusé ki N sta faze diferenti.",
-        "service": "Estétika"
-      },
-      "sandra": {
-        "quote": "Finalmenti un profisional ki ta ntendi tom di nha peli y ta trata-m sima pesoa. Se formason médiku ta odjadu na tudu kusa ki el ta faze. N ka ta bai pa más ningun otu lugar.",
-        "service": "Estétika"
-      }
-    },
     "signal": {
       "label": "Pa nos kumunidadi",
-      "heading": "South Shore",
-      "headingEm": "meresi kel-li.",
-      "body": "Duránti txeu ténpu, mudjeris di South Shore ta staba ta bai ti Boston ô Providence pa un kuidadu ki debe ta izisti li mé. Brockton. Stoughton. Easton. Bridgewater. Bu ka debe ten ki faze un ora di kaminhu pa odja un profisional ki ta odja bo di verdadi. RefynMe kriadu pa bu ka ten ki faze-l más."
+      "heading": "Bu ka debe ten ki faze un ora di kaminhu",
+      "headingEm": "pa es toma bo a sériu.",
+      "body": "Txeu mudjer dja entra na karu y bai ti Boston ô Providence pa un kuidadu ki debe ta staba más pertu di kaza — ka pamodi ka tinha nada pertu, ma pamodi nada pertu ka ta parseba fetu pa es. RefynMe fetu pa es. Mésmu padron kliniku, mésmu ténpu pa splika, sen kel kaminhu y sen kel sensason di ser prosesadu."
     },
     "cta": {
       "label": "Kumesa oji",
@@ -338,8 +315,8 @@
     "emailLabel": "Email",
     "emailNote": "Resposta déntu di 1 dia útil",
     "locationLabel": "Lokalizason",
-    "locationValue": "Área di Gran Brockton, MA",
-    "locationNote": "Enderesu ta konfirmadu na markason",
+    "locationValue": "Massachusetts",
+    "locationNote": "Enderesu ta dadu na markason",
     "quote": "Kada pasienti meresi mésmu kualidadi di kuidadu — ka importa undi ki el ta mora ô kantu lonji ki el pode bai.",
     "formEyebrow": "Pidi un konsulta",
     "formHeading": "Fla-nu modi ki nu pode djuda-u.",

@@ -31,7 +31,7 @@
       "terms": "Terms & Conditions"
     },
     "contact": {
-      "location": "Brockton, Massachusetts",
+      "location": "Massachusetts",
       "hours": "Mon–Fri: 9am – 6pm"
     },
     "copyright": "© 2026 RefynMe. All rights reserved.",
@@ -39,7 +39,7 @@
   },
   "home": {
     "banner": {
-      "text": "✦ WEBSITE LAUNCHING SOON — BOOKING NOW OPEN ✦",
+      "text": "✦ NOW ACCEPTING NEW PATIENTS ✦",
       "cta": "Book Now"
     },
     "hero": {
@@ -54,8 +54,6 @@
       "cred1Sub": "Full Practice Authority",
       "cred2Title": "Board-Certified",
       "cred2Sub": "Nurse Practitioner",
-      "cred3Title": "Brockton",
-      "cred3Sub": "Massachusetts",
       "badgeTitle": "Board-Certified",
       "badgeSub": "Nurse Practitioner"
     },
@@ -74,16 +72,11 @@
       "heading1": "Expert care.",
       "heading2": "Finally close to",
       "headingEm": "home.",
-      "body": "As a board-certified Nurse Practitioner rooted right here in Brockton, I combine clinical precision with genuine community care. You're not a number — you're a neighbor. And you deserve a provider who treats you that way.",
+      "body": "As a board-certified Nurse Practitioner rooted right here in Massachusetts, I combine clinical precision with genuine community care. You're not a number — you're a neighbor. And you deserve a provider who treats you that way.",
       "cred1": "Board-Certified Nurse Practitioner (NP-BC)",
       "cred2": "Specialized training in medical weight management",
       "cred3": "Advanced aesthetic injector — Botox & fillers",
-      "cred4": "Brockton resident & community advocate",
       "cta": "Read My Full Story →"
-    },
-    "coverage": {
-      "label": "Care that comes to the South Shore.",
-      "link": "See if we serve your area →"
     },
     "services": {
       "label": "What We Offer",
@@ -114,27 +107,11 @@
         "badge": "Natural Results"
       }
     },
-    "testimonials": {
-      "label": "Patient Stories",
-      "heading": "Real results. Real people.",
-      "maria": {
-        "quote": "I had been trying to lose weight for three years. She actually looked at my labs, asked about my life, and built a plan for me. I have lost 24 lbs and I finally feel like myself again.",
-        "service": "Weight Loss"
-      },
-      "keisha": {
-        "quote": "I was nervous about Botox but she made me feel so comfortable. She explained every step and the results are so natural. My coworkers keep asking what I am doing differently.",
-        "service": "Aesthetics"
-      },
-      "sandra": {
-        "quote": "Finally a provider who understands my skin tone and treats me like a person. Her medical background shows in everything she does. I will not go anywhere else.",
-        "service": "Aesthetics"
-      }
-    },
     "signal": {
       "label": "For Our Community",
-      "heading": "South Shore",
-      "headingEm": "deserves this.",
-      "body": "For too long, women across the South Shore have driven to Boston or Providence for care that should exist right here. Brockton. Stoughton. Easton. Bridgewater. You shouldn't have to travel an hour to see a provider who actually sees you. RefynMe was built so you don't have to."
+      "heading": "You shouldn't have to drive an hour",
+      "headingEm": "to be taken seriously.",
+      "body": "Too many women have gotten in the car and driven to Boston or Providence for care that should have been available closer to home — not because there was nothing nearby, but because nothing nearby felt like it was built for them. RefynMe was built for them. The same clinical standard, the same time spent explaining, without the drive and without the feeling of being processed."
     },
     "cta": {
       "label": "Start Today",
@@ -337,8 +314,8 @@
     "emailLabel": "Email",
     "emailNote": "Response within 1 business day",
     "locationLabel": "Location",
-    "locationValue": "Greater Brockton area, MA",
-    "locationNote": "Address confirmed upon booking",
+    "locationValue": "Massachusetts",
+    "locationNote": "Address provided upon booking",
     "quote": "Every patient deserves the same quality of care — regardless of where they live or how far they can travel.",
     "formEyebrow": "Request a consultation",
     "formHeading": "Tell us how we can help you.",

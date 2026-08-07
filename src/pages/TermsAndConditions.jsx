@@ -177,7 +177,7 @@ export default function TermsAndConditions() {
               }}
             >
               <li>RefynMe Medical and Wellness, PLLC</li>
-              <li>Brockton, MA (Address Coming Soon)</li>
+              <li>Massachusetts (address coming soon)</li>
               <li>
                 <a href="mailto:refynmemedical@gmail.com" style={{ color: 'var(--rose)' }}>
                   refynmemedical@gmail.com

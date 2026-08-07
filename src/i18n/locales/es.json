@@ -32,7 +32,7 @@
       "terms": "Términos y condiciones"
     },
     "contact": {
-      "location": "Brockton, Massachusetts",
+      "location": "Massachusetts",
       "hours": "Lun–Vie: 9am – 6pm"
     },
     "copyright": "© 2026 RefynMe. Todos los derechos reservados.",
@@ -40,7 +40,7 @@
   },
   "home": {
     "banner": {
-      "text": "✦ SITIO WEB MUY PRONTO — RESERVAS ABIERTAS ✦",
+      "text": "✦ ACEPTANDO NUEVOS PACIENTES ✦",
       "cta": "Reservar"
     },
     "hero": {
@@ -55,8 +55,6 @@
       "cred1Sub": "Full Practice Authority",
       "cred2Title": "Board-Certified",
       "cred2Sub": "Nurse Practitioner",
-      "cred3Title": "Brockton",
-      "cred3Sub": "Massachusetts",
       "badgeTitle": "Certificada",
       "badgeSub": "Enfermera practicante"
     },
@@ -75,16 +73,11 @@
       "heading1": "Cuidado experto.",
       "heading2": "Por fin cerca de",
       "headingEm": "casa.",
-      "body": "Como enfermera practicante certificada, con raíces aquí en Brockton, combino precisión clínica con un cuidado comunitario genuino. No eres un número — eres una vecina. Y mereces una especialista que te trate así.",
+      "body": "Como enfermera practicante certificada, con raíces aquí en Massachusetts, combino precisión clínica con un cuidado comunitario genuino. No eres un número — eres una vecina. Y mereces una especialista que te trate así.",
       "cred1": "Enfermera practicante certificada (NP-BC)",
       "cred2": "Formación especializada en control médico del peso",
       "cred3": "Inyectora estética avanzada — Botox y rellenos",
-      "cred4": "Residente de Brockton y defensora de la comunidad",
       "cta": "Lee mi historia →"
-    },
-    "coverage": {
-      "label": "Cuidado que llega al South Shore.",
-      "link": "Mira si atendemos tu zona →"
     },
     "services": {
       "label": "Lo que ofrecemos",
@@ -115,27 +108,11 @@
         "badge": "Resultados naturales"
       }
     },
-    "testimonials": {
-      "label": "Historias de pacientes",
-      "heading": "Resultados reales. Personas reales.",
-      "maria": {
-        "quote": "Llevaba tres años intentando bajar de peso. Ella de verdad revisó mis análisis, me preguntó por mi vida y armó un plan para mí. He bajado 24 libras y por fin me siento yo misma otra vez.",
-        "service": "Pérdida de peso"
-      },
-      "keisha": {
-        "quote": "Estaba nerviosa por el Botox, pero ella me hizo sentir muy cómoda. Me explicó cada paso y los resultados son muy naturales. Mis compañeras de trabajo no dejan de preguntarme qué estoy haciendo diferente.",
-        "service": "Estética"
-      },
-      "sandra": {
-        "quote": "Por fin una especialista que entiende mi tono de piel y me trata como persona. Su formación médica se nota en todo lo que hace. No pienso ir a ningún otro lugar.",
-        "service": "Estética"
-      }
-    },
     "signal": {
       "label": "Para nuestra comunidad",
-      "heading": "South Shore",
-      "headingEm": "merece esto.",
-      "body": "Por demasiado tiempo, las mujeres del South Shore han manejado hasta Boston o Providence por un cuidado que debería existir aquí mismo. Brockton. Stoughton. Easton. Bridgewater. No deberías tener que hacer una hora de camino para ver a una especialista que de verdad te ve. RefynMe se creó para que no tengas que hacerlo."
+      "heading": "No deberías tener que manejar una hora",
+      "headingEm": "para que te tomen en serio.",
+      "body": "Demasiadas mujeres se han subido al carro y han manejado hasta Boston o Providence por un cuidado que debió estar disponible más cerca de casa — no porque no hubiera nada cerca, sino porque nada cerca se sentía hecho para ellas. RefynMe se creó para ellas. El mismo estándar clínico, el mismo tiempo dedicado a explicar, sin la hora de camino y sin la sensación de ser procesada."
     },
     "cta": {
       "label": "Empieza hoy",
@@ -338,8 +315,8 @@
     "emailLabel": "Correo",
     "emailNote": "Respuesta dentro de 1 día hábil",
     "locationLabel": "Ubicación",
-    "locationValue": "Área del Gran Brockton, MA",
-    "locationNote": "Dirección confirmada al reservar",
+    "locationValue": "Massachusetts",
+    "locationNote": "Dirección proporcionada al reservar",
     "quote": "Cada paciente merece la misma calidad de atención — sin importar dónde viva o cuán lejos pueda llegar.",
     "formEyebrow": "Solicita una consulta",
     "formHeading": "Cuéntanos cómo podemos ayudarte.",

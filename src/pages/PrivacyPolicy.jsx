@@ -6,7 +6,7 @@ const SECTIONS = [
   {
     h: 'Who We Are',
     body: [
-      'RefynMe Medical and Wellness, PLLC is a medical aesthetics and weight loss practice based in Brockton, Massachusetts (address coming soon). This policy explains what information this website collects, how it is used, and the choices you have.',
+      'RefynMe Medical and Wellness, PLLC is a medical aesthetics and weight loss practice based in Massachusetts (address coming soon). This policy explains what information this website collects, how it is used, and the choices you have.',
     ],
   },
   {
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
               }}
             >
               <li>RefynMe Medical and Wellness, PLLC</li>
-              <li>Brockton, MA (Address Coming Soon)</li>
+              <li>Massachusetts (address coming soon)</li>
               <li>
                 <a href="mailto:refynmemedical@gmail.com" style={{ color: 'var(--rose)' }}>
                   refynmemedical@gmail.com

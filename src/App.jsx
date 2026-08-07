@@ -255,7 +255,7 @@ function Trust() {
           {t('home.trust.body')}
         </p>
         <ul className="trust__creds">
-          {['cred1', 'cred2', 'cred3', 'cred4'].map((credKey) => (
+          {['cred1', 'cred2', 'cred3'].map((credKey) => (
             <li key={credKey} className="trust__cred">
               <span className="trust__diamond">✦</span>
               {t(`home.trust.${credKey}`)}
@@ -265,38 +265,6 @@ function Trust() {
         <Link to="/about" className="btn btn--rose">{t('home.trust.cta')}</Link>
       </div>
     </section>
-  )
-}
-
-/* ── COVERAGE SIGNAL ────────────────────────────────────── */
-function CoverageSignal() {
-  const { t } = useTranslation()
-  const [ref, inView] = useInView()
-  const towns = [
-    'Brockton',
-    'Stoughton',
-    'Easton',
-    'Bridgewater',
-    'Canton',
-  ]
-  return (
-    <div className={`coverage fade-up${inView ? ' in-view' : ''}`} ref={ref}>
-      <div className="coverage__inner">
-        <p className="coverage__label">
-          {t('home.coverage.label')}
-        </p>
-        <div className="coverage__towns">
-          {towns.map((town) => (
-            <span key={town} className="coverage__pill">
-              {town}
-            </span>
-          ))}
-        </div>
-        <Link to="/contact" className="coverage__link">
-          {t('home.coverage.link')}
-        </Link>
-      </div>
-    </div>
   )
 }
 
@@ -369,64 +337,6 @@ function ServicesPanels() {
             ))}
           </ul>
           <Link to="/aesthetics" className="btn btn--rose btn--panel">{t('home.services.panel2.cta')}</Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ── TESTIMONIALS ───────────────────────────────────────── */
-const TESTIMONIALS = [
-  {
-    key: 'maria',
-    name: 'Maria T.',
-    city: 'Brockton',
-    tagStyle: 'tcard__tag--gold',
-  },
-  {
-    key: 'keisha',
-    name: 'Keisha M.',
-    city: 'Brockton',
-    tagStyle: 'tcard__tag--rose',
-  },
-  {
-    key: 'sandra',
-    name: 'Sandra R.',
-    city: 'Stoughton',
-    tagStyle: 'tcard__tag--rose',
-  },
-]
-
-function Testimonials() {
-  const { t } = useTranslation()
-  const [ref, inView] = useInView()
-
-  return (
-    <section className={`testimonials fade-up${inView ? ' in-view' : ''}`} ref={ref}>
-      <div className="testimonials__inner">
-        <div className="section-label section-label--center">
-          <span className="section-label__line" />
-          <span className="label label--gold">{t('home.testimonials.label')}</span>
-          <span className="section-label__line" />
-        </div>
-        <h2 className="testimonials__heading">{t('home.testimonials.heading')}</h2>
-
-        <div className="testimonials__grid">
-          {TESTIMONIALS.map((card) => (
-            <div key={card.name} className="tcard">
-              <div className="tcard__stars">★★★★★</div>
-              <p className="tcard__quote">
-                <em>"{t(`home.testimonials.${card.key}.quote`)}"</em>
-              </p>
-              <div className="tcard__footer">
-                <div>
-                  <div className="tcard__name">{card.name}</div>
-                  <div className="tcard__city">{card.city}</div>
-                </div>
-                <span className={`tcard__tag ${card.tagStyle}`}>{t(`home.testimonials.${card.key}.service`)}</span>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -557,9 +467,7 @@ function Home() {
       <Hero />
       <MissionStrip />
       <Trust />
-      <CoverageSignal />
       <ServicesPanels />
-      <Testimonials />
       <BrocktonSignal />
       <CtaFooter />
     </>
