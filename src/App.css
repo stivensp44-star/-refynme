@@ -1440,6 +1440,17 @@ p {
   border-right: 2px solid var(--gold);
 }
 
+/* Interim provider-panel image fills the 4:5 placeholder behind the years
+   card (card z-index 1, brackets z-index 2 — both unchanged) */
+.trust__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 /* FIX 8 — years card fully inside placeholder */
 .trust__years-card {
   position: absolute;

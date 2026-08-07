@@ -176,8 +176,21 @@ function Trust() {
           <div className="trust__bracket trust__bracket--tl" />
           <div className="trust__bracket trust__bracket--br" />
 
-          {/* Image placeholder with years card fully inside */}
+          {/* Image placeholder with years card fully inside.
+              INTERIM stock flat-lay — frame reserved for Mydwine's
+              professional photograph (see CLAUDE.md Trust section) */}
           <div className="trust__img-placeholder">
+            <picture>
+              <source srcSet="/images/provider-panel.webp" type="image/webp" />
+              <img
+                src="/images/provider-panel.jpg"
+                alt="Clinical supplies including prepared syringes and a stethoscope"
+                className="trust__img"
+                width="819"
+                height="1024"
+                loading="lazy"
+              />
+            </picture>
             <div className="trust__years-card">
               <span className="trust__years-num">20+</span>
               <span className="trust__years-label">{t('home.trust.yearsLabel')}</span>

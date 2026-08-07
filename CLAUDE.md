@@ -277,6 +277,18 @@ Mobile: 11px text
 ### Trust Builder
 - White bg, 2-column grid, gap 80px
 - Left: 4:5 placeholder, gold bracket corners (TL+BR), "2+" years card
+- Provider panel image (2026-08-07): stock clinical flat-lay, INTERIM.
+  This frame is reserved for Mydwine's professional photograph.
+  Replace when her photos are available. Do not treat this slot as
+  filled. Source image was retouched to remove a third-party brand
+  mark before use.
+  Frame renders at 560px CSS width at 1440 viewport. Source is 819px
+  native — crisp at 1x, mildly soft at 2x (1.37x upscale). Mydwine's
+  replacement photo should be shot at 1120px wide minimum for this
+  frame.
+  assets-source/ holds retouched originals outside public/ so they are
+  not copied into dist/ by Vite and not publicly fetchable. Do not move
+  source assets into public/.
 - Right: label → heading → body → 4 credential bullets (✦ gold) → rose CTA
 - Heading: "Expert care. Finally close to home." — "home." is italic rose
 
@@ -960,3 +972,6 @@ NEXT BUILD WORK:
 17. No copy may state or imply that care from any other provider is worse.
     Describe what RefynMe does; make no claim about anyone else. This
     includes blog content.
+18. Any image sourced from outside the repo must be checked for legible
+    third-party brand marks, trademarks, and logos before placement.
+    AI-generated imagery frequently reproduces real brand marks.
