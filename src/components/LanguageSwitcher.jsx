@@ -4,7 +4,7 @@ const LANGS = [
   { code: 'en', label: 'EN' },
   { code: 'fr', label: 'FR' },
   { code: 'es', label: 'ES' },
-  { code: 'kea', label: 'KEA' },
+  /* KEA dark pending native review (2026-08-07) — locale file kept in repo */
 ]
 
 /* variant="overlay" — larger touch targets inside the mobile hamburger overlay */

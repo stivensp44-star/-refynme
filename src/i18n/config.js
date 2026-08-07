@@ -5,7 +5,18 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import en from './locales/en.json'
 import fr from './locales/fr.json'
 import es from './locales/es.json'
-import kea from './locales/kea.json'
+/* KEA is DARK pending native review (2026-08-07): not imported, not bundled,
+   not selectable. locales/kea.json stays in the repo untouched. */
+
+/* Visitors who selected KEA while it was live have 'kea' persisted — migrate
+   them to 'en' so they are not stranded in an unsupported language. */
+try {
+  if (localStorage.getItem('refynme-lang') === 'kea') {
+    localStorage.setItem('refynme-lang', 'en')
+  }
+} catch {
+  /* storage unavailable (private mode) — detector falls back to navigator */
+}
 
 i18n
   .use(LanguageDetector)
@@ -15,10 +26,9 @@ i18n
       en: { translation: en },
       fr: { translation: fr },
       es: { translation: es },
-      kea: { translation: kea },
     },
     fallbackLng: 'en',
-    supportedLngs: ['en', 'fr', 'es', 'kea'],
+    supportedLngs: ['en', 'fr', 'es'],
     /* navigator gives regional codes (fr-FR, es-MX) — resolve them to the base language */
     nonExplicitSupportedLngs: true,
     detection: {

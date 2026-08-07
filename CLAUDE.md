@@ -390,15 +390,32 @@ Do not build out secondary pages without session instruction.
 
 ---
 
-## I18N — PHASES 1A + 1B + 2 DRAFTS LIVE (2026-07-11)
+## I18N — PHASES 1A + 1B + 2 DRAFTS LIVE (2026-07-11) · KEA DARK (2026-08-07)
 
-Infrastructure AND draft content are live SITEWIDE. FR/ES/KEA render
+Infrastructure AND draft content are live SITEWIDE. FR/ES render
 machine-drafted translations (Stivo-authorized 2026-07-11) on the homepage and
-every content page, marked DRAFT pending native review.
+every content page, marked DRAFT pending native review. THREE locales ship:
+en / fr / es. KEA is DARK — see the next section.
+
+### KEA — DARK (disabled 2026-08-07)
+- KEA disabled 2026-08-07: removed from the language switcher AND from the
+  i18n config import, so Kriolu strings no longer ship in the production
+  bundle. src/i18n/locales/kea.json RETAINED in the repo, untouched (all
+  strings + "_status" DRAFT marker intact).
+- Persisted 'kea' values in the refynme-lang localStorage key are migrated
+  to 'en' at boot (snippet in src/i18n/config.js, ahead of i18n.init).
+- ROOT CAUSE: Phase 1b drafts merged to main 2026-07-11 (merge 2a21ef5)
+  with KEA included, despite the standing gate requiring native-speaker
+  review before shipping. Unreviewed machine-translated Kriolu was live to
+  real visitors for 27 days. The gate existed and was not enforced at
+  merge time.
+- RE-ENABLE requires ALL of: native-speaker review of every KEA string,
+  explicit owner approval, documented sign-off. (See Absolute Rule 15.)
 
 ### Architecture
 - i18next + react-i18next + i18next-browser-languagedetector
-- Languages: en (default/fallback), fr, es, kea
+- Languages: en (default/fallback), fr, es — kea DISABLED 2026-08-07
+  (see KEA — DARK above; not in supportedLngs, not imported)
 - Detection: localStorage first (key `refynme-lang`), then navigator;
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
@@ -423,8 +440,10 @@ every content page, marked DRAFT pending native review.
 - 267 strings (2026-07-17: +6 unused cred* keys, badge keys removed+restored), nested semantic keys: nav.*, footer.*, home.*, pageShell.*,
   services.*, weightLoss.*, dotExams.*, hormone.*, aesthetics.*, contact.*,
   about.*
-- 1b SHIPPED (2026-07-11): machine-drafted FR/ES/KEA values are LIVE, each file
+- 1b SHIPPED (2026-07-11): machine-drafted FR/ES values are LIVE, each file
   marked `"_status": "DRAFT — machine translation, pending native review"`.
+  (KEA shipped then too, in breach of the review gate — DARK since
+  2026-08-07; see KEA — DARK.)
 - NEXT = NATIVE REVIEW: reviewed values replace the drafts, then the "_status"
   line is DELETED. That marker leaving the files = review complete.
   NO key changes, NO code changes — values only, in BOTH steps.
@@ -830,10 +849,13 @@ NEXT BUILD WORK:
   [x] i18n Phase 1b — DRAFT machine translations live 2026-07-11 (merge 2a21ef5)
   [x] i18n Phase 2 — secondary pages extracted + drafted, live 2026-07-11
       (merge 3514e56; en.json now 259 strings)
-  [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES/KEA, delete
-      "_status" lines (values only, keys frozen; KEA/Santiago Kriolu most
-      urgent — drafts are live to real visitors; scope = 267 strings (6 cred* keys are UNUSED English placeholders — translate only if reused) incl.
-      the About wordplay flag in the 2026-07-11 night session notes)
+  [ ] i18n NATIVE REVIEW — replace draft values with reviewed FR/ES, delete
+      "_status" lines (values only, keys frozen; FR/ES drafts are live to
+      real visitors; scope = 267 strings per locale (6 cred* keys are UNUSED English placeholders — translate only if reused) incl.
+      the About wordplay flag in the 2026-07-11 night session notes).
+      KEA is DARK (2026-08-07): its review happens offline; re-enable gated
+      on native review of every string + explicit owner approval +
+      documented sign-off (see KEA — DARK + Absolute Rule 15)
   [ ] i18n decisions pending: Privacy/Terms translation (legal), Blog
       per-language strategy
   [ ] Bundle code-split if it keeps growing (531 kB minified, warning
@@ -863,3 +885,7 @@ NEXT BUILD WORK:
 12. Never reorder homepage components without approval
 13. Copyright year is 2026. Always. Never 2025.
 14. Never push directly to main — all changes go to staging branch first, Cous approves before merge
+15. No locale is added to the switcher until every string in it has been
+    reviewed by someone fluent in that language. Draft translations may
+    exist in the repo. They may not be selectable, and they may not be
+    imported into the i18n config.
