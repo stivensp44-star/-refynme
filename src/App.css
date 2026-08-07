@@ -996,16 +996,25 @@ p {
   opacity: 0.88;
 }
 
-@media (min-width: 769px) {
+/* Overlay exists wherever the hamburger does — raised with FIX 19 below
+   (769 → 1081, 2026-08-07): the old 769 cutoff left the 769–1080 band with a
+   hamburger that opened an invisible (display:none) overlay */
+@media (min-width: 1081px) {
   .nav__overlay { display: none; }
 }
 
-/* FIX 19 — hide nav links on mobile */
-@media (max-width: 768px) {
+/* FIX 19 — nav collapses to the hamburger. Raised 768 → 1080 (2026-08-07):
+   measured in FR, the packed link row has ZERO slack from 769–1000px and
+   can't host the 104px language dropdown trigger, so the whole band now
+   uses the hamburger + overlay (links + switcher + Book Now all reachable).
+   Mobile padding stays a ≤768 rule — unchanged in the 769–1080 band. */
+@media (max-width: 1080px) {
   .nav__links { display: none; }
-  .nav__inner { padding: 0 20px; }
   .nav__hamburger { display: flex; }
   .nav__book-desktop { display: none; }
+}
+@media (max-width: 768px) {
+  .nav__inner { padding: 0 20px; }
 }
 
 /* ════════════════════════════════════════════

@@ -32,8 +32,14 @@ export default function Nav({ banner = false }) {
       overlayRef.current
         ? [...overlayRef.current.querySelectorAll('a[href], button:not([disabled])')]
         : []
-    /* Delayed so the overlay's 0.3s visibility transition has begun */
-    const focusTimer = setTimeout(() => focusables()[0]?.focus(), 50)
+    /* Deterministic initial focus: the open state flips visibility with 0s
+       transition (the 0.3s delay is close-only), so the element is focusable
+       as soon as the class-applied styles are flushed — double rAF guarantees
+       that flush without racing a timer against the transition */
+    let raf2 = 0
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => focusables()[0]?.focus())
+    })
 
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -60,7 +66,8 @@ export default function Nav({ banner = false }) {
     }
     document.addEventListener('keydown', onKeyDown)
     return () => {
-      clearTimeout(focusTimer)
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
       document.removeEventListener('keydown', onKeyDown)
       document.body.style.overflow = prevOverflow
     }

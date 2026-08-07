@@ -361,6 +361,21 @@ in src/components/Nav.jsx — there is no second Nav to update. PageShell
 re-exports it for its existing importers; the homepage renders <Nav banner />.
 The old duplicate (which left secondary pages with NO mobile navigation at
 all) was the root cause of the mobile-nav hole and must never come back.
+
+NAV BREAKPOINTS (locked 2026-08-07): the hamburger breakpoint (≤1080 shows
+the hamburger, hides links + desktop Book Now) and the overlay display
+cutoff (≥1081 sets .nav__overlay display:none) are a MATCHED PAIR. Changing
+one without the other produces a visible hamburger that opens nothing, with
+no console error. They must always move together. (See Absolute Rule 16
+for the verification requirement.)
+- The old 768 / 1081 numbers were inherited, not derived. Measured
+  2026-08-07 (FR worst case): the link row has 0px slack 769–1000px,
+  16px at 1040, 36px at 1080 — against a 104px dropdown trigger.
+  Dropdown-from-769 is not possible without inventing a third layout.
+- Overlay focus trap: initial focus fires on a DOUBLE requestAnimationFrame
+  after the open class commits (the open state flips visibility with 0s
+  transition; the 0.3s delay is close-only). Do NOT replace with a
+  timeout — a timer races the style flush and fails silently.
 About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
 DOT Exams links to: /services/dot-exams
 
@@ -505,14 +520,16 @@ en / fr / es. KEA is DARK — see the next section.
 ### LanguageSwitcher responsive behavior (dropdown since 2026-08-07)
 - >1200px: globe dropdown in the nav row (full trigger), before Book Now
 - 1081–1200px: compact dropdown trigger (nav row has no slack)
-- ≤1080px: in-row switcher HIDDEN (row physically can't fit it)
-- ≤768px ALL pages: switcher lives in the hamburger overlay (flat pills,
-  full language names, LANGUAGE eyebrow, 44px targets). The unified Nav
-  ships the overlay on every page (2026-08-07) — the "PageShell has no
-  hamburger" half of the old KNOWN GAP is CLOSED.
-- REMAINING GAP: 769–1080px has NO switcher on ANY page (links row visible,
-  no room for the trigger, hamburger only ≤768) — still needs a breakpoint
-  decision. Selection persists via localStorage from wherever last set.
+- ≤1080px ALL pages: nav collapses to the hamburger; the switcher lives in
+  the overlay (flat pills, full language names, LANGUAGE eyebrow, 44px
+  targets)
+- GAP CLOSED (2026-08-07, second pass): hamburger breakpoint raised
+  768 → 1080 and the overlay display cutoff raised 769 → 1081 to travel
+  with it. The 769–1080 band previously had NO switcher on any page (and,
+  mid-fix, a hamburger that opened a display:none overlay — the exact
+  failure the NAV BREAKPOINTS matched-pair rule exists to prevent).
+  A switcher is now reachable at EVERY width. Selection persists via
+  localStorage from wherever last set.
 
 ### Verification gotchas
 - The CSS minifier rewrites `@media (max-width: 1080px)` to range syntax
@@ -874,10 +891,10 @@ PENDING DECISIONS (need confirmation from wife):
     marketing copy to any city, town, or region. Final positioning
     pending owner decision.
   - Practice address — needed before Google Business Profile setup
-  - [PARTIALLY RESOLVED 2026-08-07] Language switcher gaps: secondary-page
-    mobile is CLOSED (Nav unified — hamburger + overlay everywhere ≤768).
-    The 769–1080px band still has NO switcher on any page — breakpoint
-    decision still needed (see I18N section)
+  - [RESOLVED 2026-08-07] Language switcher gaps: secondary-page mobile
+    CLOSED (Nav unified), and the 769–1080px band CLOSED same day
+    (hamburger raised to 1080 + overlay cutoff to 1081 — a matched pair;
+    see NAV BREAKPOINTS rule + Absolute Rule 16)
   - [RESOLVED 2026-07-11] About CTA target: Stivo chose /contact — the
     all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
   - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
@@ -933,3 +950,7 @@ NEXT BUILD WORK:
     reviewed by someone fluent in that language. Draft translations may
     exist in the repo. They may not be selectable, and they may not be
     imported into the i18n config.
+16. Any nav breakpoint change must be verified by asserting the overlay's
+    COMPUTED DISPLAY and that focus actually lands inside it — never by
+    checking whether the hamburger is visible. A visible hamburger proves
+    nothing (it can open a display:none overlay with no console error).
