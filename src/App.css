@@ -3053,3 +3053,141 @@ p {
 @media (max-width: 768px) {
   .about-intro { padding-top: 120px; }
 }
+
+/* ════════════════════════════════════════════
+   LANGUAGE DROPDOWN (desktop, 2026-08-07) — additive only.
+   Replaces the in-row pills; .lang-switch pill CSS above stays for the
+   mobile overlay variant. Palette colors only (cream/gold rgba idiom).
+════════════════════════════════════════════ */
+.lang-dd {
+  position: relative;
+}
+.lang-dd__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid rgba(250, 246, 240, 0.35);
+  border-radius: 3px;
+  padding: 6px 10px;
+  min-height: 32px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.lang-dd__trigger[aria-expanded="true"] {
+  border-color: var(--gold);
+  background: rgba(250, 246, 240, 0.08);
+}
+@media (hover: hover) {
+  .lang-dd__trigger:hover { border-color: rgba(250, 246, 240, 0.6); }
+}
+.lang-dd__trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.lang-dd__chevron {
+  transition: transform 0.2s ease;
+}
+.lang-dd__trigger[aria-expanded="true"] .lang-dd__chevron {
+  transform: rotate(180deg);
+}
+.lang-dd__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 172px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: var(--espresso-mid);
+  border: 1px solid rgba(212, 168, 83, 0.4);
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+.lang-dd__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.7);
+  padding: 11px 16px;
+  cursor: pointer;
+}
+.lang-dd__option + .lang-dd__option {
+  border-top: 1px solid rgba(250, 246, 240, 0.1);
+}
+/* The 14px check slot renders on every row (invisible when unselected) so
+   all labels left-align with the checked row */
+.lang-dd__check {
+  width: 14px;
+  flex: none;
+  color: var(--gold);
+}
+.lang-dd__option:not([aria-selected="true"]) .lang-dd__check {
+  visibility: hidden;
+}
+.lang-dd__option[aria-selected="true"] {
+  color: var(--gold);
+  background: rgba(212, 168, 83, 0.13);
+}
+@media (hover: hover) {
+  .lang-dd__option:not(.lang-dd__option--disabled):hover {
+    color: var(--cream);
+    background: rgba(250, 246, 240, 0.06);
+  }
+  .lang-dd__option[aria-selected="true"]:hover {
+    color: var(--gold);
+    background: rgba(212, 168, 83, 0.13);
+  }
+}
+.lang-dd__option:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+.lang-dd__option--disabled {
+  color: rgba(250, 246, 240, 0.35);
+  cursor: default;
+}
+.lang-dd__soon {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.4);
+}
+
+/* Breakpoint parity with the old pills: compact 1081–1200, hidden ≤1080
+   in-row (overlay hosts the pill list ≤768 on the homepage) */
+@media (max-width: 1200px) {
+  .nav__inner .lang-dd__trigger {
+    font-size: 11px;
+    gap: 6px;
+    padding: 5px 8px;
+    min-height: 28px;
+  }
+}
+@media (max-width: 1080px) {
+  .nav__inner .lang-dd { display: none; }
+}
+
+/* Overlay eyebrow above the flat pill list (mobile hamburger) */
+.lang-switch__eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.55);
+  margin-bottom: 12px;
+}
