@@ -432,9 +432,24 @@ NEW TAB (target="_blank" rel="noopener noreferrer"):
   hardcode the booking URL at a call site.
 - This SUPERSEDES the 2026-07-11 "all booking CTAs → /contact" convention
   (owner decision 2026-08-09).
+- TWO SEPARATE FLOWS (standing architecture):
+    Booking           → Zanda Health (all appointment CTAs + /book)
+    General inquiries → /contact → Formspree (xkoaekjo)
 - /contact REMAINS the general inquiry page (Formspree form xkoaekjo).
   The nav Contact link, footer contact links, and mailto/tel links still
   point there. Booking CTAs do NOT.
+- CONTACT PAGE STATUS: /contact is ACTIVE and intentional — NOT retired,
+  and no longer part of the appointment-booking funnel. It serves
+  general questions, inquiries, concerns, and messages to the practice.
+  The Formspree endpoint xkoaekjo is intentional and must NOT be removed
+  — Zanda does NOT replace Formspree; they have separate
+  responsibilities.
+- Contact copy alignment (FUTURE review — do not change without a task):
+  the page still carries booking-era wording ("REQUEST A CONSULTATION"
+  eyebrow, Formspree _subject "New consultation request", the
+  APPOINTMENTS footer-strip cell). May be reviewed later for
+  general-inquiry alignment. The shipped 2026-08-09 readability work is
+  unaffected and stands.
 - History: Calendly abandoned 2026-06-23 → /contact era (2026-06-23 to
   2026-08-09) → Zanda Health direct booking (2026-08-09).
 
@@ -457,8 +472,12 @@ NEW TAB (target="_blank" rel="noopener noreferrer"):
 - Zanda and Formspree serve SEPARATE purposes: Zanda = appointment
   booking; Formspree = /contact general-inquiry form. Neither replaces
   the other.
-- Do not record prices, service descriptions, practitioner assignments,
-  or scheduling rules here unless verified in the portal.
+- ACCURACY RULE: the structure above is documented AS CONFIGURED. Do NOT
+  state that a given service is currently bookable online unless its
+  practitioner / Client-Portal assignment has been verified. Do not
+  record prices, deposits, service descriptions, practitioner
+  assignments, treatment protocols, scheduling rules, or online-booking
+  eligibility unless verified in the portal.
 
 ### Zanda UX — service selection (OPEN optimization, NOT implemented)
 - The website links to Zanda's generic /appointment-booking route. With
@@ -697,6 +716,13 @@ cutting-edge | wellness journey | affordable
   visual sign-off; merged staging branches (staging-zanda-booking,
   staging-contact-readability, staging-docs-session-close) not yet
   deleted — branch deletion is its own gated step.
+- Docs alignment pass 2 (same day, owner-instructed): standing
+  architecture stated as two flows (Booking → Zanda; General inquiries →
+  /contact → Formspree); /contact explicitly ACTIVE/not-retired with a
+  never-remove-Formspree guard; booking-era Contact wording ("REQUEST A
+  CONSULTATION" etc.) flagged for FUTURE copy-alignment review (no copy
+  changed); Zanda accuracy rule extended — never claim a service is
+  online-bookable without verified practitioner/portal assignment.
 
 ---
 
@@ -1010,7 +1036,8 @@ not pre-launch tasks.
 
 - Privacy Policy (/privacy-policy) + Terms & Conditions (/terms) pages built & live;
   footer links in both PageShell and homepage footers; not in main nav.
-- All booking CTAs sitewide routed to /contact; dead Calendly link on BookNow.jsx replaced.
+- All booking CTAs sitewide routed to /contact [SUPERSEDED 2026-08-09 →
+  Zanda Health]; dead Calendly link on BookNow.jsx replaced.
 - /book route now redirects to /contact (Navigate replace); BookNow.jsx orphaned but kept.
 - BUG AUDIT — fixes applied:
   1. Added catch-all route (path="*") → redirects to / (was: unknown URLs rendered blank).
