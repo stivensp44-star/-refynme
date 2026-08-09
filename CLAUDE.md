@@ -635,6 +635,39 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-08-09 — CONTACT READABILITY PASS)
+
+- Branch staging-contact-readability (off staging-zanda-booking 61c772e).
+  Value-only typography edits INSIDE the Contact block (App.css
+  2449–2760); no new selectors, no layout/spacing/structure changes;
+  shared .footer__* untouched (verified in source diff + minified CSS).
+- Sizes: statement sub 14→16, eyebrow 9→11/600, info label 9→11,
+  info value 17→18, info note 11→13, quote 14→16, quote attr 10→11/600,
+  form h2 22→24, field label 9→12, input 14→16 (kills iOS focus-zoom),
+  button 11→13, form note 11→13, strip label 9→11, strip value 13→16,
+  strip sub 11→13.
+- Alphas raised for legibility: espresso 0.62→0.75/0.8, statement cream
+  0.55→0.7, strip gold 0.75→0.85, strip cream 0.55→0.7.
+- ROSE REMOVED from .con-eyebrow + .con-quote__attr (task-mandated:
+  rose-on-cream ≈3.5:1 fails AA at small sizes and cannot pass without a
+  new color) — now espresso 0.75 at 11px/600. Rose remains elsewhere on
+  the page (quote border, CTA palette) — brand intact.
+- QA: build+eslint clean; puppeteer-core (scratchpad, not a repo dep)
+  computed-style + overflow harness at 1440/768/375/320 — zero horizontal
+  overflow, nothing clipped, inputs 16px at all widths. Mobile Send
+  Message button wraps to two lines at ≤375px — measured PRE-EXISTING
+  (11px: 159×61@375, 139×75@320), not a regression.
+- FOLLOW-UP POLISH (same day, approved): submit row stacks vertically at
+  ≤480px (new @media block at the end of the Contact section — button
+  needs ~207px for one line at 13px; the wrap zone extends to ~450px
+  viewport, so the breakpoint is 480, not 375). Button one line 207×50 at
+  EVERY width; note flows full-width left-aligned below. Side-by-side
+  preserved ≥481px. Verified both sides of the breakpoint.
+- Minifier gotcha (new): rgba() in authored CSS ships as hex-alpha
+  (#faf6f0b3) — grep deployed CSS for hex forms, not rgba().
+
+---
+
 ## COMPLETED THIS SESSION (2026-08-09 — ZANDA BOOKING MIGRATION)
 
 - All 17 live booking CTAs (13 files) repointed from /contact to the
