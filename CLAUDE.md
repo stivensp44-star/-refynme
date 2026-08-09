@@ -438,6 +438,40 @@ NEW TAB (target="_blank" rel="noopener noreferrer"):
 - History: Calendly abandoned 2026-06-23 → /contact era (2026-06-23 to
   2026-08-09) → Zanda Health direct booking (2026-08-09).
 
+### Zanda Health platform status (admin setup COMPLETE 2026-08-09)
+- Client Portal ENABLED and online booking ACTIVE. Practitioner
+  availability is configured for online booking.
+- Services live in the portal (expanded 2026-08-09 beyond the original
+  Initial Consultation): Initial Consultation · Regular · Follow Up
+  After Initial Visit · Weight Loss Consultation · Botox Consultation /
+  Treatment · DOT.
+- Saleable Categories created and assigned:
+    General/Follow-Up → Initial Consultation, Regular, Follow Up After
+                        Initial Visit
+    Weight Loss       → Weight Loss Consultation
+    Aesthetics/Botox  → Botox Consultation / Treatment
+    DOT               → DOT
+  Portal category filtering is part of the booking experience — patients
+  can distinguish general/follow-up, weight-loss, aesthetics/Botox, and
+  DOT services inside the portal.
+- Zanda and Formspree serve SEPARATE purposes: Zanda = appointment
+  booking; Formspree = /contact general-inquiry form. Neither replaces
+  the other.
+- Do not record prices, service descriptions, practitioner assignments,
+  or scheduling rules here unless verified in the portal.
+
+### Zanda UX — service selection (OPEN optimization, NOT implemented)
+- The website links to Zanda's generic /appointment-booking route. With
+  multiple services live, Zanda presents ITS OWN service-selection step
+  before the calendar. The website can NOT currently preselect a service
+  or jump to a service-specific calendar — no supported Zanda
+  service-specific deep link has been verified. Do not claim otherwise
+  anywhere (site copy, docs, or tasks).
+- Desired future UX (unbuilt): service-specific website CTA →
+  corresponding Zanda service → calendar in as few clicks as possible.
+  Any build task here is GATED on verified evidence of a supported Zanda
+  service-specific deep link.
+
 ### Services page — card list (in order)
   1. Medical Weight Loss       → /weight-loss
   2. Aesthetic Treatments      → /aesthetics
@@ -635,6 +669,37 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-08-09 — PRODUCTION DEPLOY + ZANDA ADMIN COMPLETE)
+
+- 🎉 SHIPPED TO PRODUCTION: the approved 4-commit stack merged to main
+  (merge 6d385a6, --no-ff; CI dist commit e75a16d; deploy workflow
+  green) and LIVE-VERIFIED on refynme.com — served JS carries the Zanda
+  URL, 17 noopener pairs, Formspree xkoaekjo, and the August 9, 2026
+  privacy date; served CSS carries the 16px inputs and the ≤480px
+  submit-row stack; shared .footer__* byte-unchanged. Stack: d8906f5
+  docs sync → 61c772e Zanda migration → c7e5b71 Contact readability →
+  f483562 privacy revision date.
+- ZANDA ADMIN SETUP COMPLETE (operator-confirmed 2026-08-09): portal
+  enabled, online booking active, practitioner availability configured,
+  services expanded to six, Saleable Categories created and assigned,
+  portal category filtering live — canonical detail in the "Zanda Health
+  platform status" standing section above.
+- State distinction (canonical):
+  (a) website integration — COMPLETE
+  (b) Zanda service/category configuration — COMPLETE
+  (c) service-specific calendar deep-link optimization — UNRESOLVED;
+      future task gated on a verified Zanda deep-link mechanism (see the
+      "Zanda UX — service selection" standing section).
+- Non-blocking review notes carried forward: Privacy "only processor is
+  Google Analytics" wording → fold into the attorney-review live-exposure
+  item; screen-reader "opens in new tab" announcement on booking anchors
+  = separate task; rose→espresso on two Contact micro-labels awaits owner
+  visual sign-off; merged staging branches (staging-zanda-booking,
+  staging-contact-readability, staging-docs-session-close) not yet
+  deleted — branch deletion is its own gated step.
+
+---
+
 ## COMPLETED THIS SESSION (2026-08-09 — CONTACT READABILITY PASS)
 
 - Branch staging-contact-readability (off staging-zanda-booking 61c772e).
@@ -817,7 +882,9 @@ not pre-launch tasks.
   professional shots.
 - CTA flag RESOLVED same evening: Stivo chose /contact — switched in
   `51f4269` (merge `8109ac7`), live-verified href=/contact. The
-  all-booking-CTAs-to-/contact convention holds SITEWIDE with no exceptions;
+  all-booking-CTAs-to-/contact convention holds SITEWIDE with no exceptions
+  [SUPERSEDED 2026-08-09: booking CTAs now → Zanda Health — see the
+  Booking CTAs standing section];
   copy/spec references to /book are satisfied by the standing redirect but
   new CTAs always target /contact directly.
 - Live-verified in Stivo's browser (hard load): mounts, structure + em-why +
@@ -1062,7 +1129,9 @@ PENDING DECISIONS (need confirmation from wife):
     (hamburger raised to 1080 + overlay cutoff to 1081 — a matched pair;
     see NAV BREAKPOINTS rule + Absolute Rule 16)
   - [RESOLVED 2026-07-11] About CTA target: Stivo chose /contact — the
-    all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
+    all-booking-CTAs-to-/contact convention held sitewide until
+    [SUPERSEDED 2026-08-09: booking CTAs now → Zanda Health, owner
+    ruling — see the Booking CTAs standing section]
   - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
     FR/ES/KEA (merge d797880); orphaned keys replaced, not reused
   - [RESOLVED 2026-07-17, confirmed by 2026-08-07 audit] Hero heading doc
