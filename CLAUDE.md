@@ -7,8 +7,10 @@
 ## WHAT THIS SITE IS
 
 Medical aesthetics + weight loss practice website.
-Owner: Board-Certified Nurse Practitioner, Brockton MA.
+Owner: Board-Certified Nurse Practitioner, Massachusetts.
 Entity: RefynMe Medical and Wellness, PLLC (Massachusetts).
+PRACTICE STATUS: LAUNCHED and operating — concierge model, no public
+street address by design. This website serves a LIVE practice.
 Tagline: "Results you see. Confidence you own."
 Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on the site.
 
@@ -147,8 +149,9 @@ public/images/blog/  ← Article images (filenames referenced in each article's 
 ### Colors (src/index.css — ONLY place CSS variables are defined)
 
 --espresso:       #2C1810   nav solid, primary dark
---espresso-dark:  #1C0F0A   hero bg, testimonials bg
---espresso-mid:   #3D1F14   testimonial cards
+--espresso-dark:  #1C0F0A   hero bg, mobile overlay bg, 20+ years card
+--espresso-mid:   #3D1F14   language-dropdown menu, weight-loss panel
+                            letterbox
 --gold:           #D4A853   accents, headlines, bullets
 --gold-light:     #E2C47A   hover states
 --cream:          #FAF6F0   light sections
@@ -202,7 +205,7 @@ Nav scroll trigger:          >40px scrollY → var(--espresso) OPAQUE + blur(12p
 ## HOMEPAGE — COMPONENT ORDER
 
 <Banner />
-<Nav />
+<Nav banner />
 <Hero />
 <MissionStrip />
 <Trust />
@@ -276,7 +279,7 @@ Mobile: 11px text
 
 ### Trust Builder
 - White bg, 2-column grid, gap 80px
-- Left: 4:5 placeholder, gold bracket corners (TL+BR), "2+" years card
+- Left: 4:5 placeholder, gold bracket corners (TL+BR), "20+" years card
 - Provider panel image (2026-08-07, v2): stock clinical flat-lay, INTERIM.
   This frame is reserved for Mydwine's professional photograph.
   Replace when her photos are available. Do not treat this slot as
@@ -298,10 +301,17 @@ Mobile: 11px text
   Label gold: "01 – Medical Weight Loss"
   Tags gold border 3px radius: GLP-1 Injections | Oral Medications |
   Dietary Guidance | Ongoing Support
+  IMAGE SHIPPED 2026-08-07: weightlost.webp/jpg (before/after jeans
+  illustration, no person depicted) — object-fit: contain on the
+  espresso-mid letterbox, lazy-loaded, served via <picture>
 - Panel 2 (Aesthetics): photo left col, white right col
   Label ROSE (not gold): "02 – Aesthetic Services"
   Tags rose border 3px radius: Botox | Dermal Fillers |
   Lip Enhancement | Jawline Sculpting
+  "Before / After Photo" placeholder = the LAST empty homepage image
+  slot. STANDING POLICY: no before/after image ships without a real
+  consented patient and a signed written release on file. The
+  placeholder stays empty until that exists.
 
 ### Testimonials — REMOVED 2026-08-07
 - Section deleted sitewide (component, data array, CSS block, i18n keys):
@@ -393,13 +403,17 @@ About | Services | Weight Loss | Aesthetics | DOT Exams | Contact
 DOT Exams links to: /services/dot-exams
 
 ### Routes
-  /about                          → About Us (PageShell placeholder)
+  /about                          → About Us (custom full page, approved FINAL
+                                    copy; does NOT use the PageShell hero)
   /services                       → Our Services (custom two-column layout)
-  /weight-loss                    → Medical Weight Loss (PageShell placeholder)
-  /aesthetics                     → Aesthetic Services (PageShell placeholder)
-  /services/dot-exams             → DOT Medical Exams (PageShell placeholder)
+  /weight-loss                    → Medical Weight Loss (PageShell, fully built)
+  /aesthetics                     → Aesthetic Services (custom layout, built
+                                    2026-06-14; does NOT use the PageShell hero)
+  /services/dot-exams             → DOT Medical Exams (PageShell, fully built)
   /services/hormone-vitamin-therapy → Hormone & Vitamin Therapy (PageShell, built 2026-06-23)
-  /book                           → REDIRECTS to /contact (Navigate replace, 2026-06-23).
+  /book                           → EXTERNAL redirect to the Zanda booking URL
+                                    (BookRedirect in App.jsx, window.location.replace,
+                                    2026-08-09; was Navigate→/contact 2026-06-23).
                                     BookNow.jsx kept in repo but orphaned — not routed.
   /contact                        → Contact Us (form + phone/email; Formspree xkoaekjo)
   /privacy-policy                 → Privacy Policy (2026-06-23)
@@ -409,9 +423,20 @@ DOT Exams links to: /services/dot-exams
   *  (catch-all)                  → REDIRECTS to / (Navigate replace, 2026-06-23) — prevents
                                     blank screen on unknown URLs.
 
-### Booking CTAs (sitewide, as of 2026-06-23)
-ALL "Book a Consultation" / "Book Now" / "Schedule Now" buttons route to /contact.
-The old Calendly placeholder on BookNow.jsx was replaced with a Link to /contact.
+### Booking CTAs (sitewide — ZANDA HEALTH, owner ruling 2026-08-09)
+ALL live booking CTAs ("Book a Consultation" / "Book Now" — 17 elements
+across 13 files) open the canonical Zanda Health online booking URL in a
+NEW TAB (target="_blank" rel="noopener noreferrer"):
+  https://clientportal.zandahealth.com/clientportal/refynmemedicalaestheticsandwel/appointment-booking
+- Single source of truth: src/bookingUrl.js (ZANDA_BOOKING_URL). Never
+  hardcode the booking URL at a call site.
+- This SUPERSEDES the 2026-07-11 "all booking CTAs → /contact" convention
+  (owner decision 2026-08-09).
+- /contact REMAINS the general inquiry page (Formspree form xkoaekjo).
+  The nav Contact link, footer contact links, and mailto/tel links still
+  point there. Booking CTAs do NOT.
+- History: Calendly abandoned 2026-06-23 → /contact era (2026-06-23 to
+  2026-08-09) → Zanda Health direct booking (2026-08-09).
 
 ### Services page — card list (in order)
   1. Medical Weight Loss       → /weight-loss
@@ -472,7 +497,7 @@ en / fr / es. KEA is DARK — see the next section.
 - Detection: localStorage first (key `refynme-lang`), then navigator;
   `nonExplicitSupportedLngs: true` (fr-FR → fr)
 - `src/i18n/config.js` also syncs `<html lang>` on init + every language change
-- Wired: BOTH Navs (App.jsx + PageShell.jsx), BOTH Footers, all homepage
+- Wired: the shared Nav (components/Nav.jsx), BOTH Footers, all homepage
   sections, all content pages: Services, Weight Loss, Aesthetics, DOT Exams,
   Contact (full form), Hormone & Vitamin Therapy, About (re-wired 2026-07-11
   night after its rewrite — new 18-key about.* namespace REPLACED the orphaned
@@ -527,8 +552,9 @@ en / fr / es. KEA is DARK — see the next section.
 - Phone 774-312-9806, email refynmemedical@gmail.com
 - Legal name "RefynMe Medical and Wellness, PLLC"
 - Tagline "Results you see. Confidence you own."
-- Town proper nouns, testimonial names/cities, stat figures (20+/100%/NP/MA),
-  social abbreviations (IG/TK/FB), temporary photo-placeholder labels
+- Town proper nouns, stat figures (20+/100%/NP/MA), social abbreviations
+  (IG/TK/FB), the Aesthetics panel's temporary photo-placeholder label
+  (the last remaining placeholder label)
 
 ### LanguageSwitcher responsive behavior (dropdown since 2026-08-07)
 - >1200px: globe dropdown in the nav row (full trigger), before Book Now
@@ -592,16 +618,118 @@ Footers remain separate.
 
 ## COPY RULES — ENFORCED EVERYWHERE
 
-- Talk to ONE person. Never "patients" or "women."
-- Lead with the problem. Not the service.
+- Talk to ONE person in body copy and headings. Never "patients" or
+  "women" in persuasive copy. Status announcements (banner, intake
+  capacity) may use plain plural nouns. (Amended 2026-08-07.)
+- Lead with the problem, not the service — but ONLY where the problem is
+  the patient's own situation. Never frame the problem as another
+  provider's failure (Absolute Rule 17). Where that would be unavoidable,
+  lead with what RefynMe does. (Amended 2026-08-07.)
 - NP credential is a feature. Never a disclaimer.
 - Primary CTA is 'Book a Consultation' — never use 'free' language.
-- Instagram DM always included as booking channel.
 - Short sentences. Short paragraphs.
 
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-08-09 — CONTACT READABILITY PASS)
+
+- Branch staging-contact-readability (off staging-zanda-booking 61c772e).
+  Value-only typography edits INSIDE the Contact block (App.css
+  2449–2760); no new selectors, no layout/spacing/structure changes;
+  shared .footer__* untouched (verified in source diff + minified CSS).
+- Sizes: statement sub 14→16, eyebrow 9→11/600, info label 9→11,
+  info value 17→18, info note 11→13, quote 14→16, quote attr 10→11/600,
+  form h2 22→24, field label 9→12, input 14→16 (kills iOS focus-zoom),
+  button 11→13, form note 11→13, strip label 9→11, strip value 13→16,
+  strip sub 11→13.
+- Alphas raised for legibility: espresso 0.62→0.75/0.8, statement cream
+  0.55→0.7, strip gold 0.75→0.85, strip cream 0.55→0.7.
+- ROSE REMOVED from .con-eyebrow + .con-quote__attr (task-mandated:
+  rose-on-cream ≈3.5:1 fails AA at small sizes and cannot pass without a
+  new color) — now espresso 0.75 at 11px/600. Rose remains elsewhere on
+  the page (quote border, CTA palette) — brand intact.
+- QA: build+eslint clean; puppeteer-core (scratchpad, not a repo dep)
+  computed-style + overflow harness at 1440/768/375/320 — zero horizontal
+  overflow, nothing clipped, inputs 16px at all widths. Mobile Send
+  Message button wraps to two lines at ≤375px — measured PRE-EXISTING
+  (11px: 159×61@375, 139×75@320), not a regression.
+- FOLLOW-UP POLISH (same day, approved): submit row stacks vertically at
+  ≤480px (new @media block at the end of the Contact section — button
+  needs ~207px for one line at 13px; the wrap zone extends to ~450px
+  viewport, so the breakpoint is 480, not 375). Button one line 207×50 at
+  EVERY width; note flows full-width left-aligned below. Side-by-side
+  preserved ≥481px. Verified both sides of the breakpoint.
+- Minifier gotcha (new): rgba() in authored CSS ships as hex-alpha
+  (#faf6f0b3) — grep deployed CSS for hex forms, not rgba().
+
+---
+
+## COMPLETED THIS SESSION (2026-08-09 — ZANDA BOOKING MIGRATION)
+
+- All 17 live booking CTAs (13 files) repointed from /contact to the
+  canonical Zanda Health booking URL, new tab, rel="noopener noreferrer".
+  Labels, classNames, i18n keys, styling untouched (zero CSS, zero locale
+  changes). Constant lives in src/bookingUrl.js.
+- /book route repointed: Navigate→/contact replaced by BookRedirect
+  (window.location.replace to Zanda). Catch-all and /contact untouched.
+- Contact.jsx / Formspree (xkoaekjo) fully untouched — /contact remains
+  general inquiries. BookNow.jsx left orphaned as-is.
+- CLAUDE.md standing sections updated (Booking CTAs, Routes, Known Gaps).
+- Privacy Policy accuracy fix (owner-instructed 2026-08-09, same lane):
+  the "Information We Collect" sentence "No booking platform is currently
+  connected to this site" replaced with "Online appointment booking is
+  provided through a third-party scheduling platform." One sentence only;
+  no other legal text touched.
+
+---
+
+## COMPLETED THIS SESSION (2026-08-07 — STATEWIDE + COMPLIANCE + NAV DAY)
+
+Fourteen lanes shipped, each via the full staging→review→merge loop:
+
+1. Statewide positioning — all city/town/region anchors removed sitewide,
+   four locales, meta, JSON-LD downgraded to Organization
+2. Testimonial section removed (unverified) — release policy locked
+3. WCAG AA contrast pass across Contact and footer
+4. Nav transparency bleed and top-offset strip fixed
+5. 375px horizontal overflow fixed (pre-existing on main)
+6. KEA disabled — unreviewed machine translation had been live 27 days
+7. Contact hours corrected to 9am–6pm in all locales
+8. ES mistranslation fixed (se sienta → se planta); proveedora calque
+   replaced
+9. Semaglutide localization reverted — medication names match the box
+10. Language pills replaced with desktop dropdown
+11. Nav unified — secondary pages had NO mobile navigation at all
+12. 769–1080 dead band closed; focus trap made deterministic
+13. Comparison copy replaced with direct positioning (Signal, About,
+    Contact)
+14. Provider panel interim image placed, then replaced with portrait v2;
+    the weight-loss panel image also shipped (contain fit, WebP + JPEG
+    fallback, lazy-loaded)
+
+---
+
+## OPEN ITEMS (as of 2026-08-07 session close)
+
+- Tier 1/2 disparagement copy still live: panel2 "not a technician",
+  trust "Finally close to home" and "not a number", contact.sub
+  "no call centers", aesthetics "difference" and "working you over",
+  about phil1/phil2, meta descriptions ×3
+- Three blog articles carry structural disparagement including a direct
+  claim about competitors — unpublish and rewrite
+- "Patient Stories" footer label points at /about, which has none
+- KEA re-enable: native review of all 254 strings + owner sign-off
+- Two Footers still duplicated — same root cause as the two Navs
+- Mydwine's written approval for the weight-loss image not on file
+
+Ahead of all website work: the practice is operating and seeing
+patients. Malpractice coverage, attorney review of all 14 consent forms
+(12 have had no revision pass), and HIPAA handling are live exposure,
+not pre-launch tasks.
 
 ---
 
@@ -868,7 +996,14 @@ cutting-edge | wellness journey | affordable
 
 ## KNOWN GAPS — DO NOT CLOSE WITHOUT INSTRUCTION
 
-CRITICAL (blocks launch):
+LIVE EXPOSURE (the practice has LAUNCHED and is seeing patients — these
+outrank ALL website work; operator items, recorded 2026-08-07):
+  [ ] Malpractice coverage
+  [ ] Attorney review of all 14 consent forms — 12 have had no revision
+      pass
+  [ ] HIPAA handling — a live obligation, not a pre-launch task
+
+CRITICAL (website):
   [x] Real phone number — 774-312-9806
   [x] Real email — refynmemedical@gmail.com
   [ ] Lead capture form — needed before any paid traffic
@@ -883,17 +1018,33 @@ IMPORTANT:
   [x] About page — FINAL approved copy live 2026-07-11 (merge b6a22e5);
       still pending: provider portrait (comment placeholder in Section 1)
   [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
-  [x] Booking flow — Calendly abandoned 2026-06-23; all booking CTAs now route to /contact
-  [ ] Provider bio + name still placeholder
+  [x] Booking flow — Zanda Health online booking live on all booking CTAs
+      2026-08-09 (new tab; src/bookingUrl.js). Calendly abandoned 2026-06-23;
+      the interim all-CTAs-to-/contact era ended 2026-08-09
+  [ ] Provider PHOTO still missing (About + Trust frames) — Mydwine is
+      named throughout the live About page and the bio copy is FINAL;
+      only her professional photographs are outstanding
   [ ] Practice address still pending
   [x] Privacy Policy + Terms & Conditions pages — built & live 2026-06-23
       (/privacy-policy + /terms; footer links in PageShell + homepage footer; not in main nav)
 
-IMAGES NEEDED (public/images/):
-  [ ] aesthetics-treatment.png — real provider action photo
-  [ ] provider-consultation.png — real provider action photo
-  [ ] About page provider portrait — professional shots pending; slot held by
-      comment placeholder in About.jsx Section 1 (no stock/AI)
+IMAGES (state as of 2026-08-07):
+  DONE:
+    [x] Weight loss panel (2026-08-07)
+    [x] Provider panel v2 (2026-08-07) — INTERIM, reserved for
+        Mydwine's professional photograph
+  OPEN:
+    [ ] Mydwine's professional photographs — replaces the provider panel
+        interim image and fills the About page frame. Shoot at 1120px
+        wide minimum for the Trust frame.
+    [ ] Aesthetics panel before/after — blocked on a real consented
+        patient with a signed release. Not a design task.
+  CONVENTIONS (cross-reference, do not duplicate):
+    - Interim images carry a dated note and are never treated as a
+      filled slot
+    - assets-source/ holds retouched originals outside public/
+    - Every outside image gets a brand-mark check before placement
+      (Absolute Rule 18)
 
 DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
   - Dermal Fillers treatment card (removed 2026-06-14 — confirm with wife before restoring)
@@ -902,9 +1053,9 @@ DO NOT RE-ADD WITHOUT EXPLICIT INSTRUCTION:
 PENDING DECISIONS (need confirmation from wife):
   - [RESOLVED 2026-08-07] Banner copy — interim "✦ NOW ACCEPTING NEW
     PATIENTS ✦" set by owner (see Banner section; KEA draft native-gated).
-  - Geographic positioning: statewide Massachusetts. Do NOT anchor
-    marketing copy to any city, town, or region. Final positioning
-    pending owner decision.
+  - [RESOLVED 2026-08-07] Geographic positioning: statewide Massachusetts —
+    decided, executed sitewide, and enforced as Absolute Rule 8 (see GEO
+    STRATEGY). No longer pending.
   - Practice address — needed before Google Business Profile setup
   - [RESOLVED 2026-08-07] Language switcher gaps: secondary-page mobile
     CLOSED (Nav unified), and the 769–1080px band CLOSED same day
@@ -914,8 +1065,8 @@ PENDING DECISIONS (need confirmation from wife):
     all-booking-CTAs-to-/contact convention holds sitewide, no exceptions
   - [RESOLVED 2026-07-11 night] About page translation: extracted + drafted
     FR/ES/KEA (merge d797880); orphaned keys replaced, not reused
-  - Hero heading doc drift — CLAUDE.md Hero section vs live code (see 2026-07-11
-    session notes)
+  - [RESOLVED 2026-07-17, confirmed by 2026-08-07 audit] Hero heading doc
+    drift — closed by the hero-section rewrite in the monogram session
 
 NEXT BUILD WORK:
   [x] i18n Phase 1b — DRAFT machine translations live 2026-07-11 (merge 2a21ef5)

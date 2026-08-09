@@ -14,6 +14,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import BlogIndex from './pages/BlogIndex'
 import Article from './pages/Article'
+import { ZANDA_BOOKING_URL } from './bookingUrl'
 
 /* ── useInView hook ─────────────────────────────────────── */
 function useInView(threshold = 0.15) {
@@ -45,7 +46,7 @@ function Banner() {
   return (
     <div className="banner">
       <span className="banner__text">{t('home.banner.text')}</span>
-      <Link to="/contact" className="banner__cta">{t('home.banner.cta')}</Link>
+      <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="banner__cta">{t('home.banner.cta')}</a>
     </div>
   )
 }
@@ -82,7 +83,7 @@ function Hero() {
           </div>
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
-            <Link to="/contact" className="btn btn--rose">{t('home.hero.ctaPrimary')}</Link>
+            <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('home.hero.ctaPrimary')}</a>
             <Link to="/services" className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
           </div>
         </div>
@@ -361,7 +362,7 @@ function CtaFooter() {
             </p>
           </div>
           <div className="cta-box__right">
-            <Link to="/contact" className="btn btn--rose btn--lg">{t('home.cta.button')}</Link>
+            <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose btn--lg">{t('home.cta.button')}</a>
             <p className="cta-box__phone">{t('home.cta.phonePrefix')} 774-312-9806</p>
           </div>
         </div>
@@ -441,6 +442,12 @@ function Home() {
   )
 }
 
+/* ── /book → external Zanda booking redirect (owner ruling 2026-08-09) ── */
+function BookRedirect() {
+  useEffect(() => { window.location.replace(ZANDA_BOOKING_URL) }, [])
+  return null
+}
+
 /* ── APP ────────────────────────────────────────────────── */
 export default function App() {
   return (
@@ -450,7 +457,7 @@ export default function App() {
       <Route path="/services" element={<Services />} />
       <Route path="/weight-loss" element={<WeightLoss />} />
       <Route path="/aesthetics" element={<Aesthetics />} />
-      <Route path="/book" element={<Navigate to="/contact" replace />} />
+      <Route path="/book" element={<BookRedirect />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services/dot-exams" element={<DotExams />} />
       <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Nav, Footer } from './PageShell'
 import articles from '../blog/articles'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 function formatDate(iso) {
   const d = new Date(iso)
@@ -58,7 +59,7 @@ export default function BlogIndex() {
       {/* ── CTA Strip ──────────────────────────────── */}
       <section className="blog-cta">
         <h2 className="blog-cta__heading">Ready to take the first step?</h2>
-        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">Book a Consultation</a>
       </section>
 
       <Footer />

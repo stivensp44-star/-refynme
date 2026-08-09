@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Nav, Footer } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const SECTIONS = [
   {
@@ -189,9 +189,9 @@ export default function TermsAndConditions() {
                 </a>
               </li>
             </ul>
-            <Link to="/contact" className="btn btn--rose" style={{ marginTop: '24px' }}>
+            <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose" style={{ marginTop: '24px' }}>
               Book a Consultation
-            </Link>
+            </a>
           </section>
         </div>
       </main>

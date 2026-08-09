@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { PageShell } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const CARD_KEYS = ['iv', 'energy', 'hormoneSupport', 'plan']
 
@@ -41,7 +41,7 @@ export default function HormoneVitaminTherapy() {
       {/* Section 4 — CTA */}
       <section className="dot-cta-section">
         <h2 className="dot-cta-heading">{t('hormone.ctaHeading')}</h2>
-        <Link to="/contact" className="btn btn--rose">{t('hormone.cta')}</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('hormone.cta')}</a>
       </section>
 
     </PageShell>
