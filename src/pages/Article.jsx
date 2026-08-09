@@ -3,6 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Nav, Footer } from './PageShell'
 import { getBySlug } from '../blog/articles'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 function formatDate(iso) {
   const d = new Date(iso)
@@ -69,7 +70,7 @@ export default function Article() {
       {/* ── CTA Strip ──────────────────────────────── */}
       <section className="blog-cta">
         <h2 className="blog-cta__heading">Ready to feel like yourself again?</h2>
-        <Link to="/contact" className="btn btn--rose">Book a Consultation</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">Book a Consultation</a>
       </section>
 
       <Footer />

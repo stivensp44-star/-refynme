@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import SharedNav from '../components/Nav'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 /* ── Shared Nav — unified 2026-08-07 (src/components/Nav.jsx).
    Re-exported here so every existing `import { Nav } from './PageShell'`
@@ -93,9 +94,9 @@ export function PageShell({ title, subtitle, credential, children }) {
           <p className="page-hero__sub">
             {subtitle || t('pageShell.defaultSubtitle')}
           </p>
-          <Link to="/contact" className="btn btn--rose" style={{ marginTop: '8px' }}>
+          <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose" style={{ marginTop: '8px' }}>
             {t('pageShell.bookCta')}
-          </Link>
+          </a>
         </div>
       </main>
 

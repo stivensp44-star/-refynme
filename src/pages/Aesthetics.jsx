@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const TREATMENT_KEYS = ['botox', 'lip', 'consult']
 const FAQ_KEYS = ['hurt', 'time', 'results', 'consult']
@@ -26,7 +26,7 @@ export default function Aesthetics() {
             {t('aesthetics.heroBody')}
           </p>
           <div className="aes-hero__btns">
-            <Link to="/contact" className="btn btn--rose">{t('aesthetics.heroCta')}</Link>
+            <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('aesthetics.heroCta')}</a>
             <a href="#treatments" className="btn btn--outline-cream">{t('aesthetics.heroSecondary')}</a>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Aesthetics() {
       <section className="aes-cta-strip">
         <h2 className="aes-cta-strip__heading">{t('aesthetics.ctaHeading')}</h2>
         <p className="aes-cta-strip__sub">{t('aesthetics.ctaSub')}</p>
-        <Link to="/contact" className="btn btn--cream-espresso">{t('aesthetics.cta')}</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--cream-espresso">{t('aesthetics.cta')}</a>
       </section>
 
       <Footer />

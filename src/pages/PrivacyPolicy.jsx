@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Nav, Footer } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const SECTIONS = [
   {
@@ -13,7 +13,7 @@ const SECTIONS = [
     h: 'Information We Collect',
     body: [
       'We only collect the information you choose to give us through our contact form: your name, email address, phone number, and the message you write.',
-      'We do not collect health or medical information through this website at this time. No booking platform is currently connected to this site.',
+      'We do not collect health or medical information through this website at this time. Online appointment booking is provided through a third-party scheduling platform.',
     ],
   },
   {
@@ -185,9 +185,9 @@ export default function PrivacyPolicy() {
                 </a>
               </li>
             </ul>
-            <Link to="/contact" className="btn btn--rose" style={{ marginTop: '24px' }}>
+            <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose" style={{ marginTop: '24px' }}>
               Book a Consultation
-            </Link>
+            </a>
           </section>
         </div>
       </main>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 export default function About() {
   const { t } = useTranslation()
@@ -75,7 +75,7 @@ export default function About() {
           <p className="about-credline">
             {t('about.credline')}
           </p>
-          <Link to="/contact" className="btn btn--rose">{t('about.cta')}</Link>
+          <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('about.cta')}</a>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { PageShell } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const CARD_KEYS = ['glp1', 'oral', 'diet', 'support']
 const STEPS = [
@@ -62,7 +62,7 @@ export default function WeightLoss() {
       {/* Section 5 — CTA */}
       <section className="dot-cta-section">
         <h2 className="dot-cta-heading">{t('weightLoss.ctaHeading')}</h2>
-        <Link to="/contact" className="btn btn--rose">{t('weightLoss.cta')}</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('weightLoss.cta')}</a>
       </section>
 
     </PageShell>

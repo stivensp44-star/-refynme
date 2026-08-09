@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 const SERVICES = [
   { key: 'weightLoss', href: '/weight-loss' },
@@ -24,7 +25,7 @@ export default function Services() {
           <p className="svc-left__body">
             {t('services.body')}
           </p>
-          <Link to="/contact" className="btn btn--rose">{t('services.cta')}</Link>
+          <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('services.cta')}</a>
         </div>
 
         <div className="svc-right">

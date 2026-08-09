@@ -411,7 +411,9 @@ DOT Exams links to: /services/dot-exams
                                     2026-06-14; does NOT use the PageShell hero)
   /services/dot-exams             → DOT Medical Exams (PageShell, fully built)
   /services/hormone-vitamin-therapy → Hormone & Vitamin Therapy (PageShell, built 2026-06-23)
-  /book                           → REDIRECTS to /contact (Navigate replace, 2026-06-23).
+  /book                           → EXTERNAL redirect to the Zanda booking URL
+                                    (BookRedirect in App.jsx, window.location.replace,
+                                    2026-08-09; was Navigate→/contact 2026-06-23).
                                     BookNow.jsx kept in repo but orphaned — not routed.
   /contact                        → Contact Us (form + phone/email; Formspree xkoaekjo)
   /privacy-policy                 → Privacy Policy (2026-06-23)
@@ -421,9 +423,20 @@ DOT Exams links to: /services/dot-exams
   *  (catch-all)                  → REDIRECTS to / (Navigate replace, 2026-06-23) — prevents
                                     blank screen on unknown URLs.
 
-### Booking CTAs (sitewide, as of 2026-06-23)
-ALL "Book a Consultation" / "Book Now" / "Schedule Now" buttons route to /contact.
-The old Calendly placeholder on BookNow.jsx was replaced with a Link to /contact.
+### Booking CTAs (sitewide — ZANDA HEALTH, owner ruling 2026-08-09)
+ALL live booking CTAs ("Book a Consultation" / "Book Now" — 17 elements
+across 13 files) open the canonical Zanda Health online booking URL in a
+NEW TAB (target="_blank" rel="noopener noreferrer"):
+  https://clientportal.zandahealth.com/clientportal/refynmemedicalaestheticsandwel/appointment-booking
+- Single source of truth: src/bookingUrl.js (ZANDA_BOOKING_URL). Never
+  hardcode the booking URL at a call site.
+- This SUPERSEDES the 2026-07-11 "all booking CTAs → /contact" convention
+  (owner decision 2026-08-09).
+- /contact REMAINS the general inquiry page (Formspree form xkoaekjo).
+  The nav Contact link, footer contact links, and mailto/tel links still
+  point there. Booking CTAs do NOT.
+- History: Calendly abandoned 2026-06-23 → /contact era (2026-06-23 to
+  2026-08-09) → Zanda Health direct booking (2026-08-09).
 
 ### Services page — card list (in order)
   1. Medical Weight Loss       → /weight-loss
@@ -619,6 +632,25 @@ Footers remain separate.
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-08-09 — ZANDA BOOKING MIGRATION)
+
+- All 17 live booking CTAs (13 files) repointed from /contact to the
+  canonical Zanda Health booking URL, new tab, rel="noopener noreferrer".
+  Labels, classNames, i18n keys, styling untouched (zero CSS, zero locale
+  changes). Constant lives in src/bookingUrl.js.
+- /book route repointed: Navigate→/contact replaced by BookRedirect
+  (window.location.replace to Zanda). Catch-all and /contact untouched.
+- Contact.jsx / Formspree (xkoaekjo) fully untouched — /contact remains
+  general inquiries. BookNow.jsx left orphaned as-is.
+- CLAUDE.md standing sections updated (Booking CTAs, Routes, Known Gaps).
+- Privacy Policy accuracy fix (owner-instructed 2026-08-09, same lane):
+  the "Information We Collect" sentence "No booking platform is currently
+  connected to this site" replaced with "Online appointment booking is
+  provided through a third-party scheduling platform." One sentence only;
+  no other legal text touched.
 
 ---
 
@@ -953,7 +985,9 @@ IMPORTANT:
   [x] About page — FINAL approved copy live 2026-07-11 (merge b6a22e5);
       still pending: provider portrait (comment placeholder in Section 1)
   [ ] Formspree endpoint (xkoaekjo) live but untested end-to-end — submit the contact form once to activate it (Formspree needs a first submission)
-  [x] Booking flow — Calendly abandoned 2026-06-23; all booking CTAs now route to /contact
+  [x] Booking flow — Zanda Health online booking live on all booking CTAs
+      2026-08-09 (new tab; src/bookingUrl.js). Calendly abandoned 2026-06-23;
+      the interim all-CTAs-to-/contact era ended 2026-08-09
   [ ] Provider PHOTO still missing (About + Trust frames) — Mydwine is
       named throughout the live About page and the bio copy is FINAL;
       only her professional photographs are outstanding

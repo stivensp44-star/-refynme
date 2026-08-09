@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitcher from './LanguageSwitcher'
+import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 /* ── THE shared Nav (unified 2026-08-07) ─────────────────────────────────
    One component for every page. There is no second Nav to update.
@@ -93,7 +94,7 @@ export default function Nav({ banner = false }) {
           <li><Link to="/contact" className="nav__overlay-link" onClick={close}>{t('nav.contact')}</Link></li>
         </ul>
         <LanguageSwitcher variant="overlay" />
-        <Link to="/contact" className="btn btn--rose nav__overlay-book" onClick={close}>{t('nav.bookNow')}</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose nav__overlay-book" onClick={close}>{t('nav.bookNow')}</a>
       </div>
 
       <div className="nav__inner">
@@ -113,7 +114,7 @@ export default function Nav({ banner = false }) {
           <li><Link to="/contact" className="nav__link">{t('nav.contact')}</Link></li>
         </ul>
         <LanguageSwitcher />
-        <Link to="/contact" className="btn btn--rose btn--sm nav__book-desktop">{t('nav.bookNow')}</Link>
+        <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose btn--sm nav__book-desktop">{t('nav.bookNow')}</a>
         <button
           ref={hamburgerRef}
           className="nav__hamburger"
