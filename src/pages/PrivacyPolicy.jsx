@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
               margin: '0 0 48px',
             }}
           >
-            Last updated: June 23, 2026
+            Last updated: August 9, 2026
           </p>
 
           {SECTIONS.map(({ h, body }) => (
