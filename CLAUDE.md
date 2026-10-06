@@ -903,9 +903,14 @@ not pre-launch tasks.
   explicit instruction.
 - New additive CSS: .about-intro (fixed-nav clearance 140/120px), .about-pull,
   .about-credline, .about-cta-inner — about-* convention, vars only.
-- Provider photo: comment placeholder in Section 1
-  (PROVIDER PHOTO: pending professional shots) — no stock/AI image, awaiting
-  professional shots.
+- Provider photo LIVE 2026-10-06: .about-intro__grid two-column intro
+  (340px photo left, top-aligned; text keeps 720px measure; inner 1108px),
+  collapsing to 260px centered above the h1 below 900px. Asset =
+  git-recovered truecolor original, 897px native, INTERIM — replace with a
+  professional shot when available and re-run the Rule 18 brand-mark check
+  on the new file (the stethoscope diaphragm has engraved text that may
+  resolve at higher resolution). Mydwine's written approval on file
+  2026-10-06.
 - CTA flag RESOLVED same evening: Stivo chose /contact — switched in
   `51f4269` (merge `8109ac7`), live-verified href=/contact. The
   all-booking-CTAs-to-/contact convention holds SITEWIDE with no exceptions
