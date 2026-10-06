@@ -14,22 +14,39 @@ export default function About() {
       {/* Section 1 — Intro */}
       <section className="about-section about-intro">
         <div className="about-section__inner">
-          {/* PROVIDER PHOTO: pending professional shots */}
-          <h1 className="about-heading">
-            {t('about.h1')}
-          </h1>
-          <p className="about-body">
-            {t('about.intro1')}
-          </p>
-          <p className="about-body">
-            {t('about.intro2')}
-          </p>
-          <p className="about-body">
-            {t('about.intro3')}
-          </p>
-          <p className="about-pull">
-            {t('about.pull')}
-          </p>
+          <div className="about-intro__grid">
+            {/* Alt text is a proper name — identical in every language, never extracted */}
+            <picture className="about-photo-pic">
+              <source srcSet="/images/provider-about.webp" type="image/webp" />
+              <img
+                src="/images/provider-about.jpg"
+                width="897"
+                height="1754"
+                alt="Mydwine Pierre Louis, NP, founder of RefynMe"
+                loading="eager"
+                fetchPriority="high"
+                className="about-photo"
+              />
+            </picture>
+
+            <div className="about-intro__text">
+              <h1 className="about-heading">
+                {t('about.h1')}
+              </h1>
+              <p className="about-body">
+                {t('about.intro1')}
+              </p>
+              <p className="about-body">
+                {t('about.intro2')}
+              </p>
+              <p className="about-body">
+                {t('about.intro3')}
+              </p>
+              <p className="about-pull">
+                {t('about.pull')}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
