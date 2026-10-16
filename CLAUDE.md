@@ -706,6 +706,23 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — PROVIDER PHOTO v2 — 🎉 MERGED + LIVE-VERIFIED)
+
+🎉 SHIPPED 2026-10-16: Stivo phone-verified + typed merge approval;
+merge `da13eca` (--no-ff); deploy run 38937584868 GREEN. LIVE-VERIFIED
+on refynme.com/about (cache-disabled Playwright): WebP serving at both
+widths (340×414 @1440, 260×317 @390; natural 525×640 loaded; contain;
+cream bg), both v2 assets 200 w/ correct content-types,
+assets-source/ correctly NOT publicly served (SPA fallback
+Content-Type), zero console errors, zero overflow.
+staging-provider-photo DELETED local+origin after the live pass.
+STILL OPEN: the full-size original replaces this interim asset later —
+fresh MD5 gate + Rule 18 re-run required on that pass (watch face +
+stethoscope engraving may resolve at higher resolution). The About
+frame CSS is already shape-agnostic within 525/640 (swap = assets +
+width/height attrs + aspect-ratio value if the ratio changes).
+
+Original branch record (now merged):
 ## COMPLETED THIS SESSION (2026-10-16 — PROVIDER PHOTO v2, staging-provider-photo, AWAITING STIVO PHONE VERIFY + MERGE)
 
 INTERIM About-intro photo swap (owner Mydwine chose the photo, Stivo
