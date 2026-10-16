@@ -139,7 +139,8 @@ src/
                      parses frontmatter, exports date-sorted array + getBySlug(slug)
   content/blog/
     *.md           ← One Markdown file per article. Frontmatter:
-                     title, slug, description, date, image, excerpt. Body below 2nd ---.
+                     title, slug, description, date, excerpt (image optional —
+                     none since 2026-10-16; renders only if present). Body below 2nd ---.
 public/images/blog/  ← Article images (filenames referenced in each article's frontmatter)
 
 ---
@@ -516,7 +517,10 @@ Do not build out secondary pages without session instruction.
 - Styles: .blog-*, .article*, .blog-prose in App.css (additive). All CTAs are rose
   (btn--rose) per the all-CTA-buttons-rose rule — no gold CTA.
 - Footer "Blog" link → /blog in both App.jsx and PageShell.jsx.
-- Article images live in public/images/blog/ (filenames set in frontmatter; some pending).
+- Article images: NONE ship (2026-10-16) — public/images/blog/ never existed and
+  the image: frontmatter keys were removed so no dead <img> renders. To give an
+  article an image again: create public/images/blog/, add the file, restore the
+  frontmatter key (Article.jsx renders it conditionally).
 
 ---
 
@@ -688,6 +692,93 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — AUDIT-FIXES PASS 1, staging-audit-fixes-1, AWAITING STIVO PHONE VERIFY + MERGE)
+
+Branch staging-audit-fixes-1 (pushed, NOT merged). Preceded by a same-day
+read-only full-site audit (zero console errors sitewide, zero mobile
+overflow, Zanda flow proven, KEA dark confirmed). Shipped on the branch:
+
+1. BLOG UNPUBLISH (Rule 17): the three disparaging articles DELETED
+   (botox-conversation-black-latina-women, what-nobody-tells-black-women,
+   you-are-not-lazy — recoverable from git history). Deleted slugs
+   redirect to /blog via the existing unknown-slug guard. REWRITE is a
+   separate future task. Two articles remain.
+2. BLOG IMAGES: image: frontmatter removed from both remaining articles.
+   public/images/blog/ never existed — every article rendered a silently
+   broken <img> (SPA rewrite serves text/html as the image, no 404, no
+   console error). Article.jsx's {article.image &&} guard now skips the
+   element entirely.
+3. FOOTERS (both copies, App.jsx + PageShell.jsx, kept identical):
+   IG/TK/FB dead "#" socials REMOVED (restore when real URLs exist),
+   Patient Stories REMOVED (no testimonials exist — release-gated),
+   Dermal Fillers label REMOVED (card was removed 2026-06-14),
+   FAQ repointed /about → /aesthetics#faq. Locale KEYS untouched —
+   footer.links.dermalFillers + .patientStories are now unused values
+   (same precedent as the 4 unused cred* keys).
+4. #faq DEEP LINK: section id="faq" added + Aesthetics.jsx mount effect
+   is now hash-aware (useLocation; scroll-to-top for every non-#faq
+   visit, scrollIntoView for #faq — the old unconditional scrollTo(0,0)
+   made the fragment unreachable). FLAGGED as a small scope extension
+   beyond "markup only" — Stivo reviews at merge. .aes-faq
+   scroll-margin-top: 88px clears the 72px fixed nav on phones
+   (code-reviewer catch: mobile section padding 64px < nav height).
+5. AESTHETICS IMAGES → <picture>+WebP (ffmpeg q82, same dimensions,
+   PNGs kept as fallback): botox-treatment2 423→82KB (hero),
+   botox-treatment3 377→71KB (creds). Also converted while at it:
+   aesthetics-treatment 287→86KB + provider-consultation 276→85KB —
+   ⚠ both of those are ORPHANED (zero call sites in src; they ship in
+   public/ as dead weight). Candidate for a future deletion pass.
+6. MOTION TUNING (approved CSS): index.css:87 fade-up 0.7s ease →
+   0.45s cubic-bezier(0.23,1,0.32,1); hero fadeUp 0.8s ease → 0.5s same
+   curve via the App.css additive end section; .btn transition override
+   drops box-shadow (paint path) + transform now 160ms ease-out —
+   consequence: btn--rose / btn--cream-espresso hover shadows now appear
+   instantly (matches their already-instant hover background).
+   Audit correction: .btn:active scale(0.97) + hover gating ALREADY
+   existed (App.css:36-41) — only the two Aesthetics photo hover lifts
+   were ungated; neutralized on touch via (hover:none),(pointer:coarse).
+7. PHONE SNAP ROWS (≤768px only): .snap-row class on .aes-cards +
+   .blog-grid — flex, overflow-x auto, scroll-snap-type x proximity,
+   smooth scroll, hidden scrollbar, children flex 0 0 85% (next-card
+   sliver) + snap-align start. Desktop grids byte-unchanged (verified
+   computed display grid / 2-col at 1440). Native inertia = the calm
+   "Apple" feel, zero JS. Reduced motion: global index.css block already
+   forces scroll-behavior auto; snap positions stay.
+8. ACTIVE NAV STATE: Link → NavLink in components/Nav.jsx (is-active
+   appended via helper; `end` on / and /services so DOT Exams doesn't
+   double-light), subtle 1px gold underline desktop + overlay.
+   NavLink auto-adds aria-current="page". Focus trap untouched and
+   re-verified (focus lands in overlay, Esc closes).
+
+VERIFIED (Playwright on local vite preview, build+eslint clean, bundle
+531→512.7KB): 8 pages × 1440+390 → zero console errors, zero page
+overflow (snap rows scroll internally); flick settles on card boundary
+(scrollLeft 302 = card-2 edge); footer FAQ from homepage lands #faq top
+at 88px (clears nav); deleted slug → /blog; WebP served (currentSrc);
+reduced-motion emulation → instant visible entrances + auto scroll.
+CODE-REVIEWER ran on the full diff: verdict safe; its WebP-staging
+blocker verified staged; its scroll-margin SHOULD FIX applied (see 4).
+
+FOLLOW-UP COMMIT (same branch, 2026-10-16, all three Stivo-APPROVED):
+- FAQ hash-aware scroll — approval recorded, kept as shipped.
+- Snap-row keyboard fix APPLIED (Aesthetics.jsx attributes only):
+  tabIndex={0} + role="group" + aria-label="Aesthetic treatments"
+  (hardcoded English per never-extract; NO i18n key). Blog row needed
+  NOTHING — each blog card already holds a focusable "Read More" link,
+  so keyboard scroll works there (reviewer-confirmed, re-verified).
+- Orphan assets DELETED (grep-proven zero references outside this
+  file's own notes): aesthetics-treatment.png/.webp +
+  provider-consultation.png/.webp removed from public/images/.
+  provider-consultation.png references in older session notes below
+  are HISTORY — the file is gone from the repo (recoverable from git).
+
+OPEN from this pass (owner items):
+- Stivo phone verify, then Cous-approved merge (git merge --no-ff).
+- dist/ deliberately NOT rebuilt on the branch — CI owns the dist
+  commit on merge to main (local builds were checkout-reverted).
+
+---
+
 ## COMPLETED THIS SESSION (2026-08-09 — PRODUCTION DEPLOY + ZANDA ADMIN COMPLETE)
 
 - 🎉 SHIPPED TO PRODUCTION: the approved 4-commit stack merged to main
@@ -806,16 +897,32 @@ Fourteen lanes shipped, each via the full staging→review→merge loop:
 
 ## OPEN ITEMS (as of 2026-08-07 session close)
 
-- Tier 1/2 disparagement copy still live: panel2 "not a technician",
-  trust "Finally close to home" and "not a number", contact.sub
-  "no call centers", aesthetics "difference" and "working you over",
-  about phil1/phil2, meta descriptions ×3
-- Three blog articles carry structural disparagement including a direct
-  claim about competitors — unpublish and rewrite
-- "Patient Stories" footer label points at /about, which has none
+- Tier 1/2 disparagement copy still live (6 strings, PENDING MYDWINE
+  sign-off per string): panel2 "not a technician", trust "Finally close
+  to home" and "not a number", contact.sub "no call centers", aesthetics
+  "difference", weightLoss "working you over", about phil1/phil2, meta
+  descriptions ×3
+- [x] Three disparaging blog articles — UNPUBLISHED 2026-10-16
+  (staging-audit-fixes-1, deleted from repo, git history keeps them).
+  REWRITE still open as its own future task.
+- [x] "Patient Stories" footer label — REMOVED 2026-10-16 (both footers)
 - KEA re-enable: native review of all 254 strings + owner sign-off
 - Two Footers still duplicated — same root cause as the two Navs
+  (2026-10-16 pass edited BOTH copies identically; unification still
+  its own future task)
 - Mydwine's written approval for the weight-loss image not on file
+- New provider photo: pending the original file + written approval
+  (re-run the Rule 18 brand-mark check on any new asset)
+- 1200×630 OG share card (og/twitter images still the 147×52 nav logo)
+- 2× nav logo export (retina softness at 64px) — ask the logo's creator
+- website-builder skill (studio-skills repo, NOT this repo): its
+  "REFYNME BRAND" table is stale and now contradicts this file's locks —
+  lists "Book Your Free 15-Min Consult" (banned "free"), the cancelled
+  towns list, and the superseded hero hook. Fix in studio-skills.
+- [x] Aesthetics snap-row keyboard access — APPLIED 2026-10-16
+  (approved; attributes on the snap-row div, no i18n key)
+- [x] Orphaned assets — DELETED 2026-10-16 (approved; grep-proven
+  zero references; git history keeps them)
 
 Ahead of all website work: the practice is operating and seeing
 patients. Malpractice coverage, attorney review of all 14 consent forms

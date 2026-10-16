@@ -3,7 +3,6 @@ title: "I Just Want to Feel Like Myself Again"
 slug: "feel-like-myself-again"
 description: "Wanting to look like yourself — rested, present, alive — is not vanity. Here is what aesthetic care actually looks like when it is done right."
 date: "2026-06-23"
-image: "/images/blog/feel-like-myself-again.jpg"
 excerpt: "You catch your reflection and for just a second you do not recognize yourself. Not because something is terribly wrong — but because the face looking back at you looks tired in a way that sleep does not fix."
 ---
 

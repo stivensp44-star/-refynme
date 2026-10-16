@@ -3292,3 +3292,98 @@ p {
   color: rgba(250, 246, 240, 0.55);
   margin-bottom: 12px;
 }
+
+/* ════════════════════════════════════════════
+   AUDIT-FIXES PASS (2026-10-16) — ADDITIVE ONLY
+   Cascade-level overrides; nothing above this
+   line was edited. Approved scope: press-feedback
+   transition, hero entrance tuning, touch hover
+   gating, phone snap rows, active nav state.
+════════════════════════════════════════════ */
+
+/* ── Press feedback: transform snaps on its own fast curve; box-shadow
+   dropped from the transition (paint-heavy; hover shadows now appear
+   instantly, matching the hover background which was never transitioned) ── */
+.btn {
+  transition: opacity 0.2s ease, transform 160ms ease-out;
+}
+
+/* ── Hero entrance: 0.8s weak ease → 0.5s strong ease-out (same elements,
+   same keyframes, no stagger existed and none is added) ── */
+.hero__location,
+.hero__heading,
+.hero__sub-wrap,
+.hero__btns {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Touch devices: neutralize the two ungated photo hover lifts
+   (tap-triggered false hovers); rest-state shadow values restated ── */
+@media (hover: none), (pointer: coarse) {
+  .aes-hero__photo:hover,
+  .aes-creds__photo:hover {
+    transform: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ── Phone snap rows (≤768px only): Aesthetics treatment cards + blog
+   index cards become horizontal snap rows. Desktop layout untouched.
+   85% basis leaves a sliver of the next card as the swipe affordance. ── */
+@media (max-width: 768px) {
+  .snap-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-row > * {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+/* Reduced motion: the global index.css block already forces
+   scroll-behavior: auto !important everywhere; restated here scoped
+   to the snap rows per task spec (snap positions themselves stay). */
+@media (prefers-reduced-motion: reduce) {
+  .snap-row {
+    scroll-behavior: auto;
+  }
+}
+
+/* Branded focus ring on the keyboard-focusable snap row — matches the
+   sitewide gold :focus-visible pattern (reviewer SHOULD FIX, approved) */
+.snap-row:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ── #faq deep-link landing: clear the 72px fixed nav (+16px breathing
+   room). scroll-margin only affects scroll targeting — no layout change.
+   (code-reviewer finding: ≤768px section padding is 64px < nav height) ── */
+.aes-faq {
+  scroll-margin-top: 88px;
+}
+
+/* ── Active page in the nav: subtle gold underline, no layout shift.
+   is-active is appended by NavLink in components/Nav.jsx. ── */
+.nav__link.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.nav__overlay-link.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}

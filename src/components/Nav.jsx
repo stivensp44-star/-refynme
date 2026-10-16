@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitcher from './LanguageSwitcher'
 import { ZANDA_BOOKING_URL } from '../bookingUrl'
+
+/* Active-page state (additive, 2026-10-16): NavLink appends is-active to the
+   existing link classes; styling lives in App.css. `end` on / and /services
+   stops ancestor paths lighting up on /services/dot-exams. */
+const navLinkClass = (base) => ({ isActive }) => `${base}${isActive ? ' is-active' : ''}`
 
 /* ── THE shared Nav (unified 2026-08-07) ─────────────────────────────────
    One component for every page. There is no second Nav to update.
@@ -85,13 +90,13 @@ export default function Nav({ banner = false }) {
         aria-hidden={!menuOpen}
       >
         <ul className="nav__overlay-links">
-          <li><Link to="/" className="nav__overlay-link" onClick={close}>{t('nav.home')}</Link></li>
-          <li><Link to="/about" className="nav__overlay-link" onClick={close}>{t('nav.about')}</Link></li>
-          <li><Link to="/services" className="nav__overlay-link" onClick={close}>{t('nav.services')}</Link></li>
-          <li><Link to="/weight-loss" className="nav__overlay-link" onClick={close}>{t('nav.weightLoss')}</Link></li>
-          <li><Link to="/aesthetics" className="nav__overlay-link" onClick={close}>{t('nav.aesthetics')}</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__overlay-link" onClick={close}>{t('nav.dotExams')}</Link></li>
-          <li><Link to="/contact" className="nav__overlay-link" onClick={close}>{t('nav.contact')}</Link></li>
+          <li><NavLink to="/" end className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.home')}</NavLink></li>
+          <li><NavLink to="/about" className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.about')}</NavLink></li>
+          <li><NavLink to="/services" end className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.services')}</NavLink></li>
+          <li><NavLink to="/weight-loss" className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.weightLoss')}</NavLink></li>
+          <li><NavLink to="/aesthetics" className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.aesthetics')}</NavLink></li>
+          <li><NavLink to="/services/dot-exams" className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.dotExams')}</NavLink></li>
+          <li><NavLink to="/contact" className={navLinkClass('nav__overlay-link')} onClick={close}>{t('nav.contact')}</NavLink></li>
         </ul>
         <LanguageSwitcher variant="overlay" />
         <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose nav__overlay-book" onClick={close}>{t('nav.bookNow')}</a>
@@ -106,12 +111,12 @@ export default function Nav({ banner = false }) {
           />
         </Link>
         <ul className="nav__links">
-          <li><Link to="/about" className="nav__link">{t('nav.about')}</Link></li>
-          <li><Link to="/services" className="nav__link">{t('nav.services')}</Link></li>
-          <li><Link to="/weight-loss" className="nav__link">{t('nav.weightLoss')}</Link></li>
-          <li><Link to="/aesthetics" className="nav__link">{t('nav.aesthetics')}</Link></li>
-          <li><Link to="/services/dot-exams" className="nav__link">{t('nav.dotExams')}</Link></li>
-          <li><Link to="/contact" className="nav__link">{t('nav.contact')}</Link></li>
+          <li><NavLink to="/about" className={navLinkClass('nav__link')}>{t('nav.about')}</NavLink></li>
+          <li><NavLink to="/services" end className={navLinkClass('nav__link')}>{t('nav.services')}</NavLink></li>
+          <li><NavLink to="/weight-loss" className={navLinkClass('nav__link')}>{t('nav.weightLoss')}</NavLink></li>
+          <li><NavLink to="/aesthetics" className={navLinkClass('nav__link')}>{t('nav.aesthetics')}</NavLink></li>
+          <li><NavLink to="/services/dot-exams" className={navLinkClass('nav__link')}>{t('nav.dotExams')}</NavLink></li>
+          <li><NavLink to="/contact" className={navLinkClass('nav__link')}>{t('nav.contact')}</NavLink></li>
         </ul>
         <LanguageSwitcher />
         <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose btn--sm nav__book-desktop">{t('nav.bookNow')}</a>
