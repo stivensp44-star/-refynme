@@ -30,7 +30,7 @@ export default function Services() {
 
         <div className="svc-right">
           {SERVICES.map(({ key, href }) => (
-            <Link key={key} to={href} className="svc-item">
+            <Link key={key} to={href} viewTransition className="svc-item">
               <h3 className="svc-item__name">{t(`services.items.${key}.name`)}</h3>
               <p className="svc-item__desc">{t(`services.items.${key}.desc`)}</p>
             </Link>

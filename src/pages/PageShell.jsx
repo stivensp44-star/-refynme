@@ -32,7 +32,7 @@ export function Footer() {
           <h4 className="footer__col-title">{t('footer.servicesTitle')}</h4>
           <ul className="footer__nav">
             {[['medicalWeightLoss', '/weight-loss'], ['glp1Injections', '/weight-loss'], ['botox', '/aesthetics'], ['lipEnhancement', '/aesthetics'], ['jawlineSculpting', '/aesthetics']].map(([labelKey, path]) => (
-              <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
+              <li key={labelKey}><Link to={path} viewTransition className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
             ))}
           </ul>
         </div>
@@ -41,7 +41,7 @@ export function Footer() {
           <h4 className="footer__col-title">{t('footer.companyTitle')}</h4>
           <ul className="footer__nav">
             {[['aboutUs', '/about'], ['ourProvider', '/about'], ['blog', '/blog'], ['faq', '/aesthetics#faq'], ['privacyPolicy', '/privacy-policy'], ['terms', '/terms']].map(([labelKey, path]) => (
-              <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
+              <li key={labelKey}><Link to={path} viewTransition className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
             ))}
           </ul>
         </div>
