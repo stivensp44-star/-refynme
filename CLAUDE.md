@@ -706,6 +706,33 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — PAGE TRANSITIONS — 🎉 MERGED + LIVE-VERIFIED)
+
+🎉 SHIPPED 2026-10-16: Stivo phone-verified; merge `43f6287` (--no-ff;
+final branch commits incl. the approved .aes-treatments
+scroll-margin-top 88px parity fix); deploy run 38932339563 GREEN.
+LIVE-VERIFIED on refynme.com (cache-disabled Playwright): 17
+direct-load routes incl. /book (redirect target proven = Zanda URL)
+and the 3 deleted blog slugs (→ /blog) + nonsense (→ /);
+startViewTransition fires on internal links (instrumented: 1 per nav
+click) and NOT on the language switcher; "See Treatments" jump = ZERO
+transitions and lands at 88px clear of the nav (scroll-margin proven
+live); cross-page FAQ lands 88px; reduced-motion →
+::view-transition-old(root) animation none; overlay tap → closed on
+the new page; zero console errors; zero overflow at 1440 + 390 across
+10 pages. staging-page-transitions DELETED local+origin after the
+live pass.
+
+STANDING NOTE (Build Studio): the page transition is the studio
+standard ported from chikelagency.com /styles.css — same values
+everywhere (vt-out .22s cubic-bezier(.4,0,1,1) / vt-in .5s
+cubic-bezier(.22,1,.36,1), −6px/+16px, site-header on the fixed nav).
+⚠ SPAs need the DATA ROUTER for it: React Router's viewTransition
+prop is framework/data-mode only — a declarative BrowserRouter
+silently ignores it (this repo was converted 2026-10-16 for exactly
+that reason). MPAs get it free via @view-transition{navigation:auto}.
+
+Original branch record (now merged):
 ## COMPLETED THIS SESSION (2026-10-16 — PAGE TRANSITIONS, staging-page-transitions, AWAITING STIVO PHONE VERIFY + MERGE)
 
 PAGE TRANSITION ported from chikelagency.com /styles.css (Build Studio
