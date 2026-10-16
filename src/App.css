@@ -3372,6 +3372,11 @@ p {
 .aes-faq {
   scroll-margin-top: 88px;
 }
+/* Same treatment for the #treatments jump target (reviewer parity
+   finding on the page-transitions pass, owner-approved 2026-10-16) */
+.aes-treatments {
+  scroll-margin-top: 88px;
+}
 
 /* ── Active page in the nav: subtle gold underline, no layout shift.
    is-active is appended by NavLink in components/Nav.jsx. ── */
