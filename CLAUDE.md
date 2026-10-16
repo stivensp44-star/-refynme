@@ -4,6 +4,79 @@
 
 ---
 
+## STATUS @ 2026-10-16 (session close — canonical snapshot)
+
+### Shipped today (all live-verified on refynme.com, branches deleted)
+1. AUDIT FIXES — merge `19748c8`: 3 disparaging blog articles
+   unpublished, blog image refs stripped, footer links fixed
+   (FAQ→/aesthetics#faq, Patient Stories/Dermal Fillers/dead socials
+   removed), Aesthetics WebP, motion tuning, phone snap rows, active
+   nav state, snap-row a11y + gold focus ring.
+2. OFFICE ADDRESS — merge `482ca9f`: 966 Park St, Suite A-3,
+   Stoughton, MA 02072 in contact/legal contexts + MedicalBusiness
+   JSON-LD w/ PostalAddress; status line "New office opening soon.
+   Visits by appointment only." ×4 locales; Rule 8 ADDRESS-EXEMPT
+   amendment.
+3. PAGE TRANSITIONS — merge `43f6287`: Chikel transition (Build
+   Studio standard) via data-router conversion + viewTransition on
+   all internal links.
+4. PROVIDER PHOTO v2 — merge `da13eca`: interim owner-chosen About
+   portrait (MD5-gated 525×640, Rule 18 pass, frame reshaped).
+
+### Standing rules (locked today; detail in the sections below)
+- POST-DEPLOY VERIFICATION ALWAYS RUNS CACHE-DISABLED (Playwright CDP
+  Network.setCacheDisabled). The browser cache WILL serve the
+  pre-merge index.html right after a deploy and read as "not
+  deployed" — proven 2026-10-16.
+- PHONE PREVIEW METHOD: `npx vite preview --host` on the home Wi-Fi
+  (http://192.168.86.21:4173; Node already allowed through the
+  firewall). Stivo verifies on his phone BEFORE every merge.
+- PAGE TRANSITION = Build Studio standard ported from
+  chikelagency.com /styles.css (vt-out .22s cubic-bezier(.4,0,1,1) /
+  vt-in .5s cubic-bezier(.22,1,.36,1), −6px/+16px, site-header on the
+  fixed nav). ⚠ SPAs need the DATA ROUTER — React Router's
+  viewTransition prop is INERT under a declarative BrowserRouter
+  (framework/data modes only). MPAs get it free via
+  @view-transition{navigation:auto}.
+- RULE 8 ADDRESS-EXEMPT (owner 2026-10-16): the street address may
+  appear ONLY in contact/legal contexts (footer contact column,
+  Contact info block, Privacy, Terms, PostalAddress in structured
+  data). Marketing copy, headings, titles, meta/OG/Twitter, and
+  areaServed stay statewide Massachusetts. NOT a local re-anchor.
+- NO FINANCIAL POLICY FORM for RefynMe (owner decision, recorded
+  2026-10-16). Do not draft or add one.
+
+### Open items — by who they wait on
+MYDWINE (owner):
+  [ ] 6 disparagement strings — yes/no per string (panel2 "not a
+      technician", trust "Finally close to home" + "not a number",
+      contact "no call centers", aesthetics "see the difference",
+      weightLoss "working you over"; + meta descriptions ×3)
+  [ ] Full-size original portrait — then fresh MD5 gate + Rule 18
+      re-check (watch face / stethoscope engraving at higher res)
+  [ ] Read the 4 consents in Zanda
+NATIVE SPEAKER:
+  [ ] FR/ES draft review (all strings incl. the 2 status-line strings
+      from the address pass); values only, keys frozen, delete
+      "_status" markers when done. KEA STAYS DARK (own gate).
+ATTORNEY:
+  [ ] All consents reviewed BEFORE activation
+OPERATOR (Stivo):
+  [ ] At move-in: GBP setup + map + remove "opening soon" status line
+  [ ] 1200×630 OG share card (og/twitter still the 147×52 nav logo)
+  [ ] 2× nav logo export (retina softness at 64px)
+  [ ] Footer unification (two implementations: App.jsx + PageShell.jsx
+      — every footer/i18n change must hit BOTH until unified)
+  [ ] studio-skills repo: website-builder skill's REFYNME BRAND table
+      is stale (lists banned "free" CTA, cancelled towns, superseded
+      hero hook) — fix there, not here
+COMPLIANCE (outranks ALL site work):
+  [ ] Malpractice coverage
+  [ ] Attorney review (consent forms — 12 of 14 never revised)
+  [ ] Zanda BAA
+
+---
+
 ## WHAT THIS SITE IS
 
 Medical aesthetics + weight loss practice website.
@@ -1444,9 +1517,11 @@ IMPORTANT:
   [x] Booking flow — Zanda Health online booking live on all booking CTAs
       2026-08-09 (new tab; src/bookingUrl.js). Calendly abandoned 2026-06-23;
       the interim all-CTAs-to-/contact era ended 2026-08-09
-  [ ] Provider PHOTO still missing (About + Trust frames) — Mydwine is
-      named throughout the live About page and the bio copy is FINAL;
-      only her professional photographs are outstanding
+  [~] Provider PHOTO — About frame FILLED 2026-10-16 with the interim
+      owner-chosen v2 portrait (see STATUS block; full-size original
+      still owed). Trust frame still carries the interim flat-lay —
+      Mydwine's professional photographs remain outstanding for both
+      final slots
   [x] Practice address — CONFIRMED + PUBLISHED 2026-10-16 (966 Park St,
       Suite A-3, Stoughton, MA 02072; contact/legal contexts only, per
       the address-exempt rule)
@@ -1459,9 +1534,11 @@ IMAGES (state as of 2026-08-07):
     [x] Provider panel v2 (2026-08-07) — INTERIM, reserved for
         Mydwine's professional photograph
   OPEN:
-    [ ] Mydwine's professional photographs — replaces the provider panel
-        interim image and fills the About page frame. Shoot at 1120px
-        wide minimum for the Trust frame.
+    [ ] Mydwine's professional photographs — replace the provider panel
+        interim image (Trust) and the interim v2 About portrait
+        (About frame FILLED with the owner-chosen interim 2026-10-16;
+        full-size original owed, MD5 + Rule 18 gates apply). Shoot at
+        1120px wide minimum for the Trust frame.
     [ ] Aesthetics panel before/after — blocked on a real consented
         patient with a signed release. Not a design task.
   CONVENTIONS (cross-reference, do not duplicate):
