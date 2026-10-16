@@ -3359,6 +3359,13 @@ p {
   }
 }
 
+/* Branded focus ring on the keyboard-focusable snap row — matches the
+   sitewide gold :focus-visible pattern (reviewer SHOULD FIX, approved) */
+.snap-row:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 /* ── #faq deep-link landing: clear the 72px fixed nav (+16px breathing
    room). scroll-margin only affects scroll targeting — no layout change.
    (code-reviewer finding: ≤768px section padding is 64px < nav height) ── */
