@@ -44,20 +44,33 @@
       rel="stylesheet"
     />
 
-    <!-- Organization schema (2026-08-07): downgraded from LocalBusiness
-         pending confirmed practice address. Upgrade back to LocalBusiness
-         with full PostalAddress once the address is confirmed. -->
+    <!-- MedicalBusiness schema (2026-10-16): upgraded from Organization
+         with the confirmed practice address (owner ruling — address in
+         contact/legal contexts + PostalAddress only; areaServed stays
+         statewide Massachusetts; no geo coordinates, no openingHours). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "MedicalBusiness",
         "name": "RefynMe Medical and Wellness, PLLC",
         "description": "Medical weight loss and aesthetic treatments delivered by a Board-Certified Nurse Practitioner in Massachusetts.",
         "url": "https://refynme.com/",
         "image": "https://refynme.com/images/refynme-logo-gold.png",
         "telephone": "+1-774-312-9806",
         "email": "refynmemedical@gmail.com",
-        "slogan": "Results you see. Confidence you own."
+        "slogan": "Results you see. Confidence you own.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "966 Park St, Suite A-3",
+          "addressLocality": "Stoughton",
+          "addressRegion": "MA",
+          "postalCode": "02072",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Massachusetts"
+        }
       }
     </script>
 

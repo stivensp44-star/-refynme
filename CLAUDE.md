@@ -9,8 +9,12 @@
 Medical aesthetics + weight loss practice website.
 Owner: Board-Certified Nurse Practitioner, Massachusetts.
 Entity: RefynMe Medical and Wellness, PLLC (Massachusetts).
-PRACTICE STATUS: LAUNCHED and operating — concierge model, no public
-street address by design. This website serves a LIVE practice.
+PRACTICE STATUS: LAUNCHED and operating. This website serves a LIVE
+practice. Office: 966 Park St, Suite A-3, Stoughton, MA 02072 — under
+build-out, opening soon, appointment only. Concierge = the care style
+(unhurried, personal, one provider), not address-withholding.
+(Owner ruling 2026-10-16 — supersedes the "no public street address
+by design" positioning.)
 Tagline: "Results you see. Confidence you own."
 Primary CTA is 'Book a Consultation' — never use 'free' language anywhere on the site.
 
@@ -224,13 +228,16 @@ DO NOT add sections without explicit approval.
 ### Banner
 CURRENT TEXT: "✦ NOW ACCEPTING NEW PATIENTS ✦" (interim, owner-set 2026-08-07;
 FR/ES owner-supplied, KEA machine DRAFT native-gated)
-- Practice status: LAUNCHED — concierge model, NO public street address
-  BY DESIGN.
-- Contact page location ("Massachusetts" / "Address provided upon booking")
-  is deliberate concierge positioning, NOT a placeholder — do not change it
-  to "coming soon". (Legal pages use "Massachusetts (address coming soon)" —
-  that pair is intentional and different.)
-- Per statewide positioning, banner text must not name any city/town/region.
+- Practice status: LAUNCHED. Office: 966 Park St, Suite A-3, Stoughton,
+  MA 02072 — under build-out, opening soon, appointment only. Concierge =
+  the care style (unhurried, personal, one provider), not
+  address-withholding. (Owner ruling 2026-10-16; the old "Address
+  provided upon booking" / "(address coming soon)" strings are RETIRED —
+  Contact + footer + legal pages now carry the street address, with the
+  status line "New office opening soon. Visits by appointment only.")
+- Per statewide positioning, banner text must not name any city/town/region
+  (the address-exempt rule covers contact/legal contexts only — see GEO
+  STRATEGY + Absolute Rule 8).
 Gold bg, espresso-dark text, DM Sans 13px, weight 600, uppercase, letter-spacing 0.1em
 Rose "Book Now" pill: position absolute, right 24px
 Mobile: 11px text
@@ -652,11 +659,17 @@ Footers remain separate.
 
 ## GEO STRATEGY (REWRITTEN 2026-08-07 — statewide positioning)
 
-### Positioning
-- Statewide Massachusetts. NO city, town, county, or region anchor in any
-  marketing copy, headings, meta tags, OG tags, or structured data.
-- "Massachusetts" is the only permitted geographic reference (proper noun;
-  stays English in all four locales).
+### Positioning (ADDRESS-EXEMPT amendment, owner ruling 2026-10-16 —
+### this is NOT a local re-anchor)
+- The practice street address (966 Park St, Suite A-3, Stoughton, MA
+  02072) may appear ONLY in contact/legal contexts: footer contact
+  column, Contact page info block, Privacy Policy, Terms, and the
+  PostalAddress inside structured data. Marketing copy, headings, page
+  titles, meta/OG/Twitter descriptions, and areaServed stay statewide
+  Massachusetts. No city/town anchor anywhere else.
+- "Massachusetts" remains the only permitted geographic reference in
+  marketing surfaces (proper noun; stays English in all four locales).
+  The address itself is English in all four locales (never translated).
 - Boston/Providence no longer appear in UI copy (the 2026-08-07
   no-comparison pass removed the drive-destination contrast from the Signal
   and About sections); one historical blog mention remains under owner
@@ -668,8 +681,9 @@ Footers remain separate.
   to re-anchor locally. Do not draft, scaffold, or build without both.
 
 ### Google Business Profile
-- GATED on confirmed practice address
-- Do not set up until address is confirmed
+- UNBLOCKED by the confirmed address (966 Park St, Suite A-3, Stoughton,
+  MA 02072) — DEFERRED until move-in (operator action, not a site edit;
+  owner ruling 2026-10-16)
 
 ---
 
@@ -689,6 +703,36 @@ Footers remain separate.
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-10-16 — OFFICE ADDRESS, staging-office-address, AWAITING STIVO PHONE VERIFY + MERGE)
+
+Owner rulings applied after the conflict-gate report (all conflicts
+ruled D1–D6 / C1–C8; branch pushed, NOT merged):
+- ADDRESS PUBLISHED (contact/legal contexts only): 966 Park St,
+  Suite A-3, Stoughton, MA 02072. Status line: "New office opening
+  soon. Visits by appointment only."
+- Doctrine: header + Banner section rewritten (concierge = care style,
+  not address-withholding); GEO STRATEGY + Absolute Rule 8 amended
+  ADDRESS-EXEMPT (owner-approved wording — NOT a local re-anchor; city
+  landing pages stay gated); GBP unblocked-but-deferred to move-in.
+- Copy (VALUE edits on existing keys only, ×4 locales): footer
+  contact.location + contact.locationValue → the address (English in
+  all four files, never translated); contact.locationNote → status
+  line (EN; FR "Nouveau cabinet bientôt ouvert. Visites sur rendez-vous
+  uniquement."; ES "Nuevo consultorio próximamente. Visitas solo con
+  cita previa."; KEA = ENGLISH text by ruling — locale dark, native
+  review still owed on the FR/ES drafts).
+- Legal: Privacy :9 "based in Massachusetts (address coming soon)" →
+  "located at <address>"; Privacy + Terms contact <li> → the address.
+- JSON-LD upgraded Organization → MedicalBusiness + full PostalAddress
+  (streetAddress/locality Stoughton/region MA/postal 02072/country US);
+  areaServed stays State:Massachusetts; NO geo coordinates, NO
+  openingHours (ruling); index.html comment updated.
+- KEPT by ruling: Contact quote (C5), About FINAL copy (C6 — T1,
+  untouched), "By consultation only"/"No walk-ins" (C7), meta/OG/
+  Twitter statewide descriptions (C8). No map, no directions link.
 
 ---
 
@@ -1252,7 +1296,9 @@ IMPORTANT:
   [ ] Provider PHOTO still missing (About + Trust frames) — Mydwine is
       named throughout the live About page and the bio copy is FINAL;
       only her professional photographs are outstanding
-  [ ] Practice address still pending
+  [x] Practice address — CONFIRMED + PUBLISHED 2026-10-16 (966 Park St,
+      Suite A-3, Stoughton, MA 02072; contact/legal contexts only, per
+      the address-exempt rule)
   [x] Privacy Policy + Terms & Conditions pages — built & live 2026-06-23
       (/privacy-policy + /terms; footer links in PageShell + homepage footer; not in main nav)
 
@@ -1284,7 +1330,9 @@ PENDING DECISIONS (need confirmation from wife):
   - [RESOLVED 2026-08-07] Geographic positioning: statewide Massachusetts —
     decided, executed sitewide, and enforced as Absolute Rule 8 (see GEO
     STRATEGY). No longer pending.
-  - Practice address — needed before Google Business Profile setup
+  - [RESOLVED 2026-10-16] Practice address — confirmed + published
+    (966 Park St, Suite A-3, Stoughton, MA 02072); GBP now deferred
+    until move-in (operator action)
   - [RESOLVED 2026-08-07] Language switcher gaps: secondary-page mobile
     CLOSED (Nav unified), and the 769–1080px band CLOSED same day
     (hamburger raised to 1080 + overlay cutoff to 1081 — a matched pair;
@@ -1335,7 +1383,13 @@ NEXT BUILD WORK:
 6. Never change section padding rhythm (96px/64px)
 7. Never add a CTA button to the Signal section
 8. Never anchor marketing copy to any city, town, county, or region —
-   statewide Massachusetts positioning (owner ruling 2026-08-07)
+   statewide Massachusetts positioning (owner ruling 2026-08-07).
+   ADDRESS-EXEMPT amendment (owner ruling 2026-10-16): the practice
+   street address may appear ONLY in contact/legal contexts (footer
+   contact column, Contact info block, Privacy, Terms, PostalAddress in
+   structured data). Marketing copy, headings, page titles, meta/OG/
+   Twitter descriptions, and areaServed stay statewide. This is not a
+   local re-anchor.
 9. Never change the banned words list without approval
 10. Never push to main without a clean `npm run build` first
 11. Never add dist/ to .gitignore
