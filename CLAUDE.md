@@ -692,8 +692,30 @@ cutting-edge | wellness journey | affordable
 
 ---
 
-## COMPLETED THIS SESSION (2026-10-16 — AUDIT-FIXES PASS 1, staging-audit-fixes-1, AWAITING STIVO PHONE VERIFY + MERGE)
+## COMPLETED THIS SESSION (2026-10-16 — AUDIT-FIXES PASS 1 — 🎉 MERGED + LIVE-VERIFIED)
 
+🎉 SHIPPED TO PRODUCTION 2026-10-16: Stivo phone-verified on the LAN
+preview, approved all items incl. the FAQ hash-scroll extension; merge
+`19748c8` (--no-ff, 4 commits: f463851 main pass → b1b296d a11y+orphan
+deletion → a0f7a68 gold focus ring, each code-reviewer-passed); deploy
+run 38924841608 GREEN in 29s (dist commit → prune → SCP → purge).
+LIVE-VERIFIED on refynme.com (fresh bundle index-gXp2Bino.js,
+cache-disabled Playwright): 8 pages × 1440+390 zero console errors +
+zero overflow; /blog exactly 2 articles, all 3 deleted slugs → /blog;
+WebP 200 image/webp + rendering via currentSrc; deleted orphans gone
+(Content-Type text/html = SPA fallback, per the doctrine check); FAQ
+lands #faq at 88px clear of the 72px nav on BOTH widths; live swipe
+settles on the card-2 boundary; gold active-nav underline correct on
+all 6 nav pages (none on / and /blog — no such nav links, by design);
+desktop .aes-cards still grid. Verification gotcha for future sessions:
+Playwright's browser cache served the PRE-merge index.html after deploy
+— always re-check with cache disabled (CDP Network.setCacheDisabled)
+before judging a deploy stale. staging-audit-fixes-1 DELETED local +
+origin after the live pass (owner-instructed). Gold focus ring on the
+snap row shipped in the same merge (approved verbatim reviewer rule).
+NEXT TASK QUEUED BY OWNER: staging-office-address.
+
+Original branch record (now merged):
 Branch staging-audit-fixes-1 (pushed, NOT merged). Preceded by a same-day
 read-only full-site audit (zero console errors sitewide, zero mobile
 overflow, Zanda flow proven, KEA dark confirmed). Shipped on the branch:
