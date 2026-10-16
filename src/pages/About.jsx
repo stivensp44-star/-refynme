@@ -17,11 +17,14 @@ export default function About() {
           <div className="about-intro__grid">
             {/* Alt text is a proper name — identical in every language, never extracted */}
             <picture className="about-photo-pic">
-              <source srcSet="/images/provider-about.webp" type="image/webp" />
+              {/* v2 interim asset (owner-chosen, 2026-10-16): 525x640 native,
+                  transparent WebP + cream-flattened JPG fallback. v2 filenames
+                  = cache-bust. Full-size original replaces this later. */}
+              <source srcSet="/images/provider-about-v2.webp" type="image/webp" />
               <img
-                src="/images/provider-about.jpg"
-                width="897"
-                height="1754"
+                src="/images/provider-about-v2.jpg"
+                width="525"
+                height="640"
                 alt="Mydwine Pierre Louis, NP, founder of RefynMe"
                 loading="eager"
                 fetchPriority="high"

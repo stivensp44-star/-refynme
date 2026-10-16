@@ -3434,3 +3434,22 @@ p {
     animation: none !important;
   }
 }
+
+/* ════════════════════════════════════════════
+   ABOUT PHOTO FRAME v2 (2026-10-16) — ADDITIVE ONLY
+   Owner-approved interim photo swap: the new asset is 525x640 with a
+   transparent background, so the old tall-narrow 897/1754 crop frame
+   is reshaped to HER photo's shape. object-fit contain + matching
+   aspect-ratio = zero cropping of head, arms, or hands. Cream fill
+   sits behind the WebP's transparent cutout (the JPG fallback is
+   pre-flattened on the same cream). Radius + gold border inherit from
+   the base .about-photo rule unchanged. Display width is capped at
+   the 525px native width so the photo never upscales. */
+.about-photo {
+  aspect-ratio: 525 / 640;
+  object-fit: contain;
+  background: var(--cream);
+  max-width: 525px;
+}
+/* (no .about-photo-pic override: its existing 260px / 340px widths
+   already sit under the 525px native cap at every breakpoint) */
