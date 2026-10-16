@@ -177,7 +177,7 @@ export default function TermsAndConditions() {
               }}
             >
               <li>RefynMe Medical and Wellness, PLLC</li>
-              <li>Massachusetts (address coming soon)</li>
+              <li>966 Park St, Suite A-3, Stoughton, MA 02072</li>
               <li>
                 <a href="mailto:refynmemedical@gmail.com" style={{ color: 'var(--rose)' }}>
                   refynmemedical@gmail.com
