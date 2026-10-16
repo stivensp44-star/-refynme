@@ -759,12 +759,20 @@ reduced-motion emulation → instant visible entrances + auto scroll.
 CODE-REVIEWER ran on the full diff: verdict safe; its WebP-staging
 blocker verified staged; its scroll-margin SHOULD FIX applied (see 4).
 
+FOLLOW-UP COMMIT (same branch, 2026-10-16, all three Stivo-APPROVED):
+- FAQ hash-aware scroll — approval recorded, kept as shipped.
+- Snap-row keyboard fix APPLIED (Aesthetics.jsx attributes only):
+  tabIndex={0} + role="group" + aria-label="Aesthetic treatments"
+  (hardcoded English per never-extract; NO i18n key). Blog row needed
+  NOTHING — each blog card already holds a focusable "Read More" link,
+  so keyboard scroll works there (reviewer-confirmed, re-verified).
+- Orphan assets DELETED (grep-proven zero references outside this
+  file's own notes): aesthetics-treatment.png/.webp +
+  provider-consultation.png/.webp removed from public/images/.
+  provider-consultation.png references in older session notes below
+  are HISTORY — the file is gone from the repo (recoverable from git).
+
 OPEN from this pass (owner items):
-- SHOULD FIX (listed, NOT applied — outside approved scope): the
-  Aesthetics snap row has no focusable children, so narrow-viewport
-  KEYBOARD users can't scroll it in Safari. Fix = tabIndex={0} +
-  role="group" + aria-label on the .aes-cards.snap-row div (NO new i18n
-  key). One-line task, needs its own approval.
 - Stivo phone verify, then Cous-approved merge (git merge --no-ff).
 - dist/ deliberately NOT rebuilt on the branch — CI owns the dist
   commit on merge to main (local builds were checkout-reverted).
@@ -911,11 +919,10 @@ Fourteen lanes shipped, each via the full staging→review→merge loop:
   "REFYNME BRAND" table is stale and now contradicts this file's locks —
   lists "Book Your Free 15-Min Consult" (banned "free"), the cancelled
   towns list, and the superseded hero hook. Fix in studio-skills.
-- Aesthetics snap-row keyboard access (tabIndex/role/aria-label) —
-  reviewer SHOULD FIX, needs its own approval (see 2026-10-16 session)
-- Orphaned assets shipping in public/: aesthetics-treatment.png/.webp +
-  provider-consultation.png/.webp (zero call sites) — deletion pass
-  needs approval
+- [x] Aesthetics snap-row keyboard access — APPLIED 2026-10-16
+  (approved; attributes on the snap-row div, no i18n key)
+- [x] Orphaned assets — DELETED 2026-10-16 (approved; grep-proven
+  zero references; git history keeps them)
 
 Ahead of all website work: the practice is operating and seeing
 patients. Malpractice coverage, attorney review of all 14 consent forms

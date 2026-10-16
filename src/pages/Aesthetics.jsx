@@ -64,7 +64,16 @@ export default function Aesthetics() {
               {t('aesthetics.treatmentsSub')}
             </p>
           </div>
-          <div className="aes-cards snap-row">
+          {/* tabIndex: the cards hold no focusable children, so keyboard users
+              need the scroll container itself focusable to reach cards 2-3 on
+              phone widths (hidden-scrollbar snap row; Safari doesn't auto-focus
+              scrollers). Label is hardcoded English per the never-extract rule. */}
+          <div
+            className="aes-cards snap-row"
+            tabIndex={0}
+            role="group"
+            aria-label="Aesthetic treatments"
+          >
             {TREATMENT_KEYS.map((key) => (
               <div key={key} className="aes-card">
                 <div className="aes-card__placeholder" />
