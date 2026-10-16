@@ -1,5 +1,9 @@
+/* eslint-disable react-refresh/only-export-components --
+   appRoutes (a Route-element export, not a component) must live beside the
+   page components per the approved 2026-10-16 router-conversion scope; the
+   rule only guards dev-time Fast Refresh granularity, not production. */
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { Route, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './App.css'
 import Nav from './components/Nav'
@@ -444,24 +448,27 @@ function BookRedirect() {
   return null
 }
 
-/* ── APP ────────────────────────────────────────────────── */
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/weight-loss" element={<WeightLoss />} />
-      <Route path="/aesthetics" element={<Aesthetics />} />
-      <Route path="/book" element={<BookRedirect />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/services/dot-exams" element={<DotExams />} />
-      <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsAndConditions />} />
-      <Route path="/blog" element={<BlogIndex />} />
-      <Route path="/blog/:slug" element={<Article />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  )
-}
+/* ── ROUTES (data router, 2026-10-16) ───────────────────────
+   Same <Route> JSX as the old <Routes> block, exported for
+   createRoutesFromElements in main.jsx. The data router is what makes
+   the Link viewTransition prop functional (declarative BrowserRouter
+   ignores it — React Router docs: [modes: framework, data]).
+   Same routes, same paths, same components, same order. */
+export const appRoutes = (
+  <>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/services" element={<Services />} />
+    <Route path="/weight-loss" element={<WeightLoss />} />
+    <Route path="/aesthetics" element={<Aesthetics />} />
+    <Route path="/book" element={<BookRedirect />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/services/dot-exams" element={<DotExams />} />
+    <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
+    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+    <Route path="/terms" element={<TermsAndConditions />} />
+    <Route path="/blog" element={<BlogIndex />} />
+    <Route path="/blog/:slug" element={<Article />} />
+    <Route path="*" element={<Navigate to="/" replace />} />
+  </>
+)
