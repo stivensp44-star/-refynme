@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
 import { ZANDA_BOOKING_URL } from '../bookingUrl'
@@ -10,12 +10,16 @@ const FAQ_KEYS = ['hurt', 'time', 'results', 'consult']
 export default function Aesthetics() {
   const { t } = useTranslation()
   const { hash } = useLocation()
-  /* #faq deep link (footer FAQ): the plain scroll-to-top on mount would
-     override the browser's fragment scroll, so route the hash here instead.
-     hash dependency also covers a same-page footer click (no remount). */
+  /* Hash-aware scroll (2026-10-16, amended for the data router): the data
+     router syncs same-page fragment navigations into location state, so the
+     old "anything but #faq scrolls to top" behavior killed the native
+     #treatments jump. Each known hash now scrolls to its section; only a
+     hashless location scrolls to top (page entry). */
   useEffect(() => {
     if (hash === '#faq') {
       document.getElementById('faq')?.scrollIntoView()
+    } else if (hash === '#treatments') {
+      document.getElementById('treatments')?.scrollIntoView()
     } else {
       window.scrollTo(0, 0)
     }
@@ -36,7 +40,13 @@ export default function Aesthetics() {
           </p>
           <div className="aes-hero__btns">
             <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('aesthetics.heroCta')}</a>
-            <a href="#treatments" className="btn btn--outline-cream">{t('aesthetics.heroSecondary')}</a>
+            {/* Router Link (no viewTransition flag) instead of a native
+                anchor: the data router treats native fragment jumps as POP
+                navigations and replays the page transition on them once the
+                pathname is in its applied-transitions map. An unflagged
+                Link PUSH records nothing and fires nothing; the hash effect
+                above does the (smooth) scroll. Same target, same classes. */}
+            <Link to="#treatments" className="btn btn--outline-cream">{t('aesthetics.heroSecondary')}</Link>
           </div>
         </div>
         <div className="aes-hero__right">

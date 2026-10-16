@@ -3372,6 +3372,11 @@ p {
 .aes-faq {
   scroll-margin-top: 88px;
 }
+/* Same treatment for the #treatments jump target (reviewer parity
+   finding on the page-transitions pass, owner-approved 2026-10-16) */
+.aes-treatments {
+  scroll-margin-top: 88px;
+}
 
 /* ── Active page in the nav: subtle gold underline, no layout shift.
    is-active is appended by NavLink in components/Nav.jsx. ── */
@@ -3386,4 +3391,46 @@ p {
   text-decoration-color: var(--gold);
   text-decoration-thickness: 1px;
   text-underline-offset: 8px;
+}
+
+/* ════════════════════════════════════════════
+   PAGE TRANSITIONS (2026-10-16) — ADDITIVE ONLY
+   Ported verbatim from chikelagency.com /styles.css (Build Studio
+   standard): same keyframes, timing, and curves. Chikel's
+   @view-transition{navigation:auto} is MPA-only and does nothing in
+   this SPA — the trigger here is React Router's viewTransition prop
+   on internal links instead (see Nav.jsx / App.jsx / PageShell.jsx /
+   Services / BlogIndex / Article). Chikel's `header` selector maps to
+   `.nav` (same site-header name, so the fixed nav stays still).
+   Keyframes live HERE by explicit owner instruction for this pass
+   (deviation from the keyframes-in-index.css rule, flagged + approved
+   in-task). Unsupported browsers: the pseudo-elements never exist —
+   instant swap, no errors, no polyfill. ── */
+.nav {
+  view-transition-name: site-header;
+}
+::view-transition-old(root) {
+  animation: vt-out 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+}
+::view-transition-new(root) {
+  animation: vt-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

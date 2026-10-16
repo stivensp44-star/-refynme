@@ -45,7 +45,7 @@ export default function Article() {
 
       <article className="article">
         <div className="article__inner">
-          <Link to="/blog" className="article__back">← Back to Blog</Link>
+          <Link to="/blog" viewTransition className="article__back">← Back to Blog</Link>
 
           {article.image && (
             <img

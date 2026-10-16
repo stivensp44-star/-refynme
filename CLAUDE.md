@@ -706,6 +706,64 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — PAGE TRANSITIONS, staging-page-transitions, AWAITING STIVO PHONE VERIFY + MERGE)
+
+PAGE TRANSITION ported from chikelagency.com /styles.css (Build Studio
+standard) — SAME VALUES, verified byte-equivalent against the live
+Chikel CSS and our computed styles:
+  ::view-transition-old(root): vt-out .22s cubic-bezier(.4,0,1,1) both
+  ::view-transition-new(root): vt-in  .5s  cubic-bezier(.22,1,.36,1) both
+  @keyframes vt-out { to { opacity:0; transform:translateY(-6px) } }
+  @keyframes vt-in  { from { opacity:0; transform:translateY(16px) } }
+  .nav { view-transition-name: site-header }   (Chikel's header rule —
+  the fixed nav stays still; overlay pattern unaffected, re-verified)
+  reduced-motion: all ::view-transition-* animation:none !important
+- SPA TRIGGER: Chikel's @view-transition{navigation:auto} is MPA-only.
+  React Router's viewTransition prop requires a DATA router (docs:
+  [modes: framework, data]) — so main.jsx was converted
+  BrowserRouter → createBrowserRouter+RouterProvider (owner-approved
+  2026-10-16); routes moved verbatim via createRoutesFromElements
+  (exported as appRoutes from App.jsx; same routes/paths/components/
+  order; /book redirect + catch-all intact; wrapper tree
+  StrictMode→RouterProvider, i18n import order unchanged). The
+  viewTransition prop is deprecated-in-docs in favor of React's
+  experimental <ViewTransition> — on stable React 19.2 the prop IS the
+  correct API.
+- FLAG on every internal page-to-page link: nav (desktop+overlay+logo),
+  both footers, hero/trust/panel CTAs, Services cards, blog cards,
+  article back-link. Excluded: Zanda/tel/mailto anchors, language
+  switcher, same-page hash links. BookNow.jsx orphan untouched.
+- DATA-ROUTER HASH GOTCHA (load-bearing): the data router syncs native
+  fragment jumps into location state as POP navigations and REPLAYS the
+  page transition on them once the pathname is in its
+  appliedViewTransitions map (react-router chunk, completeNavigation).
+  Fixes: Aesthetics hash effect now scrolls per-hash (#faq→faq,
+  #treatments→treatments, no-hash→top — the old else-scrollTo(0,0)
+  killed the #treatments jump under the data router); the "See
+  Treatments" anchor became an UNFLAGGED router Link (PUSH records
+  nothing → no transition; effect does the smooth scroll). KNOWN
+  RESIDUAL: browser BACK from a hash entry can still replay a
+  transition (router-standard POP behavior; not a link click — outside
+  the exclusion list).
+- eslint: react-refresh/only-export-components file-level disable in
+  App.jsx (appRoutes is a non-component export by approved design;
+  dev-only Fast Refresh granularity rule).
+- RULE DEVIATION (owner-instructed for this pass): vt-out/vt-in
+  keyframes live in the App.css additive section, NOT index.css —
+  explicit task instruction overrode the keyframes-in-index.css rule
+  (2026-07-17 precedent went the other way; move is 2 lines if ever
+  wanted).
+- VERIFIED (local preview, cache disabled): 17 direct-load routes incl.
+  deleted slugs + nonsense URL; back/forward ×5; FAQ 88px; FR persists
+  across navigation; startViewTransition fires on internal links only
+  (instrumented), not switcher/hash; reduced-motion pseudo
+  animation:none + instant; overlay tap→closed on new page, nav
+  group named site-header; orbit running post-transition; zero console
+  errors; zero overflow 1440+390 ×10 pages; Chikel side-by-side values
+  identical (trigger differs by design).
+
+---
+
 ## COMPLETED THIS SESSION (2026-10-16 — OFFICE ADDRESS — 🎉 MERGED + LIVE-VERIFIED)
 
 🎉 SHIPPED 2026-10-16: Stivo phone-verified on the LAN preview; FR/ES

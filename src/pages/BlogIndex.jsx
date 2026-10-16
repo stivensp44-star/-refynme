@@ -46,7 +46,7 @@ export default function BlogIndex() {
                   </time>
                   <h2 className="blog-card__title">{article.title}</h2>
                   <p className="blog-card__excerpt">{article.excerpt}</p>
-                  <Link to={`/blog/${article.slug}`} className="blog-card__link">
+                  <Link to={`/blog/${article.slug}`} viewTransition className="blog-card__link">
                     Read More →
                   </Link>
                 </div>

@@ -1,5 +1,9 @@
+/* eslint-disable react-refresh/only-export-components --
+   appRoutes (a Route-element export, not a component) must live beside the
+   page components per the approved 2026-10-16 router-conversion scope; the
+   rule only guards dev-time Fast Refresh granularity, not production. */
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { Route, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './App.css'
 import Nav from './components/Nav'
@@ -84,7 +88,7 @@ function Hero() {
 
           <div className="hero__btns" style={{ animationDelay: '0.7s' }}>
             <a href={ZANDA_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--rose">{t('home.hero.ctaPrimary')}</a>
-            <Link to="/services" className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
+            <Link to="/services" viewTransition className="btn btn--outline-cream">{t('home.hero.ctaSecondary')}</Link>
           </div>
         </div>
 
@@ -220,7 +224,7 @@ function Trust() {
             </li>
           ))}
         </ul>
-        <Link to="/about" className="btn btn--rose">{t('home.trust.cta')}</Link>
+        <Link to="/about" viewTransition className="btn btn--rose">{t('home.trust.cta')}</Link>
       </div>
     </section>
   )
@@ -262,7 +266,7 @@ function ServicesPanels() {
               )
             )}
           </ul>
-          <Link to="/weight-loss" className="btn btn--rose btn--panel">{t('home.services.panel1.cta')}</Link>
+          <Link to="/weight-loss" viewTransition className="btn btn--rose btn--panel">{t('home.services.panel1.cta')}</Link>
         </div>
         <div className="panel__media">
           <div className="panel__photo panel__photo--dark">
@@ -304,7 +308,7 @@ function ServicesPanels() {
               <li key={tagKey} className="panel__tag panel__tag--rose">{t(`home.services.panel2.${tagKey}`)}</li>
             ))}
           </ul>
-          <Link to="/aesthetics" className="btn btn--rose btn--panel">{t('home.services.panel2.cta')}</Link>
+          <Link to="/aesthetics" viewTransition className="btn btn--rose btn--panel">{t('home.services.panel2.cta')}</Link>
         </div>
       </div>
     </section>
@@ -386,7 +390,7 @@ function CtaFooter() {
             <h4 className="footer__col-title">{t('footer.servicesTitle')}</h4>
             <ul className="footer__nav">
               {[['medicalWeightLoss', '/weight-loss'], ['glp1Injections', '/weight-loss'], ['botox', '/aesthetics'], ['lipEnhancement', '/aesthetics'], ['jawlineSculpting', '/aesthetics']].map(([labelKey, path]) => (
-                <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
+                <li key={labelKey}><Link to={path} viewTransition className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
               ))}
             </ul>
           </div>
@@ -395,7 +399,7 @@ function CtaFooter() {
             <h4 className="footer__col-title">{t('footer.companyTitle')}</h4>
             <ul className="footer__nav">
               {[['aboutUs', '/about'], ['ourProvider', '/about'], ['blog', '/blog'], ['faq', '/aesthetics#faq'], ['privacyPolicy', '/privacy-policy'], ['terms', '/terms']].map(([labelKey, path]) => (
-                <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
+                <li key={labelKey}><Link to={path} viewTransition className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
               ))}
             </ul>
           </div>
@@ -444,24 +448,27 @@ function BookRedirect() {
   return null
 }
 
-/* ── APP ────────────────────────────────────────────────── */
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/weight-loss" element={<WeightLoss />} />
-      <Route path="/aesthetics" element={<Aesthetics />} />
-      <Route path="/book" element={<BookRedirect />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/services/dot-exams" element={<DotExams />} />
-      <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsAndConditions />} />
-      <Route path="/blog" element={<BlogIndex />} />
-      <Route path="/blog/:slug" element={<Article />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  )
-}
+/* ── ROUTES (data router, 2026-10-16) ───────────────────────
+   Same <Route> JSX as the old <Routes> block, exported for
+   createRoutesFromElements in main.jsx. The data router is what makes
+   the Link viewTransition prop functional (declarative BrowserRouter
+   ignores it — React Router docs: [modes: framework, data]).
+   Same routes, same paths, same components, same order. */
+export const appRoutes = (
+  <>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/services" element={<Services />} />
+    <Route path="/weight-loss" element={<WeightLoss />} />
+    <Route path="/aesthetics" element={<Aesthetics />} />
+    <Route path="/book" element={<BookRedirect />} />
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/services/dot-exams" element={<DotExams />} />
+    <Route path="/services/hormone-vitamin-therapy" element={<HormoneVitaminTherapy />} />
+    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+    <Route path="/terms" element={<TermsAndConditions />} />
+    <Route path="/blog" element={<BlogIndex />} />
+    <Route path="/blog/:slug" element={<Article />} />
+    <Route path="*" element={<Navigate to="/" replace />} />
+  </>
+)
