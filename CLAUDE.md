@@ -706,6 +706,22 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — OFFICE ADDRESS — 🎉 MERGED + LIVE-VERIFIED)
+
+🎉 SHIPPED 2026-10-16: Stivo phone-verified on the LAN preview; FR/ES
+status-line drafts APPROVED as written; merge `482ca9f` (--no-ff);
+deploy run 38928956635 GREEN. LIVE-VERIFIED on refynme.com
+(cache-disabled Playwright): address in the footer on all 10 pages
+(8 + Privacy/Terms) at 1440; Contact shows address + status line;
+FR/ES switch translates the status line while the address stays
+byte-identical English; JSON-LD parses as MedicalBusiness with the
+exact PostalAddress (Stoughton/MA/02072/US) + areaServed
+State:Massachusetts; zero console errors; zero overflow at 390 on all
+10 pages. staging-office-address DELETED local+origin after the live
+pass. FR/ES locationNote drafts remain in the native-review queue
+with the rest of the draft locales.
+
+Original branch record (now merged):
 ## COMPLETED THIS SESSION (2026-10-16 — OFFICE ADDRESS, staging-office-address, AWAITING STIVO PHONE VERIFY + MERGE)
 
 Owner rulings applied after the conflict-gate report (all conflicts
