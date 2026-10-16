@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Nav, Footer } from './PageShell'
 import { ZANDA_BOOKING_URL } from '../bookingUrl'
@@ -8,9 +9,17 @@ const FAQ_KEYS = ['hurt', 'time', 'results', 'consult']
 
 export default function Aesthetics() {
   const { t } = useTranslation()
+  const { hash } = useLocation()
+  /* #faq deep link (footer FAQ): the plain scroll-to-top on mount would
+     override the browser's fragment scroll, so route the hash here instead.
+     hash dependency also covers a same-page footer click (no remount). */
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (hash === '#faq') {
+      document.getElementById('faq')?.scrollIntoView()
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [hash])
 
   return (
     <div className="aes-page">
@@ -31,11 +40,14 @@ export default function Aesthetics() {
           </div>
         </div>
         <div className="aes-hero__right">
-          <img
-            src="/images/botox-treatment2.png"
-            alt="Nurse Practitioner administering Botox at RefynMe Medical and Wellness"
-            className="aes-hero__photo"
-          />
+          <picture>
+            <source srcSet="/images/botox-treatment2.webp" type="image/webp" />
+            <img
+              src="/images/botox-treatment2.png"
+              alt="Nurse Practitioner administering Botox at RefynMe Medical and Wellness"
+              className="aes-hero__photo"
+            />
+          </picture>
         </div>
       </section>
 
@@ -52,7 +64,7 @@ export default function Aesthetics() {
               {t('aesthetics.treatmentsSub')}
             </p>
           </div>
-          <div className="aes-cards">
+          <div className="aes-cards snap-row">
             {TREATMENT_KEYS.map((key) => (
               <div key={key} className="aes-card">
                 <div className="aes-card__placeholder" />
@@ -75,11 +87,14 @@ export default function Aesthetics() {
             <h2 className="aes-creds__heading">{t('aesthetics.credsHeading')}</h2>
           </div>
           <div className="aes-creds__grid">
-            <img
-              src="/images/botox-treatment3.png"
-              alt="Nurse Practitioner administering Botox injection at RefynMe Medical and Wellness"
-              className="aes-creds__photo"
-            />
+            <picture>
+              <source srcSet="/images/botox-treatment3.webp" type="image/webp" />
+              <img
+                src="/images/botox-treatment3.png"
+                alt="Nurse Practitioner administering Botox injection at RefynMe Medical and Wellness"
+                className="aes-creds__photo"
+              />
+            </picture>
             <div className="aes-creds__content">
               <p className="aes-creds__body">
                 {t('aesthetics.credsBody1')}
@@ -97,7 +112,7 @@ export default function Aesthetics() {
       </section>
 
       {/* ── 5. FAQ ────────────────────────────────── */}
-      <section className="aes-faq">
+      <section className="aes-faq" id="faq">
         <div className="aes-faq__inner">
           <div className="aes-section-header">
             <p className="label label--rose">{t('aesthetics.faqLabel')}</p>

@@ -3,7 +3,6 @@ title: "Why You Kept Gaining the Weight Back (It Was Never About Discipline)"
 slug: "why-you-kept-gaining-weight-back"
 description: "The weight came back and it felt worse than before. Here is the biology behind why — and what actually stops the cycle."
 date: "2026-06-23"
-image: "/images/blog/why-you-kept-gaining-weight-back.jpg"
 excerpt: "You did everything right. You lost the weight. People noticed. And then slowly, quietly, it came back. What happened is not a character flaw. It is biology."
 ---
 

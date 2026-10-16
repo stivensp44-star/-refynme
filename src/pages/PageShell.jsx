@@ -25,17 +25,13 @@ export function Footer() {
             </span>
           </div>
           <p className="footer__tagline">Results you see. Confidence you own.</p>
-          <div className="footer__socials">
-            {['IG', 'TK', 'FB'].map((s) => (
-              <a key={s} href="#" className="footer__social">{s}</a>
-            ))}
-          </div>
+          {/* Social icons removed 2026-10-16 (dead "#" links) — restore when real profile URLs exist */}
         </div>
 
         <div className="footer__col">
           <h4 className="footer__col-title">{t('footer.servicesTitle')}</h4>
           <ul className="footer__nav">
-            {[['medicalWeightLoss', '/weight-loss'], ['glp1Injections', '/weight-loss'], ['botox', '/aesthetics'], ['dermalFillers', '/aesthetics'], ['lipEnhancement', '/aesthetics'], ['jawlineSculpting', '/aesthetics']].map(([labelKey, path]) => (
+            {[['medicalWeightLoss', '/weight-loss'], ['glp1Injections', '/weight-loss'], ['botox', '/aesthetics'], ['lipEnhancement', '/aesthetics'], ['jawlineSculpting', '/aesthetics']].map(([labelKey, path]) => (
               <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
             ))}
           </ul>
@@ -44,7 +40,7 @@ export function Footer() {
         <div className="footer__col">
           <h4 className="footer__col-title">{t('footer.companyTitle')}</h4>
           <ul className="footer__nav">
-            {[['aboutUs', '/about'], ['ourProvider', '/about'], ['patientStories', '/about'], ['blog', '/blog'], ['faq', '/about'], ['privacyPolicy', '/privacy-policy'], ['terms', '/terms']].map(([labelKey, path]) => (
+            {[['aboutUs', '/about'], ['ourProvider', '/about'], ['blog', '/blog'], ['faq', '/aesthetics#faq'], ['privacyPolicy', '/privacy-policy'], ['terms', '/terms']].map(([labelKey, path]) => (
               <li key={labelKey}><Link to={path} className="footer__nav-link">{t(`footer.links.${labelKey}`)}</Link></li>
             ))}
           </ul>

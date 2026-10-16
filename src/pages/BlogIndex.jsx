@@ -37,7 +37,7 @@ export default function BlogIndex() {
       {/* ── Article Grid ───────────────────────────── */}
       <section className="blog-index">
         <div className="blog-index__inner">
-          <div className="blog-grid">
+          <div className="blog-grid snap-row">
             {articles.map((article) => (
               <article key={article.slug} className="blog-card">
                 <div className="blog-card__body">
