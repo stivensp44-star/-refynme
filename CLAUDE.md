@@ -706,6 +706,39 @@ cutting-edge | wellness journey | affordable
 
 ---
 
+## COMPLETED THIS SESSION (2026-10-16 — PROVIDER PHOTO v2, staging-provider-photo, AWAITING STIVO PHONE VERIFY + MERGE)
+
+INTERIM About-intro photo swap (owner Mydwine chose the photo, Stivo
+confirmed; a full-size original replaces it later):
+- SOURCE: Desktop\newrefynmepic.png — MD5 VERIFIED
+  E0D3303030A9FAA3C4500F15088B0331 (exact match, gate passed), 525×640
+  PNG with transparency. Original copied to
+  assets-source/newrefynmepic.png (never served; MD5 re-verified on
+  the copy). NO upscale/sharpen/retouch/AI edit — native size only.
+- RULE 18 BRAND-MARK CHECK (this asset, at native res): PASS — watch
+  face shows no legible logo, stethoscope no legible engraving,
+  lab-coat chest embroidery reads as personal monogram lettering, not
+  a commercial mark. ⚠ RE-RUN Rule 18 on the future full-size
+  original — higher resolution may resolve the watch face/engraving.
+- DERIVATIVES (ffmpeg, native 525×640): provider-about-v2.webp
+  (alpha preserved, yuva420p, 48KB, q90) + provider-about-v2.jpg
+  (flattened onto brand cream #FAF6F0 = var(--cream), 51KB). v2
+  filenames = cache-bust. OLD provider-about.* files KEPT (no deletes
+  this pass).
+- About.jsx: <picture> block only — v2 paths + width/height 525/640.
+  FINAL copy untouched.
+- App.css additive: .about-photo reshaped to HER photo (aspect-ratio
+  525/640, object-fit contain = zero cropping, background var(--cream)
+  behind the transparent WebP cutout, max-width 525px so it never
+  exceeds native). Radius/gold border inherit unchanged; the
+  .about-photo-pic 260/340px widths already sit under the 525 cap.
+- VERIFIED (local preview, cache disabled): /about at 1440 → rendered
+  340×414 (WebP served, ratio exact, contain, cream bg, under cap);
+  at 390 → 260×317; zero console errors, zero overflow, full figure
+  visible both widths.
+
+---
+
 ## COMPLETED THIS SESSION (2026-10-16 — PAGE TRANSITIONS — 🎉 MERGED + LIVE-VERIFIED)
 
 🎉 SHIPPED 2026-10-16: Stivo phone-verified; merge `43f6287` (--no-ff;
