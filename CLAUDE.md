@@ -61,6 +61,11 @@ NATIVE SPEAKER:
       "_status" markers when done. KEA STAYS DARK (own gate).
 ATTORNEY:
   [ ] All consents reviewed BEFORE activation
+  [ ] Before/after advertising review — the Real Results before/after
+      section is LIVE on /weight-loss (shipped 2026-10-17). Owner cleared
+      patient consent (signed release on file); attorney/HIPAA review of
+      before/after medical-weight-loss advertising was NOT done pre-launch
+      and remains open.
 OPERATOR (Stivo):
   [ ] At move-in: GBP setup + map + remove "opening soon" status line
   [ ] 1200×630 OG share card (og/twitter still the 147×52 nav logo)
@@ -776,6 +781,51 @@ Footers remain separate.
 ### Banned words — NEVER appear on this site
 journey | transform | transformation | holistic |
 cutting-edge | wellness journey | affordable
+
+---
+
+## COMPLETED THIS SESSION (2026-10-17 — REAL RESULTS before/after on /weight-loss — 🎉 MERGED + LIVE-VERIFIED)
+
+🎉 SHIPPED 2026-10-17: owner (Mydwine reviewed + approved) go-live;
+merge `1aa698a` (--no-ff, history kept); deploy run 39095299758 GREEN
+(CI dist commit `404047d`). LIVE on refynme.com.
+
+WHAT SHIPPED — a "Real Results" before/after section on the Weight Loss
+page (new src/components/ResultsGallery.jsx), placed in WeightLoss.jsx
+AFTER "What to Expect" and BEFORE the Section-5 CTA. Two before/after
+pairs (one patient, owner-confirmed), pure-CSS additive (.wl-results* in
+App.css, design tokens only), aspect-ratio 3/4 + object-fit:contain (zero
+crop), lazy/async imgs with explicit 900×1200, before/after label pills
+(3px). i18n weightLoss.results.* added to all 4 locales (en + native-
+reviewed FR/ES; KEA English/dark). NO gallery CTA (owner dropped it;
+Section 5's CTA is the only one).
+
+PHOTO RELEASE: signed written patient release ON FILE (owner Stivo, this
+session). Photos are real, unedited, MD5-gated before AND after copy.
+LOCKED HASHES (public/images/results/, live-verified 200 + image/jpeg +
+MD5 over HTTP on refynme.com):
+  weightloss-set1-before.jpg  218c9b0a2f5f9209df33c33cf3f9e770
+  weightloss-set1-after.jpg   d00b05288759b4839fdc4e4b64a305bb
+  weightloss-set2-before.jpg  9bd5853d6f2c1d77be4ae38bcfe06fcf
+  weightloss-set2-after.jpg   fd6cb74da5eab94fe185daa38b8811c1
+
+TIMEFRAME GATE: RESULTS_TIMEFRAME constant at the top of ResultsGallery.jsx
+is EMPTY → the caption line ("Medically supervised GLP-1 program · …") is
+hidden entirely (no "·", no blank). Owner shipped without a timeframe; when
+a real value is provided it is a one-line edit PLUS i18next count keys
+(owner-approved method: results.timeframe_one/_other per locale, e.g.
+"{{count}} months" / "{{count}} mois" / "{{count}} meses") so the unit
+localizes. Never invent a timeframe.
+
+LIVE VERIFICATION (curl from box, cache-busted): all 4 images 200 +
+image/jpeg + MD5 == locked hashes; deployed bundle (index-Dfl6fnIF.js)
+contains "Real patient. Real results." + the caption template + the image
+path. Build zero NEW warnings (chunk-size >500kB pre-existing). code-reviewer
+PASS (no code blockers).
+
+🔴 OPEN (see ATTORNEY open item): attorney/HIPAA review of before/after
+medical-weight-loss advertising was NOT done pre-launch. Consent cleared by
+owner; advertising/HIPAA legal review still owed.
 
 ---
 
