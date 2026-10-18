@@ -194,13 +194,12 @@
     "ctaHeading": "¿Lista para empezar?",
     "cta": "Reserva una consulta",
     "results": {
-      "heading": "Real patient. Real results.",
-      "subheading": "One RefynMe patient, medically supervised by a board-certified nurse practitioner.",
-      "before": "Before",
-      "after": "After",
-      "caption": "Medically supervised GLP-1 program · {{timeframe}}",
-      "disclaimer": "Individual results vary and are not guaranteed. Results depend on medical history, nutrition, activity, and adherence. Photos are unretouched and shared with the patient's written permission.",
-      "cta": "Book a Consultation"
+      "heading": "Paciente real. Resultados reales.",
+      "subheading": "Un paciente de RefynMe, con supervisión médica de una enfermera practicante certificada.",
+      "before": "Antes",
+      "after": "Después",
+      "caption": "Programa GLP-1 con supervisión médica · {{timeframe}}",
+      "disclaimer": "Los resultados individuales varían y no están garantizados. Dependen del historial médico, la alimentación, la actividad física y la constancia. Las fotos no están retocadas y se comparten con el permiso por escrito del paciente."
     }
   },
   "dotExams": {

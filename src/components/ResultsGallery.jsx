@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { ZANDA_BOOKING_URL } from '../bookingUrl'
 
 // Mydwine to confirm the real program dates before merge. Empty = caption hidden.
 const RESULTS_TIMEFRAME = ''
@@ -78,15 +77,6 @@ export default function ResultsGallery() {
         )}
 
         <p className="wl-results__disclaimer">{t('weightLoss.results.disclaimer')}</p>
-
-        <a
-          href={ZANDA_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn--rose"
-        >
-          {t('weightLoss.results.cta')}
-        </a>
       </div>
     </section>
   )

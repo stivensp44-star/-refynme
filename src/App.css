@@ -628,11 +628,6 @@ p {
   margin: 0 auto;
 }
 
-/* Keep the CTA content-width (Absolute Rule 4) inside the stretch flex column. */
-.wl-results .btn {
-  align-self: center;
-}
-
 /* ── Book Now page ───────────────────────────────────────── */
 .book-section__inner {
   max-width: 1000px;
