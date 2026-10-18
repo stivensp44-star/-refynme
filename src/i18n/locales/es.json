@@ -192,7 +192,15 @@
       }
     },
     "ctaHeading": "¿Lista para empezar?",
-    "cta": "Reserva una consulta"
+    "cta": "Reserva una consulta",
+    "results": {
+      "heading": "Paciente real. Resultados reales.",
+      "subheading": "Un paciente de RefynMe, con supervisión médica de una enfermera practicante certificada.",
+      "before": "Antes",
+      "after": "Después",
+      "caption": "Programa de GLP-1 con supervisión médica · {{timeframe}}",
+      "disclaimer": "Los resultados individuales varían y no están garantizados. Dependen del historial médico, la alimentación, la actividad física y la constancia. Las fotos no están retocadas y se comparten con el permiso por escrito del paciente."
+    }
   },
   "dotExams": {
     "title": "Exámenes médicos DOT",

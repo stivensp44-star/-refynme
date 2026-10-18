@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { PageShell } from './PageShell'
 import { ZANDA_BOOKING_URL } from '../bookingUrl'
+import ResultsGallery from '../components/ResultsGallery'
 
 const CARD_KEYS = ['glp1', 'oral', 'diet', 'support']
 const STEPS = [
@@ -58,6 +59,9 @@ export default function WeightLoss() {
           </div>
         </div>
       </section>
+
+      {/* Section 4.5 — Real Results (before/after gallery) */}
+      <ResultsGallery />
 
       {/* Section 5 — CTA */}
       <section className="dot-cta-section">
