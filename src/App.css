@@ -556,6 +556,83 @@ p {
   .wl-steps { grid-template-columns: 1fr; gap: 32px; }
 }
 
+/* ── Weight Loss — Real Results gallery (additive) ───────── */
+.wl-results__head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wl-results__pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Each pair stays side by side at every width; pairs stack vertically. */
+.wl-results__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0;
+}
+
+.wl-results__imgwrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--espresso-mid);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Images are native 3:4 (900x1200) — contain fills the 3:4 box with no crop. */
+.wl-results__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wl-results__label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  background: rgba(28, 15, 10, 0.72);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.wl-results__caption {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+  text-align: center;
+  margin: 0;
+}
+
+.wl-results__disclaimer {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(250, 246, 240, 0.6);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Keep the CTA content-width (Absolute Rule 4) inside the stretch flex column. */
+.wl-results .btn {
+  align-self: center;
+}
+
 /* ── Book Now page ───────────────────────────────────────── */
 .book-section__inner {
   max-width: 1000px;
