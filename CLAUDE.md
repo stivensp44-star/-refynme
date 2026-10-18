@@ -72,9 +72,11 @@ OPERATOR (Stivo):
   [ ] 2× nav logo export (retina softness at 64px)
   [ ] Footer unification (two implementations: App.jsx + PageShell.jsx
       — every footer/i18n change must hit BOTH until unified)
-  [ ] studio-skills repo: website-builder skill's REFYNME BRAND table
-      is stale (lists banned "free" CTA, cancelled towns, superseded
-      hero hook) — fix there, not here
+  [x] studio-skills repo: website-builder skill's REFYNME BRAND table
+      de-staled 2026-10-18 (studio-skills master 697fa7d, v1.1): CTA →
+      "Book a Consultation", towns → statewide MA, hero hook → current
+      headline, banned-words completed. Installed copy synced; claude.ai
+      zip re-upload is the only remaining leg (owner click).
 COMPLIANCE (outranks ALL site work):
   [ ] Malpractice coverage
   [ ] Attorney review (consent forms — 12 of 14 never revised)
@@ -1255,10 +1257,12 @@ Fourteen lanes shipped, each via the full staging→review→merge loop:
   (re-run the Rule 18 brand-mark check on any new asset)
 - 1200×630 OG share card (og/twitter images still the 147×52 nav logo)
 - 2× nav logo export (retina softness at 64px) — ask the logo's creator
-- website-builder skill (studio-skills repo, NOT this repo): its
-  "REFYNME BRAND" table is stale and now contradicts this file's locks —
-  lists "Book Your Free 15-Min Consult" (banned "free"), the cancelled
-  towns list, and the superseded hero hook. Fix in studio-skills.
+- [x] website-builder skill (studio-skills repo, NOT this repo): its
+  "REFYNME BRAND" table was stale — FIXED 2026-10-18 (studio-skills
+  master 697fa7d, skill v1.1): "Book Your Free 15-Min Consult" → "Book a
+  Consultation", cancelled towns → statewide MA, superseded hero hook →
+  current headline, banned-words list completed. claude.ai zip re-upload
+  remains (owner click).
 - [x] Aesthetics snap-row keyboard access — APPLIED 2026-10-16
   (approved; attributes on the snap-row div, no i18n key)
 - [x] Orphaned assets — DELETED 2026-10-16 (approved; grep-proven
