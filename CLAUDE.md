@@ -4,6 +4,35 @@
 
 ---
 
+## STATUS @ 2026-10-20 — MYDOU AI ASSISTANT IS LIVE (read first)
+
+**🎉 Mydou — RefynMe's AI website assistant — is LIVE on refynme.com + www.**
+It is served by the stivens.io "Stivo multi-client engine" via ONE script tag
+added to index.html just before `</body>` (merge fd8cf24; the ONLY change):
+`<script defer src="https://stivens.io/embed/stivo.js" data-client="refynme"></script>`
+
+- **Owner go-live approval (Stivo, 2026-10-20):** "yes" to "send me 'yes, Mydou
+  can go live' whenever you and Mydwine are good with it" — the HIPAA/BAA + Rule-14
+  approval for this merge.
+- **What it is:** the assistant's brain, prompt, fact sheet, and config live on
+  stivens.io (NOT in this repo); it is origin-gated to refynme.com / www only;
+  the widget is Shadow-DOM isolated so it CANNOT touch this site's CSS. Mydou
+  speaks as the practice ("we/our"), answers from refynme.com's published info
+  only, never gives medical advice / dosing / eligibility / prices, routes to the
+  Zanda "Book a Consultation" button, and can offer a structured "Request a call
+  back" form (name + phone/email + interest; no free-text, no health details) that
+  emails the clinic (refynmemedical@gmail.com).
+- **Verified live (Playwright, cache-busted, Chromium):** bubble renders in
+  RefynMe rose, page layout unchanged, 0 console errors, EN + FR round-trips work,
+  the dose question is refused and routed to a consultation.
+- **This repo owns nothing but that one line.** All assistant behavior/content is
+  changed on stivens.io. Do NOT add a second assistant or any assistant code here.
+- ⚠ Kriolu: Mydou CAN reply in Kriolu, but KEA stays DARK on refynme.com (Absolute
+  Rule 15) — re-enabling Kriolu here is still a separate, gated task; the embed
+  does not change that.
+- Full lane report: ../ple-prompts/2026-10-20-report-mydou-golive.txt (on the
+  owner's box).
+
 ## STATUS @ 2026-10-16 (session close — canonical snapshot)
 
 ### Shipped today (all live-verified on refynme.com, branches deleted)
